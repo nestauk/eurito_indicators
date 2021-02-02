@@ -1,0 +1,6 @@
+- `cruncbase/gbp_venture_capital_received`
+- `gtr/total_gtr_projects_stem`
+- `hebci/gbp_turnover_per_active_spinoff`
+- `ref/mean_ref_stem`
+- `ref/mean_ref`
+- `ref/total_4_fte`
