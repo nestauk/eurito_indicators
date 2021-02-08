@@ -1,25 +1,18 @@
 <script>
-	import watchMedia from "svelte-media";
+	import {mq} from 'app/stores/mq';
+
 	import Nav from 'app/components/Nav.svelte';
 
 	export let segment;
 
-	const mediaqueries = {
-		mobile: "(max-width: 639px)",
-		tablet: "(min-width: 640px) and (max-width: 1023px)",
-		desktop: "(min-width: 1024px)",
-		landscape: "(orientation: landscape)"
-	};
-	const media = watchMedia(mediaqueries);
-
-	$: console.log($media);
+	$: console.log($mq);
 </script>
 
-<header class={$media.classNames}>
-	<Nav {segment} media={$media}/>
+<header class={$mq.classNames}>
+	<Nav {segment} media={$mq}/>
 </header>
 
-<main class={$media.classNames}>
+<main class={$mq.classNames}>
 	<slot></slot>
 </main>
 
