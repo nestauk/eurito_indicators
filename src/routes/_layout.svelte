@@ -1,14 +1,18 @@
 <script>
+	import {mq} from 'app/stores/mq';
+
 	import Nav from 'app/components/Nav.svelte';
 
 	export let segment;
+
+	$: console.log($mq);
 </script>
 
-<header>
-	<Nav {segment}/>
+<header class={$mq.classNames}>
+	<Nav {segment} media={$mq}/>
 </header>
 
-<main>
+<main class={$mq.classNames}>
 	<slot></slot>
 </main>
 
