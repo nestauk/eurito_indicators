@@ -30,14 +30,14 @@
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
 
+	header.mobile {
+		border-top: 1px solid var(--color-main-lighter);
+		border-bottom: none;
+	}
+
 	main {
 		height: var(--dim-main-height);
 		width: 100%;
 		overflow: hidden;
-	}
-
-	header.mobile {
-		border-top: 1px solid var(--color-main-lighter);
-		border-bottom: none;
 	}
 </style>
