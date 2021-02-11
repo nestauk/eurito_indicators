@@ -4,17 +4,23 @@
 	import Nav from 'app/components/Nav.svelte';
 
 	export let segment;
-
-	$: console.log($mq);
 </script>
 
-<header class={$mq.classNames}>
-	<Nav {segment} media={$mq}/>
-</header>
+{#if !$mq.mobile}
+	<header>
+		<Nav {segment} media={$mq}/>
+	</header>
+{/if}
 
-<main class={$mq.classNames}>
+<main>
 	<slot></slot>
 </main>
+
+{#if $mq.mobile}
+	<header class='mobile'>
+		<Nav {segment} media={$mq}/>
+	</header>
+{/if}
 
 <style>
 	header {
@@ -24,8 +30,14 @@
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
 
+	header.mobile {
+		border-top: 1px solid var(--color-main-lighter);
+		border-bottom: none;
+	}
+
 	main {
 		height: var(--dim-main-height);
 		width: 100%;
+		overflow: hidden;
 	}
 </style>
