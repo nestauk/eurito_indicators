@@ -1,6 +1,5 @@
 <script>
-	import TextRuler from 'app/components/TextRuler.svelte';
-
+	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 	const sizes = {
 		rem: '1rem',
 		pt: '12pt',
@@ -16,16 +15,19 @@
 	let sizeMultiplier = 1.0;
 	let dim;
 
-	function updateDim (e) {
-		dim = e.detail;
-	}
+	export let screen;
+	$: screen = $screenGauge;
 </script>
-<TextRuler on:resize={updateDim} fontSize={sizeMultiplier+'rem'}/>
+
 <main>
-	<div class="square"> </div>
+	<div class="quarter-screen-ref"> </div>
 	<section style={`--size-mult: ${sizeMultiplier}`}>
 		<p class='info'>
-			DPPR: {dim?.pixelRatio.toPrecision(4)} W: {dim?.pixelWidth} H: {dim?.pixelHeight} CHARS: {dim?.charsPerLine.toFixed(0)}x{dim?.linesPerPage.toFixed(0)}
+			DPPR: {dim?.pixelRatio.toPrecision(4)} 
+			W: {screen?.display.width} 
+			H: {screen?.display.height} 
+			CHARS: {screen?.text.width.toFixed(0)}
+			x{screen?.text.height.toFixed(0)}
 		</p>
 		{#each units as unit}
 			<div style={`--font-size: ${sizes[unit]}`}>
@@ -80,7 +82,7 @@
 	hr {
 		margin: 4px;
 	}
-	.square {
+	.quarter-screen-ref {
 		position: fixed;
 		width: 50vw;
 		height: 50vh;
@@ -90,5 +92,4 @@
 		top: 25vh;
 		left: 25vw;
 	}
-
 </style>

@@ -1,14 +1,14 @@
 <script>
-	import {mq} from 'app/stores/mq';
-
 	import Nav from 'app/components/Nav.svelte';
+	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
 
 	export let segment;
 </script>
 
-{#if !$mq.mobile}
+<ScreenGauge fontSize='1rem'/>
+{#if $screenGauge?.display.large}
 	<header>
-		<Nav {segment} media={$mq}/>
+		<Nav {segment} screen={$screenGauge}/>
 	</header>
 {/if}
 
@@ -16,9 +16,9 @@
 	<slot></slot>
 </main>
 
-{#if $mq.mobile}
-	<header class='mobile'>
-		<Nav {segment} media={$mq}/>
+{#if $screenGauge?.display.small && $screenGauge?.orientation.portrait}
+	<header class='small'>
+		<Nav {segment} screen={$screenGauge}/>
 	</header>
 {/if}
 
@@ -30,7 +30,7 @@
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
 
-	header.mobile {
+	header.small {
 		border-top: 1px solid var(--color-main-lighter);
 		border-bottom: none;
 	}
