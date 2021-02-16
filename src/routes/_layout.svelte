@@ -6,7 +6,7 @@
 </script>
 
 <ScreenGauge fontSize='1rem'/>
-{#if $screenGauge?.size.large}
+{#if !$screenGauge?.size.small}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
