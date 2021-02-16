@@ -6,7 +6,7 @@
 </script>
 
 <ScreenGauge fontSize='1rem'/>
-{#if $screenGauge?.display.large}
+{#if $screenGauge?.size.large}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
@@ -16,7 +16,7 @@
 	<slot></slot>
 </main>
 
-{#if $screenGauge?.display.small && $screenGauge?.orientation.portrait}
+{#if $screenGauge?.size.small && $screenGauge?.orientation.portrait}
 	<header class='small'>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
