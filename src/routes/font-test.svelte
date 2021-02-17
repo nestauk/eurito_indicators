@@ -1,5 +1,7 @@
 <script>
 	import {screenGauge} from 'app/components/ScreenGauge.svelte';
+	import { fontScaling } from 'app/stores/fontScaling';
+
 	const sizes = {
 		rem: '1rem',
 		pt: '12pt',
@@ -13,10 +15,12 @@
 	const units = Object.keys(sizes);
 	
 	let sizeMultiplier = 1.0;
-	let dim;
+
 
 	export let screen;
 	$: screen = $screenGauge;
+
+	$: fontScaling.set(sizeMultiplier);
 </script>
 
 <main>
@@ -27,7 +31,8 @@
 			W: {screen?.display.width} 
 			H: {screen?.display.height} 
 			CHARS: {screen?.text.width.toFixed(0)}
-			x{screen?.text.height.toFixed(0)}
+			x {screen?.text.height.toFixed(0)}
+			size: {screen?.sizeId}
 		</p>
 		{#each units as unit}
 			<div style={`--font-size: ${sizes[unit]}`}>

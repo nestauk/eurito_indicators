@@ -1,11 +1,21 @@
 <script>
+	import {onMount} from 'svelte';
+	import {fontScaling} from 'app/stores/fontScaling';
+
 	import Nav from 'app/components/Nav.svelte';
 	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
 
 	export let segment;
+	let rootStyle;
+
+	onMount(() => {
+		rootStyle = document.documentElement.style;
+	})
+
+	// set document root element font size so that `rem` units work
+	$: rootStyle && ( rootStyle.fontSize = `${$fontScaling * 16}px`);
 </script>
 
-<ScreenGauge fontSize='1rem'/>
 {#if !$screenGauge?.size.small}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
@@ -13,10 +23,11 @@
 {/if}
 
 <main>
+	<ScreenGauge bands={[60, 82, 100, 120]} />
 	<slot></slot>
 </main>
 
-{#if $screenGauge?.size.small && $screenGauge?.orientation.portrait}
+{#if $screenGauge?.size.small}
 	<header class='small'>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
