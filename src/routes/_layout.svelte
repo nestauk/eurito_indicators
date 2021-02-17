@@ -16,6 +16,8 @@
 	$: rootStyle && ( rootStyle.fontSize = `${$fontScaling * 16}px`);
 </script>
 
+<ScreenGauge bands={[60, 82, 100, 120]} devMode={true} />
+
 {#if !$screenGauge?.size.small}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
@@ -23,7 +25,6 @@
 {/if}
 
 <main>
-	<ScreenGauge bands={[60, 82, 100, 120]} />
 	<slot></slot>
 </main>
 

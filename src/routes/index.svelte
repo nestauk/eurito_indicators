@@ -1,6 +1,8 @@
 <script>
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
+	import {screenGauge} from 'app/components/ScreenGauge.svelte';
+
 	const beisUrl = 'https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy';
 	const nestaUrl = 'https://www.nesta.org.uk';
 	const repoUrl = 'https://github.com/nestauk/beis-indicators';
@@ -10,7 +12,7 @@
 	<title>EURITO CSVs - Home</title>
 </svelte:head>
 
-<main>
+<main class={$screenGauge?.sizeId}>
 	<section>
 		<h1>BEIS indicators</h1>
 
@@ -89,9 +91,16 @@
 	}
 
 	.cta {
-		margin: 4rem 0 3rem 0;
 		display: flex;
 		justify-content: space-around;
 		align-content: center;
+		margin: 4rem 0 3rem 0;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+
+	.large .cta {
+		flex-direction: row;
+		row-gap: 0;
 	}
 </style>
