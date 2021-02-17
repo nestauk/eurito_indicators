@@ -5,6 +5,8 @@
 	import Nav from 'app/components/Nav.svelte';
 	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
 
+	const dev = process.env.NODE_ENV === 'development';
+
 	export let segment;
 	let rootStyle;
 
@@ -16,7 +18,7 @@
 	$: rootStyle && ( rootStyle.fontSize = `${$fontScaling * 16}px`);
 </script>
 
-<ScreenGauge bands={[60, 82, 100, 120]} devMode={true} />
+<ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
 
 {#if !$screenGauge?.size.small}
 	<header>
