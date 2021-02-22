@@ -9,13 +9,17 @@
 
 	export let segment;
 	let rootStyle;
+	let defaultFontSize;
 
 	onMount(() => {
-		rootStyle = document.documentElement.style;
+		const root = document.documentElement;
+		defaultFontSize = window.getComputedStyle(root).fontSize;
+		rootStyle = root.style;
 	})
 
 	// set document root element font size so that `rem` units work
-	$: rootStyle && ( rootStyle.fontSize = `${$fontScaling * 16}px`);
+	$: rootStyle 
+		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 </script>
 
 <ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
