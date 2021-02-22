@@ -1,6 +1,7 @@
 <script>
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
+	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 	import {allNUTS2IndicatorsCsvName, availableDownloadIds} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
@@ -12,7 +13,7 @@
 	<title>EURITO CSVs - Methodology</title>
 </svelte:head>
 
-<main>
+<main class={$screenGauge?.classes}>
 	<section>
 		<h1>How to explore the indicators</h1>
 
@@ -168,6 +169,15 @@
 	}
 
 	.cta {
+		display: flex;
+		justify-content: space-around;
 		margin: 4rem 0 3rem 0;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+
+	.large .cta {
+		flex-direction: row;
+		row-gap: 0;
 	}
 </style>

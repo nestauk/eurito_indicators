@@ -2,6 +2,8 @@
 	import ExternalLink from '@svizzle/ui/src/ExternalLink.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
+	import {screenGauge} from 'app/components/ScreenGauge.svelte';
+
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
 	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
 	const eurostatUrl = 'https://ec.europa.eu/eurostat';
@@ -19,7 +21,7 @@
 	<title>EURITO CSVs - Methodology</title>
 </svelte:head>
 
-<main>
+<main class={$screenGauge?.classes}>
 	<section>
 		<h1>Methodology</h1>
 
@@ -115,8 +117,15 @@
 	}
 
 	.cta {
-		margin: 4rem 0 3rem 0;
 		display: flex;
 		justify-content: space-around;
+		margin: 4rem 0 3rem 0;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+
+	.large .cta {
+		flex-direction: row;
+		row-gap: 0;
 	}
 </style>

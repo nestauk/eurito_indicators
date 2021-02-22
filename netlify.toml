@@ -2,3 +2,4 @@
   base = "/"
   publish = "/__sapper__/export/"
   command = "npm run deploy"
+  environment = { NODE_VERSION = "15.8.0" }

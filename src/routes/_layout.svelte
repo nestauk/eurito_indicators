@@ -1,14 +1,32 @@
 <script>
-	import {mq} from 'app/stores/mq';
+	import {onMount} from 'svelte';
+	import {fontScaling} from 'app/stores/fontScaling';
 
 	import Nav from 'app/components/Nav.svelte';
+	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
+
+	const dev = process.env.NODE_ENV === 'development';
 
 	export let segment;
+	let rootStyle;
+	let defaultFontSize;
+
+	onMount(() => {
+		const root = document.documentElement;
+		defaultFontSize = window.getComputedStyle(root).fontSize;
+		rootStyle = root.style;
+	})
+
+	// set document root element font size so that `rem` units work
+	$: rootStyle 
+		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 </script>
 
-{#if !$mq.mobile}
+<ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
+
+{#if $screenGauge?.size.medium}
 	<header>
-		<Nav {segment} media={$mq}/>
+		<Nav {segment} screen={$screenGauge}/>
 	</header>
 {/if}
 
@@ -16,9 +34,9 @@
 	<slot></slot>
 </main>
 
-{#if $mq.mobile}
-	<header class='mobile'>
-		<Nav {segment} media={$mq}/>
+{#if !$screenGauge?.size.medium}
+	<header class='small'>
+		<Nav {segment} screen={$screenGauge}/>
 	</header>
 {/if}
 
@@ -30,7 +48,7 @@
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
 
-	header.mobile {
+	header.small {
 		border-top: 1px solid var(--color-main-lighter);
 		border-bottom: none;
 	}
