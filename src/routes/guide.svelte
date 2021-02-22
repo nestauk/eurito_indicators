@@ -13,7 +13,7 @@
 	<title>EURITO CSVs - Methodology</title>
 </svelte:head>
 
-<main class={$screenGauge?.sizeId}>
+<main class={$screenGauge?.classes}>
 	<section>
 		<h1>How to explore the indicators</h1>
 

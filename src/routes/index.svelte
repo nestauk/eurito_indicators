@@ -12,7 +12,7 @@
 	<title>EURITO CSVs - Home</title>
 </svelte:head>
 
-<main class={$screenGauge?.sizeId}>
+<main class={$screenGauge?.classes}>
 	<section>
 		<h1>BEIS indicators</h1>
 

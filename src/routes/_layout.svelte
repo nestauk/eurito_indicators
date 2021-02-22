@@ -20,7 +20,7 @@
 
 <ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
 
-{#if !$screenGauge?.size.small}
+{#if $screenGauge?.size.medium}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
@@ -30,7 +30,7 @@
 	<slot></slot>
 </main>
 
-{#if $screenGauge?.size.small}
+{#if !$screenGauge?.size.medium}
 	<header class='small'>
 		<Nav {segment} screen={$screenGauge}/>
 	</header>
