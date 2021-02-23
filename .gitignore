@@ -6,3 +6,4 @@ _
 /src/node_modules/@sapper/
 /static/data/
 /static/font/unused/
+/test/BrS/.config.mjs
