@@ -1,11 +1,13 @@
 import webdriver from 'selenium-webdriver';
 import config from '../.config.mjs';
 
-const USERNAME = config.browserstack.username;
-const AUTOMATE_KEY = config.browserstack.key;
-const URL = config.browserstack.url;
+const {
+	username,
+	key,
+	url
+} = config.browserstack;
 
-let browserstackURL = `https://${USERNAME}:${AUTOMATE_KEY}@${URL}`;
+let browserstackURL = `https://${username}:${key}@${url}`;
 
 let capabilities = {
 	os : 'Windows',
