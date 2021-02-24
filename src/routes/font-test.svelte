@@ -26,7 +26,7 @@
 <main>
 	<div class="quarter-screen-ref"> </div>
 	<section style={`--size-mult: ${sizeMultiplier}`}>
-		<p class='info'>
+		<p class='info' id='info'>
 			DPPR: {screen?.display.pixelRatio.toPrecision(4)} 
 			W: {screen?.display.width} 
 			H: {screen?.display.height} 
