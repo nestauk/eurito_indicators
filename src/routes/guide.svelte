@@ -15,7 +15,7 @@
 
 <main class={$screenGauge?.classes}>
 	<section>
-		<pre id='info'>{JSON.stringify($screenGauge | {})}</pre>
+		<pre id='info'>{JSON.stringify($screenGauge || {})}</pre>
 		<h1>How to explore the indicators</h1>
 
 		<!-- main -->
