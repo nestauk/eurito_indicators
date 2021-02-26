@@ -5,7 +5,8 @@
 		"@svizzle/ui": "https://github.com/nestauk/svizzle/raw/eurito_deploy/packages/components/ui/pkg/0.2.0-dev.0.tar.gz",
 		"@svizzle/utils": "^0.12.0",
 		"d3-array": "^2.9.1",
-		"lamb": "^0.59.2"
+		"lamb": "^0.59.2",
+		"queue-promise": "^2.1.0"
 	},
 	"description": "EURITO indicators UI",
 	"devDependencies": {
@@ -22,6 +23,8 @@
 		"@rollup/plugin-yaml": "^2.1.0",
 		"@svizzle/dev": "^0.4.1",
 		"@svizzle/file": "^0.9.0",
+		"browserstack-capabilities": "^0.7.0",
+		"browserstack-local": "^1.4.8",
 		"compression": "^1.7.4",
 		"cpy": "^8.1.0",
 		"cypress": "^6.5.0",
@@ -39,6 +42,7 @@
 		"rollup-plugin-svelte": "^7.0.0",
 		"rollup-plugin-terser": "^7.0.2",
 		"sapper": "^0.28.10",
+		"selenium-webdriver": "^4.0.0-beta.1",
 		"sirv": "^1.0.10",
 		"svelte": "^3.31.2",
 		"svelte-media": "^0.0.3",
