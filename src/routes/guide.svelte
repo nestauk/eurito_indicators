@@ -182,6 +182,5 @@
 		row-gap: 0;
 	}
 	pre {
-		display: none;
 	}
 </style>
