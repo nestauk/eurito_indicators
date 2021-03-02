@@ -1,3 +1,4 @@
+import fs from 'fs';
 import {capitalize} from '@svizzle/utils';
 
 import Queue from "queue-promise";
@@ -33,11 +34,12 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 	'bstack:options': {
 		os: deviceCaps.os,
 		osVersion: deviceCaps.os_version,
+		consoleLogs: 'errors',
 		// local: true,
 	}
 }));
 
-// console.log(s4caps.length)
+console.log('Configurations:', s4caps.length);
 
 const browserstackURL = `https://${username}:${key}@${url}`;
 
@@ -65,7 +67,7 @@ async function run (capabilities) {
 	await driver.get(
 		'https://deploy-preview-15--eurito-indicators-ui-dev.netlify.app/guide'
 	);
-	log(capabilities, "Sleeping...");
+	log(capabilities, "Sleeping #1...");
 	await driver.sleep(10);
 	log(capabilities, "Searching for element...");
 	await driver.wait(
@@ -75,9 +77,15 @@ async function run (capabilities) {
 		10
 	);
 	const info = await driver.findElement(By.id('info'));
+	log(capabilities, "Sleeping #2...");
+	await driver.sleep(10);
 	if (!info) {
 		log(capabilities, 'Element not found.');
 		fail('Element not found.');
+		results.push({
+			capabilities,
+			error: 'Element not found',
+		})
 	} else {
 		log(capabilities, 'Found element. Getting text content...');
 		const result = JSON.parse(await info.getText());
@@ -94,15 +102,24 @@ const queue = new Queue({
 	concurrent: 5,
 	interval: 20000
 });
+queue.on("end", () =>
+	fs.writeFileSync('report.json', JSON.stringify(results, null, 2))
+);
 s4caps.forEach(caps => {
-	queue.enqueue(() => run({
+	if (caps.device) {
+		console.log(caps.device);
+		queue.enqueue(() => run({
 			...caps,
 			deviceOrientation: 'portrait'
-		})
-	);
-	queue.enqueue(() => run({
+		}));
+		queue.enqueue(() => run({
 			...caps,
 			deviceOrientation: 'landscape'
-		})
-	);
+		}));
+	} else {
+		console.log(caps['bstack:options'].os);
+		queue.enqueue(() => run(caps));
+	}
 });
+
+
