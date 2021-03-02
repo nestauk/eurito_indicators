@@ -63,6 +63,7 @@
 		"lint": "eslint rollup.config.js 'src/**/*.{js,svelte}'",
 		"makedata": "npm run makeindex && npm run rmdata && npm run copydata",
 		"makeindex": "npm run chmod && node -r esm src/bin/make_index.js",
+		"reportToCSV": "npm run chmod && node -r esm src/bin/reportToCSV.js",
 		"rmdata": "rimraf static/data",
 		"rmsappers": "rimraf __sapper__ src/node_modules/@sapper",
 		"start": "node __sapper__/build",
