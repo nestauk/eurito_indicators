@@ -17,7 +17,7 @@ const {
 
 const bsCapabilities = Caps(username, key);
 const devicesCaps = bsCapabilities.create([{
-	os: browserstack.oSystems,
+	os: Object.keys(browserstack.operatingSystems),
 	browser: browserstack.browsers,
 	browser_version: ['current']
 }, {
@@ -45,69 +45,97 @@ const browserstackURL = `https://${username}:${key}@${url}`;
 
 const results = [];
 
-function log (capabilities, message) {
-	console.log(
-		capabilities.device || capabilities['bstack:options'].os,
-		capabilities.browserName,
-		message
-	);
+function buildHeader (capabilities) {
+	const logHeader = [];
+	const isMobile = Boolean(capabilities.device);
+	logHeader.push(capabilities.device || capabilities['bstack:options'].os);
+	if (isMobile) {
+		logHeader.push(capabilities.deviceOrientation);
+	} else {
+		logHeader.push(capabilities['bstack:options'].osVersion);
+		logHeader.push(capabilities.resolution);
+	}
+	logHeader.push(capabilities.browserName);
+	logHeader.push(capabilities.browserVersion);
+	return logHeader.join('-');
 }
+function log (capabilities, message) {
+	console.log(buildHeader(capabilities), message);
+}
+function err (capabilities, error) {
+	console.error(buildHeader(capabilities), error)
+}
+
 function fail (driver, message) {
 	// TODO notify faliure
 }
 
 async function run (capabilities) {
-	const driver = new webdriver.Builder()
-	.usingServer(browserstackURL)
-	.withCapabilities(capabilities)
-	.build();
+	let driver;
+	try {
+		driver = await new webdriver.Builder()
+		.usingServer(browserstackURL)
+		.withCapabilities(capabilities)
+		.build();
 
-	// test1
-	log(capabilities, 'Navigating...');
-	await driver.get(
-		'https://deploy-preview-15--eurito-indicators-ui-dev.netlify.app/guide'
-	);
-	log(capabilities, "Sleeping #1...");
-	await driver.sleep(10);
-	log(capabilities, "Searching for element...");
-	await driver.wait(
-		until.elementLocated(By.id('info')),
-		20,
-		'Element not found.',
-		10
-	);
-	const info = await driver.findElement(By.id('info'));
-	log(capabilities, "Sleeping #2...");
-	await driver.sleep(10);
-	if (!info) {
-		log(capabilities, 'Element not found.');
-		fail('Element not found.');
+		// test1
+		log(capabilities, 'Navigating...');
+		await driver.get(
+			'https://deploy-preview-15--eurito-indicators-ui-dev.netlify.app/guide'
+		);
+		log(capabilities, "Sleeping #1...");
+		await driver.sleep(10);
+		log(capabilities, "Searching for element...");
+		await driver.wait(
+			until.elementLocated(By.id('info')),
+			20,
+			'Element not found.',
+			10
+		);
+		const info = await driver.findElement(By.id('info'));
+		log(capabilities, "Sleeping #2...");
+		await driver.sleep(10);
+		if (!info) {
+			log(capabilities, 'Element not found.');
+			fail('Element not found.');
+			results.push({
+				capabilities,
+				error: 'Element not found',
+			})
+		} else {
+			log(capabilities, 'Found element. Getting text content...');
+			const result = JSON.parse(await info.getText());
+			log(capabilities, 'Content:', result);
+			results.push({
+				capabilities,
+				result,
+			});
+		}
+	} catch (e) {
 		results.push({
 			capabilities,
-			error: 'Element not found',
-		})
-	} else {
-		log(capabilities, 'Found element. Getting text content...');
-		const result = JSON.parse(await info.getText());
-		log(capabilities, 'Content:', result);
-		results.push({
-			capabilities,
-			result,
-		})
+			exception: e,
+		});
+		err(capabilities, e);
+	} finally {
+		driver && driver.quit();
 	}
-	driver.quit();
 }
 
+function run2 (capabilities) {
+	log(capabilities, 'test')
+}
 const queue = new Queue({
 	concurrent: 5,
 	interval: 20000
 });
 queue.on("end", () =>
-	fs.writeFileSync('report.json', JSON.stringify(results, null, 2))
+	fs.writeFile('report.json', JSON.stringify(results, null, 2), () => {
+		console.log('Done!');
+	})
 );
 s4caps.forEach(caps => {
 	if (caps.device) {
-		console.log(caps.device);
 		queue.enqueue(() => run({
 			...caps,
 			deviceOrientation: 'portrait'
@@ -117,7 +145,21 @@ s4caps.forEach(caps => {
 			deviceOrientation: 'landscape'
 		}));
 	} else {
-		console.log(caps['bstack:options'].os);
+		const {os} = caps['bstack:options'];
+		const versions = browserstack.operatingSystems[os];
+		Object.keys(versions).forEach(version => {
+			const resolutions = versions[version];
+			resolutions.forEach(resolution => {
+				queue.enqueue(() => run({
+					...caps,
+					resolution,
+					'bstack:options': {
+						...caps['bstack:options'],
+						osVersion: version
+					}
+				}));
+			});
+		});
 		queue.enqueue(() => run(caps));
 	}
 });
