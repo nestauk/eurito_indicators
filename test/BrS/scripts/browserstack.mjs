@@ -1,5 +1,5 @@
 export const browsers = [
-	'opera',
+	// 'opera',
 	'chrome',
 	'ie',
 	'firefox',
@@ -98,4 +98,44 @@ export const devices = [
 	'Samsung Galaxy Tab 4'
 ]
 
-export const oSystems = ['Windows', 'OS X'];
+const windowsResolutions = [
+	'1024x768',
+	'1280x800',
+	'1280x1024',
+	'1366x768',
+	'1440x900',
+	'1680x1050',
+	'1600x1200',
+	'1920x1200',
+	'1920x1080',
+	'2048x1536'
+];
+export const windowsResolutionsOlder = ['800x600', ...windowsResolutions];
+const osxResolutions = [
+	'1024x768',
+	'1280x960',
+	'1280x1024',
+	'1600x1200',
+	'1920x1080'
+];
+
+export const operatingSystems = {
+	'Windows': {
+		'XP': windowsResolutionsOlder,
+		'7': windowsResolutionsOlder,
+		'8': windowsResolutions,
+		'8.1': windowsResolutions,
+		'10': windowsResolutions
+	},
+	'OS X': {
+		'Snow Leopard': osxResolutions,
+		'Lion': osxResolutions,
+		'Mountain Lion': osxResolutions,
+		'Mavericks': osxResolutions,
+		'Yosemite': osxResolutions,
+		'El Capitan': osxResolutions,
+		'Sierra': osxResolutions,
+		'High Sierra': osxResolutions,
+		'Mojave': osxResolutions
+	}
+};

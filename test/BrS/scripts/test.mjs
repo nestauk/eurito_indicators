@@ -115,6 +115,7 @@ async function run (capabilities) {
 		results.push({
 			capabilities,
 			exception: e,
+			trace: e.stack
 		});
 		err(capabilities, e);
 	} finally {

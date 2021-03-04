@@ -1,4 +1,6 @@
-// https://www.browserstack.com/docs/automate/api-reference/selenium/browser#get-browser-list
+// Retrieves capabilities listing from Browserstack using latest version of
+// its REST API: https://github.com/browserstack/api
+
 import fetch from 'node-fetch';
 import config from '../.config.mjs';
 const browsers = [
