@@ -1,0 +1,383 @@
+device,browserName,browserVersion,resolution,classes,displayWidth,displayHeight,displayPixelRatio,displayAspect,glyphWidth,glyphHeight,textWidth,textHeight,sizeXSmall,sizeSmall,sizeMedium,sizeLarge,sizeXLarge,orientationPortrait,orientationLandscape,optionsOs,optionsOsVersion,optionsConsoleLogs,deviceOrientation
+,Chrome,88.0,1024x768,small medium large xLarge,996,620,1,1.6064516129032258,8,24,124.5,25.833333333333332,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,1280x800,small medium large xLarge,1042,652,1,1.598159509202454,8,24,130.25,27.166666666666668,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,800x600,small medium,772,452,1,1.7079646017699115,8,24,96.5,18.833333333333332,false,true,true,false,false,false,true,Windows,7,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1042,876,1,1.1894977168949772,8,24,130.25,36.5,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,1366x768,small medium large xLarge,1042,620,1,1.6806451612903226,8,24,130.25,25.833333333333332,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,1920x1200,small medium large,937,1052,1,0.8906844106463878,8,24,117.125,43.833333333333336,false,true,true,true,false,true,false,Windows,7,errors,
+,Chrome,88.0,1440x900,small medium large xLarge,1042,752,1,1.3856382978723405,8,24,130.25,31.333333333333332,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,1680x1050,small medium large,817,902,1,0.9057649667405765,8,24,102.125,37.583333333333336,false,true,true,true,false,true,false,Windows,7,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1042,1052,1,0.9904942965779467,8,24,130.25,43.833333333333336,false,true,true,true,true,true,false,Windows,7,errors,
+,Chrome,88.0,1920x1080,small medium large,937,932,1,1.0053648068669527,8,24,117.125,38.833333333333336,false,true,true,true,false,false,true,Windows,7,errors,
+,Chrome,88.0,1366x768,small medium large xLarge,1034,616,1,1.6785714285714286,8,24,129.25,25.666666666666668,false,true,true,true,true,false,true,Windows,8,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1034,872,1,1.1857798165137614,8,24,129.25,36.333333333333336,false,true,true,true,true,false,true,Windows,8,errors,
+,Chrome,88.0,2048x1536,small medium large xLarge,1042,1388,1,0.7507204610951008,8,24,130.25,57.833333333333336,false,true,true,true,true,true,false,Windows,7,errors,
+,Chrome,88.0,1280x800,small medium large xLarge,1034,648,1,1.595679012345679,8,24,129.25,27,false,true,true,true,true,false,true,Windows,8,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,988,616,1,1.603896103896104,8,24,123.5,25.666666666666668,false,true,true,true,true,false,true,Windows,8,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1034,1048,1,0.9866412213740458,8,24,129.25,43.666666666666664,false,true,true,true,true,true,false,Windows,8,errors,
+,Chrome,88.0,1680x1050,small medium large,809,898,1,0.9008908685968819,8,24,101.125,37.416666666666664,false,true,true,true,false,true,false,Windows,8,errors,
+,Chrome,88.0,1440x900,small medium large xLarge,1034,748,1,1.3823529411764706,8,24,129.25,31.166666666666668,false,true,true,true,true,false,true,Windows,8,errors,
+,Chrome,88.0,1920x1080,small medium large,929,928,1,1.0010775862068966,8,24,116.125,38.666666666666664,false,true,true,true,false,false,true,Windows,8,errors,
+,Chrome,88.0,1920x1200,small medium large,929,1048,1,0.8864503816793893,8,24,116.125,43.666666666666664,false,true,true,true,false,true,false,Windows,8,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1034,832,1,1.2427884615384615,8,24,129.25,34.666666666666664,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,1366x768,small medium large xLarge,1034,576,1,1.7951388888888888,8,24,129.25,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,2048x1536,small medium large xLarge,1034,1384,1,0.7471098265895953,8,24,129.25,57.666666666666664,false,true,true,true,true,true,false,Windows,8,errors,
+,Chrome,88.0,1280x800,small medium large xLarge,1034,608,1,1.700657894736842,8,24,129.25,25.333333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,988,576,1,1.7152777777777777,8,24,123.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,1440x900,small medium large xLarge,1034,708,1,1.46045197740113,8,24,129.25,29.5,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,1680x1050,small medium large,809,858,1,0.9428904428904429,8,24,101.125,35.75,false,true,true,true,false,true,false,Windows,10,errors,
+,Chrome,88.0,1920x1080,small medium large,929,888,1,1.0461711711711712,8,24,116.125,37,false,true,true,true,false,false,true,Windows,10,errors,
+,Chrome,88.0,1920x1200,small medium large,929,1008,1,0.9216269841269841,8,24,116.125,42,false,true,true,true,false,true,false,Windows,10,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1034,1008,1,1.0257936507936507,8,24,129.25,42,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,2048x1536,small medium large xLarge,1034,1344,1,0.7693452380952381,8,24,129.25,56,false,true,true,true,true,true,false,Windows,10,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1034,872,1,1.1857798165137614,8,24,129.25,36.333333333333336,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,988,616,1,1.603896103896104,8,24,123.5,25.666666666666668,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Chrome,88.0,1280x800,small medium large xLarge,1034,648,1,1.595679012345679,8,24,129.25,27,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Chrome,88.0,1366x768,small medium large xLarge,1034,616,1,1.6785714285714286,8,24,129.25,25.666666666666668,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1034,1048,1,0.9866412213740458,8,24,129.25,43.666666666666664,false,true,true,true,true,true,false,Windows,8.1,errors,
+,Chrome,88.0,1680x1050,small medium large,809,898,1,0.9008908685968819,8,24,101.125,37.416666666666664,false,true,true,true,false,true,false,Windows,8.1,errors,
+,Chrome,88.0,1440x900,small medium large xLarge,1034,748,1,1.3823529411764706,8,24,129.25,31.166666666666668,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Chrome,88.0,1920x1200,small medium large,929,1048,1,0.8864503816793893,8,24,116.125,43.666666666666664,false,true,true,true,false,true,false,Windows,8.1,errors,
+,Chrome,88.0,1920x1080,small medium large,929,928,1,1.0010775862068966,8,24,116.125,38.666666666666664,false,true,true,true,false,false,true,Windows,8.1,errors,
+,Chrome,88.0,1920x1080,small medium large xLarge,988,576,1,1.7152777777777777,8,24,123.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Chrome,88.0,2048x1536,small medium large xLarge,1034,1384,1,0.7471098265895953,8,24,129.25,57.666666666666664,false,true,true,true,true,true,false,Windows,8.1,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,980,574,1,1.7073170731707317,8,24,122.5,23.916666666666668,false,true,true,true,true,false,true,OS X,El Capitan,errors,
+,Chrome,88.0,1280x960,small medium large xLarge,1200,766,1,1.566579634464752,8,24,150,31.916666666666668,false,true,true,true,true,false,true,OS X,El Capitan,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,980,574,1,1.7073170731707317,8,24,122.5,23.916666666666668,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Chrome,88.0,1280x960,small medium large xLarge,1200,766,1,1.566579634464752,8,24,150,31.916666666666668,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1200,1006,1,1.1928429423459244,8,24,150,41.916666666666664,false,true,true,true,true,false,true,OS X,El Capitan,errors,
+,Chrome,88.0,1920x1080,small medium large xLarge,1200,886,1,1.3544018058690745,8,24,150,36.916666666666664,false,true,true,true,true,false,true,OS X,El Capitan,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1200,830,1,1.4457831325301205,8,24,150,34.583333333333336,false,true,true,true,true,false,true,OS X,El Capitan,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1200,830,1,1.4457831325301205,8,24,150,34.583333333333336,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1200,1006,1,1.1928429423459244,8,24,150,41.916666666666664,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,980,578,1,1.6955017301038062,8,24,122.5,24.083333333333332,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Chrome,88.0,1280x960,small medium large xLarge,1200,770,1,1.5584415584415585,8,24,150,32.083333333333336,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Chrome,88.0,1920x1080,small medium large xLarge,1200,886,1,1.3544018058690745,8,24,150,36.916666666666664,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1200,1010,1,1.188118811881188,8,24,150,42.083333333333336,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Chrome,88.0,1024x768,small medium large xLarge,980,578,1,1.6955017301038062,8,24,122.5,24.083333333333332,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Chrome,88.0,1920x1080,small medium large xLarge,1200,890,1,1.348314606741573,8,24,150,37.083333333333336,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Chrome,88.0,1280x960,small medium large xLarge,1200,770,1,1.5584415584415585,8,24,150,32.083333333333336,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1200,834,1,1.4388489208633093,8,24,150,34.75,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Ie,11.0,800x600,small medium large xLarge,1200,834,1,1.4388489208633093,8,24,150,34.75,false,true,true,true,true,false,true,Windows,7,errors,
+,Chrome,88.0,1920x1080,small medium large xLarge,1200,890,1,1.348314606741573,8,24,150,37.083333333333336,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Chrome,88.0,1280x1024,small medium large xLarge,1200,834,1,1.4388489208633093,8,24,150,34.75,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,1200,1010,1,1.188118811881188,8,24,150,42.083333333333336,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Chrome,88.0,1600x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,OS X,Big Sur,errors,
+,Ie,11.0,1440x900,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1280x800,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1280x1024,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1366x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1024x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1920x1080,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1680x1050,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,2048x1536,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1920x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1600x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,1366x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1440x900,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1280x1024,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1024x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1280x800,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1920x1080,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1600x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1680x1050,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1920x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,2048x1536,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Ie,11.0,1280x1024,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1024x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1280x800,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1366x768,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1680x1050,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1600x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1920x1080,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1920x1200,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1440x900,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Ie,11.0,1440x900,small medium large xLarge,980,576,1,1.7013888888888888,8,24,122.5,24,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,693,1,1.4776334776334776,8,24,128,28.875,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1280x800,small medium large xLarge,1280,725,1,1.7655172413793103,8,24,160,30.208333333333332,false,true,true,true,true,false,true,Windows,7,errors,
+,Ie,11.0,2048x1536,small medium large xLarge,1280,725,1,1.7655172413793103,8,24,160,30.208333333333332,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,800x600,small medium large,800,525,1,1.5238095238095237,8,24,100,21.875,false,true,true,true,false,false,true,Windows,7,errors,
+,Firefox,86.0,1680x1050,small medium large xLarge,1280,896,1,1.4285714285714286,8,24,160,37.333333333333336,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1366x768,small medium large xLarge,1366,693,1,1.971139971139971,8,24,170.75,28.875,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,949,1,1.3487881981032666,8,24,160,39.541666666666664,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1440x900,small medium large xLarge,1280,761,1,1.6819973718791064,8,24,160,31.708333333333332,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1280,991,1,1.2916246215943492,8,24,160,41.291666666666664,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,693,1,1.4776334776334776,8,24,128,28.875,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1280x800,small medium large xLarge,1280,725,1,1.7655172413793103,8,24,160,30.208333333333332,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1920x1200,small medium large xLarge,1280,991,1,1.2916246215943492,8,24,160,41.291666666666664,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1280,923,1,1.3867822318526544,8,24,160,38.458333333333336,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,2048x1536,small medium large xLarge,1280,991,1,1.2916246215943492,8,24,160,41.291666666666664,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1366x768,small medium large xLarge,1366,693,1,1.971139971139971,8,24,170.75,28.875,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1440x900,small medium large xLarge,1284,768,1,1.671875,8,24,160.5,32,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,949,1,1.3487881981032666,8,24,160,39.541666666666664,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1680x1050,small medium large xLarge,1284,903,1,1.4219269102990033,8,24,160.5,37.625,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1284,930,1,1.3806451612903226,8,24,160.5,38.75,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,2048x1536,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1280x800,small medium large xLarge,1280,686,1,1.8658892128279883,8,24,160,28.583333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,654,1,1.5657492354740061,8,24,128,27.25,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1920x1200,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8,errors,
+,Firefox,86.0,1366x768,small medium large xLarge,1366,654,1,2.08868501529052,8,24,170.75,27.25,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1440x900,small medium large xLarge,1284,733,1,1.7517053206002728,8,24,160.5,30.541666666666668,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1284,999,1,1.2852852852852852,8,24,160.5,41.625,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1680x1050,small medium large xLarge,1284,868,1,1.4792626728110598,8,24,160.5,36.166666666666664,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,910,1,1.4065934065934067,8,24,160,37.916666666666664,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1284,895,1,1.43463687150838,8,24,160.5,37.291666666666664,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,2048x1536,small medium large xLarge,1284,999,1,1.2852852852852852,8,24,160.5,41.625,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1920x1200,small medium large xLarge,1284,999,1,1.2852852852852852,8,24,160.5,41.625,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,693,1,1.4776334776334776,8,24,128,28.875,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1280x800,small medium large xLarge,1280,725,1,1.7655172413793103,8,24,160,30.208333333333332,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1440x900,small medium large xLarge,1284,768,1,1.671875,8,24,160.5,32,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1366x768,small medium large xLarge,1366,693,1,1.971139971139971,8,24,170.75,28.875,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1680x1050,small medium large xLarge,1284,903,1,1.4219269102990033,8,24,160.5,37.625,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,949,1,1.3487881981032666,8,24,160,39.541666666666664,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1284,930,1,1.3806451612903226,8,24,160.5,38.75,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,1920x1200,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,2048x1536,small medium large xLarge,1284,998,1,1.2865731462925851,8,24,160.5,41.583333333333336,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Firefox,86.0,2048x1536,small medium large xLarge,1024,654,1,1.5657492354740061,8,24,128,27.25,false,true,true,true,true,false,true,Windows,10,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,667,1,1.535232383808096,8,24,128,27.791666666666668,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,923,1,1.3867822318526544,8,24,160,38.458333333333336,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1280,895,1,1.4301675977653632,8,24,160,37.291666666666664,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Firefox,86.0,1280x960,small medium large xLarge,1280,859,1,1.490104772991851,8,24,160,35.791666666666664,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1280,988,1,1.2955465587044535,8,24,160,41.166666666666664,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,671,1,1.526080476900149,8,24,128,27.958333333333332,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,927,1,1.3807982740021576,8,24,160,38.625,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Firefox,86.0,1280x960,small medium large xLarge,1280,863,1,1.4831981460023176,8,24,160,35.958333333333336,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1280,988,1,1.2955465587044535,8,24,160,41.166666666666664,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1280,899,1,1.4238042269187987,8,24,160,37.458333333333336,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Firefox,86.0,1024x768,small medium large xLarge,1024,671,1,1.526080476900149,8,24,128,27.958333333333332,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1280,927,1,1.3807982740021576,8,24,160,38.625,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Firefox,86.0,1600x1200,small medium large xLarge,1280,988,1,1.2955465587044535,8,24,160,41.166666666666664,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Firefox,86.0,1280x960,small medium large xLarge,1280,863,1,1.4831981460023176,8,24,160,35.958333333333336,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Firefox,86.0,1920x1080,small medium large xLarge,1280,899,1,1.4238042269187987,8,24,160,37.458333333333336,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Edge,88.0,800x600,small medium,772,454,1,1.7004405286343611,8,24,96.5,18.916666666666668,false,true,true,false,false,false,true,Windows,7,errors,
+,Edge,88.0,1280x800,small medium large xLarge,1042,654,1,1.5932721712538227,8,24,130.25,27.25,false,true,true,true,true,false,true,Windows,7,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1042,878,1,1.1867881548974943,8,24,130.25,36.583333333333336,false,true,true,true,true,false,true,Windows,7,errors,
+,Firefox,86.0,1280x1024,small medium large xLarge,1024,669,1,1.5306427503736921,8,24,128,27.875,false,true,true,true,true,false,true,OS X,Big Sur,errors,
+,Edge,88.0,1024x768,small medium large xLarge,996,622,1,1.6012861736334405,8,24,124.5,25.916666666666668,false,true,true,true,true,false,true,Windows,7,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1042,1054,1,0.9886148007590133,8,24,130.25,43.916666666666664,false,true,true,true,true,true,false,Windows,7,errors,
+,Edge,88.0,1680x1050,small medium large,817,904,1,0.9037610619469026,8,24,102.125,37.666666666666664,false,true,true,true,false,true,false,Windows,7,errors,
+,Edge,88.0,1440x900,small medium large xLarge,1042,754,1,1.3819628647214854,8,24,130.25,31.416666666666668,false,true,true,true,true,false,true,Windows,7,errors,
+,Edge,88.0,1920x1200,small medium large,937,1054,1,0.8889943074003795,8,24,117.125,43.916666666666664,false,true,true,true,false,true,false,Windows,7,errors,
+,Edge,88.0,1366x768,small medium large xLarge,1042,622,1,1.67524115755627,8,24,130.25,25.916666666666668,false,true,true,true,true,false,true,Windows,7,errors,
+,Edge,88.0,2048x1536,small medium large xLarge,1042,1390,1,0.7496402877697842,8,24,130.25,57.916666666666664,false,true,true,true,true,true,false,Windows,7,errors,
+,Edge,88.0,1920x1080,small medium large,937,934,1,1.0032119914346895,8,24,117.125,38.916666666666664,false,true,true,true,false,false,true,Windows,7,errors,
+,Edge,88.0,1280x800,small medium large xLarge,1034,650,1,1.5907692307692307,8,24,129.25,27.083333333333332,false,true,true,true,true,false,true,Windows,8,errors,
+,Edge,88.0,1024x768,small medium large xLarge,988,618,1,1.598705501618123,8,24,123.5,25.75,false,true,true,true,true,false,true,Windows,8,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1034,874,1,1.1830663615560641,8,24,129.25,36.416666666666664,false,true,true,true,true,false,true,Windows,8,errors,
+,Edge,88.0,1680x1050,small medium large,809,900,1,0.8988888888888888,8,24,101.125,37.5,false,true,true,true,false,true,false,Windows,8,errors,
+,Edge,88.0,1366x768,small medium large xLarge,1034,618,1,1.6731391585760518,8,24,129.25,25.75,false,true,true,true,true,false,true,Windows,8,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1034,1050,1,0.9847619047619047,8,24,129.25,43.75,false,true,true,true,true,true,false,Windows,8,errors,
+,Edge,88.0,1440x900,small medium large xLarge,1034,750,1,1.3786666666666667,8,24,129.25,31.25,false,true,true,true,true,false,true,Windows,8,errors,
+,Edge,88.0,1920x1200,small medium large,929,1050,1,0.8847619047619047,8,24,116.125,43.75,false,true,true,true,false,true,false,Windows,8,errors,
+,Edge,88.0,1280x800,small medium large xLarge,1034,610,1,1.6950819672131148,8,24,129.25,25.416666666666668,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1034,834,1,1.2398081534772183,8,24,129.25,34.75,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,2048x1536,small medium large xLarge,1034,1386,1,0.746031746031746,8,24,129.25,57.75,false,true,true,true,true,true,false,Windows,8,errors,
+,Edge,88.0,1024x768,small medium large xLarge,988,578,1,1.7093425605536332,8,24,123.5,24.083333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,1920x1080,small medium large,929,930,1,0.9989247311827957,8,24,116.125,38.75,false,true,true,true,false,true,false,Windows,8,errors,
+,Edge,88.0,1366x768,small medium large xLarge,1034,578,1,1.7889273356401385,8,24,129.25,24.083333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1034,1010,1,1.0237623762376238,8,24,129.25,42.083333333333336,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,1440x900,small medium large xLarge,1034,710,1,1.4563380281690141,8,24,129.25,29.583333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,1920x1200,small medium large,929,1010,1,0.9198019801980198,8,24,116.125,42.083333333333336,false,true,true,true,false,true,false,Windows,10,errors,
+,Edge,88.0,1680x1050,small medium large,809,860,1,0.9406976744186046,8,24,101.125,35.833333333333336,false,true,true,true,false,true,false,Windows,10,errors,
+,Edge,88.0,2048x1536,small medium large xLarge,1034,1346,1,0.7682020802377415,8,24,129.25,56.083333333333336,false,true,true,true,true,true,false,Windows,10,errors,
+,Edge,88.0,1920x1080,small medium large,929,890,1,1.043820224719101,8,24,116.125,37.083333333333336,false,true,true,true,false,false,true,Windows,10,errors,
+,Edge,88.0,1280x800,small medium large xLarge,1034,650,1,1.5907692307692307,8,24,129.25,27.083333333333332,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Edge,88.0,1024x768,small medium large xLarge,988,618,1,1.598705501618123,8,24,123.5,25.75,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Edge,88.0,1680x1050,small medium large,809,900,1,0.8988888888888888,8,24,101.125,37.5,false,true,true,true,false,true,false,Windows,8.1,errors,
+,Edge,88.0,1366x768,small medium large xLarge,1034,618,1,1.6731391585760518,8,24,129.25,25.75,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1034,874,1,1.1830663615560641,8,24,129.25,36.416666666666664,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Edge,88.0,1440x900,small medium large xLarge,1034,750,1,1.3786666666666667,8,24,129.25,31.25,false,true,true,true,true,false,true,Windows,8.1,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1034,1050,1,0.9847619047619047,8,24,129.25,43.75,false,true,true,true,true,true,false,Windows,8.1,errors,
+,Edge,88.0,1920x1080,small medium large,929,930,1,0.9989247311827957,8,24,116.125,38.75,false,true,true,true,false,true,false,Windows,8.1,errors,
+,Edge,88.0,1920x1200,small medium large,929,1050,1,0.8847619047619047,8,24,116.125,43.75,false,true,true,true,false,true,false,Windows,8.1,errors,
+,Edge,88.0,1920x1200,small medium large xLarge,988,578,1,1.7093425605536332,8,24,123.5,24.083333333333332,false,true,true,true,true,false,true,Windows,10,errors,
+,Edge,88.0,2048x1536,small medium large xLarge,1034,1386,1,0.746031746031746,8,24,129.25,57.75,false,true,true,true,true,true,false,Windows,8.1,errors,
+,Edge,88.0,1024x768,small medium large xLarge,980,578,1,1.6955017301038062,8,24,122.5,24.083333333333332,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1200,1010,1,1.188118811881188,8,24,150,42.083333333333336,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1200,834,1,1.4388489208633093,8,24,150,34.75,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Edge,88.0,1280x960,small medium large xLarge,1200,770,1,1.5584415584415585,8,24,150,32.083333333333336,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Edge,88.0,1024x768,small medium large xLarge,980,582,1,1.6838487972508591,8,24,122.5,24.25,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Edge,88.0,1920x1080,small medium large xLarge,1200,890,1,1.348314606741573,8,24,150,37.083333333333336,false,true,true,true,true,false,true,OS X,Sierra,errors,
+,Edge,88.0,1024x768,small medium large xLarge,980,582,1,1.6838487972508591,8,24,122.5,24.25,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1200,1014,1,1.183431952662722,8,24,150,42.25,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Edge,88.0,1280x960,small medium large xLarge,1200,774,1,1.550387596899225,8,24,150,32.25,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1200,838,1,1.431980906921241,8,24,150,34.916666666666664,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Edge,88.0,1920x1080,small medium large xLarge,1200,894,1,1.342281879194631,8,24,150,37.25,false,true,true,true,true,false,true,OS X,High Sierra,errors,
+,Edge,88.0,1280x1024,small medium large xLarge,1200,838,1,1.431980906921241,8,24,150,34.916666666666664,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Edge,88.0,1280x960,small medium large xLarge,1200,774,1,1.550387596899225,8,24,150,32.25,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Edge,88.0,1920x1080,small medium large xLarge,1200,894,1,1.342281879194631,8,24,150,37.25,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Edge,88.0,1920x1080,small medium large xLarge,980,580,1,1.6896551724137931,8,24,122.5,24.166666666666668,false,true,true,true,true,false,true,OS X,Big Sur,errors,
+,Edge,88.0,1600x1200,small medium large xLarge,1200,1014,1,1.183431952662722,8,24,150,42.25,false,true,true,true,true,false,true,OS X,Mojave,errors,
+,Safari,14.0,1600x1200,small medium large xLarge,1024,691,1,1.4819102749638204,8,24,128,28.791666666666668,false,true,true,true,true,false,true,OS X,Big Sur,errors,
+iPhone XS,Iphone,,1600x1200,small medium large xLarge,1024,691,1,1.4819102749638204,8,24,128,28.791666666666668,false,true,true,true,true,false,true,ios,12,errors,portrait
+iPhone XS,Iphone,,1600x1200,small medium large xLarge,1024,691,1,1.4819102749638204,8,24,128,28.791666666666668,false,true,true,true,true,false,true,ios,12,errors,landscape
+iPhone 12 Pro Max,Iphone,,1600x1200,xSmall small,428,746,3,0.5737265415549598,8,24,53.5,31.083333333333332,true,true,false,false,false,true,false,ios,14,errors,portrait
+iPhone 12 Pro Max,Iphone,,1600x1200,small medium large,832,378,3,2.201058201058201,8,24,104,15.75,false,true,true,true,false,false,true,ios,14,errors,landscape
+iPhone 12 Mini,Iphone,,1600x1200,small medium,712,325,3,2.190769230769231,8,24,89,13.541666666666666,false,true,true,false,false,false,true,ios,14,errors,landscape
+iPhone 12,Iphone,,1600x1200,xSmall small,390,664,3,0.5873493975903614,8,24,48.75,27.666666666666668,true,true,false,false,false,true,false,ios,14,errors,portrait
+iPhone 12 Pro,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,14,errors,landscape
+iPhone 12 Pro,Iphone,,1600x1200,xSmall small,390,664,3,0.5873493975903614,8,24,48.75,27.666666666666668,true,true,false,false,false,true,false,ios,14,errors,portrait
+iPhone 12 Mini,Iphone,,1600x1200,xSmall small,375,629,3,0.5961844197138315,8,24,46.875,26.208333333333332,true,true,false,false,false,true,false,ios,14,errors,portrait
+iPhone 12,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,14,errors,landscape
+iPhone 11,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,13,errors,portrait
+iPhone 11 Pro Max,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,13,errors,landscape
+iPhone 11 Pro Max,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,13,errors,portrait
+iPhone 11,Iphone,,1600x1200,small medium,750,340,3,2.2058823529411766,8,24,93.75,14.166666666666666,false,true,true,false,false,false,true,ios,13,errors,landscape
+iPhone SE 2020,Iphone,,1600x1200,xSmall small,375,553,2,0.6781193490054249,8,24,46.875,23.041666666666668,true,true,false,false,false,true,false,ios,13,errors,portrait
+iPhone 11 Pro,Iphone,,1600x1200,xSmall small,375,553,2,0.6781193490054249,8,24,46.875,23.041666666666668,true,true,false,false,false,true,false,ios,13,errors,portrait
+iPhone 11 Pro,Iphone,,1600x1200,xSmall small,375,553,2,0.6781193490054249,8,24,46.875,23.041666666666668,true,true,false,false,false,true,false,ios,13,errors,landscape
+iPhone 8,Iphone,,1600x1200,xSmall small,375,553,2,0.6781193490054249,8,24,46.875,23.041666666666668,true,true,false,false,false,true,false,ios,11,errors,portrait
+iPhone 8,Iphone,,1600x1200,xSmall small,375,553,2,0.6781193490054249,8,24,46.875,23.041666666666668,true,true,false,false,false,true,false,ios,11,errors,landscape
+iPhone SE 2020,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,13,errors,landscape
+iPhone XS Max,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,12,errors,portrait
+iPhone XS Max,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,12,errors,landscape
+iPhone XR,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,12,errors,landscape
+iPhone XR,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,12,errors,portrait
+iPhone 6S,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPhone 7,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,10,errors,landscape
+iPhone 8 Plus,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone 7,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,10,errors,portrait
+iPhone 8 Plus,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPhone 6S Plus,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPhone X,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPhone X,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone 6S,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone 6S Plus,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone SE,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone 7 Plus,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,10,errors,portrait
+iPhone 6,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPhone 6,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,landscape
+iPhone SE,Iphone,,1600x1200,small medium,667,325,2,2.0523076923076924,8,24,83.375,13.541666666666666,false,true,true,false,false,false,true,ios,11,errors,portrait
+iPad Air 4,Ipad,,1600x1200,small medium large xLarge,1180,746,2,1.581769436997319,8,24,147.5,31.083333333333332,false,true,true,true,true,false,true,ios,14,errors,landscape
+iPad Air 4,Ipad,,1600x1200,small medium large,820,1106,2,0.7414104882459313,8,24,102.5,46.083333333333336,false,true,true,true,false,true,false,ios,14,errors,portrait
+iPad Pro 12.9 2020,Ipad,,1600x1200,small medium large xLarge,1024,1292,2,0.7925696594427245,8,24,128,53.833333333333336,false,true,true,true,true,true,false,ios,13,errors,portrait
+iPad Pro 12.9 2020,Ipad,,1600x1200,small medium large xLarge,1366,950,2,1.4378947368421053,8,24,170.75,39.583333333333336,false,true,true,true,true,false,true,ios,13,errors,landscape
+iPhone 7 Plus,Iphone,,1600x1200,small medium large xLarge,1366,950,2,1.4378947368421053,8,24,170.75,39.583333333333336,false,true,true,true,true,false,true,ios,10,errors,landscape
+iPad 8th,Ipad,,1600x1200,small medium large,810,1010,2,0.801980198019802,8,24,101.25,42.083333333333336,false,true,true,true,false,true,false,ios,14,errors,portrait
+iPad 8th,Ipad,,1600x1200,small medium large xLarge,1080,740,2,1.4594594594594594,8,24,135,30.833333333333332,false,true,true,true,true,false,true,ios,14,errors,landscape
+iPad Pro 11 2020,Ipad,,1600x1200,small medium large,834,1120,2,0.7446428571428572,8,24,104.25,46.666666666666664,false,true,true,true,false,true,false,ios,13,errors,portrait
+iPad Pro 12.9 2018,Ipad,,1600x1200,small medium large,834,1120,2,0.7446428571428572,8,24,104.25,46.666666666666664,false,true,true,true,false,true,false,ios,12,errors,portrait
+iPad Pro 12.9 2018,Ipad,,1600x1200,small medium large,834,1120,2,0.7446428571428572,8,24,104.25,46.666666666666664,false,true,true,true,false,true,false,ios,12,errors,landscape
+iPad Pro 11 2020,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,13,errors,landscape
+iPad Mini 2019,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,landscape
+iPad Mini 2019,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,portrait
+iPad Air 2019,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,landscape
+iPad Air 2019,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,portrait
+iPad 7th,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,13,errors,landscape
+iPad 7th,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,13,errors,portrait
+iPad Pro 11 2018,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,portrait
+iPad Pro 9.7 2016,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,portrait
+iPad Pro 11 2018,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,12,errors,landscape
+iPad Mini 4,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,portrait
+iPad Mini 4,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,landscape
+iPad Pro 9.7 2016,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,landscape
+iPad Pro 12.9 2017,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,landscape
+iPad Pro 12.9 2017,Ipad,,1600x1200,small medium large xLarge,1194,760,2,1.5710526315789475,8,24,149.25,31.666666666666668,false,true,true,true,true,false,true,ios,11,errors,portrait
+Samsung Galaxy S20,Android,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+iPad 6th,Ipad,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,ios,11,errors,portrait
+iPad 5th,Ipad,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,ios,11,errors,landscape
+iPad 6th,Ipad,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,ios,11,errors,landscape
+iPad 5th,Ipad,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,ios,11,errors,portrait
+Google Pixel 5,Android,,1600x1200,xSmall small,393,727,2.75,0.5405777166437414,8,24,49.125,30.291666666666668,true,true,false,false,false,true,false,android,11.0,errors,portrait
+Google Pixel 4,Android,,1600x1200,small medium large,830,291,2.75,2.852233676975945,8,24,103.75,12.125,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Google Pixel 4,Android,,1600x1200,xSmall small,393,727,2.75,0.5405777166437414,8,24,49.125,30.291666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy S20,Android,,1600x1200,xSmall small,360,670,3,0.5373134328358209,8,24,45,27.916666666666668,true,true,false,false,false,true,false,android,10.0,errors,landscape
+Google Pixel 5,Android,,1600x1200,small medium large,802,293,2.75,2.737201365187713,8,24,100.25,12.208333333333334,false,true,true,true,false,false,true,android,11.0,errors,landscape
+Samsung Galaxy S20 Plus,Android,,1600x1200,xSmall small,384,724,2.8125,0.5303867403314917,8,24,48,30.166666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy S20 Ultra,Android,,1600x1200,small medium large,839,332,2.625,2.5271084337349397,8,24,104.875,13.833333333333334,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Samsung Galaxy S20 Ultra,Android,,1600x1200,xSmall small,412,783,2.625,0.5261813537675607,8,24,51.5,32.625,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy S20 Plus,Android,,1600x1200,small medium,780,304,2.8125,2.5657894736842106,8,24,97.5,12.666666666666666,false,true,true,false,false,false,true,android,10.0,errors,landscape
+Samsung Galaxy Note 20 Ultra,Android,,1600x1200,xSmall small,412,753,2.625,0.547144754316069,8,24,51.5,31.375,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy Note 20,Android,,1600x1200,small medium,773,304,2.8125,2.5427631578947367,8,24,96.625,12.666666666666666,false,true,true,false,false,false,true,android,10.0,errors,landscape
+Samsung Galaxy Note 20 Ultra,Android,,1600x1200,small medium large,809,332,2.625,2.4367469879518073,8,24,101.125,13.833333333333334,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Samsung Galaxy Note 20,Android,,1600x1200,xSmall small,384,717,2.8125,0.5355648535564853,8,24,48,29.875,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy A51,Android,,1600x1200,xSmall small,412,775,2.625,0.5316129032258065,8,24,51.5,32.291666666666664,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy A51,Android,,1600x1200,small medium large,833,332,2.625,2.5090361445783134,8,24,104.125,13.833333333333334,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Google Pixel 4 XL,Android,,1600x1200,small medium large,869,312,3.5,2.78525641025641,8,24,108.625,13,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Google Pixel 3,Android,,1600x1200,xSmall small,393,658,2.75,0.5972644376899696,8,24,49.125,27.416666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy A11,Android,,1600x1200,small medium large,807,332,1.75,2.430722891566265,8,24,100.875,13.833333333333334,false,true,true,true,false,false,true,android,10.0,errors,landscape
+Samsung Galaxy A11,Android,,1600x1200,xSmall small,412,751,1.75,0.5486018641810919,8,24,51.5,31.291666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Google Pixel 4 XL,Android,,1600x1200,xSmall small,412,769,3.5,0.5357607282184655,8,24,51.5,32.041666666666664,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Google Pixel 3,Android,,1600x1200,small medium,738,313,2.75,2.357827476038339,8,24,92.25,13.041666666666666,false,true,true,false,false,false,true,android,9.0,errors,landscape
+OnePlus 8,Android,,1600x1200,xSmall small,412,771,2.625,0.5343709468223087,8,24,51.5,32.125,true,true,false,false,false,true,false,android,10.0,errors,portrait
+OnePlus 7T,Android,,1600x1200,small medium large,841,325,2.625,2.5876923076923077,8,24,105.125,13.541666666666666,false,true,true,true,false,false,true,android,10.0,errors,landscape
+OnePlus 7T,Android,,1600x1200,xSmall small,412,780,2.625,0.5282051282051282,8,24,51.5,32.5,true,true,false,false,false,true,false,android,10.0,errors,portrait
+OnePlus 8,Android,,1600x1200,xSmall small,412,771,2.625,0.5343709468223087,8,24,51.5,32.125,true,true,false,false,false,true,false,android,10.0,errors,landscape
+Oppo Reno 3 Pro,Android,,1600x1200,small medium,756,268,3,2.8208955223880596,8,24,94.5,11.166666666666666,false,true,true,false,false,false,true,android,10.0,errors,landscape
+Oppo Reno 3 Pro,Android,,1600x1200,xSmall small,360,664,3,0.5421686746987951,8,24,45,27.666666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy Tab S7,Android,,1600x1200,small medium,753,1037,2.125,0.7261330761812922,8,24,94.125,43.208333333333336,false,true,true,false,false,true,false,android,10.0,errors,portrait
+Vivo Y50,Android,,1600x1200,small medium,705,271,3,2.6014760147601477,8,24,88.125,11.291666666666666,false,true,true,false,false,false,true,android,10.0,errors,landscape
+Vivo Y50,Android,,1600x1200,xSmall small,360,649,3,0.5546995377503852,8,24,45,27.041666666666668,true,true,false,false,false,true,false,android,10.0,errors,portrait
+Samsung Galaxy Tab S7,Android,,1600x1200,small medium large xLarge,1205,585,2.125,2.0598290598290596,8,24,150.625,24.375,false,true,true,true,true,false,true,android,10.0,errors,landscape
+Samsung Galaxy S9 Plus,Android,,1600x1200,small medium,798,332,3.5,2.4036144578313254,8,24,99.75,13.833333333333334,false,true,true,false,false,false,true,android,8.0,errors,landscape
+Samsung Galaxy S9 Plus,Android,,1600x1200,xSmall small,412,718,2.625,0.5738161559888579,8,24,51.5,29.916666666666668,true,true,false,false,false,true,false,android,8.0,errors,portrait
+Samsung Galaxy S8 Plus,Android,,1600x1200,small medium,798,332,2.625,2.4036144578313254,8,24,99.75,13.833333333333334,false,true,true,false,false,false,true,android,7.0,errors,landscape
+Samsung Galaxy S8 Plus,Android,,1600x1200,xSmall small,412,718,2.625,0.5738161559888579,8,24,51.5,29.916666666666668,true,true,false,false,false,true,false,android,7.0,errors,portrait
+Samsung Galaxy S10 Plus,Android,,1600x1200,xSmall small,412,723,2.625,0.5698478561549101,8,24,51.5,30.125,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy S10 Plus,Android,,1600x1200,small medium,780,332,2.625,2.3493975903614457,8,24,97.5,13.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy S10,Android,,1600x1200,xSmall small,412,722,2.625,0.5706371191135734,8,24,51.5,30.083333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy S10e,Android,,1600x1200,small medium,674,280,3,2.407142857142857,8,24,84.25,11.666666666666666,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy S10e,Android,,1600x1200,xSmall small,360,617,3,0.5834683954619124,8,24,45,25.708333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy Note 10,Android,,1600x1200,small medium,787,332,2.625,2.3704819277108435,8,24,98.375,13.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy Note 10 Plus,Android,,1600x1200,xSmall small,412,733,2.625,0.5620736698499318,8,24,51.5,30.541666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy Note 10 Plus,Android,,1600x1200,small medium,789,332,2.625,2.3765060240963853,8,24,98.625,13.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy S10,Android,,1600x1200,small medium,778,332,2.625,2.3433734939759034,8,24,97.25,13.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy Note 10,Android,,1600x1200,xSmall small,412,731,2.625,0.5636114911080712,8,24,51.5,30.458333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Google Pixel 3a,Android,,1600x1200,xSmall small,393,680,2.75,0.5779411764705882,8,24,49.125,28.333333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Google Pixel 3a XL,Android,,1600x1200,xSmall small,432,736,2.5,0.5869565217391305,8,24,54,30.666666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Google Pixel 3a XL,Android,,1600x1200,xSmall small,432,736,2.5,0.5869565217391305,8,24,54,30.666666666666668,true,true,false,false,false,true,false,android,9.0,errors,landscape
+Samsung Galaxy A10,Android,,1600x1200,xSmall small,412,734,1.75,0.5613079019073569,8,24,51.5,30.583333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy A10,Android,,1600x1200,small medium,790,332,1.75,2.3795180722891565,8,24,98.75,13.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Google Pixel 3 XL,Android,,1600x1200,xSmall small,412,693,3.5,0.5945165945165946,8,24,51.5,28.875,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Google Pixel 3 XL,Android,,1600x1200,small medium,749,328,3.5,2.283536585365854,8,24,93.625,13.666666666666666,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Google Pixel 3a,Android,,1600x1200,small medium,760,313,2.75,2.428115015974441,8,24,95,13.041666666666666,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Google Pixel 2,Android,,1600x1200,xSmall small,412,604,2.625,0.6821192052980133,8,24,51.5,25.166666666666668,true,true,false,false,false,true,false,android,8.0,errors,portrait
+Google Pixel 2,Android,,1600x1200,small medium,684,332,2.625,2.0602409638554215,8,24,85.5,13.833333333333334,false,true,true,false,false,false,true,android,8.0,errors,landscape
+OnePlus 7,Android,,1600x1200,xSmall small,412,757,2.625,0.5442536327608983,8,24,51.5,31.541666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+OnePlus 6T,Android,,1600x1200,xSmall small,412,757,2.625,0.5442536327608983,8,24,51.5,31.541666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Motorola Moto G7 Play,Android,,1600x1200,xSmall small,360,616,2,0.5844155844155844,8,24,45,25.666666666666668,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Motorola Moto G7 Play,Android,,1600x1200,small medium,672,280,2,2.4,8,24,84,11.666666666666666,false,true,true,false,false,false,true,android,9.0,errors,landscape
+OnePlus 7,Android,,1600x1200,small medium large,813,325,2.625,2.5015384615384617,8,24,101.625,13.541666666666666,false,true,true,true,false,false,true,android,9.0,errors,landscape
+OnePlus 6T,Android,,1600x1200,small medium large,814,325,2.625,2.5046153846153847,8,24,101.75,13.541666666666666,false,true,true,true,false,false,true,android,9.0,errors,landscape
+Xiaomi Redmi Note 8,Android,,1600x1200,xSmall small,393,719,2.75,0.5465924895688457,8,24,49.125,29.958333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Xiaomi Redmi Note 7,Android,,1600x1200,small medium,775,308,2.75,2.5162337662337664,8,24,96.875,12.833333333333334,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Xiaomi Redmi Note 7,Android,,1600x1200,xSmall small,393,719,2.75,0.5465924895688457,8,24,49.125,29.958333333333332,true,true,false,false,false,true,false,android,9.0,errors,portrait
+Xiaomi Redmi Note 8,Android,,1600x1200,small medium,775,309,2.75,2.5080906148867315,8,24,96.875,12.875,false,true,true,false,false,false,true,android,9.0,errors,landscape
+Samsung Galaxy Tab S6,Android,,1600x1200,small medium large xLarge,1138,544,2.25,2.0919117647058822,8,24,142.25,22.666666666666668,false,true,true,true,true,false,true,android,9.0,errors,landscape
+Samsung Galaxy Tab S6,Android,,1600x1200,small medium,712,970,2.25,0.734020618556701,8,24,89,40.416666666666664,false,true,true,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy Tab S5e,Android,,1600x1200,small medium large xLarge,1138,544,2.25,2.0919117647058822,8,24,142.25,22.666666666666668,false,true,true,true,true,false,true,android,9.0,errors,landscape
+Samsung Galaxy Tab S5e,Android,,1600x1200,small medium,712,970,2.25,0.734020618556701,8,24,89,40.416666666666664,false,true,true,false,false,true,false,android,9.0,errors,portrait
+Samsung Galaxy Note 9,Android,,1600x1200,xSmall small,412,718,2.625,0.5738161559888579,8,24,51.5,29.916666666666668,true,true,false,false,false,true,false,android,8.1,errors,portrait
+Samsung Galaxy Tab S4,Android,,1600x1200,small medium large xLarge,1138,544,2.25,2.0919117647058822,8,24,142.25,22.666666666666668,false,true,true,true,true,false,true,android,8.1,errors,landscape
+Samsung Galaxy Tab S4,Android,,1600x1200,small medium,712,970,2.25,0.734020618556701,8,24,89,40.416666666666664,false,true,true,false,false,true,false,android,8.1,errors,portrait
+Samsung Galaxy Note 9,Android,,1600x1200,small medium,798,332,2.625,2.4036144578313254,8,24,99.75,13.833333333333334,false,true,true,false,false,false,true,android,8.1,errors,landscape
+Samsung Galaxy J7 Prime,Android,,1600x1200,xSmall small,360,560,3,0.6428571428571429,8,24,45,23.333333333333332,true,true,false,false,false,true,false,android,8.1,errors,portrait
+Samsung Galaxy J7 Prime,Android,,1600x1200,small,640,280,3,2.2857142857142856,8,24,80,11.666666666666666,false,true,false,false,false,false,true,android,8.1,errors,landscape
+Google Pixel,Android,,1600x1200,xSmall small,412,604,2.625,0.6821192052980133,8,24,51.5,25.166666666666668,true,true,false,false,false,true,false,android,7.1,errors,portrait
+Google Pixel,Android,,1600x1200,small medium,684,332,2.625,2.0602409638554215,8,24,85.5,13.833333333333334,false,true,true,false,false,false,true,android,7.1,errors,landscape
+Samsung Galaxy S9,Android,,1600x1200,xSmall small,360,612,3,0.5882352941176471,8,24,45,25.5,true,true,false,false,false,true,false,android,8.0,errors,landscape
+Samsung Galaxy S9,Android,,1600x1200,xSmall small,360,612,3,0.5882352941176471,8,24,45,25.5,true,true,false,false,false,true,false,android,8.0,errors,portrait
+Samsung Galaxy Note 8,Android,,1600x1200,xSmall small,412,718,2.625,0.5738161559888579,8,24,51.5,29.916666666666668,true,true,false,false,false,true,false,android,7.1,errors,portrait
+Samsung Galaxy S8,Android,,1600x1200,small medium,692,280,3,2.4714285714285715,8,24,86.5,11.666666666666666,false,true,true,false,false,false,true,android,7.0,errors,landscape
+Samsung Galaxy S8,Android,,1600x1200,xSmall small,360,612,3,0.5882352941176471,8,24,45,25.5,true,true,false,false,false,true,false,android,7.0,errors,portrait
+Samsung Galaxy Note 8,Android,,1600x1200,small medium,798,332,2.625,2.4036144578313254,8,24,99.75,13.833333333333334,false,true,true,false,false,false,true,android,7.1,errors,landscape
+Samsung Galaxy A8,Android,,1600x1200,xSmall small,360,612,3,0.5882352941176471,8,24,45,25.5,true,true,false,false,false,true,false,android,7.1,errors,portrait
+Samsung Galaxy A8,Android,,1600x1200,small medium,692,280,3,2.4714285714285715,8,24,86.5,11.666666666666666,false,true,true,false,false,false,true,android,7.1,errors,landscape
+Samsung Galaxy S7,Android,,1600x1200,xSmall small,360,560,4,0.6428571428571429,8,24,45,23.333333333333332,true,true,false,false,false,true,false,android,6.0,errors,portrait
+Samsung Galaxy Tab S3,Android,,1600x1200,small medium large xLarge,1024,648,2,1.5802469135802468,8,24,128,27,false,true,true,true,true,false,true,android,7.0,errors,landscape
+Samsung Galaxy S7,Android,,1600x1200,small,640,280,4,2.2857142857142856,8,24,80,11.666666666666666,false,true,false,false,false,false,true,android,6.0,errors,landscape
+Samsung Galaxy Tab S3,Android,,1600x1200,small medium,768,904,2,0.8495575221238938,8,24,96,37.666666666666664,false,true,true,false,false,true,false,android,7.0,errors,portrait
+Google Nexus 6,Android,,1600x1200,xSmall small,412,603,3.5,0.6832504145936982,8,24,51.5,25.125,true,true,false,false,false,true,false,android,5.0,errors,portrait
+Motorola Moto X 2nd Gen,Android,,1600x1200,xSmall small,360,511,3,0.7045009784735812,8,24,45,21.291666666666668,true,true,false,false,false,true,false,android,5.0,errors,portrait
+Google Nexus 6,Android,,1600x1200,small medium,690,331,3.5,2.084592145015106,8,24,86.25,13.791666666666666,false,true,true,false,false,false,true,android,5.0,errors,landscape
+Samsung Galaxy S6,Android,,1600x1200,xSmall small,360,559,4,0.6440071556350626,8,24,45,23.291666666666668,true,true,false,false,false,true,false,android,5.0,errors,portrait
+Samsung Galaxy S6,Android,,1600x1200,small,640,279,4,2.293906810035842,8,24,80,11.625,false,true,false,false,false,false,true,android,5.0,errors,landscape
+Motorola Moto X 2nd Gen,Android,,1600x1200,small,598,279,3,2.14336917562724,8,24,74.75,11.625,false,true,false,false,false,false,true,android,5.0,errors,landscape
+Google Nexus 5,Android,,1600x1200,small,598,279,3,2.14336917562724,8,24,74.75,11.625,false,true,false,false,false,false,true,android,4.4,errors,landscape
+Google Nexus 5,Android,,1600x1200,xSmall small,360,511,3,0.7045009784735812,8,24,45,21.291666666666668,true,true,false,false,false,true,false,android,4.4,errors,portrait
+Samsung Galaxy Note 4,Android,,1600x1200,small,640,279,4,2.293906810035842,8,24,80,11.625,false,true,false,false,false,false,true,android,4.4,errors,landscape
+Samsung Galaxy Note 4,Android,,1600x1200,xSmall small,360,559,4,0.6440071556350626,8,24,45,23.291666666666668,true,true,false,false,false,true,false,android,4.4,errors,portrait
+Samsung Galaxy Tab 4,Android,,1600x1200,small medium large,800,1255,1,0.6374501992031872,8,24,100,52.291666666666664,false,true,true,true,false,true,false,android,4.4,errors,portrait
+Samsung Galaxy Tab 4,Android,,1600x1200,small medium large xLarge,1280,775,1,1.6516129032258065,8,24,160,32.291666666666664,false,true,true,true,true,false,true,android,4.4,errors,landscape
