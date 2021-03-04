@@ -8,6 +8,7 @@ import {tapWith} from '@svizzle/dev';
 import {readJson, saveString} from '@svizzle/file';
 import {
 	capitalize,
+	getLength,
 	isObjEmpty,
 	isObjNotEmpty,
 	makePrefixed,
@@ -26,7 +27,10 @@ const processKey = key => renameKeysWith(_.pipe([
 	makePrefixed(key)
 ]))
 const makeCSV = _.pipe([
-	_.filterWith(isObjNotEmpty),
+	_.filterWith(_.allOf([
+		isObjNotEmpty,
+		_.hasKey('result')
+	])),
 	_.mapWith(_.pipe([
 		_.values,
 		mergeObjects,
@@ -58,8 +62,9 @@ const makeCSV = _.pipe([
 ]);
 
 readJson(REPORT_PATH)
-.then(tapWith([countEmpties, 'empty?']))
 .then(tapWith([makeCSV, 'flattened']))
+.then(tapWith([getLength, 'length']))
+.then(tapWith([countEmpties, 'empty?']))
 .then(makeCSV)
 .then(saveString(CSV_PATH))
 .catch(err => console.error(err))
