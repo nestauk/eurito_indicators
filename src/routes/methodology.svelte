@@ -1,8 +1,7 @@
 <script>
+	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import ExternalLink from '@svizzle/ui/src/ExternalLink.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-
-	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
 	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
@@ -21,7 +20,7 @@
 	<title>EURITO CSVs - Methodology</title>
 </svelte:head>
 
-<main class={$screenGauge?.classes}>
+<main class={$screen?.classes}>
 	<section>
 		<h1>Methodology</h1>
 
