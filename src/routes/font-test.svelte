@@ -26,6 +26,7 @@
 <main>
 	<div class="quarter-screen-ref"> </div>
 	<section style={`--size-mult: ${sizeMultiplier}`}>
+		<pre id='info'>{JSON.stringify(screen) || {}}</pre>
 		<p class='info'>
 			DPPR: {screen?.display.pixelRatio.toPrecision(4)} 
 			W: {screen?.display.width} 
@@ -96,5 +97,8 @@
 		z-index: -1;
 		top: 25vh;
 		left: 25vw;
+	}
+	pre {
+		display: none;
 	}
 </style>
