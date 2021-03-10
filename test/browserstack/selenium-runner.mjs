@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import path from 'path';
 import {capitalize} from '@svizzle/utils';
 
 import Queue from "queue-promise";
@@ -48,7 +49,7 @@ function fail (driver, message) {
 	// TODO notify faliure
 }
 
-async function run (task, capabilities) {
+async function run (test, capabilities) {
 	let driver;
 	try {
 		driver = await new webdriver.Builder()
@@ -56,7 +57,7 @@ async function run (task, capabilities) {
 		.withCapabilities(capabilities)
 		.build();
 
-		return await task({
+		const testResult = await test({
 			capabilities,
 			driver,
 			By,
@@ -65,6 +66,10 @@ async function run (task, capabilities) {
 			fail: message => fail(driver, message),
 			log: message => log(capabilities, message)
 		});
+		return {
+			capabilities,
+			result: testResult
+		}
 	} catch (e) {
 		err(capabilities, e);
 		return {
@@ -118,7 +123,7 @@ queue.on("end", async () =>{
 
 function runTest (task) {
 	s4caps.forEach(caps => {
-		const doTest = async extra => results.push(await run(task, {
+		const doTest = extra => async () => results.push(await run(task, {
 			...caps,
 			...extra
 		}));
@@ -147,11 +152,13 @@ function runTest (task) {
 // 4. load and run tests
 async function runAll() {
 	const files = await fs.readdir(tests);
-	// console.log(...files.map(file => `./${file.ab}`));
+	console.log(...files.map(file => path.resolve(tests, file)));
 
-	// const loading = files.map(file => import(`./${file}`));
-	//const modules = await Promise.all(loading);
-	// modules.forEach(runTest);
+	const modulePromises = files.map(file => import(path.resolve(tests, file)));
+	const modules = (await Promise.all(modulePromises))
+		.map(module => module.default);
+	console.log(modules);
+	modules.forEach(runTest);
 }
 
 runAll();

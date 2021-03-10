@@ -1,0 +1,1804 @@
+[
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "800x600"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1366x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x800"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1680x1050"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1440x900"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "7",
+        "consoleLogs": "errors"
+      },
+      "resolution": "2048x1536"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x800"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1366x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1680x1050"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1440x900"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8",
+        "consoleLogs": "errors"
+      },
+      "resolution": "2048x1536"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x800"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1366x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1440x900"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1680x1050"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "800x600"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"800x600\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x800"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x800\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10",
+        "consoleLogs": "errors"
+      },
+      "resolution": "2048x1536"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1440x900"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1440x900\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1366x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1366x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1680x1050"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1680x1050\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "2048x1536"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"2048x1536\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "XP",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"Windows\", \"osVersion\"=>\"XP\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"XP\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x800"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1680x1050"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1440x900"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1366x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Snow Leopard",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Snow Leopard\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Snow Leopard",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Snow Leopard\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Snow Leopard",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Snow Leopard\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "8.1",
+        "consoleLogs": "errors"
+      },
+      "resolution": "2048x1536"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Snow Leopard",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Snow Leopard\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Snow Leopard",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Snow Leopard\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Snow Leopard\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mountain Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mountain Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mountain Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mountain Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mountain Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mountain Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mountain Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mountain Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mavericks",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mavericks\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mavericks",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mavericks\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mavericks",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mavericks\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mountain Lion",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mountain Lion\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mountain Lion\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mavericks",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mavericks\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Yosemite",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Yosemite\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mavericks",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Mavericks\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Mavericks\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Yosemite",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Yosemite\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Yosemite",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Yosemite\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "El Capitan",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1024x768\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"El Capitan\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Yosemite",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Yosemite\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "El Capitan",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x960\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"El Capitan\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "El Capitan",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1280x1024\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"El Capitan\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Yosemite",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"Yosemite\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"Yosemite\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "El Capitan",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1600x1200\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"El Capitan\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "El Capitan",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "exception": {
+      "name": "WebDriverError",
+      "remoteStacktrace": ""
+    },
+    "trace": "WebDriverError: OS/Browser combination invalid: {\"browserName\"=>\"Edge\", \"browserVersion\"=>\"88.0\", \"bstack:options\"=>{\"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"consoleLogs\"=>\"errors\"}, \"resolution\"=>\"1920x1080\", \"browserstack.is_hub_canary\"=>false, \"acceptSslCert\"=>false, \"detected_language\"=>\"selenium/4.0.0-beta.1 (js linux)\", \"new_bucketing\"=>true, \"browser\"=>\"Edge\", \"browser_version\"=>\"88.0\", \"os\"=>\"OS X\", \"osVersion\"=>\"El Capitan\", \"browserstack.consoleLogs\"=>\"errors\", \"browserstack.useW3C\"=>\"true\", \"os_version\"=>\"El Capitan\", \"browser_name\"=>\"Edge\", \"version\"=>\"88.0\", \"browserstack.use_w3c\"=>\"true\", \"realMobile\"=>true, \"browserstack.console\"=>\"errors\", \"browserstack.seleniumLogs\"=>true, \"browserstack.appiumLogs\"=>true}\n    at Object.checkLegacyResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/error.js:553:15)\n    at parseHttpResponse (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:663:13)\n    at Executor.execute (/home/ushi/repos/eurito_indicators_ui/node_modules/selenium-webdriver/lib/http.js:597:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (node:internal/process/task_queues:94:5)"
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "High Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "High Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "High Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mojave",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1024x768"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mojave",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x1024"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "High Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "High Sierra",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mojave",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1280x960"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mojave",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1600x1200"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  },
+  {
+    "capabilities": {
+      "device": null,
+      "browserName": "Edge",
+      "browserVersion": "88.0",
+      "bstack:options": {
+        "os": "OS X",
+        "osVersion": "Mojave",
+        "consoleLogs": "errors"
+      },
+      "resolution": "1920x1080"
+    },
+    "result": {
+      "/": "EURITO CSVs - Home",
+      "/guide": "EURITO CSVs - Methodology",
+      "/methodology": "EURITO CSVs - Methodology",
+      "/font-test": "Page Not Found"
+    }
+  }
+]

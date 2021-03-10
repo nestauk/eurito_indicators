@@ -1,4 +1,4 @@
-export default async (capabilities, {log, driver, target, until, By, fail}) => {
+export default async ({log, driver, target, until, By, fail}) => {
 	log('Navigating...');
 	await driver.get(target);
 	log("Sleeping #1...");
@@ -17,7 +17,6 @@ export default async (capabilities, {log, driver, target, until, By, fail}) => {
 		log('Element not found.');
 		fail('Element not found.');
 		return {
-			capabilities,
 			error: 'Element not found',
 		};
 	}
@@ -25,8 +24,5 @@ export default async (capabilities, {log, driver, target, until, By, fail}) => {
 	log('Found element. Getting text content...');
 	const result = JSON.parse(await info.getText());
 	log('Content:', result);
-	return {
-		capabilities,
-		result,
-	};
+	return result;
 }

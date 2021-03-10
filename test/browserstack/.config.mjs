@@ -4,7 +4,7 @@ export default {
 		key: 'fD4wvrKEDzaUczFKbLTi',
 		url: 'hub-cloud.browserstack.com/wd/hub',
 		tests: 'test/browserstack/scripts/automate',
-		target: 'https://deploy-preview-15--eurito-indicators-ui-dev.netlify.app/guide',
-		report: 'report.json'
+		target: 'https://deploy-preview-21--eurito-indicators-ui-dev.netlify.app',
+		report: 'test/selenium-report.json'
 	}
 }
