@@ -7,4 +7,4 @@ _
 /static/data/
 !/static/data/tests
 /static/font/unused/
-/test/BrS/.config.mjs
+/test/browserstack/.config.mjs

@@ -152,12 +152,10 @@ function runTest (task) {
 // 4. load and run tests
 async function runAll() {
 	const files = await fs.readdir(tests);
-	console.log(...files.map(file => path.resolve(tests, file)));
 
 	const modulePromises = files.map(file => import(path.resolve(tests, file)));
 	const modules = (await Promise.all(modulePromises))
 		.map(module => module.default);
-	console.log(modules);
 	modules.forEach(runTest);
 }
 
