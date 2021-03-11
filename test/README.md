@@ -15,3 +15,5 @@ TODO:
  * Rewrite test runner in functional style, separating test-list generation from 
    test running.
  * Add Browserstack session & queue management.
+ * Describe testing setup procedure on Browserstack and Github.
+ * Run on all os/browser/version configurations available on Browserstack.
