@@ -68,6 +68,7 @@
 		"rmsappers": "rimraf __sapper__ src/node_modules/@sapper",
 		"start": "node __sapper__/build",
 		"test": "run-p --race dev cy:run",
+		"selenium": "node test/browserstack/selenium-runner.mjs",
 		"unittest": "mocha -r esm --spec src/**/*.spec.js"
 	},
 	"version": "0.0.1"
