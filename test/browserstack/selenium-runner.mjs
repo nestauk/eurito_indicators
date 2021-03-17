@@ -11,6 +11,7 @@ const {until, By} = webdriver;
 
 const username = process.env.BROWSERSTACK_USERNAME;
 const key = process.env.BROWSERSTACK_KEY;
+const localIdentiffier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 
 const url = 'hub-cloud.browserstack.com/wd/hub';
 const tests = 'test/browserstack/scripts/automate';
@@ -102,6 +103,7 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 		osVersion: deviceCaps.os_version,
 		consoleLogs: 'errors',
 		local: true,
+		localIdentiffier
 	}
 }));
 
