@@ -40,12 +40,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: 'Install npm modules'
+      run: npm ci
+
     - name: 'Remove all but one indicator'
       run: cd data/processed && ls -Q | grep -v broadband | xargs rm -R && cd ../..
     - run: npm run makedata
-
-    - name: 'Install npm modules'
-      run: npm ci
 
     - name: 'Build webapp'
       run: npm run build --if-present
