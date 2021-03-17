@@ -5,20 +5,17 @@ import {capitalize} from '@svizzle/utils';
 import Queue from "queue-promise";
 import Caps from 'browserstack-capabilities';
 import webdriver from 'selenium-webdriver';
-import config from './.config.mjs';
 import * as options from './options.mjs';
 
 const {until, By} = webdriver;
 
-const {
-	username,
-	key,
-	url,
-	target,
-	tests,
-	report
-} = config.browserstack;
+const username = process.env.BROWSERSTACK_USERNAME;
+const key = process.env.BROWSERSTACK_KEY;
 
+const url = 'hub-cloud.browserstack.com/wd/hub';
+const tests = 'test/browserstack/scripts/automate';
+const target = 'https://deploy-preview-24--eurito-indicators-ui-dev.netlify.app/';
+const report = 'data/tests/selenium-report.json';
 const browserstackURL = `https://${username}:${key}@${url}`;
 const optionsKey = 'bstack:options';
 const results = [];
