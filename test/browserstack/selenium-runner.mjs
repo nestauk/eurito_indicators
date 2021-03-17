@@ -14,7 +14,7 @@ const key = process.env.BROWSERSTACK_KEY;
 
 const url = 'hub-cloud.browserstack.com/wd/hub';
 const tests = 'test/browserstack/scripts/automate';
-const target = 'https://deploy-preview-24--eurito-indicators-ui-dev.netlify.app/';
+const target = 'http://localhost:3000';
 const report = 'data/tests/selenium-report.json';
 const browserstackURL = `https://${username}:${key}@${url}`;
 const optionsKey = 'bstack:options';
@@ -101,7 +101,7 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 		os: deviceCaps.os,
 		osVersion: deviceCaps.os_version,
 		consoleLogs: 'errors',
-		// local: true,
+		local: true,
 	}
 }));
 

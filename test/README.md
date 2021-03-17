@@ -10,6 +10,15 @@ tests directly in the browser through Browserstack using Selenium.
 
 However, it still needs some heavy refactoring and cleanup.
 
+A Github action is configured in `.github/workflows/node.js.yml` to 
+automatically launch the Selenium tests on Browserstack when pushing to a PR.
+Forks of the repository should be configured with the following secrets in the
+settings in Github:
+
+ * `BROWSERSTACK_USERNAME`: The account name to use in Browserstack.
+ * `BROWSERSTACK_KEY`: The access key provided by Browserstack.
+ * `BROWSERSTACK_GIST_TOKEN`: A Github token authorized to create Gists.
+
 TODO:
 
  * Rewrite test runner in functional style, separating test-list generation from 
