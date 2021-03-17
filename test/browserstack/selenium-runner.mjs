@@ -98,12 +98,12 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 	device: deviceCaps.device,
 	browserName: capitalize(deviceCaps.browser),
 	browserVersion: deviceCaps.browser_version,
+	localIdentiffier
 	[optionsKey]: {
 		os: deviceCaps.os,
 		osVersion: deviceCaps.os_version,
 		consoleLogs: 'errors',
-		local: true,
-		localIdentiffier
+		local: true
 	}
 }));
 
