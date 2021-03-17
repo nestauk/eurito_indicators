@@ -11,7 +11,7 @@ const {until, By} = webdriver;
 
 const username = process.env.BROWSERSTACK_USERNAME;
 const key = process.env.BROWSERSTACK_ACCESS_KEY;
-const localIdentiffier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
+const localIdentifier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 const projectName = process.env.BROWSERSTACK_PROJECT_NAME;
 const buildName = process.env.BROWSERSTACK_BUILD_NAME;
 
@@ -100,7 +100,7 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 	device: deviceCaps.device,
 	browserName: capitalize(deviceCaps.browser),
 	browserVersion: deviceCaps.browser_version,
-	localIdentiffier,
+	localIdentifier,
 	[optionsKey]: {
 		os: deviceCaps.os,
 		osVersion: deviceCaps.os_version,
