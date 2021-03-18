@@ -18,8 +18,8 @@ that the tests run before merging. The action can be fouind at
 Test results for the original repository can be found here:
 https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e .
 
-Forks of the repository should be configured with the following secrets in the
-settings in Github:
+Forks of the repository should be configured with the following action secrets
+in `org/repo/settings/secrets/actions` in Github:
 
  * `BROWSERSTACK_USERNAME`: The account name to use in Browserstack.
  * `BROWSERSTACK_ACCESS_KEY`: The access key provided by Browserstack.
