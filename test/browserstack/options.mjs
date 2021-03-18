@@ -1,13 +1,13 @@
 export const browsers = [
 	// 'opera',
 	'chrome',
-	'ie',
-	'firefox',
-	'edge',
-	'safari',
-	'iphone',
-	'ipad',
-	'android'
+	// 'ie',
+	// 'firefox',
+	// 'edge',
+	// 'safari',
+	// 'iphone',
+	// 'ipad',
+	// 'android'
 ];
 
 export const devices = [

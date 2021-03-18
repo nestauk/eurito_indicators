@@ -1,0 +1,67 @@
+name: Browser Support Tests
+
+on:
+  pull_request:
+    branches: dev
+
+jobs:
+  browserstack-controller:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+    - name: 'BrowserStack Environment Setup'
+      uses: 'browserstack/github-actions/setup-env@master'
+      with:
+        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+        access-key: ${{ secrets.BROWSERSTACK_KEY }}
+        build-name: BUILD_INFO
+        project-name: REPO_NAME
+
+    - name: 'BrowserStackLocal Setup'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: start
+        local-identifier: random
+
+    - name: 'Checkout the repository'
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: 'Install npm modules'
+      run: npm ci
+
+    - name: 'Remove all but one indicator'
+      run: cd data/processed && ls -Q | grep -v broadband | xargs rm -R && cd ../..
+    - run: npm run makedata
+
+    - name: 'Build webapp'
+      run: npm run build --if-present
+
+    - name: 'Start local server'
+      run: npm run start &
+
+    - name: 'Run tests on Browserstack'
+      run: npm run selenium
+
+    - name: 'Save results in Gist'
+      uses: popsiclestick/gist-sync-action@v1.2.0
+      id: sync
+      with:
+        auth: ${{ secrets.BROWSERSTACK_GIST_TOKEN }}
+        gist_url: https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e
+        gist_title: Browserstack test results for Eurito Indicators webapp
+        gist_description: Browserstack test results for Eurito Indicators webapp
+        github_file: data/tests/selenium-report.json
+
+    - name: 'BrowserStackLocal Stop'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: stop

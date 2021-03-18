@@ -5,20 +5,20 @@ import {capitalize} from '@svizzle/utils';
 import Queue from "queue-promise";
 import Caps from 'browserstack-capabilities';
 import webdriver from 'selenium-webdriver';
-import config from './.config.mjs';
 import * as options from './options.mjs';
 
 const {until, By} = webdriver;
 
-const {
-	username,
-	key,
-	url,
-	target,
-	tests,
-	report
-} = config.browserstack;
+const username = process.env.BROWSERSTACK_USERNAME;
+const key = process.env.BROWSERSTACK_ACCESS_KEY;
+const localIdentifier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
+const projectName = process.env.BROWSERSTACK_PROJECT_NAME;
+const buildName = process.env.BROWSERSTACK_BUILD_NAME;
 
+const url = 'hub-cloud.browserstack.com/wd/hub';
+const tests = 'test/browserstack/scripts/automate';
+const target = 'http://localhost:3000';
+const report = 'data/tests/selenium-report.json';
 const browserstackURL = `https://${username}:${key}@${url}`;
 const optionsKey = 'bstack:options';
 const results = [];
@@ -104,7 +104,10 @@ const s4caps = devicesCaps.map(deviceCaps => ({
 		os: deviceCaps.os,
 		osVersion: deviceCaps.os_version,
 		consoleLogs: 'errors',
-		// local: true,
+		local: true,
+		localIdentifier,
+		projectName,
+		buildName
 	}
 }));
 
