@@ -12,6 +12,9 @@ However, it still needs some heavy refactoring and cleanup.
 
 A Github action is configured in `.github/workflows/node.js.yml` to 
 automatically launch the Selenium tests on Browserstack when pushing to a PR.
+Test results for the original repository can be found here:
+https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e .
+
 Forks of the repository should be configured with the following secrets in the
 settings in Github:
 
