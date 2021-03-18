@@ -16,7 +16,7 @@ Forks of the repository should be configured with the following secrets in the
 settings in Github:
 
  * `BROWSERSTACK_USERNAME`: The account name to use in Browserstack.
- * `BROWSERSTACK_KEY`: The access key provided by Browserstack.
+ * `BROWSERSTACK_ACCESS_KEY`: The access key provided by Browserstack.
  * `BROWSERSTACK_GIST_TOKEN`: A Github token authorized to create Gists.
 
 TODO:
