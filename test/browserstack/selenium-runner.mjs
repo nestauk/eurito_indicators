@@ -111,19 +111,17 @@ function runTest (s4caps, task) {
 			queue.enqueue(doTest({deviceOrientation: 'portrait'}));
 			queue.enqueue(doTest({deviceOrientation: 'landscape'}));
 		} else {
-			const {os} = caps[optionsKey];
-			const versions = options.operatingSystems[os];
-			Object.keys(versions).forEach(version => {
-				const resolutions = versions[version];
-				resolutions.forEach(resolution => {
-					queue.enqueue(doTest({
-						resolution,
-						[optionsKey]: {
-							...caps[optionsKey],
-							osVersion: version
-						}
-					}));
-				});
+			const {os, osVersion} = caps[optionsKey];
+			const resolutionsByOsVersions = options.operatingSystems[os];
+			const resolutions = resolutionsByOsVersions[osVersion];
+			resolutions.forEach(resolution => {
+				queue.enqueue(doTest({
+					resolution,
+					[optionsKey]: {
+						...caps[optionsKey],
+						osVersion: version
+					}
+				}));
 			});
 		}
 	});
