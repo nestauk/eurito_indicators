@@ -110,7 +110,7 @@ const windowsResolutions = [
 	// '1920x1080',
 	// '2048x1536'
 ];
-export const windowsResolutionsOlder = ['800x600', ...windowsResolutions];
+export const windowsResolutionsOlder = [/* '800x600', */...windowsResolutions];
 const osxResolutions = [
 	'1024x768',
 	'1280x960',
