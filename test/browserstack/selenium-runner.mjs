@@ -17,7 +17,6 @@ const buildName = process.env.BROWSERSTACK_BUILD_NAME;
 
 const browsersUrl = 'api.browserstack.com/5/browsers?flat=true';
 async function getBrowsers () {
-	console.log(`https://${username}:${key}@${browsersUrl}`);
 	const response = await fetch(`https://${username}:${key}@${browsersUrl}`);
 	return response.json();
 }

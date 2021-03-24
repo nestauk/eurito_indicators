@@ -136,6 +136,8 @@ export const operatingSystems = {
 		'El Capitan': osxResolutions,
 		'Sierra': osxResolutions,
 		'High Sierra': osxResolutions,
-		'Mojave': osxResolutions
+		'Mojave': osxResolutions,
+		'Catalina': osxResolutions,
+		'Big Sur': osxResolutions,
 	}
 };
