@@ -14,6 +14,8 @@ const key = process.env.BROWSERSTACK_ACCESS_KEY;
 const localIdentifier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 const projectName = process.env.BROWSERSTACK_PROJECT_NAME;
 const buildName = process.env.BROWSERSTACK_BUILD_NAME;
+const timeout = (prom, time) =>
+	Promise.race([prom, new Promise((_r, rej) => setTimeout(rej, time))]);
 
 const browsersUrl = 'api.browserstack.com/5/browsers?flat=true';
 async function getBrowsers () {
@@ -63,15 +65,19 @@ async function run (test, capabilities) {
 		.withCapabilities(capabilities)
 		.build();
 
-		const testResult = await test({
-			capabilities,
-			driver,
-			By,
-			until,
-			target,
-			fail: message => fail(driver, message),
-			log: message => log(capabilities, message)
-		});
+		const testResult = await timeout(
+			test({
+				capabilities,
+				driver,
+				By,
+				until,
+				target,
+				fail: message => fail(driver, message),
+				log: message => log(capabilities, message)
+			}),
+			30000
+		);
+
 		return {
 			capabilities,
 			result: testResult
