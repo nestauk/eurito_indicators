@@ -115,13 +115,7 @@ function runTest (s4caps, task) {
 			const resolutionsByOsVersions = options.operatingSystems[os];
 			const resolutions = resolutionsByOsVersions[osVersion];
 			resolutions.forEach(resolution => {
-				queue.enqueue(doTest({
-					resolution,
-					[optionsKey]: {
-						...caps[optionsKey],
-						osVersion: version
-					}
-				}));
+				queue.enqueue(doTest({resolution}));
 			});
 		}
 	});
