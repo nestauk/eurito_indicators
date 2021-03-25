@@ -14,9 +14,13 @@ const key = process.env.BROWSERSTACK_ACCESS_KEY;
 const localIdentifier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 const projectName = process.env.BROWSERSTACK_PROJECT_NAME;
 const buildName = process.env.BROWSERSTACK_BUILD_NAME;
-const timeout = (prom, time) =>
-	Promise.race([prom, new Promise((_r, rej) => setTimeout(rej, time))]);
-
+const timeout = (prom, time, exception) => {
+	let timer;
+	return Promise.race([
+		prom,
+		new Promise((_r, rej) => timer = setTimeout(rej, time, exception))
+	]).finally(() => clearTimeout(timer));
+}
 const browsersUrl = 'api.browserstack.com/5/browsers?flat=true';
 async function getBrowsers () {
 	const response = await fetch(`https://${username}:${key}@${browsersUrl}`);
@@ -57,6 +61,7 @@ function fail (driver, message) {
 	// TODO notify faliure
 }
 
+const timeoutError = Symbol();
 async function run (test, capabilities) {
 	let driver;
 	try {
@@ -75,7 +80,8 @@ async function run (test, capabilities) {
 				fail: message => fail(driver, message),
 				log: message => log(capabilities, message)
 			}),
-			30000
+			30000,
+			timeoutError
 		);
 
 		return {
@@ -83,6 +89,9 @@ async function run (test, capabilities) {
 			result: testResult
 		}
 	} catch (e) {
+		if (e === timeoutError) {
+			e = "Timeout!"
+		}
 		err(capabilities, e);
 		return {
 			capabilities,
