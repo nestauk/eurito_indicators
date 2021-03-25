@@ -1,13 +1,50 @@
 <script>
 	import {onMount} from 'svelte';
+	import * as _ from 'lamb';
 	import Bowser from "bowser";
 	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 
+	const testResultsURL = 'https://gist.githubusercontent.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e/raw/ac2d0af59d44160f1ee64fdc14f564d84cd929f8/Browserstack%2520test%2520results%2520for%2520Eurito%2520Indicators%2520webapp';
 	let environment;
+	let testResults;
+	let indexedResults;
+	let thisPlatform = null
+
+	const getOS = _.getPath('capabilities.bstack:options.os');
+	const getVersion = _.getPath('capabilities.bstack:options.osVersion');
+	const getBrowser = _.getPath('capabilities.browserName');
+	const getBrowserV = _.getPath('capabilities.browserVersion');
+	const groupTests = _.pipe([
+		_.groupBy(getOS),
+		_.mapValuesWith(_.pipe([
+			_.groupBy(getVersion),
+			_.mapValuesWith(_.pipe([
+				_.groupBy(getBrowser),
+				_.mapValuesWith(_.pipe([
+					_.groupBy(getBrowserV),
+				])),
+			])),
+		])),
+	]);
+
+	const getTest = env => {
+		if (!env) {
+			return null;
+		}
+		thisPlatform = indexedResults[env.os.name][env.os.versionName][env.browser]
+	}
+
+	async function loadResults() {
+		const response = await fetch(testResultsURL);
+		testResults = await response.json();
+		indexedResults = groupTests(testResults);
+		console.log(testResults);
+	}
 
 	onMount(() => {
 		environment = Bowser.parse(window.navigator.userAgent);
 		console.log(environment);
+		loadResults();
 	})
 </script>
 
@@ -26,15 +63,15 @@
 			<dt>Platform</dt>
 			<dd>{environment?.platform.type}</dd>
 			<dt>Operating System</dt>
-			<dd>{environment?.os.name} {environment?.os.version}</dd>
+			<dd>{environment?.os.name} - {environment?.os.versionName}</dd>
 			<dt>Browser</dt>
-			<dd>{environment?.browser.name} {environment?.browser.version}</dd>
+			<dd>{environment?.browser.name} - {environment?.browser.version}</dd>
 			<dt>Engine</dt>
-			<dd>{environment?.engine.name} {environment?.engine.version}</dd>
+			<dd>{environment?.engine.name} - {environment?.engine.version || ''}</dd>
 		</dl>
 
 		<h2>Compatibility Testing Results</h2>
-		<p>(TODO: Passed/Failed/Unknown)</p>
+		<pre>{JSON.stringify(thisPlatform, null, 2)}</pre>
 	</section>
 </main>
 
