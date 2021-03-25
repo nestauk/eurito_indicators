@@ -121,6 +121,10 @@ function runTest (s4caps, task) {
 			...caps,
 			...extra
 		}));
+		// Temporary sisnce filtering was removed
+		if (caps.browserName !== 'chrome') {
+			return;
+		}
 		if (caps.device) {
 			queue.enqueue(doTest({deviceOrientation: 'portrait'}));
 			queue.enqueue(doTest({deviceOrientation: 'landscape'}));
