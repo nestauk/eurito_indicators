@@ -1,13 +1,13 @@
 export const browsers = [
-	// 'opera',
+	'opera',
 	'chrome',
-	// 'ie',
-	// 'firefox',
-	// 'edge',
-	// 'safari',
-	// 'iphone',
-	// 'ipad',
-	// 'android'
+	'ie',
+	'firefox',
+	'edge',
+	'safari',
+	'iphone',
+	'ipad',
+	'android'
 ];
 
 export const devices = [
@@ -113,10 +113,10 @@ const windowsResolutions = [
 export const windowsResolutionsOlder = [/* '800x600', */...windowsResolutions];
 const osxResolutions = [
 	'1024x768',
-	'1280x960',
-	'1280x1024',
-	'1600x1200',
-	'1920x1080'
+	// '1280x960',
+	// '1280x1024',
+	// '1600x1200',
+	// '1920x1080'
 ];
 
 export const operatingSystems = {

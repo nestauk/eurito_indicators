@@ -47,5 +47,19 @@ export const environments = [
 		"browser": "safari",
 		"browser_version": "14.0",
 		"device": null
+	},
+	{
+		"os": "OS X",
+		"os_version": "Big Sur",
+		"browser": "safari",
+		"browser_version": "14.0",
+		"device": null
+	},
+	{
+		"os": "OS X",
+		"os_version": "Catalina",
+		"browser": "safari",
+		"browser_version": "13.1",
+		"device": null
 	}
 ];
