@@ -4,7 +4,7 @@
 	import Bowser from "bowser";
 	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 
-	const testResultsURL = 'https://gist.githubusercontent.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e/raw/ac2d0af59d44160f1ee64fdc14f564d84cd929f8/Browserstack%2520test%2520results%2520for%2520Eurito%2520Indicators%2520webapp';
+	const testResultsURL = 'https://gist.githubusercontent.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e/raw/Browserstack%20test%20results%20for%20Eurito%20Indicators%20webapp';
 	let environment;
 	let testResults;
 	let indexedResults;
@@ -27,17 +27,30 @@
 		])),
 	]);
 
+	const osMap = {
+		'Windows': 'Windows',
+		'macOS': 'OS X'
+	};
+	const browserMap = {
+		'Microsoft Edge': 'Edge',
+		'Chrome': 'Chrome',
+		'Safari': 'Safari',
+		'Firefox': 'Firefox'
+	};
+
 	const getTest = env => {
-		if (!env) {
-			return null;
-		}
-		thisPlatform = indexedResults[env.os.name][env.os.versionName][env.browser]
-	}
+		const os = osMap[env.os.name];
+		const osVersion = env.os.versionName;
+		const browser = browserMap[env.browser.name];
+		const browserVersion = env.browser.version.split('.').slice(0,2).join('.');
+		thisPlatform = indexedResults[os][osVersion][browser][browserVersion];
+	};
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
 		testResults = await response.json();
 		indexedResults = groupTests(testResults);
+		getTest(environment);
 		console.log(testResults);
 	}
 
