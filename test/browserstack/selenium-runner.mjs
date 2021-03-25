@@ -7,6 +7,8 @@ import Queue from "queue-promise";
 import webdriver from 'selenium-webdriver';
 import * as options from './options.mjs';
 
+import {environments} from './environments.mjs';
+
 const {until, By} = webdriver;
 
 const username = process.env.BROWSERSTACK_USERNAME;
@@ -61,7 +63,7 @@ function fail (driver, message) {
 	// TODO notify faliure
 }
 
-const timeoutError = Symbol();
+const TIMEOUT_ERROR = Symbol();
 async function run (test, capabilities) {
 	let driver;
 	try {
@@ -80,8 +82,8 @@ async function run (test, capabilities) {
 				fail: message => fail(driver, message),
 				log: message => log(capabilities, message)
 			}),
-			30000,
-			timeoutError
+			20000,
+			TIMEOUT_ERROR
 		);
 
 		return {
@@ -89,7 +91,7 @@ async function run (test, capabilities) {
 			result: testResult
 		}
 	} catch (e) {
-		if (e === timeoutError) {
+		if (e === TIMEOUT_ERROR) {
 			e = "Timeout!"
 		}
 		err(capabilities, e);
@@ -121,10 +123,6 @@ function runTest (s4caps, task) {
 			...caps,
 			...extra
 		}));
-		// Temporary sisnce filtering was removed
-		if (caps.browserName !== 'chrome') {
-			return;
-		}
 		if (caps.device) {
 			queue.enqueue(doTest({deviceOrientation: 'portrait'}));
 			queue.enqueue(doTest({deviceOrientation: 'landscape'}));
@@ -142,7 +140,8 @@ function runTest (s4caps, task) {
 // 2. load and run tests
 async function runAll() {
 	// 2a. Get filtered capabilities through Browserstack API
-	const devicesCaps = await getBrowsers();
+	// const devicesCaps = await getBrowsers();
+	const devicesCaps = environments;
 
 	// 2b. Convert to Selenium 4 format
 	const s4caps = devicesCaps.map(deviceCaps => ({
