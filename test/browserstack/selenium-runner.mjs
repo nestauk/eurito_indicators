@@ -157,14 +157,23 @@ async function runAll() {
 			projectName,
 			buildName
 		}
-	})).filter(caps => 
-		['Chrome', 'Safari', 'Firefox', 'Edge'].includes(caps.browserName)
-	).filter(caps => {
+	})).filter(caps => {
+		if (caps.device) {
+			return true;
+		}
 		const minV = parseFloat(options.minVersions[caps.browserName]);
 		const currV = parseFloat(caps.browserVersion);
 		return minV < currV;
-	});
-
+	}).filter(caps =>
+		[
+			'Chrome',
+			'Safari',
+			'Firefox',
+			'Edge',
+			'Android Browser',
+			'Mobile Safari'
+		].includes(caps.browserName)
+	);
 	console.log('Configurations:', s4caps.length);
 
 	const files = await fs.readdir(tests);
