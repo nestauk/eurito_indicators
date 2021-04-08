@@ -141,3 +141,11 @@ export const operatingSystems = {
 		'Big Sur': osxResolutions,
 	}
 };
+
+export const minVersions = {
+	"Chrome": "72.0",
+	"Opera": "58.0",
+	"Firefox": "65.0",
+	"Safari": "13.0",
+	"Edge": "44.0"
+};

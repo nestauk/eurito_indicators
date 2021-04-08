@@ -159,9 +159,14 @@ async function runAll() {
 		}
 	})).filter(caps => 
 		['Chrome', 'Safari', 'Firefox', 'Edge'].includes(caps.browserName)
-	);
+	).filter(caps => {
+		const minV = parseFloat(options.minVersions[caps.browserName]);
+		const currV = parseFloat(caps.browserVersion);
+		return minV < currV;
+	});
 
 	console.log('Configurations:', s4caps.length);
+
 	const files = await fs.readdir(tests);
 
 	const modulePromises = files.map(file => import(path.resolve(tests, file)));
