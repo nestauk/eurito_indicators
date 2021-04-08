@@ -10,12 +10,11 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Usage Guide</title>
+	<title>EURITO CSVs - Guide</title>
 </svelte:head>
 
 <main class={$screenGauge?.classes}>
 	<section>
-		<!-- <pre id='info'>{JSON.stringify($screenGauge || {})}</pre> -->
 		<h1>How to explore the indicators</h1>
 
 		<!-- main -->

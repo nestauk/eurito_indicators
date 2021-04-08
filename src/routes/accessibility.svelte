@@ -3,66 +3,26 @@
 	import * as _ from 'lamb';
 	import Bowser from "bowser";
 	import {screenGauge} from 'app/components/ScreenGauge.svelte';
+	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
 
-	const testResultsURL = 'https://gist.githubusercontent.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e/raw/Browserstack%20test%20results%20for%20Eurito%20Indicators%20webapp';
 	let environment;
-	let testResults;
-	let indexedResults;
-	let thisPlatform = null
-
-	const getOS = _.getPath('capabilities.bstack:options.os');
-	const getVersion = _.getPath('capabilities.bstack:options.osVersion');
-	const getBrowser = _.getPath('capabilities.browserName');
-	const getBrowserV = _.getPath('capabilities.browserVersion');
-	const groupTests = _.pipe([
-		_.groupBy(getOS),
-		_.mapValuesWith(_.pipe([
-			_.groupBy(getVersion),
-			_.mapValuesWith(_.pipe([
-				_.groupBy(getBrowser),
-				_.mapValuesWith(_.pipe([
-					_.groupBy(getBrowserV),
-				])),
-			])),
-		])),
-	]);
-
-	const osMap = {
-		'Windows': 'Windows',
-		'macOS': 'OS X'
-	};
-	const browserMap = {
-		'Microsoft Edge': 'Edge',
-		'Chrome': 'Chrome',
-		'Safari': 'Safari',
-		'Firefox': 'Firefox'
-	};
-
-	const getTest = env => {
-		const os = osMap[env.os.name];
-		const osVersion = env.os.versionName;
-		const browser = browserMap[env.browser.name];
-		const browserVersion = env.browser.version.split('.').slice(0,2).join('.');
-		thisPlatform = indexedResults[os][osVersion][browser][browserVersion];
-	};
+	let testResults = null
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
-		testResults = await response.json();
-		indexedResults = groupTests(testResults);
-		getTest(environment);
-		console.log(testResults);
+		const allTests = await response.json();
+		const indexedResults = groupTests(allTests);
+		testResults = getTest(indexedResults, environment);
 	}
 
 	onMount(() => {
 		environment = Bowser.parse(window.navigator.userAgent);
-		console.log(environment);
 		loadResults();
 	})
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Accessibility Statement</title>
+	<title>EURITO CSVs - Accessibility</title>
 </svelte:head>
 
 <main class={$screenGauge?.classes}>
@@ -84,7 +44,7 @@
 		</dl>
 
 		<h2>Compatibility Testing Results</h2>
-		<pre>{JSON.stringify(thisPlatform, null, 2)}</pre>
+		<pre>{JSON.stringify(testResults, null, 2)}</pre>
 	</section>
 </main>
 
