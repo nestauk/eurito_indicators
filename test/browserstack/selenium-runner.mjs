@@ -7,7 +7,7 @@ import Queue from "queue-promise";
 import webdriver from 'selenium-webdriver';
 import * as options from './options.mjs';
 
-import {environments} from './environments.mjs';
+// import {environments} from './environments.mjs';
 
 const {until, By} = webdriver;
 
@@ -140,8 +140,8 @@ function runTest (s4caps, task) {
 // 2. load and run tests
 async function runAll() {
 	// 2a. Get filtered capabilities through Browserstack API
-	// const devicesCaps = await getBrowsers();
-	const devicesCaps = environments;
+	const devicesCaps = await getBrowsers();
+	// const devicesCaps = environments;
 
 	// 2b. Convert to Selenium 4 format
 	const s4caps = devicesCaps.map(deviceCaps => ({
@@ -157,7 +157,9 @@ async function runAll() {
 			projectName,
 			buildName
 		}
-	}));
+	})).filter(caps => 
+		['Chrome', 'Safari', 'Firefox', 'Edge'].includes(caps.browserName)
+	);
 
 	console.log('Configurations:', s4caps.length);
 	const files = await fs.readdir(tests);
