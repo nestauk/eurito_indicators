@@ -1,13 +1,13 @@
 export const browsers = [
-	// 'opera',
+	'opera',
 	'chrome',
-	// 'ie',
-	// 'firefox',
-	// 'edge',
-	// 'safari',
-	// 'iphone',
-	// 'ipad',
-	// 'android'
+	'ie',
+	'firefox',
+	'edge',
+	'safari',
+	'iphone',
+	'ipad',
+	'android'
 ];
 
 export const devices = [
@@ -100,23 +100,23 @@ export const devices = [
 
 const windowsResolutions = [
 	'1024x768',
-	'1280x800',
-	'1280x1024',
-	'1366x768',
-	'1440x900',
-	'1680x1050',
-	'1600x1200',
-	'1920x1200',
-	'1920x1080',
-	'2048x1536'
+	// '1280x800',
+	// '1280x1024',
+	// '1366x768',
+	// '1440x900',
+	// '1680x1050',
+	// '1600x1200',
+	// '1920x1200',
+	// '1920x1080',
+	// '2048x1536'
 ];
-export const windowsResolutionsOlder = ['800x600', ...windowsResolutions];
+export const windowsResolutionsOlder = [/* '800x600', */...windowsResolutions];
 const osxResolutions = [
 	'1024x768',
-	'1280x960',
-	'1280x1024',
-	'1600x1200',
-	'1920x1080'
+	// '1280x960',
+	// '1280x1024',
+	// '1600x1200',
+	// '1920x1080'
 ];
 
 export const operatingSystems = {
@@ -136,6 +136,21 @@ export const operatingSystems = {
 		'El Capitan': osxResolutions,
 		'Sierra': osxResolutions,
 		'High Sierra': osxResolutions,
-		'Mojave': osxResolutions
+		'Mojave': osxResolutions,
+		'Catalina': osxResolutions,
+		'Big Sur': osxResolutions,
 	}
+};
+
+
+/*
+Earliest browser versions published in 2019.
+Taken from https://en.wikipedia.org/wiki/Timeline_of_web_browsers#2010s
+*/
+export const minVersions = {
+	"Chrome": "72.0",
+	"Opera": "58.0",
+	"Firefox": "65.0",
+	"Safari": "13.0",
+	"Edge": "44.0"
 };
