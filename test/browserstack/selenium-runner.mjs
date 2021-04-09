@@ -16,11 +16,13 @@ const key = process.env.BROWSERSTACK_ACCESS_KEY;
 const localIdentifier = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 const projectName = process.env.BROWSERSTACK_PROJECT_NAME;
 const buildName = process.env.BROWSERSTACK_BUILD_NAME;
-const timeout = (prom, time, exception) => {
+const timeout = (promise, time, exception) => {
 	let timer;
 	return Promise.race([
-		prom,
-		new Promise((_r, rej) => timer = setTimeout(rej, time, exception))
+		promise,
+		new Promise((_resolve, reject) => 
+			timer = setTimeout(reject, time, exception)
+		)
 	]).finally(() => clearTimeout(timer));
 }
 const browsersUrl = 'api.browserstack.com/5/browsers?flat=true';

@@ -142,6 +142,11 @@ export const operatingSystems = {
 	}
 };
 
+
+/*
+Earliest browser versions published in 2019.
+Taken from https://en.wikipedia.org/wiki/Timeline_of_web_browsers#2010s
+*/
 export const minVersions = {
 	"Chrome": "72.0",
 	"Opera": "58.0",
