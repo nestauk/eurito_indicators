@@ -24,7 +24,7 @@
 	$: rootStyle
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 	$: rootStyle
-		&& (rootStyle.variation = $fontVariation);
+		&& (rootStyle.fontStretch = $fontVariation);
 </script>
 
 <ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
