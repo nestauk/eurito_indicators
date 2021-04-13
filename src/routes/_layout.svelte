@@ -4,7 +4,7 @@
 	import Nav from 'app/components/Nav.svelte';
 	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import {fontFamily, fontScaling, fontVariation} from 'app/stores/fontScaling';
+	import {fontFamily, fontScaling, fontVariationSettings} from 'app/stores/fontScaling';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -24,7 +24,7 @@
 	$: rootStyle
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 	$: rootStyle
-		&& (rootStyle.fontStretch = $fontVariation);
+		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
 </script>
 
 <ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
@@ -32,11 +32,11 @@
 {#if $screenGauge?.size.medium}
 	<header>
 		<Nav {segment} screen={$screenGauge}/>
-		<AccessibilityMenu/>
 	</header>
 {/if}
 
 <main>
+	<AccessibilityMenu/>
 	<slot></slot>
 </main>
 
