@@ -6,4 +6,5 @@ _
 /src/node_modules/@sapper/
 /static/data/
 !/static/data/tests
+/static/font/unused/
 /test/browserstack/.config.mjs
