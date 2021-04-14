@@ -1,6 +1,6 @@
 <script>
 	import {screenGauge} from 'app/components/ScreenGauge.svelte';
-	import {fontScaling} from 'app/stores/fontScaling';
+	import {fontScaling} from 'app/stores/font';
 
 	const sizes = {
 		rem: '1rem',
