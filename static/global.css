@@ -1,19 +1,15 @@
 /*
 @font-face {
 	font-family: 'Open Sans Light';
-	src: url('/font/OpenSans-Light.ttf') format('truetype');
+	src: url('/font/unused/OpenSans-Light.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Open Sans Regular';
-	src: url('/font/OpenSans-Regular.ttf') format('truetype');
+	src: url('/font/unused/OpenSans-Regular.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Open Sans Semibold';
-	src: url('/font/OpenSans-Semibold.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'clfallback';
-    src: url('/font/OpenDyslexic3-Regular.otf') format('opentype')
+	src: url('/font/unused/OpenSans-Semibold.ttf') format('truetype');
 }
 */
 @font-face {
