@@ -54,11 +54,19 @@
 	font-family: 'Avenir Next Variable';
 	src: url('/font/AvenirNext/Variable.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'Noboto Flex';
+	src: url('/font/NobotoFlex/Variable.woff2');
+}
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	font-family: sans-serif;
 }
 
 html, body, #app {
