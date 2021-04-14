@@ -69,16 +69,16 @@
 	}
 
 	h1 {
-		font-family: 'Open Sans Semibold', sans-serif;
+		font-weight: bold;
 	}
 	h2 {
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
-		font-family: 'Open Sans Regular', sans-serif;
+		font-weight: normal;
 	}
 	h3 {
 		margin-top: 1.5rem;
-		font-family: 'Open Sans Regular', sans-serif;
+		font-weight: normal;
 	}
 
 	p, ul {

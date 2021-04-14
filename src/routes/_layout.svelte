@@ -1,9 +1,10 @@
 <script>
 	import {onMount} from 'svelte';
-	import {fontScaling} from 'app/stores/fontScaling';
 
 	import Nav from 'app/components/Nav.svelte';
 	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
+	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	import {fontFamily, fontScaling, fontVariationSettings} from 'app/stores/font';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -18,8 +19,12 @@
 	})
 
 	// set document root element font size so that `rem` units work
-	$: rootStyle 
+	$: rootStyle
+		&& (rootStyle.fontFamily = $fontFamily);
+	$: rootStyle
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
+	$: rootStyle
+		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
 </script>
 
 <ScreenGauge bands={[60, 82, 100, 120]} devMode={dev} />
@@ -31,6 +36,7 @@
 {/if}
 
 <main>
+	<AccessibilityMenu/>
 	<slot></slot>
 </main>
 
