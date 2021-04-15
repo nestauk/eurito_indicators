@@ -42,10 +42,7 @@
 		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
 </script>
 
-<ScreenGauge
-	bands={[45, 90, 135, 180]}
-	devMode={dev}
-/>
+<ScreenGauge devMode={dev} />
 
 {#if $screen?.sizeFlags.medium}
 	<header>

@@ -2,7 +2,7 @@
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
 	import Bowser from "bowser";
-	import ScreenGauge from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+
 	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
 
 	let environment;
@@ -25,7 +25,7 @@
 	<title>EURITO CSVs - Accessibility</title>
 </svelte:head>
 
-<main class={$screenGauge?.classes}>
+<main>
 	<section>
 		<h1>Accessibility</h1>
 
@@ -76,25 +76,8 @@
 		margin-top: 1.5rem;
 		font-weight: normal;
 	}
-	h3 {
-		margin-top: 1.5rem;
-		font-weight: normal;
-	}
 
-	p, ul {
+	p {
 		line-height: 2rem;
-	}
-
-	a {
-		text-decoration: none;
-		font-weight: bold;
-	}
-
-	p a {
-		padding: 0.1rem;
-		border-bottom: 1px solid var(--color-link);
-		color: var(--color-link);
-		text-decoration: none;
-		font-weight: bold;
 	}
 </style>
