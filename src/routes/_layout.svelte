@@ -4,7 +4,14 @@
 	import Nav from 'app/components/Nav.svelte';
 	import ScreenGauge, {screenGauge} from 'app/components/ScreenGauge.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import {fontFamily, fontScaling, fontVariationSettings} from 'app/stores/font';
+	import {
+		fontFamily, 
+		fontScaling, 
+		fontVariationSettings,
+		letterSpacing,
+		wordSpacing,
+		lineHeight
+	} from 'app/stores/font';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -23,6 +30,12 @@
 		&& (rootStyle.fontFamily = $fontFamily);
 	$: rootStyle
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
+	$: rootStyle
+		&& (rootStyle.letterSpacing = $letterSpacing);
+	$: rootStyle
+		&& (rootStyle.wordSpacing = $wordSpacing);
+	$: rootStyle
+		&& (rootStyle.lineHeight = $lineHeight);
 	$: rootStyle
 		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
 </script>
