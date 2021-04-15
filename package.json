@@ -1,9 +1,9 @@
 {
 	"author": "nestauk (https://www.nesta.org.uk/)",
 	"dependencies": {
-		"@svizzle/time_region_value": "https://github.com/nestauk/svizzle/raw/eurito_deploy/packages/components/time_region_value/pkg/0.1.0-dev.0.tar.gz",
-		"@svizzle/ui": "https://github.com/nestauk/svizzle/raw/eurito_deploy/packages/components/ui/pkg/0.2.0-dev.0.tar.gz",
-		"@svizzle/utils": "^0.12.0",
+		"@svizzle/time_region_value": "^0.1.1",
+		"@svizzle/ui": "^0.2.0",
+		"@svizzle/utils": "^0.13.0",
 		"d3-array": "^2.9.1",
 		"lamb": "^0.59.2",
 		"node-fetch": "^2.6.1",

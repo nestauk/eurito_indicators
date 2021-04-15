@@ -1,7 +1,6 @@
 <script>
+	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-
-	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 
 	const beisUrl = 'https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy';
 	const nestaUrl = 'https://www.nesta.org.uk';
@@ -12,7 +11,7 @@
 	<title>EURITO CSVs - Home</title>
 </svelte:head>
 
-<main class={$screenGauge?.classes}>
+<main class={$screen?.classes}>
 	<section>
 		<h1>BEIS indicators</h1>
 

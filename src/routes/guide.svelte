@@ -1,7 +1,7 @@
 <script>
+	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
-	import {screenGauge} from 'app/components/ScreenGauge.svelte';
 	import {allNUTS2IndicatorsCsvName, availableDownloadIds} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
@@ -13,7 +13,7 @@
 	<title>EURITO CSVs - Guide</title>
 </svelte:head>
 
-<main class={$screenGauge?.classes}>
+<main class={$screen?.classes}>
 	<section>
 		<h1>How to explore the indicators</h1>
 
