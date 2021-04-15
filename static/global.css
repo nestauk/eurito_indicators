@@ -49,6 +49,7 @@
 
 html {
 	font-family: sans-serif;
+	line-height: 1.5;
 }
 
 html, body, #app {
@@ -59,7 +60,6 @@ html, body, #app {
 body {
 	background-color: white;
 	color: #333;
-	line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
