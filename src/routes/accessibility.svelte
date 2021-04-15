@@ -2,7 +2,7 @@
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
 	import Bowser from "bowser";
-	import {screenGauge} from 'app/components/ScreenGauge.svelte';
+	import ScreenGauge from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
 
 	let environment;

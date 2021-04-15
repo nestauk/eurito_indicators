@@ -29,11 +29,8 @@
 
 	// set document root element font size so that `rem` units work
 	$: rootStyle
-<<<<<<< dev
 		&& (rootStyle.fontFamily = $fontFamily);
 	$: rootStyle
-=======
->>>>>>> Update deps
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 	$: rootStyle
 		&& (rootStyle.letterSpacing = $letterSpacing);
