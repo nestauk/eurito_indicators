@@ -3,6 +3,7 @@
 	import ScreenGauge, {screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
+	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import {
@@ -13,6 +14,7 @@
 		wordSpacing,
 		lineHeight
 	} from 'app/stores/font';
+	import {colorCorrectionOptions} from 'app/stores/color';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -43,6 +45,7 @@
 </script>
 
 <ScreenGauge devMode={dev} />
+<ColorCorrection options={$colorCorrectionOptions} />
 
 {#if $screen?.sizeFlags.medium}
 	<header>
@@ -68,12 +71,10 @@
 		padding: 0 var(--dim-padding);
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
-
 	header.small {
 		border-top: 1px solid var(--color-main-lighter);
 		border-bottom: none;
 	}
-
 	main {
 		height: var(--dim-main-height);
 		width: 100%;
