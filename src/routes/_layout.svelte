@@ -23,8 +23,6 @@
 	let rootStyle;
 	let defaultFontSize;
 
-
-
 	onMount(() => {
 		const root = document.documentElement;
 		defaultFontSize = window.getComputedStyle(root).fontSize;
@@ -73,12 +71,10 @@
 		padding: 0 var(--dim-padding);
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
-
 	header.small {
 		border-top: 1px solid var(--color-main-lighter);
 		border-bottom: none;
 	}
-
 	main {
 		height: var(--dim-main-height);
 		width: 100%;
