@@ -16,7 +16,8 @@
 	} from 'app/stores/font';
 	import {
 		colorCorrectionOptions,
-		cvdFilter
+		colorCorrection,
+		cvdSimulation
 	} from 'app/stores/color';
 
 	const dev = process.env.NODE_ENV === 'development';
@@ -46,7 +47,9 @@
 	$: rootStyle
 		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
 	$: rootStyle
-		&& rootStyle.setProperty(...$cvdFilter);
+		&& rootStyle.setProperty(...$colorCorrection);
+	$: rootStyle
+		&& rootStyle.setProperty(...$cvdSimulation);
 </script>
 
 <ScreenGauge devMode={dev} />
