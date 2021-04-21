@@ -14,7 +14,10 @@
 		wordSpacing,
 		lineHeight
 	} from 'app/stores/font';
-	import {colorCorrectionOptions} from 'app/stores/color';
+	import {
+		colorCorrectionOptions,
+		cvdFilter
+	} from 'app/stores/color';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -42,6 +45,8 @@
 		&& (rootStyle.lineHeight = $lineHeight);
 	$: rootStyle
 		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
+	$: rootStyle
+		&& rootStyle.setProperty(...$cvdFilter);
 </script>
 
 <ScreenGauge devMode={dev} />
