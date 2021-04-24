@@ -39,9 +39,9 @@
 	$: rootStyle
 		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
 	$: rootStyle
-		&& (rootStyle.letterSpacing = $letterSpacing);
+		&& (rootStyle.letterSpacing = $letterSpacing + 'rem');
 	$: rootStyle
-		&& (rootStyle.wordSpacing = $wordSpacing);
+		&& (rootStyle.wordSpacing = $wordSpacing + 'rem');
 	$: rootStyle
 		&& (rootStyle.lineHeight = $lineHeight);
 	$: rootStyle
@@ -62,15 +62,17 @@
 {/if}
 
 <main>
-	<AccessibilityMenu/>
 	<slot></slot>
 </main>
+
 
 {#if !$screen?.sizeFlags.medium}
 	<header class='small'>
 		<Nav {segment} screen={$screen}/>
 	</header>
 {/if}
+
+<AccessibilityMenu/>
 
 <style>
 	header {
@@ -87,5 +89,6 @@
 		height: var(--dim-main-height);
 		width: 100%;
 		overflow: hidden;
+		position: relative;
 	}
 </style>
