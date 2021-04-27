@@ -3,9 +3,9 @@
 	import ScreenGauge, {screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
-	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	/*
 	import {
 		fontFamily, 
 		fontScaling, 
@@ -15,10 +15,10 @@
 		lineHeight
 	} from 'app/stores/font';
 	import {
-		colorCorrectionOptions,
 		colorCorrection,
-		cvdSimulation
+		a11ySettings
 	} from 'app/stores/color';
+	*/
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -33,6 +33,7 @@
 		rootStyle = root.style;
 	})
 
+	/*
 	// set document root element font size so that `rem` units work
 	$: rootStyle
 		&& (rootStyle.fontFamily = $fontFamily);
@@ -49,11 +50,11 @@
 	$: rootStyle
 		&& rootStyle.setProperty(...$colorCorrection);
 	$: rootStyle
-		&& rootStyle.setProperty(...$cvdSimulation);
+		&& rootStyle.setProperty(...$a11ySettings);
+	*/
 </script>
 
 <ScreenGauge devMode={dev} />
-<ColorCorrection options={$colorCorrectionOptions} />
 
 {#if $screen?.sizeFlags.medium}
 	<header>
