@@ -25,6 +25,8 @@
 
 	export let segment;
 
+	let contentHeight;
+
 	let rootStyle;
 	let defaultFontSize;
 
@@ -57,11 +59,11 @@
 
 <ScreenGauge devMode={dev} />
 
-<section class={'usercontent ' + $screen?.classes} >
+<section class={'usercontent ' + $screen?.classes} style={`--content-height: ${contentHeight}px`}>
 	<header>
 		<Nav {segment} screen={$screen}/>
 	</header>
-	<main>
+	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
 	</main>
 	<div class='accessibility'>
