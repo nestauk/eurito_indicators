@@ -1,4 +1,5 @@
 <script>
+	// import Accessibility from './accessibility.svelte';
 	import {onMount} from 'svelte';
 	import ScreenGauge, {screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
@@ -56,40 +57,56 @@
 
 <ScreenGauge devMode={dev} />
 
-{#if $screen?.sizeFlags.medium}
+<section class={'usercontent ' + $screen?.classes} >
 	<header>
 		<Nav {segment} screen={$screen}/>
 	</header>
-{/if}
-
-<main>
-	<slot></slot>
-</main>
-
-
-{#if !$screen?.sizeFlags.medium}
-	<header class='small'>
-		<Nav {segment} screen={$screen}/>
-	</header>
-{/if}
-
-<AccessibilityMenu/>
+	<main>
+		<slot></slot>
+	</main>
+	<div class='accessibility'>
+		<AccessibilityMenu/>
+	</div>
+</section>
 
 <style>
+	.usercontent {
+		display: grid;
+		grid-template-areas:
+			"content"
+			"nav"
+			"accessibility";
+			grid-template-rows: 1fr min-content min-content;
+			height: 100%;
+			overflow: hidden;
+	}
+	.medium.usercontent {
+		grid-template-areas:
+			"nav"
+			"content"
+			"accessibility";
+		grid-template-rows: min-content 1fr min-content;
+	}
+
 	header {
 		height: var(--dim-header-height);
 		width: 100%;
 		padding: 0 var(--dim-padding);
+		border-top: 1px solid var(--color-main-lighter);
+		grid-area: nav;
+	}
+	header.medium {
+		border-top: none;
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
-	header.small {
-		border-top: 1px solid var(--color-main-lighter);
-		border-bottom: none;
-	}
 	main {
-		height: var(--dim-main-height);
+		height: 100%;
 		width: 100%;
 		overflow: hidden;
 		position: relative;
+		grid-area: content;
+	}
+	.accessibility {
+		grid-area: accessibility;
 	}
 </style>
