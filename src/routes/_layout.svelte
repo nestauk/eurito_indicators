@@ -28,49 +28,29 @@
 	let contentHeight;
 
 	let rootStyle;
-	let defaultFontSize;
+	let showA11y;
 
 	onMount(() => {
-		const root = document.documentElement;
-		defaultFontSize = window.getComputedStyle(root).fontSize;
-		rootStyle = root.style;
-	})
+		rootStyle = document.documentElement.style;
+	});
 
 	$: rootStyle && applyStyles(rootStyle, $a11yStyles);
-
-	/*
-	// set document root element font size so that `rem` units work
-	$: rootStyle
-		&& (rootStyle.fontFamily = $fontFamily);
-	$: rootStyle
-		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
-	$: rootStyle
-		&& (rootStyle.letterSpacing = $letterSpacing + 'rem');
-	$: rootStyle
-		&& (rootStyle.wordSpacing = $wordSpacing + 'rem');
-	$: rootStyle
-		&& (rootStyle.lineHeight = $lineHeight);
-	$: rootStyle
-		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
-	$: rootStyle
-		&& rootStyle.setProperty(...$colorCorrection);
-	$: rootStyle
-		&& rootStyle.setProperty(...$a11ySettings);
-	*/
 </script>
 
 <ScreenGauge devMode={dev} />
 
 <section class={'usercontent ' + $screen?.classes} style={`--content-height: ${contentHeight}px`}>
 	<header>
-		<Nav {segment} screen={$screen}/>
+		<Nav {segment} screen={$screen} bind:showA11y />
 	</header>
 	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
 	</main>
-	<div class='accessibility'>
-		<AccessibilityMenu/>
-	</div>
+	{#if showA11y}
+		<div class='accessibility'>
+			<AccessibilityMenu/>
+		</div>
+	{/if}
 </section>
 
 <style>
