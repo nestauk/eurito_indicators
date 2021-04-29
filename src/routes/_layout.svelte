@@ -5,7 +5,7 @@
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
 	import Nav from 'app/components/Nav.svelte';
-	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	import AccessibilityMenu, {a11yStyles, applyStyles} from 'app/components/AccessibilityMenu.svelte';
 	/*
 	import {
 		fontFamily, 
@@ -35,6 +35,8 @@
 		defaultFontSize = window.getComputedStyle(root).fontSize;
 		rootStyle = root.style;
 	})
+
+	$: rootStyle && applyStyles(rootStyle, $a11yStyles);
 
 	/*
 	// set document root element font size so that `rem` units work
