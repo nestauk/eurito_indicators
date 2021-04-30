@@ -56,9 +56,9 @@
 <ScreenGauge devMode={dev} />
 <ColorCorrection options={$colorCorrectionOptions} />
 
-<section class={'usercontent ' + $screen?.classes} style={`--content-height: ${contentHeight}px`}>
+<section class={$screen?.classes}>
 	<header>
-		<Nav {segment} screen={$screen}/>
+		<Nav {segment} screen={$screen} {contentHeight}/>
 	</header>
 
 	<main bind:offsetHeight={contentHeight}>
@@ -68,21 +68,19 @@
 </section>
 
 <style>
-	.usercontent {
+	section {
 		display: grid;
 		height: 100%;
 		overflow: hidden;
 		grid-template-areas:
 			"content"
-			"nav"
-			"accessibility";
+			"nav";
 		grid-template-rows: 1fr min-content min-content;
 	}
-	.medium.usercontent {
+	section.medium {
 		grid-template-areas:
 			"nav"
-			"content"
-			"accessibility";
+			"content";
 		grid-template-rows: min-content 1fr min-content;
 	}
 	header {
