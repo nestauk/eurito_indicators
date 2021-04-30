@@ -54,12 +54,12 @@
 
 		<div class='cta'>
 			<LinkButton
-				url='/download'
+				href='/download'
 				text='Download all indicators'
 				withDownloadIcon={true}
 			/>
-			<LinkButton url='/guide' text='Read the guide' />
-			<LinkButton url='/indicators' text='Explore the indicators' />
+			<LinkButton href='/guide' text='Read the guide' />
+			<LinkButton href='/indicators' text='Explore the indicators' />
 		</div>
 	</section>
 </main>
