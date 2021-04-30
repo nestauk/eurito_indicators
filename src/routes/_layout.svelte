@@ -73,14 +73,14 @@
 		height: 100%;
 		overflow: hidden;
 		grid-template-areas:
-			"content"
-			"nav";
+			'content'
+			'nav';
 		grid-template-rows: 1fr min-content min-content;
 	}
 	section.medium {
 		grid-template-areas:
-			"nav"
-			"content";
+			'nav'
+			'content';
 		grid-template-rows: min-content 1fr min-content;
 	}
 	header {
