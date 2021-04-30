@@ -92,7 +92,7 @@
 		border-top: 1px solid var(--color-main-lighter);
 		grid-area: nav;
 	}
-	header.medium {
+	.medium header {
 		border-top: none;
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
