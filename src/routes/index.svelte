@@ -38,8 +38,8 @@
 		<p>Measuring wider infrastructures and framework conditions in a region that might drive - or hinder - its innovative performance.</p>
 
 		<div class='cta'>
-			<LinkButton url='/methodology' text='Read more about the methodology' />
-			<LinkButton url='/indicators' text='Explore the indicators' />
+			<LinkButton href='/methodology' text='Read more about the methodology' />
+			<LinkButton href='/indicators' text='Explore the indicators' />
 		</div>
 	</section>
 </main>

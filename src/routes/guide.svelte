@@ -105,7 +105,7 @@
 		<p>Should you find bugs or have ideas about how to enhance this tool, please don't hesitate to send your feedback: click on the "Feedback" link to navigate to a short survey and our contact details.</p>
 
 		<div class='cta'>
-			<LinkButton url='/indicators' text='Explore the indicators' />
+			<LinkButton href='/indicators' text='Explore the indicators' />
 		</div>
 	</section>
 </main>
