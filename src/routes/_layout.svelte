@@ -24,6 +24,7 @@
 
 	export let segment;
 
+	let contentHeight;
 	let rootStyle;
 	let defaultFontSize;
 
@@ -55,37 +56,51 @@
 <ScreenGauge devMode={dev} />
 <ColorCorrection options={$colorCorrectionOptions} />
 
-{#if $screen?.sizeFlags.medium}
+<section class={'usercontent ' + $screen?.classes} style={`--content-height: ${contentHeight}px`}>
 	<header>
 		<Nav {segment} screen={$screen}/>
 	</header>
-{/if}
 
-<main>
-	<AccessibilityMenu/>
-	<slot></slot>
-</main>
-
-{#if !$screen?.sizeFlags.medium}
-	<header class='small'>
-		<Nav {segment} screen={$screen}/>
-	</header>
-{/if}
+	<main bind:offsetHeight={contentHeight}>
+		<AccessibilityMenu/>
+		<slot></slot>
+	</main>
+</section>
 
 <style>
+	.usercontent {
+		display: grid;
+		height: 100%;
+		overflow: hidden;
+		grid-template-areas:
+			"content"
+			"nav"
+			"accessibility";
+		grid-template-rows: 1fr min-content min-content;
+	}
+	.medium.usercontent {
+		grid-template-areas:
+			"nav"
+			"content"
+			"accessibility";
+		grid-template-rows: min-content 1fr min-content;
+	}
 	header {
 		height: var(--dim-header-height);
 		width: 100%;
 		padding: 0 var(--dim-padding);
+		border-top: 1px solid var(--color-main-lighter);
+		grid-area: nav;
+	}
+	header.medium {
+		border-top: none;
 		border-bottom: 1px solid var(--color-main-lighter);
 	}
-	header.small {
-		border-top: 1px solid var(--color-main-lighter);
-		border-bottom: none;
-	}
 	main {
-		height: var(--dim-main-height);
+		height: 100%;
 		width: 100%;
 		overflow: hidden;
+		position: relative;
+		grid-area: content;
 	}
 </style>
