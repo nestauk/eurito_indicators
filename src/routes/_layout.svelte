@@ -28,7 +28,7 @@
 	let contentHeight;
 	let rootStyle;
 	let defaultFontSize;
-	let showA11y;
+	let showA11yMenu;
 
 	onMount(() => {
 		const root = document.documentElement;
@@ -60,13 +60,13 @@
 
 <section class={$screen?.classes}>
 	<header>
-		<Nav {segment} screen={$screen} {contentHeight} bind:showA11y />
+		<Nav {segment} screen={$screen} {contentHeight} bind:showA11yMenu />
 	</header>
 	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
 		<DevAccessibilityMenu/>
 	</main>
-	{#if showA11y}
+	{#if showA11yMenu}
 		<div class='accessibility'>
 			<AccessibilityMenu screen={$screen} />
 		</div>
