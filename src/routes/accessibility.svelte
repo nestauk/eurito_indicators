@@ -1,7 +1,7 @@
 <script>
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
-	import Bowser from "bowser";
+	import Bowser from 'bowser';
 
 	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
 

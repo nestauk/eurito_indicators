@@ -81,14 +81,14 @@
 		grid-template-areas:
 			'content'
 			'nav'
-			"accessibility";
+			'accessibility';
 		grid-template-rows: 1fr min-content min-content;
 	}
 	section.medium {
 		grid-template-areas:
 			'nav'
 			'content'
-			"accessibility";
+			'accessibility';
 		grid-template-rows: min-content 1fr min-content;
 	}
 	header {
