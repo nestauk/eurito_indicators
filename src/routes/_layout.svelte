@@ -7,14 +7,7 @@
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import DevAccessibilityMenu from 'app/components/DevAccessibilityMenu.svelte';
-	import {
-		fontFamily, 
-		fontScaling, 
-		fontVariationSettings,
-		letterSpacing,
-		wordSpacing,
-		lineHeight
-	} from 'app/stores/font';
+	import { a11yTextStyles, applyStyles } from 'app/stores/a11ySettings';
 	import {
 		colorCorrectionOptions,
 		colorCorrection,
@@ -36,19 +29,7 @@
 		rootStyle = root.style;
 	})
 
-	// set document root element font size so that `rem` units work
-	$: rootStyle
-		&& (rootStyle.fontFamily = $fontFamily);
-	$: rootStyle
-		&& (rootStyle.fontSize = `calc(${defaultFontSize} * ${$fontScaling})`);
-	$: rootStyle
-		&& (rootStyle.letterSpacing = $letterSpacing);
-	$: rootStyle
-		&& (rootStyle.wordSpacing = $wordSpacing);
-	$: rootStyle
-		&& (rootStyle.lineHeight = $lineHeight);
-	$: rootStyle
-		&& (rootStyle.fontVariationSettings = $fontVariationSettings);
+	$: rootStyle && applyStyles(rootStyle, $a11yTextStyles);
 	$: rootStyle
 		&& rootStyle.setProperty(...$colorCorrection);
 	$: rootStyle

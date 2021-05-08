@@ -146,11 +146,6 @@
 	ul {
 		padding: 0.5rem 0 0.5rem 2rem;
 	}
-
-	p, ul {
-		line-height: 2rem;
-	}
-
 	a {
 		text-decoration: none;
 		font-weight: bold;

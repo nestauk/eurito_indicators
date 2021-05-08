@@ -76,8 +76,4 @@
 		margin-top: 1.5rem;
 		font-weight: normal;
 	}
-
-	p {
-		line-height: 2rem;
-	}
 </style>
