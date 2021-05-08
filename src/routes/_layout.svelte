@@ -6,13 +6,11 @@
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import DevAccessibilityMenu from 'app/components/DevAccessibilityMenu.svelte';
-	import { a11yTextStyles, applyStyles } from 'app/stores/a11ySettings';
 	import {
-		colorCorrectionOptions,
-		colorCorrection,
-		cvdSimulation
-	} from 'app/stores/color';
+		applyStyles,
+		a11yColorStyles,
+		a11yTextStyles
+	} from 'app/stores/a11ySettings';
 
 	const dev = process.env.NODE_ENV === 'development';
 
@@ -20,24 +18,21 @@
 
 	let contentHeight;
 	let rootStyle;
-	let defaultFontSize;
+	// let defaultFontSize;
 	let showA11yMenu;
 
 	onMount(() => {
 		const root = document.documentElement;
-		defaultFontSize = window.getComputedStyle(root).fontSize;
+		// defaultFontSize = window.getComputedStyle(root).fontSize;
 		rootStyle = root.style;
 	})
 
 	$: rootStyle && applyStyles(rootStyle, $a11yTextStyles);
-	$: rootStyle
-		&& rootStyle.setProperty(...$colorCorrection);
-	$: rootStyle
-		&& rootStyle.setProperty(...$cvdSimulation);
+	$: rootStyle && applyStyles(rootStyle, $a11yColorStyles);
 </script>
 
 <ScreenGauge devMode={dev} />
-<ColorCorrection options={$colorCorrectionOptions} />
+<ColorCorrection />
 
 <section class={$screen?.classes}>
 	<header>
@@ -45,7 +40,6 @@
 	</header>
 	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
-		<DevAccessibilityMenu/>
 	</main>
 	{#if showA11yMenu}
 		<div class='accessibility'>
