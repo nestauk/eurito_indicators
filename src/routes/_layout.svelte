@@ -6,7 +6,6 @@
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import DevAccessibilityMenu from 'app/components/DevAccessibilityMenu.svelte';
 	import {
 		applyStyles,
 		a11yColorStyles,
@@ -41,7 +40,6 @@
 	</header>
 	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
-		<DevAccessibilityMenu/>
 	</main>
 	{#if showA11yMenu}
 		<div class='accessibility'>
