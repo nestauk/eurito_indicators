@@ -39,6 +39,7 @@
 @font-face {
 	font-family: 'Noboto Flex';
 	src: url('/font/NobotoFlex/Variable.woff2');
+	font-weight: 140;
 }
 
 * {
