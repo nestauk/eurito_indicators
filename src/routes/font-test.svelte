@@ -87,14 +87,14 @@
 		margin: 4px;
 	}
 	.quarter-screen-ref {
-		position: fixed;
-		width: 50vw;
-		height: 50vh;
-		font-size: 3vmin;
 		background: #ffff0088;
-		z-index: -1;
-		top: 25vh;
+		font-size: 3vmin;
+		height: 50vh;
 		left: 25vw;
+		position: fixed;
+		top: 25vh;
+		width: 50vw;
+		z-index: -1;
 	}
 	pre {
 		display: none;

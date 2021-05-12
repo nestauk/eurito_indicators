@@ -51,13 +51,13 @@
 <style>
 	section {
 		display: grid;
-		height: 100%;
-		overflow: hidden;
 		grid-template-areas:
 			'content'
 			'nav'
 			'accessibility';
 		grid-template-rows: 1fr min-content min-content;
+		height: 100%;
+		overflow: hidden;
 	}
 	section.medium {
 		grid-template-areas:
@@ -67,22 +67,22 @@
 		grid-template-rows: min-content 1fr min-content;
 	}
 	header {
-		height: var(--dim-header-height);
-		width: 100%;
-		padding: 0 var(--dim-padding);
 		border-top: 1px solid var(--color-main-lighter);
 		grid-area: nav;
+		height: var(--dim-header-height);
+		padding: 0 var(--dim-padding);
+		width: 100%;
 	}
 	.medium header {
-		border-top: none;
 		border-bottom: 1px solid var(--color-main-lighter);
+		border-top: none;
 	}
 	main {
+		grid-area: content;
 		height: 100%;
-		width: 100%;
 		overflow: hidden;
 		position: relative;
-		grid-area: content;
+		width: 100%;
 	}
 	.accessibility {
 		grid-area: accessibility;
