@@ -2,7 +2,7 @@
 	import {screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
-	import {fontScaling} from 'app/stores/font';
+	// import {fontScaling} from 'app/stores/font';
 
 	const sizes = {
 		rem: '1rem',
@@ -18,7 +18,7 @@
 
 	let sizeMultiplier = 1.0;
 
-	$: fontScaling.set(sizeMultiplier);
+	// $: fontScaling.set(sizeMultiplier);
 </script>
 
 <main>
