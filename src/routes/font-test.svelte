@@ -2,23 +2,19 @@
 	import {screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
-	// import {fontScaling} from 'app/stores/font';
-
 	const sizes = {
-		rem: '1rem',
+		cm: '.423cm',
 		pt: '12pt',
 		px: '16px',
-		cm: '.423cm',
-		vw: '2vw',
+		rem: '1rem',
 		vh: '2vh',
-		vmin: '2vmin',
 		vmax: '2vmax',
+		vmin: '2vmin',
+		vw: '2vw',
 	}
 	const units = Object.keys(sizes);
 
 	let sizeMultiplier = 1.0;
-
-	// $: fontScaling.set(sizeMultiplier);
 </script>
 
 <main>
@@ -51,7 +47,13 @@
 			<hr />
 		{/each}
 	</section>
-	<input type='range' bind:value={sizeMultiplier} min={0.2} max={3} step={0.01}/>
+	<input
+		bind:value={sizeMultiplier}
+		max={3}
+		min={0.2}
+		step={0.01}
+		type='range'
+	/>
 </main>
 
 <style>

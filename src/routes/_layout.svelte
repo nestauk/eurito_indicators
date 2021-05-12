@@ -7,9 +7,9 @@
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import {
-		applyStyles,
 		a11yColorStyles,
-		a11yTextStyles
+		a11yTextStyles,
+		applyStyles
 	} from 'app/stores/a11ySettings';
 
 	const dev = process.env.NODE_ENV === 'development';
@@ -18,12 +18,10 @@
 
 	let contentHeight;
 	let rootStyle;
-	// let defaultFontSize;
 	let showA11yMenu;
 
 	onMount(() => {
 		const root = document.documentElement;
-		// defaultFontSize = window.getComputedStyle(root).fontSize;
 		rootStyle = root.style;
 	})
 

@@ -3,7 +3,7 @@
 	import * as _ from 'lamb';
 	import Bowser from 'bowser';
 
-	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
+	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 
 	let environment;
 	let testResults = null
