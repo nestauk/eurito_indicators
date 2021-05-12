@@ -9,7 +9,7 @@
 	import {
 		a11yColorStyles,
 		a11yTextStyles,
-		applyStyles
+		isA11yDirty
 	} from 'app/stores/a11ySettings';
 
 	const dev = process.env.NODE_ENV === 'development';
@@ -34,7 +34,13 @@
 
 <section class={$screen?.classes}>
 	<header>
-		<Nav {segment} screen={$screen} {contentHeight} bind:showA11yMenu />
+		<Nav
+			{segment}
+			screen={$screen}
+			{contentHeight}
+			bind:showA11yMenu
+			isA11yDirty={$isA11yDirty}
+		/>
 	</header>
 	<main bind:offsetHeight={contentHeight}>
 		<slot></slot>
