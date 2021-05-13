@@ -9,7 +9,8 @@
 	import {
 		a11yColorStyles,
 		a11yTextStyles,
-		isA11yDirty
+		applyStyles,
+		isA11yDirty,
 	} from 'app/stores/a11ySettings';
 
 	const dev = process.env.NODE_ENV === 'development';
