@@ -5,6 +5,8 @@
 	import {allNUTS2IndicatorsCsvName, availableDownloadIds} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
+	import theme from 'app/theme';
+
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
 	const maxIndex = availableDownloadIds.length - 1;
 </script>
@@ -105,7 +107,11 @@
 		<p>Should you find bugs or have ideas about how to enhance this tool, please don't hesitate to send your feedback: click on the "Feedback" link to navigate to a short survey and our contact details.</p>
 
 		<div class='cta'>
-			<LinkButton href='/indicators' text='Explore the indicators' />
+			<LinkButton
+				href='/indicators'
+				text='Explore the indicators'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
 		</div>
 	</section>
 </main>
