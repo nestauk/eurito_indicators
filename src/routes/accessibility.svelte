@@ -3,7 +3,7 @@
 	import * as _ from 'lamb';
 	import Bowser from 'bowser';
 
-	import {testResultsURL, groupTests, getTest} from 'app/utils/tests';
+	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 
 	let environment;
 	let testResults = null
@@ -50,30 +50,29 @@
 
 <style>
 	main {
-		height: 100%;
-		width: 100%;
+		background-color: var(--color-background);
 		display: flex;
-		justify-content: space-around;
-
 		font-size: 1.05rem;
 		font-weight: 200;
-		background-color: var(--color-background);
+		height: 100%;
+		justify-content: space-around;
+		width: 100%;
 	}
 
 	section {
-		max-width: 900px;
-		padding: 2rem;
-		overflow-y: auto;
 		background-color: white;
 		box-shadow: var(--box-shadow-y);
+		max-width: 900px;
+		overflow-y: auto;
+		padding: 2rem;
 	}
 
 	h1 {
 		font-weight: bold;
 	}
 	h2 {
+		font-weight: normal;
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
-		font-weight: normal;
 	}
 </style>
