@@ -113,6 +113,13 @@
 				theme={{backgroundColor: theme.colorMain}}
 			/>
 		</div>
+		<div class='cta'>
+			<LinkButton
+				href='/accessibility'
+				text='Read the accessibility statement'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+		</div>
 	</section>
 </main>
 
