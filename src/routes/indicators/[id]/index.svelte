@@ -16,18 +16,21 @@
 	import IdIndex from '@svizzle/time_region_value/src/routes/[id]/index.svelte';
 
 	import types from 'app/data/types';
-	import {lookupStore} from 'app/stores/data';
+	import {_lookup} from 'app/stores/data';
 	import {
-		availableYearsStore,
+		_availableYears,
 		resetSelectedYear,
 	} from 'app/stores/selection';
 
-  export let data;
+	export let data;
 	export let id;
 
+	let availableYears;
+	let title;
+
 	$: id && resetSelectedYear();
-	$: ({availableYears, title} = $lookupStore[id] || {});
-	$: $availableYearsStore = availableYears;
+	$: ({availableYears, title} = $_lookup[id] || {});
+	$: $_availableYears = availableYears;
 
 	// FIXME can't, `lookupStore` is now a `derived`
 	// $: data && lookupStore.update(_.setPath(`${id}.data`, data));
@@ -40,6 +43,6 @@
 <IdIndex
 	{data}
 	{id}
-	{lookupStore}
+	lookupStore={_lookup}
 	{types}
 />

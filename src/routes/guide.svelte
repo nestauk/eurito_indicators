@@ -22,7 +22,7 @@
 		<!-- main -->
 		<h2>Indicators page</h2>
 
-		<h3>Time coverage</h3>
+		<h3>Temporal coverage</h3>
 		<p>On the right you will find a representation of the temporal coverage for each available indicator.<p>
 		<p>Each circle represents that data for an indicator is available for that year.<p>
 		<p>Click on it to the navigate to that indicator for that specific year.<p>
@@ -92,7 +92,7 @@
 		<h3>Extras</h3>
 
 		<p>
-			Note that some indicators have been created for NUTS3 and LEP, but these are not provided in then tool, nor they are official and should considered as non-official extras:
+			Note that some indicators have been created for NUTS3 and LEP, but these are not provided in the tool, nor they are official and should be considered as non-official extras:
 			{#each availableDownloadIds as availableId, index}
 				<a href='/download/{availableId}'>{availableId}</a>
 				{#if index < maxIndex},{/if}
@@ -108,15 +108,15 @@
 
 		<div class='cta'>
 			<LinkButton
-				href='/indicators'
-				text='Explore the indicators'
+				href='/accessibility'
+				text='Read the accessibility statement'
 				theme={{backgroundColor: theme.colorMain}}
 			/>
 		</div>
 		<div class='cta'>
 			<LinkButton
-				href='/accessibility'
-				text='Read the accessibility statement'
+				href='/indicators'
+				text='Explore the indicators'
 				theme={{backgroundColor: theme.colorMain}}
 			/>
 		</div>

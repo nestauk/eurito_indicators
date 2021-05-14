@@ -22,8 +22,8 @@
 	/* data */
 
 	import types from 'app/data/types';
-	import {lookupStore} from 'app/stores/data';
-	import {availableYearsStore, selectedYearStore} from 'app/stores/selection';
+	import {_lookup} from 'app/stores/data';
+	import {_availableYears, _selectedYear} from 'app/stores/selection';
 
 	/* props */
 
@@ -31,11 +31,14 @@
 	export let id;
 	export let year;
 
+	let availableYears;
+	let title;
+
 	/* reactive vars */
 
-	$: $selectedYearStore = Number(year);
-	$: ({availableYears, title} = $lookupStore[id] || {});
-	$: $availableYearsStore = availableYears;
+	$: $_selectedYear = Number(year);
+	$: ({availableYears, title} = $_lookup[id] || {});
+	$: $_availableYears = availableYears;
 
 	// FIXME can't, `lookupStore` is now a `derived`
 	// $: data && lookupStore.update(_.setPath(`${id}.data`, data));
@@ -48,7 +51,7 @@
 <IdYear
 	{data}
 	{id}
-	{lookupStore}
+	lookupStore={_lookup}
 	{types}
 	{year}
 />

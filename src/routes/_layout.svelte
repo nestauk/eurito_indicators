@@ -7,10 +7,10 @@
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import {
-		a11yColorStyles,
-		a11yTextStyles,
+		_a11yColorStyles,
+		_a11yTextStyles,
+		_isA11yDirty,
 		applyStyles,
-		isA11yDirty,
 	} from 'app/stores/a11ySettings';
 
 	const dev = process.env.NODE_ENV === 'development';
@@ -26,8 +26,8 @@
 		rootStyle = root.style;
 	})
 
-	$: rootStyle && applyStyles(rootStyle, $a11yTextStyles);
-	$: rootStyle && applyStyles(rootStyle, $a11yColorStyles);
+	$: rootStyle && applyStyles(rootStyle, $_a11yTextStyles);
+	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
 </script>
 
 <ScreenGauge devMode={dev} />
@@ -40,7 +40,7 @@
 			screen={$screen}
 			{contentHeight}
 			bind:showA11yMenu
-			isA11yDirty={$isA11yDirty}
+			isA11yDirty={$_isA11yDirty}
 		/>
 	</header>
 	<main bind:offsetHeight={contentHeight}>

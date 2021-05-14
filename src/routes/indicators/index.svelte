@@ -1,7 +1,7 @@
 <script>
 	import Index from '@svizzle/time_region_value/src/routes/index.svelte';
 
-	import {groupsStore, yearRangeStore} from 'app/stores/data';
+	import {_groups, _yearRange} from 'app/stores/data';
 	import {goTo} from 'app/utils/sapper';
 </script>
 
@@ -11,7 +11,7 @@
 
 <Index
 	{goTo}
-	{groupsStore}
-	{yearRangeStore}
+	groupsStore={_groups}
+	yearRangeStore={_yearRange}
 	hrefBase='indicators'
 />
