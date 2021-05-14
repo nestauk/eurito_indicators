@@ -2,6 +2,8 @@
 	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
+	import theme from 'app/theme';
+
 	const beisUrl = 'https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy';
 	const nestaUrl = 'https://www.nesta.org.uk';
 	const repoUrl = 'https://github.com/nestauk/beis-indicators';
@@ -38,8 +40,16 @@
 		<p>Measuring wider infrastructures and framework conditions in a region that might drive - or hinder - its innovative performance.</p>
 
 		<div class='cta'>
-			<LinkButton href='/methodology' text='Read more about the methodology' />
-			<LinkButton href='/indicators' text='Explore the indicators' />
+			<LinkButton
+				href='/methodology'
+				text='Read more about the methodology'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+			<LinkButton
+				href='/indicators'
+				text='Explore the indicators'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
 		</div>
 	</section>
 </main>

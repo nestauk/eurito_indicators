@@ -3,6 +3,8 @@
 	import ExternalLink from '@svizzle/ui/src/ExternalLink.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
+	import theme from 'app/theme';
+
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
 	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
 	const eurostatUrl = 'https://ec.europa.eu/eurostat';
@@ -57,9 +59,18 @@
 				href='/download'
 				text='Download all indicators'
 				withDownloadIcon={true}
+				theme={{backgroundColor: theme.colorMain}}
 			/>
-			<LinkButton href='/guide' text='Read the guide' />
-			<LinkButton href='/indicators' text='Explore the indicators' />
+			<LinkButton
+				href='/guide'
+				text='Read the guide'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+			<LinkButton
+				href='/indicators'
+				text='Explore the indicators'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
 		</div>
 	</section>
 </main>
