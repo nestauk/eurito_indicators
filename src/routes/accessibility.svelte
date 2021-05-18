@@ -4,10 +4,13 @@
 	import Bowser from 'bowser';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
+	import {lighthouseUrls} from 'app/config';
 
 	let environment;
 	let testResults = null;
 	let lighthouseFrame;
+	let currentreport = _.keys(lighthouseUrls)[0];
+	let reportUrl;
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
@@ -30,6 +33,8 @@
 		environment = Bowser.parse(window.navigator.userAgent);
 		loadResults();
 	})
+
+	$: reportUrl = `/a11y/${currentreport}.html`;
 </script>
 
 <svelte:head>
@@ -64,12 +69,23 @@
 		<h2>Compatibility Testing Results</h2>
 		<pre>{JSON.stringify(testResults, null, 2)}</pre>
 
+		<menu class='tabs'>
+			<ul>
+				{#each _.keys(lighthouseUrls) as id}
+					<li>
+						<input {id} type='radio' bind:group={currentreport} value={id}>
+						<label for={id}>{id}</label>
+					</li>
+				{/each}
+			</ul>
+		</menu>
+
 		<iframe
 			bind:this={lighthouseFrame}
 			frameborder='0'
 			marginheight='0'
 			marginwidth='0'
-			src='/lhreport.html'
+			src={reportUrl}
 			title='Accessibility validation results'
 		>
 			Loading...
@@ -108,5 +124,16 @@
 		font-weight: normal;
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
+	}
+	.tabs ul {
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+	}
+	.tabs li {
+		padding: 0 0.5em;
+	}
+	.tabs input {
+		display: none
 	}
 </style>
