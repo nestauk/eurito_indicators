@@ -6,7 +6,8 @@
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 
 	let environment;
-	let testResults = null
+	let testResults = null;
+	let lighthouseFrame;
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
@@ -15,7 +16,17 @@
 		testResults = getTest(indexedResults, environment);
 	}
 
+	function resizeIFrameToFitContent( iFrame ) {
+		// iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+	}
+
 	onMount(() => {
+		lighthouseFrame.contentWindow.addEventListener(
+			'load',
+			() => resizeIFrameToFitContent( lighthouseFrame )
+		);
+
 		environment = Bowser.parse(window.navigator.userAgent);
 		loadResults();
 	})
@@ -29,7 +40,14 @@
 	<section>
 		<h1>Accessibility</h1>
 
-		<p>(TODO Foreword and other text...)</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor
+			incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute 
+			iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+			pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui 
+			officia deserunt mollit anim id est laborum.
+		</p>
 
 		<h2>Environment</h2>
 		<dl>
@@ -45,7 +63,19 @@
 
 		<h2>Compatibility Testing Results</h2>
 		<pre>{JSON.stringify(testResults, null, 2)}</pre>
+
+		<iframe
+			bind:this={lighthouseFrame}
+			frameborder='0'
+			marginheight='0'
+			marginwidth='0'
+			src='/lhreport.html'
+			title='Accessibility validation results'
+		>
+			Loading...
+		</iframe>
 	</section>
+
 </main>
 
 <style>
@@ -65,6 +95,10 @@
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
+	}
+
+	iframe {
+		width: 100%;
 	}
 
 	h1 {
