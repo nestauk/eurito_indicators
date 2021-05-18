@@ -1,23 +1,11 @@
 import fs from 'fs';
 import lighthouse from 'lighthouse';
-import chromeLauncher from 'chrome-launcher';
+import * as chromeLauncher from 'chrome-launcher';
 
-const urls = {
-	home: 'http://localhost:3000',
-	guide: 'http://localhost:3000/guide',
-	methodology: 'http://localhost:3000/methodology',
-	// indicators1: 'http://localhost:3000/indicators/',
-	// indicators2: '',
-	// indicators3: '',
-}
-
-const publicReports = [
-	'guide',
-	'indicators1',
-];
+import {lighthouseUrls} from '../../src/node_modules/app/config';
 
 (async () => {
-	for (let [id, url] of Object.entries(urls)) {
+	for (let [id, url] of Object.entries(lighthouseUrls)) {
 		const chrome = await chromeLauncher.launch({
 			chromeFlags: [
 				// '--headless',
@@ -34,7 +22,7 @@ const publicReports = [
 		const reportHtml = runnerResult.report;	
 
 		// eslint-disable-next-line no-sync
-		fs.writeFileSync(`static/lighthouse/${id}.html`, reportHtml);
+		fs.writeFileSync(`static/a11y/${id}.html`, reportHtml);
 
 		// `.lhr` is the Lighthouse Result as a JS object
 		console.log('Report is done for', runnerResult.lhr.finalUrl);

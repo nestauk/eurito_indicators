@@ -62,7 +62,7 @@
 		"deploy": "npm run makedata && npm run export",
 		"dev": "npm run rmsappers && sapper dev",
 		"export": "npm run rmsappers && export SAPPER_EXPORT=true && sapper export --legacy",
-		"lighthouse": "node test/lighthouse/validate.mjs",
+		"lighthouse": "node -r esm test/lighthouse/validate.js",
 		"lint": "eslint rollup.config.js 'src/**/*.{js,svelte}'",
 		"makedata": "npm run makeindex && npm run rmdata && npm run copydata",
 		"makeindex": "npm run chmod && node -r esm src/bin/make_index.js",
