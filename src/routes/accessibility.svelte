@@ -66,15 +66,16 @@
 			<dd>{environment?.engine.name} - {environment?.engine.version || ''}</dd>
 		</dl>
 
-		<h2>Compatibility Testing Results</h2>
+		<h2>Compatibility testing results</h2>
 		<pre>{JSON.stringify(testResults, null, 2)}</pre>
 
+		<h2>A11y support validation results</h2>
 		<menu class='tabs'>
 			<ul>
 				{#each _.keys(lighthouseUrls) as id}
 					<li>
 						<input {id} type='radio' bind:group={currentreport} value={id}>
-						<label for={id}>{id}</label>
+						<label for={id} class='clickable'>{id}</label>
 					</li>
 				{/each}
 			</ul>
@@ -129,11 +130,17 @@
 		list-style-type: none;
 		display: flex;
 		flex-direction: row;
-	}
-	.tabs li {
-		padding: 0 0.5em;
+		border-bottom: thin solid var(--color-main);
 	}
 	.tabs input {
-		display: none
+		display: none;
+	}
+	.tabs input[type="radio"] + label {
+		background: var(--color-grey-180);
+		display: block;
+		padding: 0.5em 1em;
+	}
+	.tabs input[type="radio"]:checked + label {
+		background: var(--color-main);
 	}
 </style>
