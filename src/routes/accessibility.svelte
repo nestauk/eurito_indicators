@@ -69,7 +69,7 @@
 		<h2>Compatibility testing results</h2>
 		<pre>{JSON.stringify(testResults, null, 2)}</pre>
 
-		<h2>A11y support validation results</h2>
+		<h2>Accessibility audit</h2>
 		<menu class='tabs'>
 			<ul>
 				{#each _.keys(lighthouseUrls) as id}
@@ -136,7 +136,7 @@
 		display: none;
 	}
 	.tabs input[type="radio"] + label {
-		background: var(--color-grey-180);
+		background: #eee;
 		display: block;
 		padding: 0.5em 1em;
 	}

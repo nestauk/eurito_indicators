@@ -8,8 +8,8 @@ import {lighthouseUrls} from '../../src/node_modules/app/config';
 	for (let [id, url] of Object.entries(lighthouseUrls)) {
 		const chrome = await chromeLauncher.launch({
 			chromeFlags: [
-				// '--headless',
-				'--no-sandbox',
+				'--headless',
+				// '--no-sandbox',  // uncomment if there are problems running the tests
 			]
 		});
 		const options = {
