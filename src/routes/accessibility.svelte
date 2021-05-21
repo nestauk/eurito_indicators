@@ -4,7 +4,7 @@
 	import Bowser from 'bowser';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
-	import {lighthouseUrls} from 'app/config';
+	import {lighthouseUrls, failingA11yAudit} from 'app/config';
 
 	let environment;
 	let testResults = null;
@@ -80,7 +80,11 @@
 				{/each}
 			</ul>
 		</menu>
-
+		{#if failingA11yAudit.includes(currentreport)}
+			<figure>
+				Unfortunately the accessibility audit for this page fails because of an <a href='https://github.com/GoogleChrome/lighthouse/issues/12039'>issue</a> in Google Lighthouse.
+			</figure>
+		{/if}
 		<iframe
 			bind:this={lighthouseFrame}
 			frameborder='0'
@@ -112,6 +116,12 @@
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
+	}
+
+	figure {
+		background: var(--color-warning-background);
+		border: thin solid var(--color-warning-border);
+		padding: 0.5em 1em;
 	}
 
 	iframe {

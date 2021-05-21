@@ -98,6 +98,8 @@ a {
 	--color-paleyellow: #f9f7dd;
 	--color-link: var(--color-main);
 	--color-background: var(--color-main);
+	--color-warning-background: orange;
+	--color-warning-border: darkorange;
 	--dim-fontsize-light: 200;
 	--dim-header-height: 3rem;
 	--dim-main-height: calc(100% - var(--dim-header-height));
