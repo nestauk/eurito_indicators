@@ -69,7 +69,7 @@
 		<h2>Compatibility testing results</h2>
 		<pre>{JSON.stringify(testResults, null, 2)}</pre>
 
-		<h2>Accessibility audit</h2>
+		<h2>Quality audits</h2>
 		<menu class='tabs'>
 			<ul>
 				{#each _.keys(lighthouseUrls) as id}
@@ -146,11 +146,18 @@
 		display: none;
 	}
 	.tabs input[type="radio"] + label {
-		background: #eee;
 		display: block;
 		padding: 0.5em 1em;
 	}
+	.tabs li:first-child {
+		border-left: thin solid var(--color-main);
+	}
+	.tabs li {
+		border-top: thin solid var(--color-main);
+		border-right: thin solid var(--color-main);
+	}
 	.tabs input[type="radio"]:checked + label {
-		background: var(--color-selected);
+		background: var(--color-main);
+		color: white;
 	}
 </style>
