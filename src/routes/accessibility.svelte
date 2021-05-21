@@ -141,6 +141,6 @@
 		padding: 0.5em 1em;
 	}
 	.tabs input[type="radio"]:checked + label {
-		background: var(--color-main);
+		background: var(--color-selected);
 	}
 </style>
