@@ -16,7 +16,11 @@ import {lighthouseUrls, urlBases} from '../../src/node_modules/app/config';
 		const options = {
 			logLevel: 'info',
 			output: 'html',
-			onlyCategories: ['accessibility'],
+			formFactor: 'desktop',
+			screenEmulation: {
+				disabled: true
+			},
+			onlyCategories: ['accessibility', 'best-practices', 'performance', 'seo'],
 			port: chrome.port
 		};
 		const runnerResult = await lighthouse(
