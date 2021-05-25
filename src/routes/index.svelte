@@ -3,6 +3,7 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import theme from 'app/theme';
+	import {toolName} from 'app/config';
 
 	const beisUrl = 'https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy';
 	const nestaUrl = 'https://www.nesta.org.uk';
@@ -11,6 +12,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Home</title>
+	<meta name="description" content={`${toolName}'s homepage`}>
 </svelte:head>
 
 <main class={$screen?.classes}>

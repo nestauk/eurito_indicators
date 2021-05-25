@@ -6,6 +6,7 @@
 	import {version} from 'app/utils/version';
 
 	import theme from 'app/theme';
+	import {toolName} from 'app/config';
 
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
 	const maxIndex = availableDownloadIds.length - 1;
@@ -13,6 +14,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Guide</title>
+	<meta name="description" content={`A guide to use ${toolName}`}>
 </svelte:head>
 
 <main class={$screen?.classes}>

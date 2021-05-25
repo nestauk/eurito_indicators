@@ -38,6 +38,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - {title}</title>
+	<meta name="description" content={`Temporal trends for each available NUTS2 region for the indicator: ${title}`}>
 </svelte:head>
 
 <IdIndex
