@@ -3,7 +3,7 @@ import path from 'path';
 import {capitalize} from '@svizzle/utils';
 
 import fetch from 'node-fetch';
-import Queue from "queue-promise";
+import Queue from 'queue-promise';
 import webdriver from 'selenium-webdriver';
 import * as options from './options.mjs';
 
@@ -94,7 +94,7 @@ async function run (test, capabilities) {
 		}
 	} catch (e) {
 		if (e === TIMEOUT_ERROR) {
-			e = "Timeout!"
+			e = 'Timeout!'
 		}
 		err(capabilities, e);
 		return {
@@ -114,7 +114,7 @@ const queue = new Queue({
 	interval: 20000
 });
 
-queue.on("end", async () =>{
+queue.on('end', async () =>{
 	await fs.writeFile(report, JSON.stringify(results, null, 2));
 	console.log('Done!');
 });
