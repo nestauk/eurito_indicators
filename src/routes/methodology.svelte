@@ -4,6 +4,7 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import theme from 'app/theme';
+	import {toolName} from 'app/config';
 
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
 	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
@@ -20,6 +21,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Methodology</title>
+	<meta name='description' content='The methodology used to produce indicators in {toolName}'>
 </svelte:head>
 
 <main class={$screen?.classes}>

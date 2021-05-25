@@ -4,7 +4,7 @@
 	import Bowser from 'bowser';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
-	import {lighthouseUrls, failingA11yAudit} from 'app/config';
+	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 
 	let environment;
 	let testResults = null;
@@ -37,6 +37,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Accessibility</title>
+	<meta name='description' content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'>
 </svelte:head>
 
 <main>
