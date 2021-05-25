@@ -10,7 +10,6 @@
 	let testResults = null;
 	let lighthouseFrame;
 	let currentreport = _.keys(lighthouseUrls)[0];
-	let reportUrl;
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
@@ -20,7 +19,6 @@
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
-		// iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
 		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
 	}
 
@@ -82,7 +80,9 @@
 		</menu>
 		{#if failingA11yAudit.includes(currentreport)}
 			<figure>
-				Unfortunately the accessibility audit for this page fails because of an <a href='https://github.com/GoogleChrome/lighthouse/issues/12039'>issue</a> in Google Lighthouse.
+				Unfortunately the accessibility audit for this page fails because of an
+				<a href='https://github.com/GoogleChrome/lighthouse/issues/12039'>issue</a>
+				in Google Lighthouse.
 			</figure>
 		{/if}
 		<iframe
@@ -121,6 +121,7 @@
 	figure {
 		background: var(--color-warning-background);
 		border: thin solid var(--color-warning-border);
+		color: var(--color-warning-text);
 		padding: 0.5em 1em;
 	}
 

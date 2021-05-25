@@ -2,7 +2,7 @@ import fs from 'fs';
 import * as _ from 'lamb';
 import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
-import Queue from "queue-promise";
+import Queue from 'queue-promise';
 
 import {lighthouseUrls, urlBases} from '../../src/node_modules/app/config';
 
@@ -10,7 +10,7 @@ const queue = new Queue({
 	concurrent: 1
 });
 
-queue.on("end", async () =>{
+queue.on('end', async () =>{
 	console.log('Done!');
 });
 
@@ -54,7 +54,8 @@ const auditURL = async (id, url) => {
 	await chrome.kill();
 }
 
-const enqueueTask = pair => queue.enqueue(async () => await auditURL(...pair))
+const enqueueTask = ([id, url]) =>
+	queue.enqueue(async () => await auditURL(id, url));
 
 const auditUrls = _.pipe([
 	_.pairs,
