@@ -4,7 +4,7 @@
 	import Bowser from 'bowser';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
-	import {lighthouseUrls, failingA11yAudit, toolName} from 'app/config';
+	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 
 	let environment;
 	let testResults = null;
