@@ -9,7 +9,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Timelines</title>
-	<meta name="description" content={`The temporal distribution of all the indicators in ${toolName}`}>
+	<meta name='description' content='The temporal distribution of all the indicators in {toolName}'>
 </svelte:head>
 
 <Index

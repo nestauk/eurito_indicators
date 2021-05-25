@@ -14,7 +14,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Guide</title>
-	<meta name="description" content={`A guide to use ${toolName}`}>
+	<meta name='description' content='A guide to use {toolName}'>
 </svelte:head>
 
 <main class={$screen?.classes}>

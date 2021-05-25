@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Home</title>
-	<meta name="description" content={`${toolName}'s homepage`}>
+	<meta name='description' content="{toolName}'s homepage">
 </svelte:head>
 
 <main class={$screen?.classes}>

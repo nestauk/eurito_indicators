@@ -21,7 +21,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Methodology</title>
-	<meta name="description" content={`The methodology used to produce indicators in ${toolName}`}>
+	<meta name='description' content='The methodology used to produce indicators in {toolName}'>
 </svelte:head>
 
 <main class={$screen?.classes}>

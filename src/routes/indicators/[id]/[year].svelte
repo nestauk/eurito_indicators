@@ -46,7 +46,7 @@
 
 <svelte:head>
 	<title>EURITO CSVs - {title} ({year})</title>
-	<meta name="description" content={`Geographic distribution (NUTS2 regions) of the indicator: ${title} (${year})`}>
+	<meta name='description' content='Geographic distribution (NUTS2 regions) of the indicator: {title} ({year})'>
 </svelte:head>
 
 <IdYear
