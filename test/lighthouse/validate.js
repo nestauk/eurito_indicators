@@ -29,7 +29,14 @@ const auditURL = async (id, url) => {
 		screenEmulation: {
 			disabled: true
 		},
-		onlyCategories: ['accessibility', 'best-practices', 'performance', 'seo'],
+		// for performance results to be meaningful
+		// a reliable testing environment must be configured
+		onlyCategories: [
+			'accessibility',
+			'best-practices',
+			// 'performance',
+			'seo'
+		],
 		port: chrome.port
 	};
 	const runnerResult = await lighthouse(
