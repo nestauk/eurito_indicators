@@ -3,10 +3,8 @@
 	import * as _ from 'lamb';
 	import Bowser from 'bowser';
 
-	import {toolName} from 'app/config';
-
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
-	import {lighthouseUrls, failingA11yAudit} from 'app/config';
+	import {lighthouseUrls, failingA11yAudit, toolName} from 'app/config';
 
 	let environment;
 	let testResults = null;
