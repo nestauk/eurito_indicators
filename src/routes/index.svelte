@@ -20,26 +20,49 @@
 		<h1>BEIS indicators</h1>
 
 		<h2>Intro</h2>
-
-		<p>In this project, <a href={nestaUrl} rel='noopener'>Nesta</a> have worked closely with <a href={beisUrl} rel='noopener'>BEIS</a> to create an <a href={repoUrl} rel='noopener'>open repository</a> of indicators capturing various dimensions of innovation and its drivers in regions across the UK.<p>
-		<p>We have also built a tool to <a href='indicators'>visualise and explore</a> these indicators with the goal of informing policies to drive innovation and growth across all of the UK.<p>
-		<p>All this work has been performed with support from <a href={beisUrl} rel='noopener'>BEIS</a>.<p>
+		<p>
+			In this project, <a href={nestaUrl} rel='noopener'>Nesta</a> have
+			worked closely with <a href={beisUrl} rel='noopener'>BEIS</a> to
+			create an <a href={repoUrl} rel='noopener'>open repository</a> of
+			indicators capturing various dimensions of innovation and its
+			drivers in regions across the UK.
+		</p>
+		<p>
+			We have also built a tool to <a href='indicators'>visualise and
+			explore</a> these indicators with the goal of informing policies to
+			drive innovation and growth across all of the UK.
+		</p>
+		<p>
+			All this work has been performed with support from 
+			<a href={beisUrl} rel='noopener'>BEIS</a>.
+		</p>
 
 		<h2>The framework</h2>
-
-		<p>Our indicators are arranged in four broad categories.<p>
+		<p>Our indicators are arranged in four broad categories.</p>
 
 		<h3>Public R&D Capability</h3>
-		<p>Measuring the quantity and excellence of R&D activity taking place in higher education institutions in a region.<p>
+		<p>
+			Measuring the quantity and excellence of R&D activity taking place
+			in higher education institutions in a region.
+		</p>
 
 		<h3>Business R&D Capability</h3>
-		<p>Measuring the level of R&D activity and innovative outputs in the private sector in a region.<p>
+		<p>
+			Measuring the level of R&D activity and innovative outputs in the
+			private sector in a region.
+		</p>
 
 		<h3>Knowledge exchange</h3>
-		<p>Measuring the connectivity between higher education institutions in a region and the wider economy.<p>
+		<p>
+			Measuring the connectivity between higher education institutions in
+			a region and the wider economy.
+		</p>
 
 		<h3>Place potential</h3>
-		<p>Measuring wider infrastructures and framework conditions in a region that might drive - or hinder - its innovative performance.</p>
+		<p>
+			Measuring wider infrastructures and framework conditions in a region
+			that might drive - or hinder - its innovative performance.
+		</p>
 
 		<div class='cta'>
 			<LinkButton
