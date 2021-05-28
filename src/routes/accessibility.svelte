@@ -81,9 +81,14 @@
 		</menu>
 		{#if failingA11yAudit.includes(currentreport)}
 			<figure>
-				Unfortunately the accessibility audit for this page fails because of an
-				<a href='https://github.com/GoogleChrome/lighthouse/issues/12039'>issue</a>
-				in Google Lighthouse.
+				Unfortunately the accessibility audit for this page fails
+				because of an
+				<a
+					href='https://github.com/GoogleChrome/lighthouse/issues/12039'
+					rel='noopener'
+				>
+					issue
+				</a> in Google Lighthouse.
 			</figure>
 		{/if}
 		<iframe

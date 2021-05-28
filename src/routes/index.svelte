@@ -21,9 +21,9 @@
 
 		<h2>Intro</h2>
 
-		<p>In this project, <a href={nestaUrl}>Nesta</a> have worked closely with <a href={beisUrl}>BEIS</a> to create an <a href={repoUrl}>open repository</a> of indicators capturing various dimensions of innovation and its drivers in regions across the UK.<p>
+		<p>In this project, <a href={nestaUrl} rel='noopener'>Nesta</a> have worked closely with <a href={beisUrl} rel='noopener'>BEIS</a> to create an <a href={repoUrl} rel='noopener'>open repository</a> of indicators capturing various dimensions of innovation and its drivers in regions across the UK.<p>
 		<p>We have also built a tool to <a href='indicators'>visualise and explore</a> these indicators with the goal of informing policies to drive innovation and growth across all of the UK.<p>
-		<p>All this work has been performed with support from <a href={beisUrl}>BEIS</a>.<p>
+		<p>All this work has been performed with support from <a href={beisUrl} rel='noopener'>BEIS</a>.<p>
 
 		<h2>The framework</h2>
 
