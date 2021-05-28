@@ -34,7 +34,7 @@
 <ColorCorrection />
 
 <section class={$screen?.classes}>
-	<header>
+	<header role='banner'>
 		<Nav
 			{segment}
 			screen={$screen}
@@ -43,11 +43,18 @@
 			isA11yDirty={$_isA11yDirty}
 		/>
 	</header>
-	<main bind:offsetHeight={contentHeight}>
+	<main
+		bind:offsetHeight={contentHeight}
+		role='main'
+	>
 		<slot></slot>
 	</main>
 	{#if showA11yMenu}
-		<div class='accessibility'>
+		<!-- TODO 'region' role probably needs a label -->
+		<div
+			class='accessibility'
+			role='region'
+		>
 			<AccessibilityMenu screen={$screen} />
 		</div>
 	{/if}
