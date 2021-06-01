@@ -1,36 +1,36 @@
 @font-face {
-    font-family: 'Open Dyslexia';
-    src: url('/font/OpenDyslexic/Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal
+	font-family: 'Open Dyslexia';
+	src: url('/font/OpenDyslexic/Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal
 }
 @font-face {
-    font-family: 'Open Dyslexia';
-    src: url('/font/OpenDyslexic/Italic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic
+	font-family: 'Open Dyslexia';
+	src: url('/font/OpenDyslexic/Italic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic
 }
 @font-face {
-    font-family: 'Open Dyslexia';
-    src: url('/font/OpenDyslexic/Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal
+	font-family: 'Open Dyslexia';
+	src: url('/font/OpenDyslexic/Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal
 }
 @font-face {
-    font-family: 'Open Dyslexia';
-    src: url('/font/OpenDyslexic/Bold-Italic.otf') format('opentype');
-    font-weight: 700;
-    font-style: italic
+	font-family: 'Open Dyslexia';
+	src: url('/font/OpenDyslexic/Bold-Italic.otf') format('opentype');
+	font-weight: 700;
+	font-style: italic
 }
 @font-face {
-    font-family: 'Archivo';
-    src: url('/font/Archivo/VariableFont_wdth,wght.ttf') format('truetype');
-    font-style: normal
+	font-family: 'Archivo';
+	src: url('/font/Archivo/VariableFont_wdth,wght.ttf') format('truetype');
+	font-style: normal
 }
 @font-face {
-    font-family: 'Archivo';
-    src: url('/font/Archivo/Italic-VariableFont_wdth,wght.ttf') format('truetype');
-    font-style: italic
+	font-family: 'Archivo';
+	src: url('/font/Archivo/Italic-VariableFont_wdth,wght.ttf') format('truetype');
+	font-style: italic
 }
 @font-face {
 	font-family: 'Avenir Next Variable';

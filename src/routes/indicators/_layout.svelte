@@ -9,8 +9,8 @@
 
 <Layout
 	{goTo}
-	groupsStore={_groups}
 	{segment}
+	groupsStore={_groups}
 	hrefBase='indicators'
 >
 	<slot></slot>

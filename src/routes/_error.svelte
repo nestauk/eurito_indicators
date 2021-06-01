@@ -1,9 +1,25 @@
 <script>
+	import {isDev} from 'app/config';
+
 	export let error;
 	export let status;
-
-	const dev = process.env.NODE_ENV === 'development';
 </script>
+
+<svelte:head>
+	<title>{status}</title>
+	<meta
+		content='Something went wrong, sorry!'
+		name='description'
+	>
+</svelte:head>
+
+<h1>{status}</h1>
+
+<p>{error.message}</p>
+
+{#if isDev && error.stack}
+	<pre>{error.stack}</pre>
+{/if}
 
 <style>
 	h1, p {
@@ -26,15 +42,3 @@
 		}
 	}
 </style>
-
-<svelte:head>
-	<title>{status}</title>
-</svelte:head>
-
-<h1>{status}</h1>
-
-<p>{error.message}</p>
-
-{#if dev && error.stack}
-	<pre>{error.stack}</pre>
-{/if}

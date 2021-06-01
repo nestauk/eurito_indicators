@@ -1,10 +1,12 @@
 <script>
-	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {screen as _screen}
+		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import ExternalLink from '@svizzle/ui/src/ExternalLink.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
-	import theme from 'app/theme';
 	import {toolName} from 'app/config';
+	import theme from 'app/theme';
 
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
 	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
@@ -21,10 +23,13 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Methodology</title>
-	<meta name='description' content='The methodology used to produce indicators in {toolName}'>
+	<meta
+		content='{toolName}: methodology used to produce these indicators'
+		name='description'
+	>
 </svelte:head>
 
-<main class={$screen?.classes}>
+<main class={$_screen?.classes}>
 	<section>
 		<h1>Methodology</h1>
 
@@ -77,7 +82,7 @@
 			<li>
 				<p>
 					We have calculated indices of economic complexity for UK
-					regions used the algorithm developed by 
+					regions used the algorithm developed by
 					<ExternalLink
 						href={HausmanAndHidalgoUrl}
 						text='Hausman and Hidalgo (2009)'
@@ -115,9 +120,9 @@
 
 		<div class='cta'>
 			<LinkButton
+				glyph={Download}
 				href='/download'
 				text='Download all indicators'
-				withDownloadIcon={true}
 				theme={{backgroundColor: theme.colorMain}}
 			/>
 			<LinkButton

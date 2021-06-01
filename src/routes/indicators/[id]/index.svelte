@@ -12,9 +12,9 @@
 
 <script>
 	import * as _ from 'lamb';
-
 	import IdIndex from '@svizzle/time_region_value/src/routes/[id]/index.svelte';
 
+	import {toolName} from 'app/config';
 	import types from 'app/data/types';
 	import {_lookup} from 'app/stores/data';
 	import {
@@ -31,19 +31,19 @@
 	$: id && resetSelectedYear();
 	$: ({availableYears, title} = $_lookup[id] || {});
 	$: $_availableYears = availableYears;
-
-	// FIXME can't, `lookupStore` is now a `derived`
-	// $: data && lookupStore.update(_.setPath(`${id}.data`, data));
 </script>
 
 <svelte:head>
 	<title>EURITO CSVs - {title}</title>
-	<meta name='description' content='Temporal trends for each available NUTS2 region for the indicator: {title}'>
+	<meta
+		content='{toolName}: temporal trends for each available NUTS2 region for the indicator: {title}'
+		name='description'
+	>
 </svelte:head>
 
 <IdIndex
 	{data}
 	{id}
-	lookupStore={_lookup}
 	{types}
+	lookupStore={_lookup}
 />

@@ -1,19 +1,18 @@
 <script>
-	import {onMount} from 'svelte';
-	import ScreenGauge, {screen}
+	import ScreenGauge, {screen as _screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {onMount} from 'svelte';
 
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	import {isDev} from 'app/config';
 	import {
 		_a11yColorStyles,
 		_a11yTextStyles,
 		_isA11yDirty,
 		applyStyles,
 	} from 'app/stores/a11ySettings';
-
-	const dev = process.env.NODE_ENV === 'development';
 
 	export let segment;
 
@@ -30,15 +29,15 @@
 	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
 </script>
 
-<ScreenGauge devMode={dev} />
+<ScreenGauge devMode={isDev} />
 <ColorCorrection />
 
-<section class={$screen?.classes}>
+<section class={$_screen?.classes}>
 	<header>
 		<Nav
-			{segment}
-			screen={$screen}
+			{_screen}
 			{contentHeight}
+			{segment}
 			bind:showA11yMenu
 			isA11yDirty={$_isA11yDirty}
 		/>
@@ -48,7 +47,7 @@
 	</main>
 	{#if showA11yMenu}
 		<div class='accessibility'>
-			<AccessibilityMenu screen={$screen} />
+			<AccessibilityMenu {_screen} />
 		</div>
 	{/if}
 </section>

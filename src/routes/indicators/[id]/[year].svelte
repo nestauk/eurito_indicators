@@ -11,16 +11,14 @@
 </script>
 
 <script>
-	/* ext utils */
+	/* ext deps */
 
 	import * as _ from 'lamb';
-
-	/* ext components */
-
 	import IdYear from '@svizzle/time_region_value/src/routes/[id]/[year].svelte';
 
-	/* data */
+	/* int deps */
 
+	import {toolName} from 'app/config';
 	import types from 'app/data/types';
 	import {_lookup} from 'app/stores/data';
 	import {_availableYears, _selectedYear} from 'app/stores/selection';
@@ -39,20 +37,20 @@
 	$: $_selectedYear = Number(year);
 	$: ({availableYears, title} = $_lookup[id] || {});
 	$: $_availableYears = availableYears;
-
-	// FIXME can't, `lookupStore` is now a `derived`
-	// $: data && lookupStore.update(_.setPath(`${id}.data`, data));
 </script>
 
 <svelte:head>
 	<title>EURITO CSVs - {title} ({year})</title>
-	<meta name='description' content='Geographic distribution (NUTS2 regions) of the indicator: {title} ({year})'>
+	<meta
+		content='{toolName}: geographic distribution (NUTS2 regions) of the indicator: {title} ({year})'
+		name='description'
+	>
 </svelte:head>
 
 <IdYear
 	{data}
 	{id}
-	lookupStore={_lookup}
 	{types}
 	{year}
+	lookupStore={_lookup}
 />

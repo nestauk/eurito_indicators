@@ -1,40 +1,34 @@
 <script>
-	import {screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {screen as _screen}
+		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import theme from 'app/theme';
 	import {toolName} from 'app/config';
 
-	const beisUrl = 'https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy';
-	const nestaUrl = 'https://www.nesta.org.uk';
-	const repoUrl = 'https://github.com/nestauk/beis-indicators';
+	const repoUrl = 'https://github.com/nestauk/eurito_indicators_ui';
 </script>
 
 <svelte:head>
 	<title>EURITO CSVs - Home</title>
-	<meta name='description' content="{toolName}'s homepage">
+	<meta
+		content='{toolName}: homepage'
+		name='description'
+	>
 </svelte:head>
 
-<main class={$screen?.classes}>
+<main class={$_screen?.classes}>
 	<section>
-		<h1>BEIS indicators</h1>
+		<h1>EURITO indicators</h1>
 
 		<h2>Intro</h2>
 		<p>
-			In this project, <a href={nestaUrl} rel='noopener'>Nesta</a> have
-			worked closely with <a href={beisUrl} rel='noopener'>BEIS</a> to
-			create an <a href={repoUrl} rel='noopener'>open repository</a> of
-			indicators capturing various dimensions of innovation and its
-			drivers in regions across the UK.
+			We have created an <a href={repoUrl} rel='noopener'>open repository</a> of
+			indicators TODO: complete.
 		</p>
 		<p>
 			We have also built a tool to <a href='indicators'>visualise and
-			explore</a> these indicators with the goal of informing policies to
-			drive innovation and growth across all of the UK.
-		</p>
-		<p>
-			All this work has been performed with support from 
-			<a href={beisUrl} rel='noopener'>BEIS</a>.
+			explore</a> these indicators TODO: complete.
 		</p>
 
 		<h2>The framework</h2>
