@@ -6,6 +6,8 @@
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 
+	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+
 	let environment;
 	let testResults = null;
 	let lighthouseFrame;
@@ -37,7 +39,10 @@
 
 <svelte:head>
 	<title>EURITO CSVs - Accessibility</title>
-	<meta name='description' content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'>
+	<meta
+		name='description'
+		content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'
+	>
 </svelte:head>
 
 <main>
@@ -45,29 +50,95 @@
 		<h1>Accessibility</h1>
 
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-			tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
-			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex
-			ea commodi consequat. Quis aute iure reprehenderit in voluptate
-			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-			obcaecat cupiditat non proident, sunt in culpa qui officia deserunt
-			mollit anim id est laborum.
+			Ensuring greater access to technologies by meeting the needs of
+			people with disabilities lays the foundation for inclusive work
+			cultures that empower individuals and teams to thrive.
 		</p>
-
-		<h2>Environment</h2>
+		<p>
+			Therefore, {toolName} is committed to making its best effort towards
+			continually improving the accessibility of all the information
+			provided in this website. 
+		</p>
+		<p>
+			To meet these requirements, we follow the recomendations of the
+			<a href={wcag21Url}>WCAG 2.1</a> guidelines when building our
+			platform and websites. With this guidance in mind, we:
+		</p>
+		<ul>
+			<li>
+				<p>
+					We ensure that the choices of color provide sufficient
+					contrast for comfortable reading.
+				</p>
+			</li>
+			<li>
+				<p>
+					Wherever it's possible, we enhance the semantic meta 
+					information of each page to improve the reach of tools such
+					as screen readers, (DEV NOTE: Mybe this point should be
+					added only after we're done with the ARIA PR)
+				</p>
+			</li>
+			<li>
+				<p>
+					We regularly measure our site using a variety of methods,
+					such as third-party automated and manual audits across a 
+					range of different browsers and devices. You can review some
+					of those results in the Lighthouse reports presented below.
+				</p>
+			</li>
+		</ul>
+		<p>
+			Although we continually revise the website for proper support, we
+			recognize that some pages may present occasional accessibility
+			problems. Also, just as technology improves and standards evolve,
+			our work is also never done and we continually strive to achieve the
+			highest levels of compliance with the requirements and
+			recommendations.
+		</p>
+		<p>
+			If you see any errors or have other suggestions on how we
+			can further improve the accessibility of our site,
+			please contact us at CHANGE@nestauk.org.
+		</p>
+		
+		<h2>Detected Browsing Environment</h2>
 		<dl>
 			<dt>Platform</dt>
-			<dd>{environment?.platform.type}</dd>
+			<dd>{environment?.platform?.type}</dd>
 			<dt>Operating System</dt>
-			<dd>{environment?.os.name} - {environment?.os.versionName}</dd>
+			<dd>
+				{environment?.os?.name}
+				{#if environment?.os?.versionName}
+					- {environment.os.versionName}
+				{/if}
+			</dd>
 			<dt>Browser</dt>
-			<dd>{environment?.browser.name} - {environment?.browser.version}</dd>
+			<dd>
+				{environment?.browser.name}
+				{#if environment?.browser?.version}
+					- {environment.browser.version}
+				{/if}
+			</dd>
 			<dt>Engine</dt>
-			<dd>{environment?.engine.name} - {environment?.engine.version || ''}</dd>
+			<dd>
+				{environment?.engine.name}
+				{#if environment?.engine?.version}
+					- {environment.engine.version}
+				{/if}
+			</dd>
 		</dl>
 
-		<h2>Compatibility testing results</h2>
-		<pre>{JSON.stringify(testResults, null, 2)}</pre>
+		{#if testResults}
+			<p>
+				This browsing environment has been tested and is supported.
+			</p>
+		{:else}
+			<p>
+				This browsing environment is untested and user experience may
+				vary.
+			</p>
+		{/if}
 
 		<h2>Quality audits</h2>
 		<menu class='tabs'>
@@ -144,11 +215,60 @@
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
 	}
+	h1 {
+		font-weight: bold;
+	}
+	h2 {
+		font-weight: normal;
+		margin-bottom: 1.5rem;
+		margin-top: 1.5rem;
+	}
+	p {
+		margin-bottom: 1.5rem;
+	}
+	a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+	p a {
+		border-bottom: 1px solid var(--color-link);
+		color: var(--color-link);
+		font-weight: bold;
+		padding: 0.1rem;
+		text-decoration: none;
+	}
+	ul {
+		list-style: initial;
+		margin-left: 20px;
+	}
+	dl {
+		display: grid;
+		grid-template-rows: repeat(4, auto);
+    	grid-template-columns: repeat(2, minmax(min-content, max-content));
+	}
+	dt {
+		padding: 0.5em 1em;
+		border-top: thin solid white;
+		color: white;
+		background: var(--color-main);
+		text-align: right;
+	}
+	dt:first-child {
+		border-top: none;
+	}
+	dd {
+		border: thin solid var(--color-main);
+		padding: 0.5em 1em;
+	}
+	dd:not(:last-child) {
+		border-bottom: none;
+	}
 	.tabs ul {
-		list-style-type: none;
+		border-bottom: thin solid var(--color-main);
 		display: flex;
 		flex-direction: row;
-		border-bottom: thin solid var(--color-main);
+		list-style-type: none;
+		margin: 0;
 	}
 	.tabs input {
 		display: none;
