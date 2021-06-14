@@ -25,7 +25,7 @@ import {
 	isNuts3File
 } from './utils';
 
-const DS_DATA_REL_PATH = '../../data';
+const DS_DATA_REL_PATH = '../../../ds/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
 const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml');
 const DATA_DIR_STATIC = path.resolve(__dirname, '../../static/data');

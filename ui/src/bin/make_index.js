@@ -12,15 +12,15 @@ import {
 	readJson,
 	saveObj
 } from '@svizzle/file';
-import {tapMessage, tapValue, tapWith} from '@svizzle/dev';
+import {tapMessage, tapWith} from '@svizzle/dev';
 import {applyFnMap, isKeyOf, transformValues} from '@svizzle/utils';
 
 import {isNotLepFile, isNotNuts3File} from './utils';
 
-const DS_DATA_REL_PATH = '../../data';
+const DS_DATA_REL_PATH = '../../../ds/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
 const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml');
-const FRAMEWORK_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'framework.json');
+const FRAMEWORK_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'aux/framework.json');
 const GROUPS_PATH =
 	path.resolve(__dirname, '../node_modules/app/data/indicatorsGroups.json');
 
