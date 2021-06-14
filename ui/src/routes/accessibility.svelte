@@ -2,11 +2,19 @@
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
 	import Bowser from 'bowser';
+	import {screen as _screen}
+		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+		
+	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
+	import theme from 'app/theme';
+
 
 	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
+	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
 
 	let environment;
 	let testResults = null;
@@ -45,7 +53,7 @@
 	>
 </svelte:head>
 
-<main>
+<main class={$_screen?.classes}>
 	<section>
 		<h1>Accessibility</h1>
 
@@ -59,6 +67,7 @@
 			continually improving the accessibility of all the information
 			provided in this website. 
 		</p>
+		<h2>Support</h2>
 		<p>
 			To meet these requirements, we follow the recomendations of the
 			<a href={wcag21Url}>WCAG 2.1</a> guidelines when building our
@@ -67,7 +76,7 @@
 		<ul>
 			<li>
 				<p>
-					We ensure that the choices of color provide sufficient
+					Ensure that the choices of color provide sufficient
 					contrast for comfortable reading.
 				</p>
 			</li>
@@ -88,6 +97,7 @@
 				</p>
 			</li>
 		</ul>
+		<h2>Limitations</h2>
 		<p>
 			Although we continually revise the website for proper support, we
 			recognize that some pages may present occasional accessibility
@@ -97,10 +107,43 @@
 			recommendations.
 		</p>
 		<p>
+			While we aim to make the information provided as accessible as
+			possible, this website consists mostly of data presented as
+			interactive graphic charts and are not organized in a way that's
+			easy for a screen reader to present. However, the data is available
+			for <a href='/download'>download in CSV format</a>.
+		</p>
+		<h2>Feedback</h2>
+		<p>
 			If you see any errors or have other suggestions on how we
 			can further improve the accessibility of our site,
-			please contact us at CHANGE@nestauk.org.
+			please contact us at 
+			<a href="mailto:dataanalytics@nesta.org.uk">
+				dataanalytics@nesta.org.uk
+			</a>.
 		</p>
+
+		<h2>Resources</h2>
+		<h3>Customize the Mouse pointer</h3>
+		<p>
+			You can customize a computer mouse pointer in several ways. For
+			example, you can slow down the speed of the mouse pointer for easier
+			handling. You can also change its appearance so that it contrasts
+			more with the screen content.
+		</p>
+			
+		<div class='cta'>
+			<LinkButton
+				href={windowsMouseURL}
+				text='Windows'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+			<LinkButton
+				href={osxMouseURL}
+				text='OS X'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+		</div>
 		
 		<h2>Detected Browsing Environment</h2>
 		<dl>
@@ -145,7 +188,12 @@
 			<ul>
 				{#each _.keys(lighthouseUrls) as id}
 					<li>
-						<input {id} type='radio' bind:group={currentreport} value={id}>
+						<input
+							{id}
+							type='radio'
+							bind:group={currentreport}
+							value={id}
+						>
 						<label for={id} class='clickable'>{id}</label>
 					</li>
 				{/each}
@@ -244,7 +292,7 @@
 	dl {
 		display: grid;
 		grid-template-rows: repeat(4, auto);
-    	grid-template-columns: repeat(2, minmax(min-content, max-content));
+		grid-template-columns: repeat(2, minmax(min-content, max-content));
 	}
 	dt {
 		padding: 0.5em 1em;
@@ -287,5 +335,16 @@
 	.tabs input[type="radio"]:checked + label {
 		background: var(--color-main);
 		color: white;
+	}
+	.cta {
+		display: flex;
+		justify-content: space-around;
+		margin: 4rem 0 3rem 0;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+	.medium .cta {
+		flex-direction: row;
+		row-gap: 0;
 	}
 </style>
