@@ -26,17 +26,17 @@ jobs:
     needs: get_commit_message
     runs-on: ubuntu-latest
     env:
-      COMMIT_MESSAGE: ${{ needs.get_commit_message.commit_message }}
+      COMMIT_MESSAGE: ${{ needs.get_commit_message.outputs.commit_message }}
     steps:
     - run: echo ${{ toJson(needs) }}
     - run: echo $COMMIT_MESSAGE
-    - run: echo ${{ needs.get_commit_message.commit_message }}
-    - run: echo ${{ contains(needs.get_commit_message.commit_message, 'TESTSTRING') }}
+    - run: echo ${{ needs.get_commit_message.outputs.commit_message }}
+    - run: echo ${{ contains(needs.get_commit_message.outputs.commit_message, 'TESTSTRING') }}
 
   browserstack_controller:
     needs: get_commit_message
     runs-on: ubuntu-latest
-    if: "contains(needs.get_commit_message.commit_message, 'RUNBROWSERSTACKTESTS')"
+    if: "contains(needs.get_commit_message.outputs.commit_message, 'RUNBROWSERSTACKTESTS')"
 
     strategy:
       matrix:
