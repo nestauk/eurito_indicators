@@ -13,6 +13,25 @@ jobs:
         node-version: [15.x]
 
     steps:
+    - name: should it be skipped?
+      env:
+        COMMIT_FILTER: "BROWSERSTACK"
+      run: | 
+        # Get last commit message
+        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
+        echo "Last commit log: $last_commit_log"
+
+        # Count occurrences
+        readonly local filter_count=$(echo "$last_commit_log" | grep -c "$COMMIT_FILTER" )
+        echo "Number of occurence of '$COMMIT_FILTER' in '$last_commit_log': $filter_count"
+
+        # Decide whether to continue running
+        if [[ "$filter_count" -eq 0 ]]; then
+          echo "The last commit log \"$last_commit_log\" does not contain \"$COMMIT_FILTER\", stopping"
+          exit 78
+        else
+          echo "Browserstack tests requested, running."
+        fi
     - name: 'BrowserStack Environment Setup'
       uses: 'browserstack/github-actions/setup-env@master'
       with:
@@ -35,11 +54,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: 'Install npm modules'
-      run: npm ci
-
     - name: 'Remove all but one indicator'
-      run: cd data/processed && ls -Q | grep -v broadband | xargs rm -R && cd ../..
+      run: cd ds/data/processed && ls -Q | grep -v broadband | xargs rm -R && cd ../../../ui
+
+    - name: 'Install npm modules and make data'
+      run: npm ci
     - run: npm run makedata
 
     - name: 'Build webapp'
@@ -59,7 +78,7 @@ jobs:
         gist_url: https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e
         gist_title: Browserstack test results for Eurito Indicators webapp
         gist_description: Browserstack test results for Eurito Indicators webapp
-        github_file: data/tests/selenium-report.json
+        github_file: test/data/selenium-report.json
 
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
