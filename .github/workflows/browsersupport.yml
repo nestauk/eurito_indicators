@@ -30,8 +30,8 @@ jobs:
       COMMIT_MESSAGE: ${{ toJson(github.needs.get_commit_message.commit_message) }}
       COMMIT_MESSAGE1: ${{ toJson(needs.get_commit_message.commit_message) }}
     steps:
-    - run: echo "$COMMIT_MESSAGE"
-    - run: echo "$COMMIT_MESSAGE1"
+    - run: echo ${{ needs.get_commit_message.commit_message }}
+    - run: echo ${{ contains(needs.get_commit_message.commit_message, 'TESTSTRING') }}
 
   browserstack_controller:
     needs: get_commit_message
