@@ -18,6 +18,14 @@ jobs:
     outputs:
       commit_message: ${{ steps.step2.outputs.commit_message }}
 
+  message_tester:
+    needs: get_commit_message
+    runs-on: ubuntu-latest
+    env:
+      COMMIT_MESSAGE: ${{ toJson(github.needs.get_commit_message.commit_message) }}
+    steps:
+    - run: echo "$COMMIT_MESSAGE"
+
   browserstack_controller:
     needs: get_commit_message
     runs-on: ubuntu-latest
