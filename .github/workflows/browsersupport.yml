@@ -12,6 +12,9 @@ jobs:
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
 
+    - id: step1
+      run: git log -1 --format=%B
+
     - id: step2
       run: echo "::set-output name=commit_message::$(git log -1 --format=%B)"
 
@@ -23,8 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COMMIT_MESSAGE: ${{ toJson(github.needs.get_commit_message.commit_message) }}
+      COMMIT_MESSAGE1: ${{ toJson(needs.get_commit_message.commit_message) }}
     steps:
     - run: echo "$COMMIT_MESSAGE"
+    - run: echo "$COMMIT_MESSAGE1"
 
   browserstack_controller:
     needs: get_commit_message
