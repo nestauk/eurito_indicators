@@ -370,7 +370,7 @@
 	.tabs input {
 		display: none;
 	}
-	.tabs input[type="radio"] + label {
+	.tabs input[type="radio"] + label, .tabs div label {
 		display: block;
 		padding: 0.5em 1em;
 	}
@@ -384,6 +384,19 @@
 	.tabs input[type="radio"]:checked + label {
 		background: var(--color-main);
 		color: white;
+	}
+
+	.tabs div {
+		border: thin solid var(--color-main);
+		display: grid;
+		grid-template-columns: 1fr min-content min-content;
+	}
+	.tabs button {
+		background: white;
+		border: none;
+		border-left: thin solid var(--color-main);
+		height: 2.5rem;
+		width: 2.5rem;
 	}
 	.cta {
 		display: flex;
