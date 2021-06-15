@@ -1,10 +1,14 @@
 <script>
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
+	import {isNotNil} from '@svizzle/utils';
 	import Bowser from 'bowser';
 	import {screen as _screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 		
+	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
+	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
+	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
@@ -17,10 +21,12 @@
 	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
 
+	const reportNames = _.keys(lighthouseUrls)
+
 	let environment;
 	let testResults = null;
 	let lighthouseFrame;
-	let currentreport = _.keys(lighthouseUrls)[0];
+	let currentreport = reportNames[0];
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
@@ -43,7 +49,21 @@
 		loadResults();
 	})
 
+	const updateCurrentReport = id => currentreport = id;
+	$: currentValueIndex = _.findIndex(
+		reportNames,
+		_.is(currentreport)
+	);
+	$: prevValue = reportNames[currentValueIndex - 1];
+	$: nextValue = reportNames[currentValueIndex + 1];
+	$: hasPrevValue = isNotNil(prevValue);
+	$: hasNextValue = isNotNil(nextValue);
+	$: clickedPrev =
+		() => hasPrevValue && updateCurrentReport(prevValue);
+	$: clickedNext =
+		() => hasNextValue && updateCurrentReport(nextValue);
 	$: reportUrl = `/a11y/${currentreport}.html`;
+
 </script>
 
 <svelte:head>
@@ -194,19 +214,39 @@
 
 		<h2>Quality audits</h2>
 		<menu class='tabs'>
-			<ul>
-				{#each _.keys(lighthouseUrls) as id}
-					<li>
-						<input
-							{id}
-							type='radio'
-							bind:group={currentreport}
-							value={id}
-						>
-						<label for={id} class='clickable'>{id}</label>
-					</li>
-				{/each}
-			</ul>
+			{#if $_screen?.sizeFlags?.medium}
+				<ul>
+					{#each reportNames as id}
+						<li>
+							<input
+								{id}
+								type='radio'
+								bind:group={currentreport}
+								value={id}
+							>
+							<label for={id} class='clickable'>{id}</label>
+						</li>
+					{/each}
+				</ul>
+			{:else}
+				<div>
+					<label for=''>{currentreport}</label>
+					<button
+						class:clickable={hasPrevValue}
+						disabled={!hasPrevValue}
+						on:click={clickedPrev}
+					>
+						<Icon glyph={ChevronLeft} />
+					</button>
+					<button
+						class:clickable={hasNextValue}
+						disabled={!hasNextValue}
+						on:click={clickedNext}
+					>
+						<Icon glyph={ChevronRight} />
+					</button>
+				</div>
+			{/if}
 		</menu>
 		{#if failingA11yAudit.includes(currentreport)}
 			<figure>
