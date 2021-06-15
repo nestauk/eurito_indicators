@@ -8,7 +8,7 @@ jobs:
   get_commit_message:
     runs-on: ubuntu-latest
     outputs:
-      commit_message: ${{ steps.step3.outputs.commit_message }}
+      commit_message: ${{ steps.step2.outputs.commit_message }}
 
     steps:
     - name: 'Checkout the repository'
@@ -16,9 +16,8 @@ jobs:
       with:
         fetch-depth: 2
 
-    - run: MESSAGE=$(git log -1 --format=%B HEAD^2)
-    - id: step3
-      run: echo ::set-output name=commit_message::$MESSAGE
+    - id: step2
+      run: MESSAGE="$(git log -1 --format=%B HEAD^2)" echo ::set-output name=commit_message::$MESSAGE
 
   message_tester:
     needs: get_commit_message
