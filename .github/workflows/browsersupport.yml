@@ -16,7 +16,7 @@ jobs:
       with:
         fetch-depth: 2
 
-    - run: local -r MESSAGE=$(git log -1 --format=%B HEAD^2)
+    - run: MESSAGE=$(git log -1 --format=%B HEAD^2)
     - id: step3
       run: echo ::set-output name=commit_message::$MESSAGE
 
