@@ -19,6 +19,13 @@ jobs:
     - id: step2
       run: echo "::set-output name=commit_message::$(git log -1 --format=%B HEAD^2)"
 
+  message_tester:
+    needs: get_commit_message
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo ${{ needs.get_commit_message.outputs.commit_message }}
+    - run: echo ${{ contains(needs.get_commit_message.outputs.commit_message, 'TESTSTRING') }}
+
   browserstack_controller:
     needs: get_commit_message
     runs-on: ubuntu-latest
