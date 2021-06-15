@@ -9,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - id: step1
+    - name: 'Checkout the repository'
+      uses: actions/checkout@v2
+
+    - id: step2
       run: echo "::set-output name=commit_message::$(git log -1 --format=%B)"
 
     outputs:
-      commit_message: ${{ steps.step1.outputs.commit_message }}
+      commit_message: ${{ steps.step2.outputs.commit_message }}
 
   browserstack_controller:
     needs: get_commit_message
@@ -25,14 +28,6 @@ jobs:
         node-version: [15.x]
 
     steps:
-    - name: 'Echo context'
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
-
-    - name: 'Checkout the repository'
-      uses: actions/checkout@v2
-
     - name: 'BrowserStack Environment Setup'
       uses: 'browserstack/github-actions/setup-env@master'
       with:
