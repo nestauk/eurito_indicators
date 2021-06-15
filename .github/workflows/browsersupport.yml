@@ -13,20 +13,6 @@ jobs:
         node-version: [15.x]
 
     steps:
-    - name: 'BrowserStack Environment Setup'
-      uses: 'browserstack/github-actions/setup-env@master'
-      with:
-        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_KEY }}
-        build-name: BUILD_INFO
-        project-name: REPO_NAME
-
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
 
@@ -45,10 +31,24 @@ jobs:
         # Decide whether to continue running
         if [[ "$filter_count" -eq 0 ]]; then
           echo "The last commit log \"$last_commit_log\" does not contain \"$COMMIT_FILTER\", stopping"
-          exit 0
+          exit 78
         else
           echo "Browserstack tests requested, running."
         fi
+
+    - name: 'BrowserStack Environment Setup'
+      uses: 'browserstack/github-actions/setup-env@master'
+      with:
+        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+        access-key: ${{ secrets.BROWSERSTACK_KEY }}
+        build-name: BUILD_INFO
+        project-name: REPO_NAME
+
+    - name: 'BrowserStackLocal Setup'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: start
+        local-identifier: random
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
