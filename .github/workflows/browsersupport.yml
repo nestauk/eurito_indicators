@@ -54,20 +54,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: 'Remove all but one indicator'
-      run: cd ds/data/processed && ls -Q | grep -v broadband | xargs rm -R && cd ../../../ui
+      run: cd ds/data/processed && ls -Q | grep -v broadband | xargs rm -R
 
     - name: 'Install npm modules and make data'
-      run: npm ci
+      run: cd ui && npm ci
     - run: npm run makedata
 
     - name: 'Build webapp'
-      run: npm run build --if-present
+      run: cd ui && npm run build --if-present
 
     - name: 'Start local server'
-      run: npm run start &
+      run: cd ui && npm run start &
 
     - name: 'Run tests on Browserstack'
-      run: npm run selenium
+      run: cd ui && npm run selenium
 
     - name: 'Save results in Gist'
       uses: popsiclestick/gist-sync-action@v1.2.0
@@ -77,7 +77,7 @@ jobs:
         gist_url: https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e
         gist_title: Browserstack test results for Eurito Indicators webapp
         gist_description: Browserstack test results for Eurito Indicators webapp
-        github_file: test/data/selenium-report.json
+        github_file: ui/test/data/selenium-report.json
 
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
