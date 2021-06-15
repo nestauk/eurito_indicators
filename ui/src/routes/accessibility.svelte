@@ -103,7 +103,7 @@
 			</li>
 			<li>
 				<p>
-					Offer a selection of typefaces for imporoved legibility,
+					Offer a selection of typefaces for improved legibility,
 					including one widely believed to improve comprehension among
 					people with 
 					<a href={openDyslexicUrl} rel='noopener'>Dyslexia</a>.
@@ -111,10 +111,9 @@
 			</li>
 			<li>
 				<p>
-					Wherever it's possible, we enhance the semantic meta 
+					Wherever it's possible, enhance the semantic meta 
 					information of each page to improve the reach of tools such
-					as screen readers, (DEV NOTE: Mybe this point should be
-					added only after we're done with the ARIA PR)
+					as screen readers.
 				</p>
 			</li>
 			<li>
@@ -122,7 +121,7 @@
 					We regularly measure our site using a variety of methods,
 					such as third-party automated and manual audits across a 
 					range of different browsers and devices. You can review some
-					of those results in the Lighthouse reports presented below.
+					of those results in the reports presented below.
 				</p>
 			</li>
 		</ul>
@@ -153,7 +152,7 @@
 		</p>
 
 		<h2>Resources</h2>
-		<h3>Customize the Mouse pointer</h3>
+		<h3>How to customize the mouse pointer</h3>
 		<p>
 			You can customize a computer mouse pointer in several ways. For
 			example, you can slow down the speed of the mouse pointer for easier
