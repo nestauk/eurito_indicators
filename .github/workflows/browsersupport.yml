@@ -19,10 +19,18 @@ jobs:
         local-testing: start
         local-identifier: random
 
+    - name: 'BrowserStack Environment Setup'
+      uses: 'browserstack/github-actions/setup-env@master'
+      with:
+        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+        access-key: ${{ secrets.BROWSERSTACK_KEY }}
+        build-name: BUILD_INFO
+        project-name: REPO_NAME
+
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
 
-    - name: should it be skipped?
+    - name: Search for trigger
       env:
         COMMIT_FILTER: "BROWSERSTACK"
       run: | 
@@ -41,13 +49,6 @@ jobs:
         else
           echo "Browserstack tests requested, running."
         fi
-    - name: 'BrowserStack Environment Setup'
-      uses: 'browserstack/github-actions/setup-env@master'
-      with:
-        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_KEY }}
-        build-name: BUILD_INFO
-        project-name: REPO_NAME
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
