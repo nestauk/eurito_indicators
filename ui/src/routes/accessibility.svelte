@@ -67,7 +67,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Accessibility</title>
+	<title>EURITO - Accessibility</title>
 	<meta
 		name='description'
 		content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'

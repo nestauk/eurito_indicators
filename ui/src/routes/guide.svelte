@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Guide</title>
+	<title>EURITO - Guide</title>
 	<meta
 		content='{toolName}: usage guide for this tool'
 		name='description'

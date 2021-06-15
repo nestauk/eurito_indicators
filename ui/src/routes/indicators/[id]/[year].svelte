@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - {title} ({year})</title>
+	<title>EURITO - {title} ({year})</title>
 	<meta
 		content='{toolName}: geographic distribution (NUTS2 regions) of the indicator: {title} ({year})'
 		name='description'
