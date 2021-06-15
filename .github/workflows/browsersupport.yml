@@ -17,10 +17,14 @@ jobs:
         fetch-depth: 2
 
     - id: step2
-      run: MESSAGE="$(git log -1 --format=%B HEAD^2)" echo ::set-output name=commit_message::$MESSAGE
+      run: |
+        MESSAGE=$(git log -1 --format=%B HEAD^2)
+        echo ::set-output name=commit_message::$MESSAGE
 
     - id: step3
-      run: MESSAGE="$(git log -1 --format=%B HEAD^2)" echo $MESSAGE
+      run: |
+        MESSAGE1=$(git log -1 --format=%B HEAD^2)
+        echo $MESSAGE1
 
   message_tester:
     needs: get_commit_message
