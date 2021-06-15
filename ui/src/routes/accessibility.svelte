@@ -13,6 +13,7 @@
 
 
 	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+	const openDyslexicUrl = 'https://opendyslexic.org/';
 	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
 
@@ -70,14 +71,22 @@
 		<h2>Support</h2>
 		<p>
 			To meet these requirements, we follow the recomendations of the
-			<a href={wcag21Url}>WCAG 2.1</a> guidelines when building our
-			platform and websites. With this guidance in mind, we:
+			<a href={wcag21Url} rel='noopener'>WCAG 2.1</a> guidelines when
+			building our platform and websites. With this guidance in mind, we:
 		</p>
 		<ul>
 			<li>
 				<p>
 					Ensure that the choices of color provide sufficient
 					contrast for comfortable reading.
+				</p>
+			</li>
+			<li>
+				<p>
+					Offer a selection of typefaces for imporoved legibility,
+					including one widely believed to improve comprehension among
+					people with 
+					<a href={openDyslexicUrl} rel='noopener'>Dyslexia</a>.
 				</p>
 			</li>
 			<li>
@@ -131,7 +140,7 @@
 			handling. You can also change its appearance so that it contrasts
 			more with the screen content.
 		</p>
-			
+
 		<div class='cta'>
 			<LinkButton
 				href={windowsMouseURL}
@@ -144,7 +153,7 @@
 				theme={{backgroundColor: theme.colorMain}}
 			/>
 		</div>
-		
+
 		<h2>Detected Browsing Environment</h2>
 		<dl>
 			<dt>Platform</dt>
