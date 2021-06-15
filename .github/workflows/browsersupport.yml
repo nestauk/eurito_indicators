@@ -11,12 +11,14 @@ jobs:
     steps:
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
 
     - id: step1
-      run: git log -1 --format=%B
+      run: git log -1 --format=%B HEAD^2
 
     - id: step2
-      run: echo "::set-output name=commit_message::$(git log -1 --format=%B)"
+      run: echo "::set-output name=commit_message::$(git log -1 --format=%B HEAD^2)"
 
     outputs:
       commit_message: ${{ steps.step2.outputs.commit_message }}
