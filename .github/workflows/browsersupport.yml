@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: 'Echo context'
-      run: echo $GITHUB_CONTEXT
+      run: echo "$GITHUB_CONTEXT"
 
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
