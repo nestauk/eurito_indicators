@@ -7,6 +7,8 @@ on:
 jobs:
   get_commit_message:
     runs-on: ubuntu-latest
+    outputs:
+      commit_message: ${{ steps.step2.outputs.commit_message }}
 
     steps:
     - name: 'Checkout the repository'
@@ -20,16 +22,13 @@ jobs:
     - id: step2
       run: echo "::set-output name=commit_message::$(git log -1 --format=%B HEAD^2)"
 
-    outputs:
-      commit_message: ${{ steps.step2.outputs.commit_message }}
-
   message_tester:
     needs: get_commit_message
     runs-on: ubuntu-latest
     env:
-      COMMIT_MESSAGE: ${{ toJson(github.needs.get_commit_message.commit_message) }}
-      COMMIT_MESSAGE1: ${{ toJson(needs.get_commit_message.commit_message) }}
+      COMMIT_MESSAGE: ${{ needs.get_commit_message.commit_message }}
     steps:
+    - run: echo $COMMIT_MESSAGE
     - run: echo ${{ needs.get_commit_message.commit_message }}
     - run: echo ${{ contains(needs.get_commit_message.commit_message, 'TESTSTRING') }}
 
