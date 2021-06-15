@@ -58,7 +58,7 @@ jobs:
 
     - name: 'Install npm modules and make data'
       run: cd ui && npm ci
-    - run: npm run makedata
+    - run: cd ui && npm run makedata
 
     - name: 'Build webapp'
       run: cd ui && npm run build --if-present
