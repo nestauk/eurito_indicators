@@ -13,12 +13,6 @@ jobs:
         node-version: [15.x]
 
     steps:
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-
     - name: 'BrowserStack Environment Setup'
       uses: 'browserstack/github-actions/setup-env@master'
       with:
@@ -26,6 +20,12 @@ jobs:
         access-key: ${{ secrets.BROWSERSTACK_KEY }}
         build-name: BUILD_INFO
         project-name: REPO_NAME
+
+    - name: 'BrowserStackLocal Setup'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: start
+        local-identifier: random
 
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
