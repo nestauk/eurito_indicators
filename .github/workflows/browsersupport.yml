@@ -19,6 +19,9 @@ jobs:
     - id: step2
       run: MESSAGE="$(git log -1 --format=%B HEAD^2)" echo ::set-output name=commit_message::$MESSAGE
 
+    - id: step3
+      run: MESSAGE="$(git log -1 --format=%B HEAD^2)" echo $MESSAGE
+
   message_tester:
     needs: get_commit_message
     runs-on: ubuntu-latest
