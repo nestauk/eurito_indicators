@@ -7,6 +7,7 @@ on:
 jobs:
   browserstack-controller:
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[RUNBROWSERSTACK]')"
 
     strategy:
       matrix:
@@ -15,26 +16,6 @@ jobs:
     steps:
     - name: 'Checkout the repository'
       uses: actions/checkout@v2
-
-    - name: Search for trigger
-      env:
-        COMMIT_FILTER: "BROWSERSTACK"
-      run: | 
-        # Get last commit message
-        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
-        echo "Last commit log: $last_commit_log"
-
-        # Count occurrences
-        readonly local filter_count=$(echo "$last_commit_log" | grep -c "$COMMIT_FILTER" )
-        echo "Number of occurence of '$COMMIT_FILTER' in '$last_commit_log': $filter_count"
-
-        # Decide whether to continue running
-        if [[ "$filter_count" -eq 0 ]]; then
-          echo "The last commit log \"$last_commit_log\" does not contain \"$COMMIT_FILTER\", stopping"
-          exit 78
-        else
-          echo "Browserstack tests requested, running."
-        fi
 
     - name: 'BrowserStack Environment Setup'
       uses: 'browserstack/github-actions/setup-env@master'
