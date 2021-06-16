@@ -17,6 +17,8 @@
 	export let segment;
 
 	let contentHeight;
+	let headerHeight;
+	let a11yHeight;
 	let rootStyle;
 	let showA11yMenu;
 
@@ -27,13 +29,17 @@
 
 	$: rootStyle && applyStyles(rootStyle, $_a11yTextStyles);
 	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
+	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
 </script>
 
 <ScreenGauge devMode={isDev} />
 <ColorCorrection />
 
-<section class={$_screen?.classes}>
-	<header>
+<section
+	class={$_screen?.classes}
+	style='--menu-height: {menuHeight}px;'
+>
+	<header bind:offsetHeight={headerHeight}>
 		<Nav
 			{_screen}
 			{contentHeight}
@@ -46,7 +52,7 @@
 		<slot></slot>
 	</main>
 	{#if showA11yMenu}
-		<div class='accessibility'>
+		<div class='accessibility' bind:offsetHeight={a11yHeight}>
 			<AccessibilityMenu {_screen} />
 		</div>
 	{/if}
@@ -59,7 +65,7 @@
 			'content'
 			'nav'
 			'accessibility';
-		grid-template-rows: 1fr min-content min-content;
+		grid-template-rows: calc(100% - var(--menu-height)) min-content min-content;
 		height: 100%;
 		overflow: hidden;
 	}
