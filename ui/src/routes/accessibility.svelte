@@ -48,10 +48,8 @@
 		loadResults();
 	})
 
-	const updateCurrentReport = id => {
-		loadingResults = true;
-		currentreport = id;
-	}
+	const updateCurrentReport = id => currentreport = id;
+	$: currentreport, loadingResults = true;
 	$: currentValueIndex = _.findIndex(
 		reportNames,
 		_.is(currentreport)
