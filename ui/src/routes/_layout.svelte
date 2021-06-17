@@ -1,12 +1,11 @@
 <script>
-	import ScreenGauge, {screen as _screen}
+	import ScreenGauge, {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import {onMount} from 'svelte';
 
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import {isDev} from 'app/config';
 	import {
 		_a11yColorStyles,
 		_a11yTextStyles,
@@ -32,7 +31,7 @@
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
 </script>
 
-<ScreenGauge devMode={isDev} />
+<ScreenGauge />
 <ColorCorrection />
 
 <section

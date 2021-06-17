@@ -2,15 +2,15 @@
 	import Layout from '@svizzle/time_region_value/src/routes/_layout.svelte';
 
 	import {_groups} from 'app/stores/data';
-	import {goTo} from 'app/utils/sapper';
+	import theme from 'app/theme';
 
 	export let segment;
 </script>
 
 <Layout
-	{goTo}
+	{_groups}
 	{segment}
-	groupsStore={_groups}
+	{theme}
 	hrefBase='indicators'
 >
 	<slot></slot>

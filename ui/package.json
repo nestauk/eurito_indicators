@@ -62,6 +62,7 @@
 		"deploy": "npm run makedata && npm run export",
 		"dev": "npm run rmsappers && sapper dev",
 		"export": "npm run rmsappers && export SAPPER_EXPORT=true && sapper export --legacy",
+		"linksvizzles": "npm link @svizzle/barchart @svizzle/choropleth @svizzle/legend @svizzle/time_region_value @svizzle/ui @svizzle/utils @svizzle/dev @svizzle/file",
 		"lighthouse": "node -r esm test/lighthouse/validate.js",
 		"lint": "eslint rollup.config.js 'src/**/*.{js,svelte}'",
 		"makedata": "npm run makeindex && npm run rmdata && npm run copydata",
@@ -73,6 +74,5 @@
 		"test": "run-p --race dev cy:run",
 		"selenium": "node test/browserstack/selenium-runner.mjs",
 		"unittest": "mocha -r esm --spec src/**/*.spec.js"
-	},
-	"version": "0.0.1"
+	}
 }
