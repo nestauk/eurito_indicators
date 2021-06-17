@@ -3,13 +3,14 @@
 	import * as _ from 'lamb';
 	import {isNotNil} from '@svizzle/utils';
 	import Bowser from 'bowser';
-	import {screen as _screen}
+	import {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 		
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
@@ -28,8 +29,10 @@
 	let testResults = null;
 	let lighthouseFrame;
 	let currentreport = reportNames[0];
+	let loadingResults = false;
 
 	async function loadResults() {
+		loadingResults = true
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
@@ -37,6 +40,7 @@
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
+		loadingResults = false
 		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
 	}
 
@@ -265,6 +269,9 @@
 					issue
 				</a> in Google Lighthouse.
 			</figure>
+		{/if}
+		{#if loadingResults}
+			<LoadingView stroke={theme.colorMain}/>
 		{/if}
 		<iframe
 			bind:this={lighthouseFrame}
