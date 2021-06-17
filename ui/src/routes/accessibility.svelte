@@ -15,11 +15,12 @@
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
 
-
 	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
 	const openDyslexicUrl = 'https://opendyslexic.org/';
 	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
+	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
+	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
 
 	const reportNames = _.keys(lighthouseUrls)
 
@@ -152,6 +153,12 @@
 		</p>
 
 		<h2>Resources</h2>
+		<h3>Using a screen reader</h3>
+		<p>
+			If you need a screen reader and have not installed one already, you
+			may choose one from this <a href={screenReadersUrl} rel='noopener'>
+			comprehensive list of screen readers</a>.
+		</p>
 		<h3>How to customize the mouse pointer</h3>
 		<p>
 			You can customize a computer mouse pointer in several ways. For
@@ -252,7 +259,7 @@
 				Unfortunately the accessibility audit for this page fails
 				because of an
 				<a
-					href='https://github.com/GoogleChrome/lighthouse/issues/12039'
+					href={lighthouseIssueUrl}
 					rel='noopener'
 				>
 					issue
