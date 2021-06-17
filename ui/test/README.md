@@ -14,7 +14,7 @@ A Github action is configured to run the Selenium tests on pull requests to the
 `dev` branch. As a consequence, it's not recommended that commits be pushed
 directly to the `dev` branch so that the tests can be run before merging. The
 action can be found at `.github/workflows/browsersupport.yml` and may be
-triggered to run in a Github action runner by adding `RUNBROWSERSTACKTESTS`
+triggered to run in a Github action runner by adding `RUN_BROWSERSTACK`
 anywhere in a commit message before pushing.
 
 Test results for the original repository can be found here:
