@@ -224,7 +224,7 @@
 
 		<h2>Quality audits</h2>
 		<menu class='tabs'>
-			{#if $_screen?.sizeFlags?.medium}
+			{#if $_screen?.sizes?.medium}
 				<ul>
 					{#each reportNames as id}
 						<li>
@@ -271,7 +271,9 @@
 			</figure>
 		{/if}
 		{#if loadingResults}
-			<LoadingView stroke={theme.colorMain}/>
+			<figure>
+				<LoadingView stroke={theme.colorMain}/>
+			</figure>
 		{/if}
 		<iframe
 			bind:this={lighthouseFrame}
