@@ -32,7 +32,6 @@
 	let loadingResults = false;
 
 	async function loadResults() {
-		loadingResults = true;
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
@@ -45,11 +44,6 @@
 	}
 
 	onMount(() => {
-		lighthouseFrame.contentWindow.addEventListener(
-			'load',
-			() => resizeIFrameToFitContent( lighthouseFrame )
-		);
-
 		environment = Bowser.parse(window.navigator.userAgent);
 		loadResults();
 	})
@@ -285,6 +279,7 @@
 			marginwidth='0'
 			src={reportUrl}
 			title='Accessibility validation results'
+			on:load={e => resizeIFrameToFitContent(lighthouseFrame)}
 		>
 			Loading...
 		</iframe>
