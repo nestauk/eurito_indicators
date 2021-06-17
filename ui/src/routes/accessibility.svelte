@@ -32,7 +32,7 @@
 	let loadingResults = false;
 
 	async function loadResults() {
-		loadingResults = true
+		loadingResults = true;
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
@@ -54,7 +54,10 @@
 		loadResults();
 	})
 
-	const updateCurrentReport = id => currentreport = id;
+	const updateCurrentReport = id => {
+		loadingResults = true;
+		currentreport = id;
+	}
 	$: currentValueIndex = _.findIndex(
 		reportNames,
 		_.is(currentreport)
