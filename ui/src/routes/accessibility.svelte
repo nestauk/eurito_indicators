@@ -9,6 +9,7 @@
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
+	import Link from '@svizzle/ui/src/Link.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
@@ -86,13 +87,19 @@
 		<p>
 			Therefore, {toolName} is committed to making its best effort towards
 			continually improving the accessibility of all the information
-			provided in this website. 
+			provided in this website.
 		</p>
 		<h2>Support</h2>
 		<p>
 			To meet these requirements, we follow the recomendations of the
-			<a href={wcag21Url} rel='noopener'>WCAG 2.1</a> guidelines when
-			building our platform and websites. With this guidance in mind, we:
+			<Link
+				href={wcag21Url}
+				isExternal={true}
+			>
+				WCAG 2.1
+			</Link>
+			guidelines when building our platform and websites. With this
+			guidance in mind, we:
 		</p>
 		<ul>
 			<li>
@@ -106,7 +113,12 @@
 					Offer a selection of typefaces for improved legibility,
 					including one widely believed to improve comprehension among
 					people with 
-					<a href={openDyslexicUrl} rel='noopener'>Dyslexia</a>.
+					<Link
+						href={openDyslexicUrl}
+						isExternal={true}
+					>
+						Dyslexia
+					</Link>.
 				</p>
 			</li>
 			<li>
@@ -139,24 +151,29 @@
 			possible, this website consists mostly of data presented as
 			interactive graphic charts and are not organized in a way that's
 			easy for a screen reader to present. However, the data is available
-			for <a href='/download'>download in CSV format</a>.
+			for <Link href='/download'>download in CSV format</Link>.
 		</p>
 		<h2>Feedback</h2>
 		<p>
 			If you see any errors or have other suggestions on how we
 			can further improve the accessibility of our site,
 			please contact us at 
-			<a href="mailto:dataanalytics@nesta.org.uk">
+			<Link href="mailto:dataanalytics@nesta.org.uk">
 				dataanalytics@nesta.org.uk
-			</a>.
+			</Link>.
 		</p>
 
 		<h2>Resources</h2>
 		<h3>Using a screen reader</h3>
 		<p>
 			If you need a screen reader and have not installed one already, you
-			may choose one from this <a href={screenReadersUrl} rel='noopener'>
-			comprehensive list of screen readers</a>.
+			may choose one from this
+			<Link
+				href={screenReadersUrl}
+				isExternal={true}
+			>
+				comprehensive list of screen readers
+			</Link>.
 		</p>
 		<h3>How to customize the mouse pointer</h3>
 		<p>
@@ -257,17 +274,12 @@
 			<figure>
 				Unfortunately the accessibility audit for this page fails
 				because of an
-				<a
+				<Link
 					href={lighthouseIssueUrl}
-					rel='noopener'
+					isExternal={true}
 				>
 					issue
-				</a> in Google Lighthouse.
-			</figure>
-		{/if}
-		{#if loadingResults}
-			<figure>
-				<LoadingView stroke={theme.colorMain}/>
+				</Link> in Google Lighthouse.
 			</figure>
 		{/if}
 		<iframe
@@ -323,27 +335,8 @@
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
 	}
-	h1 {
-		font-weight: bold;
-	}
-	h2 {
-		font-weight: normal;
-		margin-bottom: 1.5rem;
-		margin-top: 1.5rem;
-	}
 	p {
 		margin-bottom: 1.5rem;
-	}
-	a {
-		text-decoration: none;
-		font-weight: bold;
-	}
-	p a {
-		border-bottom: 1px solid var(--color-link);
-		color: var(--color-link);
-		font-weight: bold;
-		padding: 0.1rem;
-		text-decoration: none;
 	}
 	ul {
 		list-style: initial;
