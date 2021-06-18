@@ -1,10 +1,10 @@
 <script>
-	import {screen as _screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import Link from '@svizzle/ui/src/Link.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
-	import theme from 'app/theme';
 	import {toolName} from 'app/config';
+	import theme from 'app/theme';
 
 	const repoUrl = 'https://github.com/nestauk/eurito_indicators_ui';
 </script>
@@ -23,12 +23,27 @@
 
 		<h2>Intro</h2>
 		<p>
-			We have created an <a href={repoUrl} rel='noopener'>open repository</a> of
-			indicators TODO: complete.
+			We have created an 
+			<Link
+				href={repoUrl}
+				isExternal={true}
+				theme={{color: theme.colorMain}}
+			>
+				open repository
+			</Link>
+			of indicators TODO: complete.
 		</p>
 		<p>
-			We have also built a tool to <a href='indicators'>visualise and
-			explore</a> these indicators TODO: complete.
+			We have also built a tool to
+			<Link
+				href='indicators'
+				isUnderlined={true}
+				isBold={true}
+				theme={{color: theme.colorMain}}
+			>
+				visualise and explore
+			</Link>
+			these indicators TODO: complete.
 		</p>
 
 		<h2>The framework</h2>
@@ -77,7 +92,6 @@
 	main {
 		background-color: var(--color-background);
 		display: flex;
-		font-size: 1.05rem;
 		font-weight: 200;
 		height: 100%;
 		justify-content: space-around;
@@ -107,14 +121,6 @@
 
 	p {
 		margin-bottom: 1.5rem;
-	}
-
-	a {
-		border-bottom: 1px solid var(--color-link);
-		color: var(--color-link);
-		font-weight: bold;
-		padding: 0.1rem;
-		text-decoration: none;
 	}
 
 	.cta {

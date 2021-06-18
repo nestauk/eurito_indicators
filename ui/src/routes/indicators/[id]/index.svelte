@@ -14,6 +14,8 @@
 	import * as _ from 'lamb';
 	import IdIndex from '@svizzle/time_region_value/src/routes/[id]/index.svelte';
 
+	/* local deps */
+
 	import {toolName} from 'app/config';
 	import types from 'app/data/types';
 	import {_lookup} from 'app/stores/data';
@@ -22,11 +24,17 @@
 		resetSelectedYear,
 	} from 'app/stores/selection';
 
+	/* props */
+
 	export let data;
 	export let id;
 
+	/* local vars */
+
 	let availableYears;
 	let title;
+
+	/* reactive vars */
 
 	$: id && resetSelectedYear();
 	$: ({availableYears, title} = $_lookup[id] || {});
@@ -42,8 +50,8 @@
 </svelte:head>
 
 <IdIndex
+	{_lookup}
 	{data}
 	{id}
 	{types}
-	lookupStore={_lookup}
 />
