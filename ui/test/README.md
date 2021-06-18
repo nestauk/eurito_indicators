@@ -10,10 +10,12 @@ tests directly in the browser through Browserstack using Selenium.
 
 However, it still needs some heavy refactoring and cleanup.
 
-A Github action is configured to run the Selenium tests on pull requests to the `dev`
-branch. As a consequence, no direct pushing to `dev` should be allowed to ensure
-that the tests run before merging. The action can be fouind at
-`.github/workflows/browsersupport.yml`.
+A Github action is configured to run the Selenium tests on pull requests to the
+`dev` branch. As a consequence, it's not recommended that commits be pushed
+directly to the `dev` branch so that the tests can be run before merging. The
+action can be found at `.github/workflows/browsersupport.yml` and may be
+triggered to run in a Github action runner by adding `RUN_BROWSERSTACK`
+anywhere in a commit message.
 
 Test results for the original repository can be found here:
 https://gist.github.com/NestaTestUser/8fb890ee1ebf84435539faa7996b140e .

@@ -24,7 +24,7 @@ jobs:
   browserstack_controller:
     needs: get_commit_message
     runs-on: ubuntu-latest
-    if: "contains(needs.get_commit_message.outputs.commit_message, 'RUNBROWSERSTACKTESTS')"
+    if: "contains(needs.get_commit_message.outputs.commit_message, 'RUN_BROWSERSTACK')"
 
     strategy:
       matrix:
