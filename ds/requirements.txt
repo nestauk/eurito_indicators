@@ -1,0 +1,7 @@
+eurostat
+jupyterlab
+pyyaml
+ratelim
+black
+flake8
+eurostatapiclient
