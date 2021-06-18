@@ -246,13 +246,34 @@
 								bind:group={currentreport}
 								value={id}
 							>
-							<label for={id} class='clickable'>{id}</label>
+							<label for={id} class='clickable'>
+								{id}
+								{#if loadingResults && currentreport === id}
+									<div class='spinner'>
+										<LoadingView 
+											size={24}
+											stroke='white'
+										/>
+									</div>
+								{/if}
+							</label>
 						</li>
 					{/each}
 				</ul>
 			{:else}
-				<div>
-					<label for=''>{currentreport}</label>
+				<div class='tab-selector'>
+					<label for=''>
+						{currentreport}
+						{#if loadingResults}
+							<div class='spinner'>
+								<LoadingView 
+									size={24}
+									stroke={theme.colorMain}
+								/>
+							</div>
+						{/if}
+					</label>
+					
 					<button
 						class:clickable={hasPrevValue}
 						disabled={!hasPrevValue}
@@ -301,7 +322,6 @@
 	main {
 		background-color: var(--color-background);
 		display: flex;
-		font-size: 1.05rem;
 		font-weight: 200;
 		height: 100%;
 		justify-content: space-around;
@@ -390,7 +410,7 @@
 		color: white;
 	}
 
-	.tabs div {
+	.tabs .tab-selector {
 		border: thin solid var(--color-main);
 		display: grid;
 		grid-template-columns: 1fr min-content min-content;
@@ -402,6 +422,13 @@
 		height: 2.5rem;
 		width: 2.5rem;
 	}
+	.spinner {
+		display: inline-block !important;
+		margin-left: 1em;
+		height: 1rem;
+		width: 1rem;
+	}
+
 	.cta {
 		display: flex;
 		justify-content: space-around;
