@@ -47,14 +47,9 @@ test-setup:
 	@# Metaflow
 	@$(call execute_in_env, python bin/check_metaflow_aws.py || echo "ERROR: Metaflow+AWS configuration")
 
-.PHONY: init
-## Fully initialise a project: install; setup github repo; setup S3 bucket
-init: install setup-github setup-bucket
-	@echo INIT COMPLETE
-
 .PHONY: install
 ## Install a project: create conda env; install local package; setup git hooks; setup metaflow+AWS
-install: conda-create setup-git setup-metaflow
+install: conda-create setup-metaflow
 
 .PHONY: inputs-pull
 ## Pull `inputs/` from S3
@@ -136,11 +131,6 @@ setup-metaflow:
 setup-bucket:
 	@echo S3
 	$(call execute_in_env, ${SHELL} ./bin/create_bucket.sh)
-
-.PHONY: setup-github
-setup-github:
-	@echo GH
-	$(call execute_in_env, ${SHELL} ./bin/create_repo.sh)
 
 
 #################################################################################
