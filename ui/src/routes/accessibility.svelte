@@ -91,15 +91,15 @@
 		</p>
 		<h2>Support</h2>
 		<p>
-			To meet these requirements, we follow the recomendations of the
+			We follow the recommendations of the
 			<Link
 				href={wcag21Url}
 				isExternal={true}
+				theme={{color: theme.colorMain}}
 			>
-				WCAG 2.1
-			</Link>
-			guidelines when building our platform and websites. With this
-			guidance in mind, we:
+				WCAG 2.1 guidelines
+			</Link>.
+			Also:
 		</p>
 		<ul>
 			<li>
@@ -116,6 +116,7 @@
 					<Link
 						href={openDyslexicUrl}
 						isExternal={true}
+						theme={{color: theme.colorMain}}
 					>
 						Dyslexia
 					</Link>.
@@ -133,7 +134,7 @@
 					We regularly measure our site using a variety of methods,
 					such as third-party automated and manual audits across a 
 					range of different browsers and devices. You can review some
-					of those results in the reports presented below.
+					of those results in the "Quality audits" section below.
 				</p>
 			</li>
 		</ul>
@@ -148,17 +149,26 @@
 		</p>
 		<p>
 			While we aim to make the information provided as accessible as
-			possible, this website consists mostly of data presented as
-			interactive graphic charts and are not organized in a way that's
-			easy for a screen reader to present. However, the data is available
-			for <Link href='/download'>download in CSV format</Link>.
+			possible, this website presents data mostly as interactive charts
+			which at the moment do not also render a text alternative, so those
+			aren't accessible by screen readers. However, the data is available
+			for
+			<Link
+				href='/download'
+				theme={{color: theme.colorMain}}
+			>
+				download in CSV format
+			</Link>.
 		</p>
 		<h2>Feedback</h2>
 		<p>
 			If you see any errors or have other suggestions on how we
 			can further improve the accessibility of our site,
 			please contact us at 
-			<Link href="mailto:dataanalytics@nesta.org.uk">
+			<Link
+				href="mailto:dataanalytics@nesta.org.uk"
+				theme={{color: theme.colorMain}}
+			>
 				dataanalytics@nesta.org.uk
 			</Link>.
 		</p>
@@ -171,6 +181,7 @@
 			<Link
 				href={screenReadersUrl}
 				isExternal={true}
+				theme={{color: theme.colorMain}}
 			>
 				comprehensive list of screen readers
 			</Link>.
@@ -229,8 +240,8 @@
 			</p>
 		{:else}
 			<p>
-				This browsing environment is untested and user experience may
-				vary.
+				This browsing environment hasn't been tested and user experience
+				may vary.
 			</p>
 		{/if}
 
@@ -300,6 +311,7 @@
 				<Link
 					href={lighthouseIssueUrl}
 					isExternal={true}
+					theme={{color: theme.colorMain}}
 				>
 					issue
 				</Link> in Google Lighthouse.
