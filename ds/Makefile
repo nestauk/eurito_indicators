@@ -119,10 +119,6 @@ pip-install:
 # Helper Commands (no need to explicitly document)                              #
 #################################################################################
 
-.PHONY: setup-git
-setup-git:
-	$(call execute_in_env, pre-commit install --install-hooks)
-
 .PHONY: setup-metaflow
 setup-metaflow:
 	$(call execute_in_env, ${SHELL} ./bin/install_metaflow_aws.sh)
