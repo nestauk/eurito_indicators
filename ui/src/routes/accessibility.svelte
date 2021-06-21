@@ -248,17 +248,19 @@
 							>
 							<label for={id} class='clickable'>
 								{id}
-								{#if loadingResults && currentreport === id}
-									<div class='spinner'>
-										<LoadingView 
-											size={24}
-											stroke='white'
-										/>
-									</div>
-								{/if}
 							</label>
 						</li>
 					{/each}
+					{#if loadingResults}
+						<li class='meta'>
+							<div class='spinner'>
+								<LoadingView
+									size={24}
+									stroke={theme.colorMain}
+								/>
+							</div>
+						</li>
+					{/if}
 				</ul>
 			{:else}
 				<div class='tab-selector'>
@@ -266,7 +268,7 @@
 						{currentreport}
 						{#if loadingResults}
 							<div class='spinner'>
-								<LoadingView 
+								<LoadingView
 									size={24}
 									stroke={theme.colorMain}
 								/>
@@ -394,7 +396,7 @@
 	.tabs input {
 		display: none;
 	}
-	.tabs input[type="radio"] + label, .tabs div label {
+	.tabs input[type="radio"] + label, .tabs div label, .tabs li .spinner {
 		display: block;
 		padding: 0.5em 1em;
 	}
@@ -404,6 +406,11 @@
 	.tabs li {
 		border-top: thin solid var(--color-main);
 		border-right: thin solid var(--color-main);
+	}
+	.tabs li.meta {
+		align-items: center;
+		border: none;
+		display: flex;
 	}
 	.tabs input[type="radio"]:checked + label {
 		background: var(--color-main);
