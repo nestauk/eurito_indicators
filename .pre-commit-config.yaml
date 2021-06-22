@@ -1,3 +1,4 @@
+files: ^ds/
 repos:
   - repo: local
     hooks:
