@@ -1,5 +1,7 @@
 *.lock
 
+.conda_exists
+
 # Proposed convention
 scratch*
 
