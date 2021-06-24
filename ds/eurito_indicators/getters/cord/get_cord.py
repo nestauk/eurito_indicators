@@ -8,7 +8,9 @@ def get_cord_articles(db_path, limit=None):
     arts = []
     engine = get_mysql_engine(db_path)
     with db_session(engine) as session:
-        query = session.query(Article).order_by(Article.id).filter(Article.article_source == 'cord')
+        query = session.query(Article)
+        # .order_by(Article.id)
+        # .filter(Article.article_source == 'cord')
         while True:
             actual_query = query
             if len(arts) > 0:
