@@ -21,11 +21,9 @@ import pandas as pd
 
 # %%
 # Open and read in input excel file
-def read_excel_file(sheet):
+def read_excel_file():
     df = pd.read_excel('https://www.ukcdr.org.uk/wp-content/uploads/2021/06/COVID-19-Research-Project-Tracker-18-JUN-2021.xlsx',
-                      sheet_name=sheet, usecols='A:AQ')
+                      sheet_name='Funded Research Projects', usecols='A:AQ')
     return df
 
-
 # %%
-funded_research = read_excel_file('Funded Research Projects')
