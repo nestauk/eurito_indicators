@@ -87,9 +87,9 @@ a {
 :root {
 	--box-shadow-y: 0px 8px 9px -4px lightgrey;
 	--box-shadow-xy: 2px 8px 9px -4px lightgrey;
-	--color-main-desat-50: hsla(199, 50%, 52%, 1);
-	--color-main-lighter: rgb(157, 219, 249);
-	--color-main: rgb(16, 174, 249);
+	--color-main-desat-50: #333;
+	--color-main-lighter: #555;
+	--color-main: #333;
 	--color-selected: lightseagreen;
 	--color-grey-lighter: #f7f7f7;
 	--color-grey-180: rgb(180, 180, 180);
