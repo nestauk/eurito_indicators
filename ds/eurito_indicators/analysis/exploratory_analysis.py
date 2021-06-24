@@ -441,18 +441,32 @@ display_topics(model, tf_feature_names, no_top_words)
 from bertopic import BERTopic
 
 # %%
+res_text = research['clean_text'].to_list()
+
+# %%
 # Look at dynamic topic modelling
 # https://github.com/MaartenGr/BERTopic
 
 # %%
-res_text = research['clean_text'].to_list()
-
-# %% [markdown]
-# Embedding model = paraphrase-MiniLM-L6-v2
+topic_model = BERTopic(embedding_model="paraphrase-MiniLM-L6-v2", language="english", calculate_probabilities=True)
+topics, probabilities = topic_model.fit_transform(res_text)
 
 # %%
-topic_model = BERTopic(embedding_model="paraphrase-MiniLM-L6-v2")
-topics, probabilities = topic_model.fit_transform(res_text)
+topic_model.save(f"{project_directory}/outputs/topic_model.digital")
+
+# %%
+#loaded_topic_model = BERTopic.load(f"{project_directory}/outputs/topic_model.digital")
+#loaded_topic_model.get_topic_info()
+
+# %%
+probabilities
+
+# %%
+topic_info = topic_model.get_topic_info()
+topic_info.head(9)
+
+# %%
+topic_model.visualize_barchart()
 
 # %%
 topic_model.visualize_topics()
@@ -462,10 +476,6 @@ topic_model_all = topic_model.visualize_topics()
 
 # %%
 pickle.dump(topic_model_all, open(f"{project_directory}/outputs/figures/Covid_research_tracker/BERTopic_model_all_data.pickle", 'wb')) 
-
-# %%
-topic_info = topic_model.get_topic_info()
-topic_info.head(9)
 
 # %%
 research['Topic'] = topics
@@ -491,16 +501,12 @@ research['europe'] = research['europe']*1
 research['rest_of_world'] = research['rest_of_world']*1
 
 # %%
-#import phik
-#from phik import resources, report
-
-# %%
 research.head(2)
 
 # %%
 research['count'] = 1
 all_projects = research[['Name','count']]
-all_projects = all_projects.loc[all_projects['Name']!='-1_drug_immun_antibodi_individu']
+all_projects = all_projects.loc[all_projects['Name']!='-1_immun_individu_decis_treatment']
 all_projects = all_projects.groupby(['Name'], as_index=False)['count'].sum().reset_index(drop=True)
 all_projects = all_projects.sort_values(by=['count'], ascending=False).head(20)
 all_projects.set_index('Name',inplace=True,drop=True)
@@ -517,7 +523,7 @@ plt.show()
 
 # %%
 countries = research[['Countries clean','Name']]
-countries = countries.loc[countries['Name']!='-1_drug_immun_antibodi_individu']
+countries = countries.loc[countries['Name']!='-1_immun_individu_decis_treatment']
 
 # %%
 uk_bool= []
@@ -536,7 +542,7 @@ uk_top.set_index('Name',inplace=True,drop=True)
 uk_top.plot(kind='bar')
 
 # %%
-continents = research.loc[research['Name']!='-1_drug_immun_antibodi_individu']
+continents = research.loc[research['Name']!='-1_immun_individu_decis_treatment']
 
 # %%
 continents = continents[['Name', 'europe', 'rest_of_world']]
@@ -546,23 +552,52 @@ continents = continents.groupby(['Name'], as_index=False)['europe', 'rest_of_wor
 
 # %%
 continents['All'] = continents['europe'] + continents['rest_of_world']
+
+continents['europe'] = (continents['europe'] / continents['europe'].sum()) * 100
+continents['rest_of_world'] = (continents['rest_of_world'] / continents['rest_of_world'].sum()) * 100
+
 continents_top = continents.sort_values(by=['All'], ascending=False).head(10)
 
 # %%
 continents_top.drop('All', axis=1, inplace=True)
 
 # %%
-continents_top.head(2)
+continents_top.set_index('Name',inplace=True,drop=True)
+
+# %%
+continents_top.head(10)
+
+# %%
+plt.rcParams["figure.figsize"] = (12,8)
+plt.rcParams.update({'font.size': 12})
 
 # %%
 continents_top.plot(kind= 'bar' , secondary_y= 'rest_of_world', legend='TRUE',
                     ax=None, mark_right=False, rot=90, color=['#3754b3','#ed5a58'])
-plt.title('Total projects assigned to the top ten topics - Europe compared to the rest of the world')
+plt.title('Percentage of projects assigned to the top ten topics')
 plt.xlabel('Area')
-plt.ylabel('Count')
+plt.ylabel('Percentage')
 plt.tight_layout()
 plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Topics-europe-rest-of-world.svg", format='svg', dpi=1200)
 plt.show()
+
+# %% [markdown]
+# #### Testing active projects
+
+# %%
+active_projects = research[['Start date clean','Name']]
+
+# %%
+melt = df.melt(id_vars=['id', 'age', 'state'], value_name='date').drop('variable', axis=1)
+melt['date'] = pd.to_datetime(melt['date'])
+
+melt = melt.groupby('id').apply(lambda x: x.set_index('date').resample('d').first())\
+           .ffill()\
+           .reset_index(level=1)\
+           .reset_index(drop=True)
+
+# %% [markdown]
+# ##### Plotting topics by start date
 
 # %%
 res_time = research.copy()
@@ -589,8 +624,11 @@ plt.rcParams["figure.figsize"] = (15,10)
 plt.rcParams.update({'font.size': 12})
 
 # %%
+topic_info.head(9)
+
+# %%
 fig = plt.figure()
-res_time_pivot[['0_rna_protein_coronavirus_viral','1_epidem_mathemat_predict_forecast','2_mental_stress_depress_psycholog','3_vaccin_immunogen_antibodi_antigen','4_children_parent_youth_mental']].plot()
+res_time_pivot[['0_rna_protein_coronavirus_viral','1_mental_anxieti_psycholog_depress','2_children_child_parent_youth','3_mask_face_protect_visor','4_vaccin_antigen_immun_antibodi']].plot()
 plt.title('Timeseries of project start date by topic from March 30th 2020')
 plt.xlabel('Time')
 plt.ylabel('Project count')
