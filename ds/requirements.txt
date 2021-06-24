@@ -9,3 +9,8 @@ tqdm
 filelock
 typer
 sh
+sqlalchemy
+pymysql
+jupyter
+scikit-bio
+pycountry
