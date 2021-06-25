@@ -378,10 +378,13 @@ topic_model.save(f"{project_directory}/outputs/topic_model.digital")
 # load pre run model
 topic_model.save(f"{project_directory}/outputs/topic_model.digital")
 topic_model = BERTopic.load(f"{project_directory}/outputs/topic_model.digital")
-topic_model.get_topic_info().head(5)
+topic_model.get_topic_info().head(7)
 
 # %%
-topic_model.visualize_distribution(probabilities[60]) # This doesn't seem to work well
+topic_info = topic_model.get_topic_info()
+
+# %%
+#topic_model.visualize_distribution(probabilities[60]) # This doesn't seem to work well
 
 # %%
 topic_model.visualize_barchart()
@@ -393,6 +396,9 @@ topic_model.visualize_topics()
 # Save topic model visual to load later
 topic_model_all = topic_model.visualize_topics()
 pickle.dump(topic_model_all, open(f"{project_directory}/outputs/figures/Covid_research_tracker/BERTopic_model_all_data.pickle", 'wb')) 
+
+# %%
+print(len(topics), research.shape) # Check topic / document size matches up
 
 # %%
 # Add topics to rearch df
@@ -419,28 +425,24 @@ research['europe'] = research['europe']*1
 research['rest_of_world'] = research['rest_of_world']*1
 
 # %%
+# Group df by topics
 research['count'] = 1
 all_projects = research[['Name','count']]
-all_projects = all_projects.loc[all_projects['Name']!='-1_immun_individu_decis_treatment']
+all_projects = all_projects.loc[all_projects['Name']!='-1_respiratori_hospit_treatment_individu']
 all_projects = all_projects.groupby(['Name'], as_index=False)['count'].sum().reset_index(drop=True)
 all_projects = all_projects.sort_values(by=['count'], ascending=False).head(20)
 all_projects.set_index('Name',inplace=True,drop=True)
 
 # %%
-all_projects.plot(kind='bar', color='#3754b3', legend=False) # Plot
-plt.title('Number of research projects per topic (top 20)')
-plt.xlabel('Topic')
-plt.ylabel('Count')
-plt.xticks(rotation=90)
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Number-project-per-topic.svg", format='svg', dpi=1200)
-plt.show()
+plot = all_projects.plot(kind='bar', color='#3754b3', legend=False) # Plot
+df_plot(plot, 10, 7, 90, 'Number of research projects per topic (top 20)', 'Topic', 'Count', 'Number-project-per-topic.svg')
 
 # %%
 countries = research[['Countries clean','Name']]
-countries = countries.loc[countries['Name']!='-1_immun_individu_decis_treatment']
+countries = countries.loc[countries['Name']!='-1_respiratori_hospit_treatment_individu']
 
 # %%
+# Country list contains UK
 uk_bool= []
 for c in countries['Countries clean']:
     _, uk_true = lists_overlap(c, ['United Kingdom'])
@@ -449,15 +451,17 @@ countries['UK'] = uk_bool
 countries['UK'] = countries['UK']*1
 
 # %%
+# Top 10 topics in UK
 uk = countries.groupby(['Name'], as_index=False)['UK'].sum().reset_index(drop=True)
 uk_top = uk.sort_values(by=['UK'], ascending=False).head(10)
 uk_top.set_index('Name',inplace=True,drop=True)
 
 # %%
-uk_top.plot(kind='bar')
+uk_top.plot(kind='bar') # Plot
 
 # %%
-continents = research.loc[research['Name']!='-1_immun_individu_decis_treatment']
+# European countries compared to rest of world
+continents = research.loc[research['Name']!='-1_respiratori_hospit_treatment_individu']
 continents = continents[['Name', 'europe', 'rest_of_world']]
 continents = continents.groupby(['Name'], as_index=False)['europe', 'rest_of_world'].sum().reset_index(drop=True)
 continents['All'] = continents['europe'] + continents['rest_of_world']
@@ -473,18 +477,10 @@ continents_top.set_index('Name',inplace=True,drop=True)
 continents_top.head(10)
 
 # %%
-plt.rcParams["figure.figsize"] = (12,8)
-plt.rcParams.update({'font.size': 12})
-
-# %%
-continents_top.plot(kind= 'bar' , secondary_y= 'rest_of_world', legend='TRUE',
-                    ax=None, mark_right=False, rot=90, color=['#3754b3','#ed5a58'])
-plt.title('Percentage of projects assigned to the top ten topics')
-plt.xlabel('Area')
-plt.ylabel('Percentage')
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Topics-europe-rest-of-world.svg", format='svg', dpi=1200)
-plt.show()
+plot = continents_top.plot(kind= 'bar' , secondary_y= 'rest_of_world', legend='TRUE',
+                           ax=None, mark_right=False, rot=90, color=['#3754b3','#ed5a58'])
+df_plot(plot, 12, 8, 90, 'Percentage of projects assigned to the top ten topics', 'Area', 
+        'Percentage','Topics-europe-rest-of-world.svg')
 
 # %% [markdown]
 # #### Testing active projects
@@ -517,7 +513,7 @@ res_time = res_time[['Start date clean','Name']]
 res_time.shape
 
 # %%
-res_time = res_time.loc[res_time['Name']!='-1_respiratori_immun_drug_target']
+res_time = res_time.loc[res_time['Name']!='Topics-europe-rest-of-world.svg']
 res_time.reset_index(drop=True, inplace=True)
 res_time['Month-year'] = pd.to_datetime(res_time['Start date clean']).dt.strftime('%m-%Y')
 res_time['Month-year']= pd.to_datetime(res_time['Month-year'], errors='coerce' )
@@ -532,11 +528,8 @@ plt.rcParams["figure.figsize"] = (15,10)
 plt.rcParams.update({'font.size': 12})
 
 # %%
-topic_info.head(9)
-
-# %%
 fig = plt.figure()
-res_time_pivot[['0_rna_protein_coronavirus_viral','1_mental_anxieti_psycholog_depress','2_children_child_parent_youth','3_mask_face_protect_visor','4_vaccin_antigen_immun_antibodi']].plot()
+res_time_pivot[['0_protein_rna_coronavirus_replic','1_vaccin_antibodi_immunogen_immun','2_mental_stress_depress_psycholog','3_children_child_parent_mental','4_ltc_palli_carer_care', '5_mask_face_visor_protect']].plot()
 plt.title('Timeseries of project start date by topic from March 30th 2020')
 plt.xlabel('Time')
 plt.ylabel('Project count')
@@ -545,4 +538,12 @@ plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Timeser
 plt.show()
 
 # %%
-res_time.head(10)
+research.to_excel('temp-research.xlsx', index=False) # Save df
+
+# %%
+# Save topics
+with open("topics.txt", "wb") as fp:
+    pickle.dump(topics, fp)
+
+# %%
+np.save("probabilities.npy", probabilities) # Save probabilities
