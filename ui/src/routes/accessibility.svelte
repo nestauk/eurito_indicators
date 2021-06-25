@@ -27,6 +27,11 @@
 	const reportNames = _.keys(lighthouseUrls)
 	const updateCurrentReport = id => currentreport = id;
 
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
+
 	let environment;
 	let testResults = null;
 	let lighthouseFrame;
@@ -64,7 +69,6 @@
 	$: clickedNext =
 		() => hasNextValue && updateCurrentReport(nextValue);
 	$: reportUrl = `/a11y/${currentreport}.html`;
-
 </script>
 
 <svelte:head>
@@ -94,8 +98,9 @@
 			We follow the recommendations of the
 			<Link
 				href={wcag21Url}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>
 				WCAG 2.1 guidelines
 			</Link>.
@@ -115,8 +120,9 @@
 					people with 
 					<Link
 						href={openDyslexicUrl}
+						isBold={true}
 						isExternal={true}
-						theme={{color: theme.colorMain}}
+						theme={linkTheme}
 					>
 						Dyslexia
 					</Link>.
@@ -155,7 +161,8 @@
 			for
 			<Link
 				href='/download'
-				theme={{color: theme.colorMain}}
+				isBold={true}
+				theme={linkTheme}
 			>
 				download in CSV format
 			</Link>.
@@ -167,7 +174,8 @@
 			please contact us at 
 			<Link
 				href="mailto:dataanalytics@nesta.org.uk"
-				theme={{color: theme.colorMain}}
+				isBold={true}
+				theme={linkTheme}
 			>
 				dataanalytics@nesta.org.uk
 			</Link>.
@@ -180,8 +188,9 @@
 			may choose one from this
 			<Link
 				href={screenReadersUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>
 				comprehensive list of screen readers
 			</Link>.
@@ -198,12 +207,12 @@
 			<LinkButton
 				href={windowsMouseURL}
 				text='Windows'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
 				href={osxMouseURL}
 				text='OS X'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 
@@ -312,8 +321,9 @@
 				because of an
 				<Link
 					href={lighthouseIssueUrl}
+					isBold={true}
 					isExternal={true}
-					theme={{color: theme.colorMain}}
+					theme={linkTheme}
 				>
 					issue
 				</Link> in Google Lighthouse.
