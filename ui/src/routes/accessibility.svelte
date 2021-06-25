@@ -1,15 +1,37 @@
 <script>
 	import {onMount} from 'svelte';
 	import * as _ from 'lamb';
+	import {isNotNil} from '@svizzle/utils';
 	import Bowser from 'bowser';
+	import {_screen}
+		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+		
+	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
+	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
+	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
+	import Link from '@svizzle/ui/src/Link.svelte';
+	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
+	import theme from 'app/theme';
+
+	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+	const openDyslexicUrl = 'https://opendyslexic.org/';
+	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
+	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
+	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
+	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
+
+	const reportNames = _.keys(lighthouseUrls)
+	const updateCurrentReport = id => currentreport = id;
 
 	let environment;
 	let testResults = null;
 	let lighthouseFrame;
-	let currentreport = _.keys(lighthouseUrls)[0];
+	let currentreport = reportNames[0];
+	let loadingResults = false;
 
 	async function loadResults() {
 		const response = await fetch(testResultsURL);
@@ -19,77 +41,282 @@
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
+		loadingResults = false
 		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
 	}
 
 	onMount(() => {
-		lighthouseFrame.contentWindow.addEventListener(
-			'load',
-			() => resizeIFrameToFitContent( lighthouseFrame )
-		);
-
 		environment = Bowser.parse(window.navigator.userAgent);
 		loadResults();
 	})
 
+	$: currentreport, loadingResults = true;
+	$: currentValueIndex = _.findIndex(
+		reportNames,
+		_.is(currentreport)
+	);
+	$: prevValue = reportNames[currentValueIndex - 1];
+	$: nextValue = reportNames[currentValueIndex + 1];
+	$: hasPrevValue = isNotNil(prevValue);
+	$: hasNextValue = isNotNil(nextValue);
+	$: clickedPrev =
+		() => hasPrevValue && updateCurrentReport(prevValue);
+	$: clickedNext =
+		() => hasNextValue && updateCurrentReport(nextValue);
 	$: reportUrl = `/a11y/${currentreport}.html`;
+
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Accessibility</title>
-	<meta name='description' content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'>
+	<title>EURITO - Accessibility</title>
+	<meta
+		name='description'
+		content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'
+	>
 </svelte:head>
 
-<main>
+<main class={$_screen?.classes}>
 	<section>
 		<h1>Accessibility</h1>
 
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-			tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
-			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex
-			ea commodi consequat. Quis aute iure reprehenderit in voluptate
-			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-			obcaecat cupiditat non proident, sunt in culpa qui officia deserunt
-			mollit anim id est laborum.
+			Ensuring greater access to technologies by meeting the needs of
+			people with disabilities lays the foundation for inclusive work
+			cultures that empower individuals and teams to thrive.
+		</p>
+		<p>
+			Therefore, {toolName} is committed to making its best effort towards
+			continually improving the accessibility of all the information
+			provided in this website.
+		</p>
+		<h2>Support</h2>
+		<p>
+			We follow the recommendations of the
+			<Link
+				href={wcag21Url}
+				isExternal={true}
+				theme={{color: theme.colorMain}}
+			>
+				WCAG 2.1 guidelines
+			</Link>.
+			Also:
+		</p>
+		<ul>
+			<li>
+				<p>
+					Ensure that the choices of color provide sufficient
+					contrast for comfortable reading.
+				</p>
+			</li>
+			<li>
+				<p>
+					Offer a selection of typefaces for improved legibility,
+					including one widely believed to improve comprehension among
+					people with 
+					<Link
+						href={openDyslexicUrl}
+						isExternal={true}
+						theme={{color: theme.colorMain}}
+					>
+						Dyslexia
+					</Link>.
+				</p>
+			</li>
+			<li>
+				<p>
+					Wherever it's possible, enhance the semantic meta 
+					information of each page to improve the reach of tools such
+					as screen readers.
+				</p>
+			</li>
+			<li>
+				<p>
+					We regularly measure our site using a variety of methods,
+					such as third-party automated and manual audits across a 
+					range of different browsers and devices. You can review some
+					of those results in the "Quality audits" section below.
+				</p>
+			</li>
+		</ul>
+		<h2>Limitations</h2>
+		<p>
+			Although we continually revise the website for proper support, we
+			recognize that some pages may present occasional accessibility
+			problems. Also, just as technology improves and standards evolve,
+			our work is also never done and we continually strive to achieve the
+			highest levels of compliance with the requirements and
+			recommendations.
+		</p>
+		<p>
+			While we aim to make the information provided as accessible as
+			possible, this website presents data mostly as interactive charts
+			which at the moment do not also render a text alternative, so those
+			aren't accessible by screen readers. However, the data is available
+			for
+			<Link
+				href='/download'
+				theme={{color: theme.colorMain}}
+			>
+				download in CSV format
+			</Link>.
+		</p>
+		<h2>Feedback</h2>
+		<p>
+			If you see any errors or have other suggestions on how we
+			can further improve the accessibility of our site,
+			please contact us at 
+			<Link
+				href="mailto:dataanalytics@nesta.org.uk"
+				theme={{color: theme.colorMain}}
+			>
+				dataanalytics@nesta.org.uk
+			</Link>.
 		</p>
 
-		<h2>Environment</h2>
+		<h2>Resources</h2>
+		<h3>Using a screen reader</h3>
+		<p>
+			If you need a screen reader and have not installed one already, you
+			may choose one from this
+			<Link
+				href={screenReadersUrl}
+				isExternal={true}
+				theme={{color: theme.colorMain}}
+			>
+				comprehensive list of screen readers
+			</Link>.
+		</p>
+		<h3>How to customize the mouse pointer</h3>
+		<p>
+			You can customize a computer mouse pointer in several ways. For
+			example, you can slow down the speed of the mouse pointer for easier
+			handling. You can also change its appearance so that it contrasts
+			more with the screen content.
+		</p>
+
+		<div class='cta'>
+			<LinkButton
+				href={windowsMouseURL}
+				text='Windows'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+			<LinkButton
+				href={osxMouseURL}
+				text='OS X'
+				theme={{backgroundColor: theme.colorMain}}
+			/>
+		</div>
+
+		<h2>Detected Browsing Environment</h2>
 		<dl>
 			<dt>Platform</dt>
-			<dd>{environment?.platform.type}</dd>
+			<dd>{environment?.platform?.type}</dd>
 			<dt>Operating System</dt>
-			<dd>{environment?.os.name} - {environment?.os.versionName}</dd>
+			<dd>
+				{environment?.os?.name}
+				{#if environment?.os?.versionName}
+					- {environment.os.versionName}
+				{/if}
+			</dd>
 			<dt>Browser</dt>
-			<dd>{environment?.browser.name} - {environment?.browser.version}</dd>
+			<dd>
+				{environment?.browser.name}
+				{#if environment?.browser?.version}
+					- {environment.browser.version}
+				{/if}
+			</dd>
 			<dt>Engine</dt>
-			<dd>{environment?.engine.name} - {environment?.engine.version || ''}</dd>
+			<dd>
+				{environment?.engine.name}
+				{#if environment?.engine?.version}
+					- {environment.engine.version}
+				{/if}
+			</dd>
 		</dl>
 
-		<h2>Compatibility testing results</h2>
-		<pre>{JSON.stringify(testResults, null, 2)}</pre>
+		{#if testResults}
+			<p>
+				This browsing environment has been tested and is supported.
+			</p>
+		{:else}
+			<p>
+				This browsing environment hasn't been tested and user experience
+				may vary.
+			</p>
+		{/if}
 
 		<h2>Quality audits</h2>
 		<menu class='tabs'>
-			<ul>
-				{#each _.keys(lighthouseUrls) as id}
-					<li>
-						<input {id} type='radio' bind:group={currentreport} value={id}>
-						<label for={id} class='clickable'>{id}</label>
-					</li>
-				{/each}
-			</ul>
+			{#if $_screen?.sizes?.medium}
+				<ul>
+					{#each reportNames as id}
+						<li>
+							<input
+								{id}
+								type='radio'
+								bind:group={currentreport}
+								value={id}
+							>
+							<label for={id} class='clickable'>
+								{id}
+							</label>
+						</li>
+					{/each}
+					{#if loadingResults}
+						<li class='meta'>
+							<div class='spinner'>
+								<LoadingView
+									size={24}
+									stroke={theme.colorMain}
+									strokeWidth={1}
+								/>
+							</div>
+						</li>
+					{/if}
+				</ul>
+			{:else}
+				<div class='tab-selector'>
+					<label for=''>
+						{currentreport}
+						{#if loadingResults}
+							<div class='spinner'>
+								<LoadingView
+									size={24}
+									stroke={theme.colorMain}
+									strokeWidth={1}
+								/>
+							</div>
+						{/if}
+					</label>
+					
+					<button
+						class:clickable={hasPrevValue}
+						disabled={!hasPrevValue}
+						on:click={clickedPrev}
+					>
+						<Icon glyph={ChevronLeft} />
+					</button>
+					<button
+						class:clickable={hasNextValue}
+						disabled={!hasNextValue}
+						on:click={clickedNext}
+					>
+						<Icon glyph={ChevronRight} />
+					</button>
+				</div>
+			{/if}
 		</menu>
 		{#if failingA11yAudit.includes(currentreport)}
 			<figure>
 				Unfortunately the accessibility audit for this page fails
 				because of an
-				<a
-					href='https://github.com/GoogleChrome/lighthouse/issues/12039'
-					rel='noopener'
+				<Link
+					href={lighthouseIssueUrl}
+					isExternal={true}
+					theme={{color: theme.colorMain}}
 				>
 					issue
-				</a> in Google Lighthouse.
+				</Link> in Google Lighthouse.
 			</figure>
 		{/if}
 		<iframe
@@ -99,6 +326,7 @@
 			marginwidth='0'
 			src={reportUrl}
 			title='Accessibility validation results'
+			on:load={e => resizeIFrameToFitContent(lighthouseFrame)}
 		>
 			Loading...
 		</iframe>
@@ -110,7 +338,6 @@
 	main {
 		background-color: var(--color-background);
 		display: flex;
-		font-size: 1.05rem;
 		font-weight: 200;
 		height: 100%;
 		justify-content: space-around;
@@ -144,16 +371,46 @@
 		margin-bottom: 1.5rem;
 		margin-top: 1.5rem;
 	}
+	p {
+		margin-bottom: 1.5rem;
+	}
+	ul {
+		list-style: initial;
+		margin-left: 20px;
+	}
+	dl {
+		display: grid;
+		grid-template-rows: repeat(4, auto);
+		grid-template-columns: repeat(2, minmax(min-content, max-content));
+	}
+	dt {
+		padding: 0.5em 1em;
+		border-top: thin solid white;
+		color: white;
+		background: var(--color-main);
+		text-align: right;
+	}
+	dt:first-child {
+		border-top: none;
+	}
+	dd {
+		border: thin solid var(--color-main);
+		padding: 0.5em 1em;
+	}
+	dd:not(:last-child) {
+		border-bottom: none;
+	}
 	.tabs ul {
-		list-style-type: none;
+		border-bottom: thin solid var(--color-main);
 		display: flex;
 		flex-direction: row;
-		border-bottom: thin solid var(--color-main);
+		list-style-type: none;
+		margin: 0;
 	}
 	.tabs input {
 		display: none;
 	}
-	.tabs input[type="radio"] + label {
+	.tabs input[type="radio"] + label, .tabs div label, .tabs li .spinner {
 		display: block;
 		padding: 0.5em 1em;
 	}
@@ -164,8 +421,44 @@
 		border-top: thin solid var(--color-main);
 		border-right: thin solid var(--color-main);
 	}
+	.tabs li.meta {
+		align-items: center;
+		border: none;
+		display: flex;
+	}
 	.tabs input[type="radio"]:checked + label {
 		background: var(--color-main);
 		color: white;
+	}
+
+	.tabs .tab-selector {
+		border: thin solid var(--color-main);
+		display: grid;
+		grid-template-columns: 1fr min-content min-content;
+	}
+	.tabs button {
+		background: white;
+		border: none;
+		border-left: thin solid var(--color-main);
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+	.spinner {
+		display: inline-block !important;
+		margin-left: 1em;
+		height: 1rem;
+		width: 1rem;
+	}
+
+	.cta {
+		display: flex;
+		justify-content: space-around;
+		margin: 4rem 0 3rem 0;
+		flex-direction: column;
+		row-gap: 1em;
+	}
+	.medium .cta {
+		flex-direction: row;
+		row-gap: 0;
 	}
 </style>

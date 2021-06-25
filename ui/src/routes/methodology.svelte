@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Methodology</title>
+	<title>EURITO - Methodology</title>
 	<meta
 		content='{toolName}: methodology used to produce these indicators'
 		name='description'

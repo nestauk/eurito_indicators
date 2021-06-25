@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Home</title>
+	<title>EURITO - Home</title>
 	<meta
 		content='{toolName}: homepage'
 		name='description'
