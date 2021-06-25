@@ -55,8 +55,7 @@ import re
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import pickle
-
-# %%
+from bertopic import BERTopic
 import eurito_indicators
 from eurito_indicators.getters import Get_file as gf
 
@@ -74,30 +73,31 @@ research = gf.read_excel_file()
 research.head(1) # Look at first row
 
 # %%
-research.shape
+research.shape # df size
 
 # %%
-data_types = pd.DataFrame(research.dtypes, columns=['Data Type'])
-
-# %%
-percent_missing = research.isnull().sum() * 100 / len(research)
+data_types = pd.DataFrame(research.dtypes, columns=['Data Type']) # Data types
+percent_missing = research.isnull().sum() * 100 / len(research) # Percent missing
 missing_values = pd.DataFrame({'column_name': research.columns, 'percent_missing': percent_missing})
-
-# %%
 missing_values.sort_values('percent_missing', ascending=True, inplace=True)
 
-# %%
-plt.rcParams["figure.figsize"] = (16,10)
 
 # %%
-plt.plot(missing_values.column_name, missing_values.percent_missing) 
-plt.xticks(rotation=90)
-plt.title('Percentage missing per column')
-plt.xlabel('Columns')
-plt.ylabel('Percentage')
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Count-of-missing-values.svg", format='svg', dpi=1200)
-plt.show()
+def df_plot(plot, size_x, size_y, rotate, title, x_label, y_label, filename):
+    plt.rcParams["figure.figsize"] = (size_x, size_y)
+    plot 
+    plt.xticks(rotation=rotate)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.tight_layout()
+    plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/"+filename, format='svg', dpi=1200)
+    plt.show()
+
+
+# %%
+plot = plt.plot(missing_values.column_name, missing_values.percent_missing)
+df_plot(plot, 16, 10, 90, 'Percentage missing per column', 'Columns', 'Percentage', 'Count-of-missing-values.svg')
 
 # %%
 unique_values = pd.DataFrame(columns=['Unique Values'])
@@ -108,19 +108,6 @@ dq_report = data_types.join(missing_values).join(unique_values)
 
 # %%
 dq_report.head(1)
-
-# %%
-list(research.columns.values)
-
-# %% [markdown]
-# ### EU analysis
-# - Looking at projects where the funding body is EC or the countries are EU
-# - Count of projects by funding body (from EU countries)
-# - Which countries produced the most projects?
-#     - Over time
-# - Collaborating countries – which countries worked together most on projects
-# - Which counties received the most funding?
-# - Which research area receives the most funding?
 
 # %% [markdown]
 # ###### EC funded
@@ -169,8 +156,6 @@ research['Countries clean2'] = research['Countries clean'].str.join(', ')
 research['Countries clean'] = research['Countries clean'].str.strip('[]')
 research['Countries clean'] = research['Countries clean'].fillna(research['Countries clean2'])
 research['Countries clean'] = research['Countries clean'].map(lambda x: [i.strip() for i in x.split(",")])
-
-# %%
 research.drop(['Countries clean2', 'Continent clean2'], axis=1, inplace=True)
 
 # %%
@@ -178,43 +163,29 @@ cont_count = dict(Counter(it.chain(*map(set, research['Continent'].tolist()))).m
 cont_count
 
 # %%
-plt.rcParams["figure.figsize"] = (10,7)
 plt.rcParams.update({'font.size': 12})
-
 colors = ['#3754b3','#ed5a58','#3754b3','#3754b3','#3754b3','#3754b3']
-
-plt.bar(cont_count.keys(), cont_count.values(), width=0.8, color=colors) # Plot
-plt.title('Count of Research Projects by Continent')
-plt.xlabel('Continents')
-plt.ylabel('Count')
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Count-of-research-projects-by-continent.svg", format='svg', dpi=1200)
-plt.show()
+plot = plt.bar(cont_count.keys(), cont_count.values(), width=0.8, color=colors) # Plot
+df_plot(plot, 10, 7, 0, 'Count of Research Projects by Continent', 'Continents', 'Count', 'Count-of-research-projects-by-continent.svg')
 
 # %%
 countries_count = Counter(it.chain(*map(set, research['Countries clean'].tolist()))) # Count of continents
 countries_count_top = dict(countries_count.most_common(10))
-plt.bar(countries_count_top.keys(), countries_count_top.values(),color='#3754b3') # Plot
-plt.title('Top 10 countries by project count')
-plt.xlabel('Country')
-plt.ylabel('Count')
-plt.xticks(rotation=90)
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Top-ten-countries-by-project-count.svg", format='svg', dpi=1200)
-plt.show()
+
+# %%
+plot = plt.bar(countries_count_top.keys(), countries_count_top.values(),color='#3754b3') # Plot
+df_plot(plot, 10, 7, 90, 'Top 10 countries by project count', 'Country', 'Count', 'Top-ten-countries-by-project-count.svg')
 
 # %% [markdown]
 # ###### EU Countries
 
 # %%
-eu = EUROPEAN_UNION.names
-
-# %%
-eu.append('United Kingdom')
+eu = EUROPEAN_UNION.names # EU list
+eu.append('United Kingdom') # Adding United Kingdom
 
 
 # %%
-# True where two lists overlap
+# True where country list has eu country in it
 def lists_overlap(a, b):
     eu_countries = list(set(a).intersection(b))
     eu_true = bool(set(a) & set(b))
@@ -222,6 +193,7 @@ def lists_overlap(a, b):
 
 
 # %%
+# Apply above function to countries column
 eu_bool= []
 eu_countries_list = []
 for c in research['Countries clean']:
@@ -232,41 +204,23 @@ research['eu_country'] = eu_bool
 research['eu_countries'] = eu_countries_list
 
 # %%
-# research.to_excel('test22.xlsx', index=False) # Temp check results - delete later
+EU = research.loc[research['eu_country']==True].copy() # segment df by eu countries
 
 # %%
-research['eu_countries']
-
-# %%
-EU = research.loc[research['eu_country']==True].copy()
-
-# %%
-eu_count = Counter(it.chain(*map(set, EU['eu_countries'].tolist())))
-eu_count.most_common(5)
-
-# %%
-plt.rcParams["figure.figsize"] = (12,8)
-
-# %%
+# Count of eu countries
 countries_count = Counter(it.chain(*map(set, EU['eu_countries'].tolist())))
 countries_count = dict(sorted(countries_count.items(), key=lambda pair: pair[1], reverse=True))
-plt.bar(countries_count.keys(), countries_count.values(), color='#3754b3') # Plot
-plt.title('Count of Research Projects by EU countries (Including UK)')
-plt.xlabel('Country')
-plt.ylabel('Count')
-plt.xticks(rotation=90)
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Count-project-eu-countries.svg", format='svg', dpi=1200)
-plt.show()
 
 # %%
-EU['Start date clean']= pd.to_datetime(EU['Start Date'], errors='coerce' )
+plot = plt.bar(countries_count.keys(), countries_count.values(), color='#3754b3') # Plot # Plot
+df_plot(plot, 12, 8, 90, 'Count of Research Projects by EU countries (Including UK)', 'Country','Count', 'Count-project-eu-countries.svg')
 
 # %%
-# 23% missing
-EU['Start date clean'].isnull().sum()/len(research)*100
+EU['Start date clean']= pd.to_datetime(EU['Start Date'], errors='coerce' ) # Remove errors start date
+EU['Start date clean'].isnull().sum()/len(research)*100 # 23% missing
 
 # %%
+# Index by start time
 eu_time = EU[EU['Start date clean'].notna()].copy()
 eu_time.sort_values(by='Start date clean', inplace=True)
 eu_time = eu_time[['Start date clean','eu_countries']]
@@ -274,27 +228,22 @@ eu_time = eu_time.explode('eu_countries').reset_index(drop=True)
 eu_time.set_index('Start date clean', inplace=True)
 
 # %%
-eu_time.head(2)
-
-# %%
-grouper = eu_time.groupby([pd.Grouper(freq='1M'), 'eu_countries'])
-grouper = grouper['eu_countries'].count().unstack()
-grouper.replace(np.nan, 0, inplace=True)
-
-# %%
-grouper.head(2)
+# Group by 1 month count
+eu_time = eu_time.groupby([pd.Grouper(freq='1M'), 'eu_countries'])
+eu_time = eu_time['eu_countries'].count().unstack()
+eu_time.replace(np.nan, 0, inplace=True)
 
 # %%
 plt.rcParams["figure.figsize"] = (15,10)
 fig = plt.figure()
-grouper.plot(ax=plt.gca())
+eu_time.plot(ax=plt.gca()) # Plot timeseries
 
 # %%
-grouper_covid = grouper[grouper.index >'2020-03-30']
+eu_time_covid = eu_time[eu_time.index >'2020-03-30']
 
 # %%
 fig = plt.figure()
-grouper_covid.plot(ax=plt.gca())
+eu_time_covid.plot(ax=plt.gca())
 plt.title('Timeseries: EU country by project count from March 30th 2020')
 plt.xlabel('Time')
 plt.ylabel('Project count')
@@ -302,7 +251,7 @@ plt.show()
 
 # %%
 fig = plt.figure()
-grouper_covid[['United Kingdom','Germany','France','Spain','Netherlands']].plot()
+eu_time_covid[['United Kingdom','Germany','France','Spain','Netherlands']].plot()
 plt.title('Timeseries: Top 5 EU countries (inc UK) by project start date from March 30th 2020')
 plt.xlabel('Time')
 plt.ylabel('Project count')
@@ -314,69 +263,46 @@ plt.show()
 # <b> Amount awarded by funder + EU country </b>
 
 # %%
-EU.head(1)
+eu_awarded = EU[EU['Amount Awarded converted to USD'].notna()].copy() # Remove NA
 
 # %%
-eu_awarded = EU[EU['Amount Awarded converted to USD'].notna()].copy()
-
-# %%
+# Clean amount awarded
 eu_awarded['Amount Awarded converted to USD'] = eu_awarded.loc[:, 'Amount Awarded converted to USD'].replace({'\$':''}, regex = True)
 eu_awarded['Amount Awarded converted to USD'].replace(',','', regex=True, inplace=True)
 eu_awarded['Amount Awarded converted to USD'] = eu_awarded['Amount Awarded converted to USD'].astype(str).astype(float)
 eu_awarded['Amount Awarded converted to USD'] = eu_awarded['Amount Awarded converted to USD'].astype(int)
 
 # %%
+# By country
 eu_awarded_c = eu_awarded[['eu_countries','Amount Awarded converted to USD']].explode('eu_countries').reset_index(drop=True)
 
 # %%
+# Top countries by ammount awarded
 top_countries_awarded = eu_awarded_c.groupby(['eu_countries']).sum().reset_index().sort_values(by='Amount Awarded converted to USD',ascending=False).head(10)
 
 # %%
-plt.rcParams["figure.figsize"] = (10,7)
-plt.rcParams.update({'font.size': 12})
-
-# %%
 plt.xticks(range(len(top_countries_awarded['Amount Awarded converted to USD'])), top_countries_awarded['eu_countries'])
-plt.xticks(rotation=90)
-plt.xlabel('Countries')
-plt.ylabel('Total $ awarded')
-plt.title('Top ten EU Countries (inc UK) by total funds awarded')
-plt.bar(range(len(top_countries_awarded['Amount Awarded converted to USD'])), top_countries_awarded['Amount Awarded converted to USD'], color='#3754b3') 
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Top-EU-Countries-total-funds-awarded.svg", format='svg', dpi=1200)
-plt.show()
+plt.rcParams.update({'font.size': 12})
+plot = plt.bar(range(len(top_countries_awarded['Amount Awarded converted to USD'])), top_countries_awarded['Amount Awarded converted to USD'], color='#3754b3') 
+df_plot(plot, 10, 7, 90, 'Top ten EU Countries (inc UK) by total funds awarded', 'Country', 'Total $ awarded', 'Top-EU-Countries-total-funds-awarded.svg')
 
 # %%
 funders_top_awarded = eu_awarded.groupby(['Funder(s)']).sum().reset_index().sort_values(by='Amount Awarded converted to USD',ascending=False).head(10)
 
 # %%
 plt.xticks(range(len(funders_top_awarded['Amount Awarded converted to USD'])), funders_top_awarded['Funder(s)'])
-plt.xticks(rotation=90)
-plt.xlabel('Funders')
-plt.ylabel('Total $ awarded')
-plt.title('Top ten funding bodies by funded ammount awarded (EU countries only)')
-plt.bar(range(len(funders_top_awarded['Amount Awarded converted to USD'])), funders_top_awarded['Amount Awarded converted to USD'], color='#3754b3') 
-plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Top-funders-total-funds-awarded.svg", format='svg', dpi=1200)
-plt.show()
+plot = plt.bar(range(len(funders_top_awarded['Amount Awarded converted to USD'])), funders_top_awarded['Amount Awarded converted to USD'], color='#3754b3') 
+df_plot(plot, 10, 7, 90, 'Top ten funding bodies by funded ammount awarded (EU countries)', 'Funders', 'Total $ awarded', 'Top-EU-Countries-total-funds-awarded.svg')
 
 # %% [markdown]
-# #### Comparison of EU verses non-EU projects
-# - Count of projects
-# - Total amount spent / awarded
-# - Over time
-# - Top modelling
-#     - Looking at the topic present in EU compared to non-EU
-
-# %% [markdown]
-# #### Topic modelling
+# ### Topic modelling
 
 # %%
 my_stopwords = nltk.corpus.stopwords.words('english')
 word_rooter = nltk.stem.snowball.PorterStemmer(ignore_stopwords=False).stem
 my_punctuation = '!"$%&\'()*+,-./:;<=>?[\\]^_`{|}~•@'
 
-# cleaning master function
+# Text cleaning function
 def clean_text(text, bigrams=False):
     text = text.lower() # lower case
     text = re.sub('['+my_punctuation + ']+', ' ', text) # strip punctuation
@@ -398,8 +324,8 @@ def clean_text(text, bigrams=False):
 research['clean_text'] = research['Project Title'] + ' ' + research['Abstract']
 research['clean_text'] = research['clean_text'].astype(str).apply(clean_text)
 
-# %%
-research[['clean_text','Project Title']].head(1)
+# %% [markdown]
+# #### LDA topic modelling
 
 # %%
 # the vectorizer object will be used to transform text to vector form
@@ -412,10 +338,9 @@ tf = vectorizer.fit_transform(research['clean_text']).toarray()
 tf_feature_names = vectorizer.get_feature_names()
 
 # %%
+# Set topic number, define model and fit to vector
 number_of_topics = 20
 model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
-
-# %%
 model.fit(tf)
 
 
@@ -431,6 +356,7 @@ def display_topics(model, feature_names, no_top_words):
 
 
 # %%
+# Display results with top 10 words per topic
 no_top_words = 10
 display_topics(model, tf_feature_names, no_top_words)
 
@@ -438,32 +364,24 @@ display_topics(model, tf_feature_names, no_top_words)
 # #### Bertopic package
 
 # %%
-from bertopic import BERTopic
-
-# %%
 res_text = research['clean_text'].to_list()
-
-# %%
-# Look at dynamic topic modelling
-# https://github.com/MaartenGr/BERTopic
 
 # %%
 topic_model = BERTopic(embedding_model="paraphrase-MiniLM-L6-v2", language="english", calculate_probabilities=True)
 topics, probabilities = topic_model.fit_transform(res_text)
 
 # %%
+# Save model
 topic_model.save(f"{project_directory}/outputs/topic_model.digital")
 
 # %%
-#loaded_topic_model = BERTopic.load(f"{project_directory}/outputs/topic_model.digital")
-#loaded_topic_model.get_topic_info()
+# load pre run model
+topic_model.save(f"{project_directory}/outputs/topic_model.digital")
+topic_model = BERTopic.load(f"{project_directory}/outputs/topic_model.digital")
+topic_model.get_topic_info().head(5)
 
 # %%
-probabilities
-
-# %%
-topic_info = topic_model.get_topic_info()
-topic_info.head(9)
+topic_model.visualize_distribution(probabilities[60]) # This doesn't seem to work well
 
 # %%
 topic_model.visualize_barchart()
@@ -472,18 +390,17 @@ topic_model.visualize_barchart()
 topic_model.visualize_topics()
 
 # %%
+# Save topic model visual to load later
 topic_model_all = topic_model.visualize_topics()
-
-# %%
 pickle.dump(topic_model_all, open(f"{project_directory}/outputs/figures/Covid_research_tracker/BERTopic_model_all_data.pickle", 'wb')) 
 
 # %%
+# Add topics to rearch df
 research['Topic'] = topics
-
-# %%
 research = research.merge(topic_info, how='left', on='Topic')
 
 # %%
+# Add columns to indicate if the project has countries in europe and / or the rest of the world
 europe= []
 for c in research['Continent']:
     _, eu_true = lists_overlap(c, ['Europe'])
@@ -497,11 +414,9 @@ for c in research['Continent']:
 research['rest_of_world'] = row
 
 # %%
+# Change from True/False to 1/0
 research['europe'] = research['europe']*1
 research['rest_of_world'] = research['rest_of_world']*1
-
-# %%
-research.head(2)
 
 # %%
 research['count'] = 1
@@ -543,25 +458,15 @@ uk_top.plot(kind='bar')
 
 # %%
 continents = research.loc[research['Name']!='-1_immun_individu_decis_treatment']
-
-# %%
 continents = continents[['Name', 'europe', 'rest_of_world']]
-
-# %%
 continents = continents.groupby(['Name'], as_index=False)['europe', 'rest_of_world'].sum().reset_index(drop=True)
-
-# %%
 continents['All'] = continents['europe'] + continents['rest_of_world']
 
 continents['europe'] = (continents['europe'] / continents['europe'].sum()) * 100
 continents['rest_of_world'] = (continents['rest_of_world'] / continents['rest_of_world'].sum()) * 100
 
 continents_top = continents.sort_values(by=['All'], ascending=False).head(10)
-
-# %%
 continents_top.drop('All', axis=1, inplace=True)
-
-# %%
 continents_top.set_index('Name',inplace=True,drop=True)
 
 # %%
@@ -584,17 +489,20 @@ plt.show()
 # %% [markdown]
 # #### Testing active projects
 
-# %%
-active_projects = research[['Start date clean','Name']]
+# %% [markdown]
+# Come back to: https://stackoverflow.com/questions/57334097/pandas-convert-dataframe-with-start-and-end-date-to-daily-data
 
 # %%
-melt = df.melt(id_vars=['id', 'age', 'state'], value_name='date').drop('variable', axis=1)
-melt['date'] = pd.to_datetime(melt['date'])
+#active_projects = research[['Start date clean','Name']]
 
-melt = melt.groupby('id').apply(lambda x: x.set_index('date').resample('d').first())\
-           .ffill()\
-           .reset_index(level=1)\
-           .reset_index(drop=True)
+# %%
+#melt = df.melt(id_vars=['id', 'age', 'state'], value_name='date').drop('variable', axis=1)
+#melt['date'] = pd.to_datetime(melt['date'])
+
+#melt = melt.groupby('id').apply(lambda x: x.set_index('date').resample('d').first())\
+#           .ffill()\
+#           .reset_index(level=1)\
+#           .reset_index(drop=True)
 
 # %% [markdown]
 # ##### Plotting topics by start date
@@ -638,63 +546,3 @@ plt.show()
 
 # %%
 res_time.head(10)
-
-# %% [markdown]
-# #### Dynamic Topic Modelling
-
-# %%
-# Group by month then quarterly....
-
-# %%
-res_time = research.copy()
-
-# %%
-res_time['Start date clean']= pd.to_datetime(res_time['Start Date'], errors='coerce' )
-res_time = res_time[res_time['Start date clean'].notna()].copy()
-res_time['clean_text'] = res_time['Project Title'] + ' ' + res_time['Abstract']
-res_time['clean_text'] = res_time['clean_text'].astype(str).apply(clean_text)
-
-# %%
-#res_time['Start date clean'] = res_time['Start date clean'].clip(lower=pd.Timestamp('2020-03-01'))
-
-# %%
-res_time2 = res_time[['clean_text', 'Start date clean']]
-res_time2['Month-year'] = pd.to_datetime(res_time2['Start date clean']).dt.strftime('%m-%Y')
-res_time2 = res_time2.groupby(['Month-year'])['clean_text'].apply(lambda x: ' '.join(x)).reset_index()
-
-# %%
-res_text = res_time2['clean_text'].to_list()
-timestamps = res_time2['Month-year'].to_list()
-
-# %% [markdown]
-# #### Old version
-
-# %%
-res_time = research.copy()
-res_time['Start date clean']= pd.to_datetime(res_time['Start Date'], errors='coerce' )
-res_time = res_time[res_time['Start date clean'].notna()].copy()
-
-res_time['clean_text'] = res_time['Project Title'] + ' ' + res_time['Abstract']
-res_time['clean_text'] = res_time['clean_text'].astype(str).apply(clean_text)
-
-res_time.set_index('Start date clean', inplace=True)
-#res_time = res_time[res_time.index >'2020-03-30']
-res_time.reset_index(inplace=True)
-res_time.head(1)
-
-# %%
-res_text = res_time['clean_text'].to_list()
-timestamps = res_time['Start date clean'].to_list()
-
-# %%
-topic_model = BERTopic(verbose=True)
-topics, _ = topic_model.fit_transform(res_text)
-
-# %%
-topics_over_time = topic_model.topics_over_time(res_text, topics, timestamps, nr_bins=20)
-
-# %% [markdown]
-# Where start date is after March 2020
-
-# %%
-topic_model.visualize_topics_over_time(topics_over_time, top_n_topics=6)
