@@ -25,6 +25,7 @@
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
 
 	const reportNames = _.keys(lighthouseUrls)
+	const updateCurrentReport = id => currentreport = id;
 
 	let environment;
 	let testResults = null;
@@ -49,7 +50,6 @@
 		loadResults();
 	})
 
-	const updateCurrentReport = id => currentreport = id;
 	$: currentreport, loadingResults = true;
 	$: currentValueIndex = _.findIndex(
 		reportNames,
@@ -268,6 +268,7 @@
 								<LoadingView
 									size={24}
 									stroke={theme.colorMain}
+									strokeWidth={1}
 								/>
 							</div>
 						</li>
@@ -282,6 +283,7 @@
 								<LoadingView
 									size={24}
 									stroke={theme.colorMain}
+									strokeWidth={1}
 								/>
 							</div>
 						{/if}
