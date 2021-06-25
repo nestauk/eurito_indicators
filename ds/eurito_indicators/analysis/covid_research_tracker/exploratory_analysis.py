@@ -38,11 +38,18 @@
 # - Top modelling
 #     - Looking at the topic present in EU compared to non-EU
 
+# %% [markdown]
+# To add
+# - Heatmap: countries, topics
+# - Specialities of countries
+#     - Split by funder
+
 # %%
 # Import libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 import country_converter as coco
 import itertools as it
 from collections import Counter
@@ -97,7 +104,7 @@ def df_plot(plot, size_x, size_y, rotate, title, x_label, y_label, filename):
 
 # %%
 plot = plt.plot(missing_values.column_name, missing_values.percent_missing)
-df_plot(plot, 16, 10, 90, 'Percentage missing per column', 'Columns', 'Percentage', 'Count-of-missing-values.svg')
+df_plot(plot, 16, 10, 90, 'Percentage missing per column', 'Columns', 'Percentage', 'count_of_missing_values.svg')
 
 # %%
 unique_values = pd.DataFrame(columns=['Unique Values'])
@@ -166,7 +173,7 @@ cont_count
 plt.rcParams.update({'font.size': 12})
 colors = ['#3754b3','#ed5a58','#3754b3','#3754b3','#3754b3','#3754b3']
 plot = plt.bar(cont_count.keys(), cont_count.values(), width=0.8, color=colors) # Plot
-df_plot(plot, 10, 7, 0, 'Count of Research Projects by Continent', 'Continents', 'Count', 'Count-of-research-projects-by-continent.svg')
+df_plot(plot, 10, 7, 0, 'Count of Research Projects by Continent', 'Continents', 'Count', 'count_research_projects_continentt.svg')
 
 # %%
 countries_count = Counter(it.chain(*map(set, research['Countries clean'].tolist()))) # Count of continents
@@ -174,7 +181,7 @@ countries_count_top = dict(countries_count.most_common(10))
 
 # %%
 plot = plt.bar(countries_count_top.keys(), countries_count_top.values(),color='#3754b3') # Plot
-df_plot(plot, 10, 7, 90, 'Top 10 countries by project count', 'Country', 'Count', 'Top-ten-countries-by-project-count.svg')
+df_plot(plot, 10, 7, 90, 'Top 10 countries by project count', 'Country', 'Count', 'top_countries_project_count.svg')
 
 # %% [markdown]
 # ###### EU Countries
@@ -213,7 +220,7 @@ countries_count = dict(sorted(countries_count.items(), key=lambda pair: pair[1],
 
 # %%
 plot = plt.bar(countries_count.keys(), countries_count.values(), color='#3754b3') # Plot # Plot
-df_plot(plot, 12, 8, 90, 'Count of Research Projects by EU countries (Including UK)', 'Country','Count', 'Count-project-eu-countries.svg')
+df_plot(plot, 12, 8, 90, 'Count of Research Projects by EU countries (Including UK)', 'Country','Count', 'count_project_eu_countries.svg')
 
 # %%
 EU['Start date clean']= pd.to_datetime(EU['Start Date'], errors='coerce' ) # Remove errors start date
@@ -256,7 +263,7 @@ plt.title('Timeseries: Top 5 EU countries (inc UK) by project start date from Ma
 plt.xlabel('Time')
 plt.ylabel('Project count')
 plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Timeseries-top-5-eu-project-start-date.svg", format='svg', dpi=1200)
+plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/timeseries_top_eu_project_start_date.svg", format='svg', dpi=1200)
 plt.show()
 
 # %% [markdown]
@@ -273,26 +280,32 @@ eu_awarded['Amount Awarded converted to USD'] = eu_awarded['Amount Awarded conve
 eu_awarded['Amount Awarded converted to USD'] = eu_awarded['Amount Awarded converted to USD'].astype(int)
 
 # %%
+eu_awarded['Amount Awarded converted to euros'] = (eu_awarded['Amount Awarded converted to USD']*0.84).round(0).astype(int)
+
+# %%
+eu_awarded[['Amount Awarded converted to euros', 'Amount Awarded converted to USD']]
+
+# %%
 # By country
-eu_awarded_c = eu_awarded[['eu_countries','Amount Awarded converted to USD']].explode('eu_countries').reset_index(drop=True)
+eu_awarded_c = eu_awarded[['eu_countries','Amount Awarded converted to euros']].explode('eu_countries').reset_index(drop=True)
 
 # %%
 # Top countries by ammount awarded
-top_countries_awarded = eu_awarded_c.groupby(['eu_countries']).sum().reset_index().sort_values(by='Amount Awarded converted to USD',ascending=False).head(10)
+top_countries_awarded = eu_awarded_c.groupby(['eu_countries']).sum().reset_index().sort_values(by='Amount Awarded converted to euros',ascending=False).head(10)
 
 # %%
-plt.xticks(range(len(top_countries_awarded['Amount Awarded converted to USD'])), top_countries_awarded['eu_countries'])
+plt.xticks(range(len(top_countries_awarded['Amount Awarded converted to euros'])), top_countries_awarded['eu_countries'])
 plt.rcParams.update({'font.size': 12})
-plot = plt.bar(range(len(top_countries_awarded['Amount Awarded converted to USD'])), top_countries_awarded['Amount Awarded converted to USD'], color='#3754b3') 
-df_plot(plot, 10, 7, 90, 'Top ten EU Countries (inc UK) by total funds awarded', 'Country', 'Total $ awarded', 'Top-EU-Countries-total-funds-awarded.svg')
+plot = plt.bar(range(len(top_countries_awarded['Amount Awarded converted to euros'])), top_countries_awarded['Amount Awarded converted to euros'], color='#3754b3') 
+df_plot(plot, 10, 7, 90, 'Top ten EU Countries (inc UK) by total funds awarded', 'Country', 'Total amount awarded (€)', 'top_eu_countries_funds_awarded.svg')
 
 # %%
-funders_top_awarded = eu_awarded.groupby(['Funder(s)']).sum().reset_index().sort_values(by='Amount Awarded converted to USD',ascending=False).head(10)
+funders_top_awarded = eu_awarded.groupby(['Funder(s)']).sum().reset_index().sort_values(by='Amount Awarded converted to euros',ascending=False).head(10)
 
 # %%
-plt.xticks(range(len(funders_top_awarded['Amount Awarded converted to USD'])), funders_top_awarded['Funder(s)'])
-plot = plt.bar(range(len(funders_top_awarded['Amount Awarded converted to USD'])), funders_top_awarded['Amount Awarded converted to USD'], color='#3754b3') 
-df_plot(plot, 10, 7, 90, 'Top ten funding bodies by funded ammount awarded (EU countries)', 'Funders', 'Total $ awarded', 'Top-EU-Countries-total-funds-awarded.svg')
+plt.xticks(range(len(funders_top_awarded['Amount Awarded converted to euros'])), funders_top_awarded['Funder(s)'])
+plot = plt.bar(range(len(funders_top_awarded['Amount Awarded converted to euros'])), funders_top_awarded['Amount Awarded converted to euros'], color='#3754b3') 
+df_plot(plot, 10, 7, 90, 'Top ten funding bodies by funded ammount awarded (EU countries)', 'Funders', 'Total amount awarded (€)', 'top_funding_bodies_awarded.svg')
 
 # %% [markdown]
 # ### Topic modelling
@@ -376,7 +389,6 @@ topic_model.save(f"{project_directory}/outputs/topic_model.digital")
 
 # %%
 # load pre run model
-topic_model.save(f"{project_directory}/outputs/topic_model.digital")
 topic_model = BERTopic.load(f"{project_directory}/outputs/topic_model.digital")
 topic_model.get_topic_info().head(7)
 
@@ -435,7 +447,7 @@ all_projects.set_index('Name',inplace=True,drop=True)
 
 # %%
 plot = all_projects.plot(kind='bar', color='#3754b3', legend=False) # Plot
-df_plot(plot, 10, 7, 90, 'Number of research projects per topic (top 20)', 'Topic', 'Count', 'Number-project-per-topic.svg')
+df_plot(plot, 10, 7, 90, 'Number of research projects per topic (top 20)', 'Topic', 'Count', 'number_project_per_topic.svg')
 
 # %%
 countries = research[['Countries clean','Name']]
@@ -480,7 +492,7 @@ continents_top.head(10)
 plot = continents_top.plot(kind= 'bar' , secondary_y= 'rest_of_world', legend='TRUE',
                            ax=None, mark_right=False, rot=90, color=['#3754b3','#ed5a58'])
 df_plot(plot, 12, 8, 90, 'Percentage of projects assigned to the top ten topics', 'Area', 
-        'Percentage','Topics-europe-rest-of-world.svg')
+        'Percentage','topics_europe_rest_of_world.svg')
 
 # %% [markdown]
 # #### Testing active projects
@@ -534,7 +546,7 @@ plt.title('Timeseries of project start date by topic from March 30th 2020')
 plt.xlabel('Time')
 plt.ylabel('Project count')
 plt.tight_layout()
-plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/Timeseries-project-start-date-by-topic.svg", format='svg', dpi=1200)
+plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/timeseries_project_start_by_topic.svg", format='svg', dpi=1200)
 plt.show()
 
 # %%
@@ -547,3 +559,96 @@ with open("topics.txt", "wb") as fp:
 
 # %%
 np.save("probabilities.npy", probabilities) # Save probabilities
+
+# %% [markdown]
+# #### New charts
+
+# %%
+research = pd.read_excel('../temp-research.xlsx')
+research['eu_countries'] = research['eu_countries'].apply(eval)
+EU = research.loc[research['eu_country']==True].copy() # segment df by eu countries
+EU_countries = EU[['eu_countries','Name']].explode('eu_countries').reset_index(drop=True)
+print(EU.shape, EU_countries.shape)
+EU_countries['count'] = 1
+
+# %%
+EU_countries = EU_countries.groupby(['eu_countries','Name']).sum().reset_index()
+
+# %%
+topics_10 = list(topic_model.get_topic_info()['Name'].head(11))
+topics_10.pop(0)
+
+# %%
+EU_countries = EU_countries[EU_countries.Name.isin(topics_10)]
+EU_countries.rename({'eu_countries':'EU country', 'Name':'Topic'}, axis=1, inplace=True)
+
+# %%
+EU_countries.head(3)
+
+# %%
+EU_countries = EU_countries.pivot('EU country','Topic', 'count').fillna(0)
+EU_countries_perc = EU_countries.div(EU_countries.sum(axis=1), axis=0) # Change to percentage
+
+# %%
+ax = sns.heatmap(EU_countries_perc, cmap="YlGnBu")
+
+# %%
+ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap-topics-eu-countries.svg")
+
+# %%
+corr = EU_countries.corr()
+
+# %%
+# Generate a mask for the upper triangle
+mask = np.triu(np.ones_like(corr, dtype=bool))
+
+# Set up the matplotlib figure
+f, ax = plt.subplots(figsize=(11, 9))
+
+# Generate a custom diverging colormap
+cmap = sns.diverging_palette(300, 15, as_cmap=True)
+
+# Draw the heatmap with the mask and correct aspect ratio
+corrplot = sns.heatmap(corr, mask=mask, cmap="PiYG", vmin=0.3, vmax=1, center=0,
+                      square=True, linewidths=.5, cbar_kws={"shrink": .5})
+
+# %%
+figure = corrplot.get_figure()    
+figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/correlation_top10_topics.svg", dpi=400)
+
+# %%
+research.head(1)
+
+# %%
+EU['PRIMARY WHO Research Priority Area Number'].isnull().sum()/len(research)*100 # 4% missing
+
+# %%
+priority_5 = list(EU[['PRIMARY WHO Research Priority Area Number']].value_counts().head(5).reset_index()['PRIMARY WHO Research Priority Area Number'])
+
+# %%
+EU[['PRIMARY WHO Research Priority Area Number']].value_counts().head(10)
+
+# %%
+priority_5
+
+# %%
+EU_countries = EU[['eu_countries','PRIMARY WHO Research Priority Area Number']].explode('eu_countries').reset_index(drop=True)
+EU_countries['count'] = 1
+
+# %%
+EU_countries = EU_countries.groupby(['eu_countries','PRIMARY WHO Research Priority Area Number']).sum().reset_index()
+
+# %%
+EU_countries.rename({'eu_countries':'EU country', 'PRIMARY WHO Research Priority Area Number':'Priority Area'}, axis=1, inplace=True)
+EU_countries = EU_countries[EU_countries['Priority Area'].isin(priority_5)]
+EU_countries = EU_countries.pivot('EU country','Priority Area', 'count').fillna(0)
+EU_countries_perc = EU_countries.div(EU_countries.sum(axis=1), axis=0) # Change to percentage
+
+# %%
+sns.set(rc={'figure.figsize':(7,12)})
+
+# %%
+ax = sns.heatmap(EU_countries_perc, cmap="YlGnBu")
+
+# %%
+ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap_priority_area.svg")
