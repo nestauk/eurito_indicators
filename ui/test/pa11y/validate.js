@@ -33,7 +33,7 @@ const auditURL = async (id, url) => {
 			runnerResult.pageUrl
 	);
 	console.log(
-		'Issues found: ',
+		'Issues found:',
 		runnerResult.issues.length
 	);
 }

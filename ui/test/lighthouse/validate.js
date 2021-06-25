@@ -54,7 +54,7 @@ const auditURL = async (id, url) => {
 		runnerResult.lhr.finalUrl
 	);
 	console.log(
-		'Performance score was',
+		'Accessibility score was',
 		runnerResult.lhr.categories.accessibility.score * 100
 	);
 
