@@ -144,6 +144,12 @@
 				</p>
 			</li>
 		</ul>
+		<h2>WCAG compliance rating</h2>
+		<p>
+			Automated testing using the Pa11y WCAG validation tool reports that
+			there are no accessibility issues and rates this website at WCAG 2.0
+			AAA compliance level.
+		</p>
 		<h2>Limitations</h2>
 		<p>
 			Although we continually revise the website for proper support, we
