@@ -17,12 +17,14 @@
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
 
-	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
-	const openDyslexicUrl = 'https://opendyslexic.org/';
-	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
-	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
-	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
+	const lighthouseUrl = 'https://developers.google.com/web/tools/lighthouse';
+	const openDyslexicUrl = 'https://opendyslexic.org/';
+	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
+	const pa11yUrl = 'https://pa11y.org/'
+	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
+	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 
 	const reportNames = _.keys(lighthouseUrls)
 	const updateCurrentReport = id => currentreport = id;
@@ -146,9 +148,24 @@
 		</ul>
 		<h2>WCAG compliance rating</h2>
 		<p>
-			Automated testing using the Pa11y WCAG validation tool reports that
-			there are no accessibility issues and rates this website at WCAG 2.0
-			AAA compliance level.
+			According to automated testing using the 
+			<Link
+				href={pa11yUrl}
+				isBold={true}
+				isExternal={true}
+			>
+				Pa11y accessibility testing tool
+			</Link>,
+			no accessibility issues were detected and this website is reported
+			to have a WCAG 2.0 AAA compliance level. This website also passes
+			the accessibility audits checked by
+			<Link
+				href={lighthouseUrl}
+				isBold={true}
+				isExternal={true}
+			>
+				Google's Lighthouse tool
+			</Link>.
 		</p>
 		<h2>Limitations</h2>
 		<p>
@@ -257,6 +274,10 @@
 			<p>
 				This browsing environment hasn't been tested and user experience
 				may vary.
+				{#if environment?.os?.name === 'Linux'}
+					Browserstack does not offer testing under Linux operating
+					systems
+				{/if}
 			</p>
 		{/if}
 
