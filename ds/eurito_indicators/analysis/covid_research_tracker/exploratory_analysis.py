@@ -98,7 +98,7 @@ def df_plot(plot, size_x, size_y, rotate, title, x_label, y_label, filename):
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.tight_layout()
-    plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/"+filename, format='svg', dpi=1200)
+    plt.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/"+filename, dpi=1200)
     plt.show()
 
 
@@ -170,18 +170,21 @@ cont_count = dict(Counter(it.chain(*map(set, research['Continent'].tolist()))).m
 cont_count
 
 # %%
-plt.rcParams.update({'font.size': 12})
+plt.rcParams.update({'font.size': 16})
 colors = ['#3754b3','#ed5a58','#3754b3','#3754b3','#3754b3','#3754b3']
 plot = plt.bar(cont_count.keys(), cont_count.values(), width=0.8, color=colors) # Plot
-df_plot(plot, 10, 7, 0, 'Count of Research Projects by Continent', 'Continents', 'Count', 'count_research_projects_continentt.svg')
+df_plot(plot, 10, 7, 0, 'Count of Research Projects by Continent', 'Continents', 'Count', 'count_research_projects_continent.png')
 
 # %%
 countries_count = Counter(it.chain(*map(set, research['Countries clean'].tolist()))) # Count of continents
 countries_count_top = dict(countries_count.most_common(10))
 
 # %%
+plt.rcParams.update({'font.size': 14})
+
+# %%
 plot = plt.bar(countries_count_top.keys(), countries_count_top.values(),color='#3754b3') # Plot
-df_plot(plot, 10, 7, 90, 'Top 10 countries by project count', 'Country', 'Count', 'top_countries_project_count.svg')
+df_plot(plot, 10, 7, 90, 'Top 10 countries by project count', 'Country', 'Count', 'top_countries_project_count.png')
 
 # %% [markdown]
 # ###### EU Countries
@@ -220,7 +223,7 @@ countries_count = dict(sorted(countries_count.items(), key=lambda pair: pair[1],
 
 # %%
 plot = plt.bar(countries_count.keys(), countries_count.values(), color='#3754b3') # Plot # Plot
-df_plot(plot, 12, 8, 90, 'Count of Research Projects by EU countries (Including UK)', 'Country','Count', 'count_project_eu_countries.svg')
+df_plot(plot, 12, 8, 90, 'Count of Research Projects by EU countries (Including UK)', 'Country','Count', 'count_project_eu_countries.png')
 
 # %%
 EU['Start date clean']= pd.to_datetime(EU['Start Date'], errors='coerce' ) # Remove errors start date
@@ -295,17 +298,20 @@ top_countries_awarded = eu_awarded_c.groupby(['eu_countries']).sum().reset_index
 
 # %%
 plt.xticks(range(len(top_countries_awarded['Amount Awarded converted to euros'])), top_countries_awarded['eu_countries'])
-plt.rcParams.update({'font.size': 12})
+plt.rcParams.update({'font.size': 16})
 plot = plt.bar(range(len(top_countries_awarded['Amount Awarded converted to euros'])), top_countries_awarded['Amount Awarded converted to euros'], color='#3754b3') 
-df_plot(plot, 10, 7, 90, 'Top ten EU Countries (inc UK) by total funds awarded', 'Country', 'Total amount awarded (€)', 'top_eu_countries_funds_awarded.svg')
+df_plot(plot, 10, 7, 90, 'Top ten EU Countries (inc UK) by total funds awarded', 'Country', 'Total amount awarded (€)', 'top_eu_countries_funds_awarded.png')
 
 # %%
 funders_top_awarded = eu_awarded.groupby(['Funder(s)']).sum().reset_index().sort_values(by='Amount Awarded converted to euros',ascending=False).head(10)
 
 # %%
+plt.rcParams.update({'font.size': 14})
+
+# %%
 plt.xticks(range(len(funders_top_awarded['Amount Awarded converted to euros'])), funders_top_awarded['Funder(s)'])
 plot = plt.bar(range(len(funders_top_awarded['Amount Awarded converted to euros'])), funders_top_awarded['Amount Awarded converted to euros'], color='#3754b3') 
-df_plot(plot, 10, 7, 90, 'Top ten funding bodies by funded ammount awarded (EU countries)', 'Funders', 'Total amount awarded (€)', 'top_funding_bodies_awarded.svg')
+df_plot(plot, 10, 7, 90, 'Top ten funding bodies by funded ammount awarded (EU countries)', 'Funders', 'Total amount awarded (€)', 'top_funding_bodies_awarded.png')
 
 # %% [markdown]
 # ### Topic modelling
@@ -483,16 +489,35 @@ continents['rest_of_world'] = (continents['rest_of_world'] / continents['rest_of
 
 continents_top = continents.sort_values(by=['All'], ascending=False).head(10)
 continents_top.drop('All', axis=1, inplace=True)
+#continents_top.set_index('Name',inplace=True,drop=True)
+
+# %%
+continents_top['Name'] = continents_top['Name'].replace(['0_protein_rna_coronavirus_replic'],'Protein')
+continents_top['Name'] = continents_top['Name'].replace(['1_vaccin_antibodi_immunogen_immun'],'Anti-bodies')
+continents_top['Name'] = continents_top['Name'].replace(['2_mental_stress_depress_psycholog'],'Mental health')
+continents_top['Name'] = continents_top['Name'].replace(['3_children_child_parent_mental'],'Child')
+continents_top['Name'] = continents_top['Name'].replace(['4_ltc_palli_carer_care'],'Carer')
+continents_top['Name'] = continents_top['Name'].replace(['5_mask_face_visor_protect'],'Mask')
+continents_top['Name'] = continents_top['Name'].replace(['6_student_teacher_teach_learn'],'Teach')
+continents_top['Name'] = continents_top['Name'].replace(['7_outbreak_infecti_epidem_simul'],'Outbreak')
+continents_top['Name'] = continents_top['Name'].replace(['8_immun_immunolog_cell_immunosuppress'],'Immunity')
+continents_top['Name'] = continents_top['Name'].replace(['10_forecast_predict_mathemat_epidem'],'Forecast')
+
+
+# %%
 continents_top.set_index('Name',inplace=True,drop=True)
 
 # %%
 continents_top.head(10)
 
 # %%
-plot = continents_top.plot(kind= 'bar' , secondary_y= 'rest_of_world', legend='TRUE',
-                           ax=None, mark_right=False, rot=90, color=['#3754b3','#ed5a58'])
-df_plot(plot, 12, 8, 90, 'Percentage of projects assigned to the top ten topics', 'Area', 
-        'Percentage','topics_europe_rest_of_world.svg')
+plt.rcParams.update({'font.size': 16})
+
+# %%
+plot = continents_top.plot(kind= 'barh' , width=0.7, align='center',  legend='TRUE',
+                           ax=None,  mark_right=False, color=['#3754b3','#ed5a58'])
+df_plot(plot, 18, 8, 0, 'Percentage of projects assigned to the top ten topics', 'Area', 
+        'Percentage','topics_europe_rest_of_world.jpg')
 
 # %% [markdown]
 # #### Testing active projects
@@ -590,10 +615,19 @@ EU_countries = EU_countries.pivot('EU country','Topic', 'count').fillna(0)
 EU_countries_perc = EU_countries.div(EU_countries.sum(axis=1), axis=0) # Change to percentage
 
 # %%
-ax = sns.heatmap(EU_countries_perc, cmap="YlGnBu")
+EU_countries_perc
 
 # %%
-ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap-topics-eu-countries.svg")
+sns.set(font_scale=1.7)
+
+# %%
+ax = sns.heatmap(EU_countries_perc, cmap="YlGnBu")
+
+ax.axes.set_title("Heatmap EU countries distribution of topics (incl UK)")
+#ax.tick_params(labelsize=3)
+
+# %%
+ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap-topics-eu-countries.png", bbox_inches="tight")
 
 # %%
 corr = EU_countries.corr()
@@ -641,14 +675,36 @@ EU_countries = EU_countries.groupby(['eu_countries','PRIMARY WHO Research Priori
 # %%
 EU_countries.rename({'eu_countries':'EU country', 'PRIMARY WHO Research Priority Area Number':'Priority Area'}, axis=1, inplace=True)
 EU_countries = EU_countries[EU_countries['Priority Area'].isin(priority_5)]
-EU_countries = EU_countries.pivot('EU country','Priority Area', 'count').fillna(0)
-EU_countries_perc = EU_countries.div(EU_countries.sum(axis=1), axis=0) # Change to percentage
 
 # %%
-sns.set(rc={'figure.figsize':(7,12)})
+EU_countries['Priority Area'] = EU_countries['Priority Area'].replace([1],'Virus: Natural history')
+EU_countries['Priority Area'] = EU_countries['Priority Area'].replace([4],'Clinical characterisation')
+EU_countries['Priority Area'] = EU_countries['Priority Area'].replace([5],'Infection prevention')
+EU_countries['Priority Area'] = EU_countries['Priority Area'].replace([6],"Candidates' therapeutics")
+EU_countries['Priority Area'] = EU_countries['Priority Area'].replace([9],'Social sciences in the outbreak responses')
 
 # %%
-ax = sns.heatmap(EU_countries_perc, cmap="YlGnBu")
+EU_countries
 
 # %%
-ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap_priority_area.svg")
+EU_countries = EU_countries.pivot('Priority Area', 'EU country', 'count').fillna(0)
+#EU_countries_perc = EU_countries.div(EU_countries.sum(axis=1), axis=0) # Change to percentage
+
+# %%
+for col in EU_countries.columns:
+    EU_countries[col] = (EU_countries[col] / EU_countries[col].sum()) * 100
+
+# %%
+EU_countries
+
+# %%
+sns.set(rc={'figure.figsize':(20,7)})
+
+# %%
+sns.set(font_scale=1.7)
+
+# %%
+ax = sns.heatmap(EU_countries, cmap="YlGnBu")
+
+# %%
+ax.figure.savefig(f"{project_directory}/outputs/figures/Covid_research_tracker/heatmap_priority_area.png",bbox_inches="tight")
