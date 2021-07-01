@@ -105,8 +105,6 @@ target/
 # exclude /inputs and /outputs/data except top-level markdown
 /inputs/*
 !/inputs/*.md
-/outputs/data/*
-!/outputs/data/*.md
 /outputs/models/*
 !/outputs/models/*.md
 
