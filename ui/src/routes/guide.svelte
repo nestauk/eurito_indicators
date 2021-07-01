@@ -13,6 +13,11 @@
 
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
 	const maxIndex = availableDownloadIds.length - 1;
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
 </script>
 
 <svelte:head>
@@ -127,8 +132,9 @@
 			In that same panel there is a button to download a
 			<Link
 				href={csvWikiURL}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>CSV file</Link>
 			of the current indicator.
 		</p>
@@ -210,8 +216,9 @@
 			{#each availableDownloadIds as availableId, index}
 				<Link
 					href='/download/{availableId}'
+					isBold={true}
 					isExternal={true}
-					theme={{color: theme.colorMain}}
+					theme={linkTheme}
 				>
 					{availableId}
 				</Link>
@@ -240,14 +247,14 @@
 			<LinkButton
 				href='/accessibility'
 				text='Read the accessibility statement'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 		<div class='cta'>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 	</section>

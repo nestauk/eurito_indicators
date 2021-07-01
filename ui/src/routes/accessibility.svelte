@@ -17,15 +17,22 @@
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
 
-	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
-	const openDyslexicUrl = 'https://opendyslexic.org/';
-	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
-	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
-	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
+	const lighthouseUrl = 'https://developers.google.com/web/tools/lighthouse';
+	const openDyslexicUrl = 'https://opendyslexic.org/';
+	const osxMouseURL = 'https://support.apple.com/guide/mac-help/change-cursor-preferences-for-accessibility-mchl5bb12e1e/mac';
+	const pa11yUrl = 'https://pa11y.org/'
+	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
+	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
+	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 
 	const reportNames = _.keys(lighthouseUrls)
 	const updateCurrentReport = id => currentreport = id;
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
 
 	let environment;
 	let testResults = null;
@@ -64,7 +71,6 @@
 	$: clickedNext =
 		() => hasNextValue && updateCurrentReport(nextValue);
 	$: reportUrl = `/a11y/${currentreport}.html`;
-
 </script>
 
 <svelte:head>
@@ -94,8 +100,9 @@
 			We follow the recommendations of the
 			<Link
 				href={wcag21Url}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>
 				WCAG 2.1 guidelines
 			</Link>.
@@ -115,8 +122,9 @@
 					people with 
 					<Link
 						href={openDyslexicUrl}
+						isBold={true}
 						isExternal={true}
-						theme={{color: theme.colorMain}}
+						theme={linkTheme}
 					>
 						Dyslexia
 					</Link>.
@@ -138,6 +146,27 @@
 				</p>
 			</li>
 		</ul>
+		<h2>WCAG compliance rating</h2>
+		<p>
+			According to automated testing using the 
+			<Link
+				href={pa11yUrl}
+				isBold={true}
+				isExternal={true}
+			>
+				Pa11y accessibility testing tool
+			</Link>,
+			no accessibility issues were detected and this website is reported
+			to have a WCAG 2.0 AAA compliance level. This website also passes
+			the accessibility audits checked by
+			<Link
+				href={lighthouseUrl}
+				isBold={true}
+				isExternal={true}
+			>
+				Google's Lighthouse tool
+			</Link>.
+		</p>
 		<h2>Limitations</h2>
 		<p>
 			Although we continually revise the website for proper support, we
@@ -155,7 +184,8 @@
 			for
 			<Link
 				href='/download'
-				theme={{color: theme.colorMain}}
+				isBold={true}
+				theme={linkTheme}
 			>
 				download in CSV format
 			</Link>.
@@ -167,7 +197,8 @@
 			please contact us at 
 			<Link
 				href="mailto:dataanalytics@nesta.org.uk"
-				theme={{color: theme.colorMain}}
+				isBold={true}
+				theme={linkTheme}
 			>
 				dataanalytics@nesta.org.uk
 			</Link>.
@@ -180,8 +211,9 @@
 			may choose one from this
 			<Link
 				href={screenReadersUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>
 				comprehensive list of screen readers
 			</Link>.
@@ -198,12 +230,12 @@
 			<LinkButton
 				href={windowsMouseURL}
 				text='Windows'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
 				href={osxMouseURL}
 				text='OS X'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 
@@ -242,6 +274,10 @@
 			<p>
 				This browsing environment hasn't been tested and user experience
 				may vary.
+				{#if environment?.os?.name === 'Linux'}
+					Browserstack does not offer testing under Linux operating
+					systems
+				{/if}
 			</p>
 		{/if}
 
@@ -312,8 +348,9 @@
 				because of an
 				<Link
 					href={lighthouseIssueUrl}
+					isBold={true}
 					isExternal={true}
-					theme={{color: theme.colorMain}}
+					theme={linkTheme}
 				>
 					issue
 				</Link> in Google Lighthouse.

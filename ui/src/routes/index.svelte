@@ -7,6 +7,11 @@
 	import theme from 'app/theme';
 
 	const repoUrl = 'https://github.com/nestauk/eurito_indicators_ui';
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
 </script>
 
 <svelte:head>
@@ -26,8 +31,9 @@
 			We have created an 
 			<Link
 				href={repoUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>
 				open repository
 			</Link>
@@ -37,9 +43,9 @@
 			We have also built a tool to
 			<Link
 				href='indicators'
-				isUnderlined={true}
 				isBold={true}
-				theme={{color: theme.colorMain}}
+				isUnderlined={true}
+				theme={linkTheme}
 			>
 				visualise and explore
 			</Link>
@@ -77,12 +83,12 @@
 			<LinkButton
 				href='/methodology'
 				text='Read more about the methodology'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 	</section>

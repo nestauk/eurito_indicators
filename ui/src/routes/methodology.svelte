@@ -18,6 +18,11 @@
 	const onsUrl = 'https://ons.gov.uk';
 	const patstatUrl = 'https://www.epo.org/searching-for-patents/business/patstat.html';
 	const ukriUrl = 'https://www.ukri.org/';
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
 </script>
 
 <svelte:head>
@@ -37,23 +42,27 @@
 			As much as possible we have used data from official sources such as
 			<Link
 				href={onsUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>ONS</Link>,
 			<Link
 				href={eurostatUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>Eurostat</Link>,
 			<Link
 				href={hesaUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>HESA</Link>,
 			<Link
 				href={ukriUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>UKRI</Link>.
 		</p>
 		<p>
@@ -65,14 +74,16 @@
 			proprietary data sources such as
 			<Link
 				href={patstatUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>PATSTAT</Link>
 			for the analysis of patenting, and
 			<Link
 				href={crunchbaseUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>Crunchbase</Link>
 			for the analysis of venture capital investment.
 		</p>
@@ -82,8 +93,9 @@
 			We use
 			<Link
 				href={nutsUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>NUTS2</Link>
 			regions as our geographical unit of analysis. This has allowed us to
 			collect data about regional R&D activity which is only available at
@@ -92,8 +104,9 @@
 			policy-relevant
 			<Link
 				href={lepUrl}
+				isBold={true}
 				isExternal={true}
-				theme={{color: theme.colorMain}}
+				theme={linkTheme}
 			>LEP</Link>
 			boundaries. These will be released when the tool is published later
 			in 2020.
@@ -122,8 +135,9 @@
 					regions used the algorithm developed by
 					<Link
 						href={HausmanAndHidalgoUrl}
+						isBold={true}
 						isExternal={true}
-						theme={{color: theme.colorMain}}
+						theme={linkTheme}
 					>Hausman and Hidalgo (2009)</Link>.
 				</p>
 			</li>
@@ -134,8 +148,9 @@
 					the methodology developed by
 					<Link
 						href={DelgadoEtAlUrl}
+						isBold={true}
 						isExternal={true}
-						theme={{color: theme.colorMain}}
+						theme={linkTheme}
 					>Delgado et al (2015)</Link>.
 				</p>
 			</li>
@@ -146,8 +161,9 @@
 					descriptions presented in
 					<Link
 						href={MateosGarciaUrl}
+						isBold={true}
 						isExternal={true}
-						theme={{color: theme.colorMain}}
+						theme={linkTheme}
 					>Mateos-Garcia (2017)</Link>.
 				</p>
 			</li>
@@ -163,17 +179,17 @@
 				glyph={Download}
 				href='/download'
 				text='Download all indicators'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
 				href='/guide'
 				text='Read the guide'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 	</section>
