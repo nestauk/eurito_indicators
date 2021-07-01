@@ -133,8 +133,8 @@
 			<Link
 				href={csvWikiURL}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>CSV file</Link>
 			of the current indicator.
 		</p>
@@ -217,7 +217,6 @@
 				<Link
 					href='/download/{availableId}'
 					isBold={true}
-					isExternal={true}
 					theme={linkTheme}
 				>
 					{availableId}
