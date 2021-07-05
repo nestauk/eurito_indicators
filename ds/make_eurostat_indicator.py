@@ -6,7 +6,7 @@ import pandas as pd
 
 CWD = os.getcwd()
 
-DATA_DIR = f"{CWD}/data/processed/eurostat"
+DATA_DIR = f"{CWD}/outputs/data/processed/eurostat"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 GEO_LENGTHS = {"nuts0": 2, "nuts1": 3, "nuts2": 4}
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     logging.info("Example indicators")
     for sector, name in zip(["BES", "GOV"], ["private", "government"]):
         for geo in ["nuts0", "nuts1", "nuts2"]:
-            var_name = f"r&d_{name}_eur_hab"
+            var_name = f"rd_{name}_eur_hab"
             table = filter_eu_table(
                 rd_e, var_name, geo, {"sectperf": sector, "unit": "EUR_HAB"}, 2016
             )
