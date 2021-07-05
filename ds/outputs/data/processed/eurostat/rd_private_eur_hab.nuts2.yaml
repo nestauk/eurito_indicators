@@ -1,9 +1,9 @@
 api_doc_url: https://ec.europa.eu/eurostat/cache/metadata/en/rd_esms.htm
 api_type: FETCH
 data_date: 20210618
-description: R&D Expenditure from government organisations (€ per inhaabitant)
-title: R&D Expenditure (Government)
-subtitle: R&D expenditure per capita from government sources
+description: R&D Expenditure from private organisations (€ per inhaabitant)
+title: R&D Expenditure (Private)
+subtitle: R&D expenditure per capita from private sector sources
 endpoint_url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/RD_E_GERDREG$DEFAULTVIEW/
 framework_group: knowledge_exchange
 is_experimental: False
@@ -11,19 +11,19 @@ is_public: True
 order: [year, nuts_id, nuts_year_spec, value.id]
 region:
   type: NutsRegion
-  level: 1
+  level: 2
 schema:
   nuts_id:
     type: NutsRegion.nuts_id
   nuts_year_spec:
     type: NutsRegion.nuts_year_spec
   value:
-    data_type: int
-    id: rd_government_eur_hab
-    label: R&D Expenditure (Government)
+    data_type: .1f
+    id: rd_private_eur_hab
+    label: R&D Expenditure (Private)
   year:
     data_type: int
     label: Year
 source_name: Eurostat
 source_url: https://ec.europa.eu/eurostat
-warning: The regional breakdown of the EU Member States is based on the Nomenclature of Territorial Units for Statistics – NUTS 2016 level 1
+warning: The regional breakdown of the EU Member States is based on the Nomenclature of Territorial Units for Statistics – NUTS 2016 level 2
