@@ -1,11 +1,18 @@
 # Utilities to process and clean data
 
+import os
+import pickle
+
 import pandas as pd
 
-from eurito_indicators import config
+from eurito_indicators import config, PROJECT_DIR
 
 covid_names = config["covid_names"]
 
+MOD_PATH = f"{PROJECT_DIR}/outputs/models"
+
+if os.path.exists(MOD_PATH) is False:
+    os.makedirs(MOD_PATH, exist_ok = True)
 
 def covid_getter(text: str, covid_terms: list = covid_names) -> bool:
     """Check if a string contains a covid related term
@@ -58,3 +65,17 @@ def clean_variable_names(
         table_clean[v + "_clean"] = table_clean[v].map(lookup)
 
     return table_clean
+
+def cordis_combine_text(cordis_corpus):
+    '''Combines title and objective in Cordis corpus
+    '''
+
+    cordis_corpus = cordis_corpus.dropna(axis=0, subset=["objective"])
+    cordis_corpus["text"] = [r["title"] + r["objective"] for _, r in cordis_corpus.iterrows()]
+
+    return cordis_corpus
+
+def save_model(model, name):
+    with open(f"{MOD_PATH}/{name}.p", 'wb') as outfile:
+        pickle.dump(model, outfile)
+
