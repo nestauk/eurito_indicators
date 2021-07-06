@@ -9,6 +9,7 @@
   - Setup the conda environment
   - Configure pre-commit
   - Configure metaflow to use AWS
+- Run `git clone git@github.com:martingerlach/hSBM_Topicmodel.git` in `eu_indicators/pipeline` to install `topSBM`
 
 ## Contributor guidelines
 
