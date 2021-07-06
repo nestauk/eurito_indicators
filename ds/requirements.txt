@@ -10,4 +10,5 @@ filelock
 typer
 sh
 altair-saver
-webdriver
+webdriver-manager
+openpyxl
