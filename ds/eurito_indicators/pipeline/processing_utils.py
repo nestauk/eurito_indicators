@@ -19,6 +19,25 @@ def covid_getter(text: str, covid_terms: list = covid_names) -> bool:
     return any(x in text.lower() for x in covid_terms)
 
 
+def make_iso_country_lookup() -> dict:
+    """Creates a country name - iso code lookup.
+    Takes into account that some EU ISO country names are different from the standard.
+    """
+
+    country_names = (
+        pd.read_csv(
+            "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv"
+        )
+        .set_index("alpha-2")["name"]
+        .to_dict()
+    )
+
+    country_names["EL"] = "Greece"
+    country_names["UK"] = "United Kingdom"
+
+    return country_names
+
+
 def clean_variable_names(
     table: pd.DataFrame, variables: str, lookup: dict
 ) -> pd.DataFrame:
