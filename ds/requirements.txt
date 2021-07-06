@@ -9,21 +9,4 @@ filelock
 typer
 sh
 altair-saver
-webdriver-manager
-openpyxl
-scikit-learn
-nltk
-gensim
-ipywidgets
-leidenalg
-seaborn
-networkx
-python-louvain
-pip install git+https://github.com/nestauk/wiki_topic_labels.git
-pymysql
-statsmodels
-tomotopy
-kaggle
-spacy
-geopandas
-currencyconverter
+webdriver
