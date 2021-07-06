@@ -9,3 +9,10 @@ covid_level_names:
   Level 0 (Direct C19 actions): l0_direct_actions
   Level 1 (Health Emergency Fighting): l1_health_emergency
   Level 2 (Resilience and Preparedness): l2_resilience
+model_parametres:
+    - estimator__C: [0.5, 1, 2]
+      estimator__class_weight: ["balanced"]
+      estimator__penalty: ["l2", "l1"]
+    - estimator__class_weight: ["balanced"]
+      estimator__min_samples_leaf: [2, 5]
+      estimator__n_estimators: [20, 50, 100]
