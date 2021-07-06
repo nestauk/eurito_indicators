@@ -1,21 +1,26 @@
 # cordis data getters
 
 import pickle
-from datetime import datetime
+import re
 
 import pandas as pd
-from eurito_indicators import PROJECT_DIR
+
+from eurito_indicators import config, PROJECT_DIR
+
+LEVEL_LOOKUP = config["covid_level_names"]
 
 
 def get_cordis_projects():
 
-    return pd.read_csv(f"{PROJECT_DIR}/inputs/data/cordis_projects.csv",
-                       parse_dates=['start_date'])
+    return pd.read_csv(
+        f"{PROJECT_DIR}/inputs/data/cordis_projects.csv", parse_dates=["start_date"]
+    )
 
 
 def get_cordis_organisations():
 
     return pd.read_csv(f"{PROJECT_DIR}/inputs/data/cordis_organisations.csv")
+
 
 def get_cordis_labelled() -> pd.DataFrame:
     """Fetch cordis labelled dataset"""
@@ -39,5 +44,5 @@ def get_cordis_labelled() -> pd.DataFrame:
 
 
 def get_doc2vec():
-    with open(f"{PROJECT_DIR}/outputs/models/doc2vec_cordis.p", 'rb') as infile:
+    with open(f"{PROJECT_DIR}/outputs/models/doc2vec_cordis.p", "rb") as infile:
         return pickle.load(infile)
