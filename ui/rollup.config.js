@@ -113,6 +113,7 @@ export default {
 			.filter(name => ![
 				'@svizzle/barchart',
 				'@svizzle/choropleth',
+				'@svizzle/utils',
 			].includes(name))
 			.concat(
 				require('module').builtinModules ||

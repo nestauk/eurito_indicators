@@ -1,12 +1,11 @@
 <script>
-	import ScreenGauge, {screen as _screen}
+	import ScreenGauge, {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import {onMount} from 'svelte';
 
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import {isDev} from 'app/config';
 	import {
 		_a11yColorStyles,
 		_a11yTextStyles,
@@ -32,14 +31,19 @@
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
 </script>
 
-<ScreenGauge devMode={isDev} />
+<ScreenGauge />
 <ColorCorrection />
 
-<section
+<div
 	class={$_screen?.classes}
 	style='--menu-height: {menuHeight}px;'
+	role='none'
 >
-	<header bind:offsetHeight={headerHeight}>
+	<header
+		aria-label='Website header'
+		bind:offsetHeight={headerHeight}
+		role='banner'
+	>
 		<Nav
 			{_screen}
 			{contentHeight}
@@ -48,18 +52,26 @@
 			isA11yDirty={$_isA11yDirty}
 		/>
 	</header>
-	<main bind:offsetHeight={contentHeight}>
+	<main
+		aria-label='Website content'
+		bind:offsetHeight={contentHeight}
+		role='main'
+	>
 		<slot></slot>
 	</main>
 	{#if showA11yMenu}
-		<div class='accessibility' bind:offsetHeight={a11yHeight}>
+		<section
+			bind:offsetHeight={a11yHeight}
+			class='accessibility'
+			role='region'
+		>
 			<AccessibilityMenu {_screen} />
-		</div>
+		</section>
 	{/if}
-</section>
+</div>
 
 <style>
-	section {
+	div {
 		display: grid;
 		grid-template-areas:
 			'content'
@@ -69,7 +81,7 @@
 		height: 100%;
 		overflow: hidden;
 	}
-	section.medium {
+	div.medium {
 		grid-template-areas:
 			'nav'
 			'content'

@@ -17,7 +17,7 @@ import {applyFnMap, isKeyOf, transformValues} from '@svizzle/utils';
 
 import {isNotLepFile, isNotNuts3File} from './utils';
 
-const DS_DATA_REL_PATH = '../../../ds/data';
+const DS_DATA_REL_PATH = '../../../ds/outputs/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
 const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml');
 const FRAMEWORK_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'aux/framework.json');

@@ -1,22 +1,27 @@
 <script>
-	import {screen as _screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import Link from '@svizzle/ui/src/Link.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
 	import {
 		allNUTS2IndicatorsCsvName,
-		availableDownloadIds
+		availableDownloadIds,
 	} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
 	const maxIndex = availableDownloadIds.length - 1;
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Guide</title>
+	<title>EURITO - Guide</title>
 	<meta
 		content='{toolName}: usage guide for this tool'
 		name='description'
@@ -51,7 +56,7 @@
 		<h3>Sidebar</h3>
 		<p>
 			Here you will find a list of indicators, grouped by theme sections.
-			These are.
+			These are:
 		</p>
 		<ul>
 			<li>Public R&D capability</li>
@@ -125,8 +130,13 @@
 		</p>
 		<p>
 			In that same panel there is a button to download a
-			<a href={csvWikiURL} rel='noopener'>CSV file</a> of the current
-			indicator.
+			<Link
+				href={csvWikiURL}
+				isBold={true}
+				isExternal={true}
+				theme={linkTheme}
+			>CSV file</Link>
+			of the current indicator.
 		</p>
 		<p>The panel can be dismissed by clicking on the page background.</p>
 
@@ -204,7 +214,14 @@
 			these are not provided in the tool, nor they are official and should
 			be considered as non-official extras:
 			{#each availableDownloadIds as availableId, index}
-				<a href='/download/{availableId}'>{availableId}</a>
+				<Link
+					href='/download/{availableId}'
+					isBold={true}
+					isExternal={true}
+					theme={linkTheme}
+				>
+					{availableId}
+				</Link>
 				{#if index < maxIndex},{/if}
 			{/each}.
 		</p>
@@ -230,14 +247,14 @@
 			<LinkButton
 				href='/accessibility'
 				text='Read the accessibility statement'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 		<div class='cta'>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorMain}}
+				theme={{backgroundColor: theme.colorLink}}
 			/>
 		</div>
 	</section>
@@ -247,7 +264,6 @@
 	main {
 		background-color: var(--color-background);
 		display: flex;
-		font-size: 1.05rem;
 		font-weight: 200;
 		height: 100%;
 		justify-content: space-around;
@@ -277,18 +293,6 @@
 
 	ul {
 		padding: 0.5rem 0 0.5rem 2rem;
-	}
-	a {
-		font-weight: bold;
-		text-decoration: none;
-	}
-
-	p a {
-		border-bottom: 1px solid var(--color-link);
-		color: var(--color-link);
-		font-weight: bold;
-		padding: 0.1rem;
-		text-decoration: none;
 	}
 
 	code {

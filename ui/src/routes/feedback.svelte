@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO CSVs - Feedback</title>
+	<title>EURITO - Feedback</title>
 	<meta
 		content='{toolName}: a survey where you can leave your feedback on this tool'
 		name='description'
@@ -14,11 +14,11 @@
 
 <main>
 	<iframe
-		title='User testing survey'
-		src={userTestingUrl}
 		frameborder='0'
 		marginheight='0'
 		marginwidth='0'
+		src={userTestingUrl}
+		title='User testing survey'
 	>Loading...</iframe>
 </main>
 
