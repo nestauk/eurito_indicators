@@ -177,6 +177,17 @@ def fetch_cordis_organisations():
     return orgs
 
 
+def make_extra_nuts(cordis_orgs):
+    """Adds extra nuts codes by slicing the nuts3 code we already obtained"""
+
+    for n, name in enumerate(["nuts2", "nuts1"]):
+        cordis_orgs[name] = cordis_orgs["nuts3"].apply(
+            lambda x: x[: (-n - 1)] if pd.isnull(x) == False else np.nan
+        )
+
+    return cordis_orgs
+
+
 def make_cordis_organisations():
     """Fetch cordis organisations and postcode lookuo"""
 
@@ -192,6 +203,9 @@ def make_cordis_organisations():
         right_on=["country", "postcode"],
         how="left",
     )
+
+    orgs_geo = make_extra_nuts(orgs_geo)
+
     return orgs_geo
 
 
