@@ -12,3 +12,6 @@ sh
 altair-saver
 webdriver-manager
 openpyxl
+scikit-learn
+nltk
+gensim
