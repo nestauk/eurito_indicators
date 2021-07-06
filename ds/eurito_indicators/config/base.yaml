@@ -1,7 +1,11 @@
--covid_names:
+covid_names:
   - covid
   - covid-19
   - coronavirus
   - sars-cov-2
   - corona
   - ncov2
+covid_level_names:
+  Level 0 (Direct C19 actions): l0_direct_actions
+  Level 1 (Health Emergency Fighting): l1_health_emergency
+  Level 2 (Resilience and Preparedness): l2_resilience
