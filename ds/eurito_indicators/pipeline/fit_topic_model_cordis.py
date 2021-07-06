@@ -23,8 +23,7 @@ def make_training_set():
         .reset_index(drop=False)
     )
 
-    logging.info("small data test!!!")
-    return cordis_text.iloc[:1500]
+    return cordis_text
 
 
 if __name__ == "__main__":
