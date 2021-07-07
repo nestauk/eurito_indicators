@@ -177,11 +177,13 @@
 			recommendations.
 		</p>
 		<p>
-			Meeting all of the WCAG recommendations requires testing some of
+			Meeting all of the WCAG critera requires evaluating some of
 			their recommendations manually. Due to time constraints we might not
 			have been able to test all of the criteria listed in the section
 			"Additional items to manually check" in the "Accessibility" part of
-			each audit below, in the "Quality audits" section of this page.
+			each audit below, in the "Quality audits" section of this page. In
+			particular at this time we only partially support ARIA and keyboard
+			navigation is not supported.
 		</p>
 		<p>
 			While we aim to make the information provided as accessible as
