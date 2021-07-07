@@ -177,6 +177,13 @@
 			recommendations.
 		</p>
 		<p>
+			Meeting all of the WCAG recommendations requires testing some of
+			their recommendations manually. Due to time constraints we might not
+			have been able to test all of the criteria listed in the section
+			"Additional items to manually check" in the "Accessibility" part of
+			each audit below, in the "Quality audits" section of this page.
+		</p>
+		<p>
 			While we aim to make the information provided as accessible as
 			possible, this website presents data mostly as interactive charts
 			which at the moment do not also render a text alternative, so those
