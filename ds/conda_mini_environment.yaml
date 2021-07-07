@@ -1,0 +1,11 @@
+name: eurito_
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.8
+  - numpy
+  - scipy
+  - pandas
+  - altair

@@ -1,3 +1,8 @@
+
+eurostat
+jupyterlab
+pyyaml
+ratelim
 numpy
 scipy
 pandas
