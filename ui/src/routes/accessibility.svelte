@@ -177,6 +177,15 @@
 			recommendations.
 		</p>
 		<p>
+			Meeting all of the WCAG criteria requires evaluating some of
+			them manually. Due to time constraints we might not have been able 
+			to test all of the recommendations listed in the section "Additional
+			items to manually check" in the "Accessibility" part of each audit
+			below, in the "Quality audits" section of this page. In particular
+			at this time ARIA and keyboard navigation are only partially
+			supported.
+		</p>
+		<p>
 			While we aim to make the information provided as accessible as
 			possible, this website presents data mostly as interactive charts
 			which at the moment do not also render a text alternative, so those
