@@ -43,26 +43,26 @@
 			<Link
 				href={onsUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>ONS</Link>,
 			<Link
 				href={eurostatUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>Eurostat</Link>,
 			<Link
 				href={hesaUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>HESA</Link>,
 			<Link
 				href={ukriUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>UKRI</Link>.
 		</p>
 		<p>
@@ -75,15 +75,15 @@
 			<Link
 				href={patstatUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>PATSTAT</Link>
 			for the analysis of patenting, and
 			<Link
 				href={crunchbaseUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>Crunchbase</Link>
 			for the analysis of venture capital investment.
 		</p>
@@ -94,8 +94,8 @@
 			<Link
 				href={nutsUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>NUTS2</Link>
 			regions as our geographical unit of analysis. This has allowed us to
 			collect data about regional R&D activity which is only available at
@@ -105,8 +105,8 @@
 			<Link
 				href={lepUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>LEP</Link>
 			boundaries. These will be released when the tool is published later
 			in 2020.
@@ -136,8 +136,8 @@
 					<Link
 						href={HausmanAndHidalgoUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Hausman and Hidalgo (2009)</Link>.
 				</p>
 			</li>
@@ -149,8 +149,8 @@
 					<Link
 						href={DelgadoEtAlUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Delgado et al (2015)</Link>.
 				</p>
 			</li>
@@ -162,8 +162,8 @@
 					<Link
 						href={MateosGarciaUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Mateos-Garcia (2017)</Link>.
 				</p>
 			</li>

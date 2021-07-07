@@ -28,12 +28,12 @@
 
 		<h2>Intro</h2>
 		<p>
-			We have created an 
+			We have created an
 			<Link
 				href={repoUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>
 				open repository
 			</Link>
