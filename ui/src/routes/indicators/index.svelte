@@ -1,7 +1,7 @@
 <script>
 	import Index from '@svizzle/time_region_value/src/routes/index.svelte';
 
-	import {toolName} from 'app/config';
+	import {hrefBase, toolName} from 'app/config';
 	import {_groups, _yearRange} from 'app/stores/data';
 </script>
 
@@ -16,5 +16,5 @@
 <Index
 	{_groups}
 	{_yearRange}
-	hrefBase='indicators'
+	{hrefBase}
 />
