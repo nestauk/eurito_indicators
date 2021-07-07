@@ -177,7 +177,7 @@
 			recommendations.
 		</p>
 		<p>
-			Meeting all of the WCAG critera requires evaluating some of
+			Meeting all of the WCAG criteria requires evaluating some of
 			their recommendations manually. Due to time constraints we might not
 			have been able to test all of the criteria listed in the section
 			"Additional items to manually check" in the "Accessibility" part of
