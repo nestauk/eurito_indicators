@@ -176,6 +176,7 @@
 
 		<div class='cta'>
 			<LinkButton
+				download={basename}
 				glyph={Download}
 				href='/download'
 				text='Download all indicators'
