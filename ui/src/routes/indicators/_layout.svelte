@@ -16,7 +16,7 @@
 	{regionSettings}
 	{segment}
 	{theme}
-	hrefBase='indicators'
+	hrefBase='/indicators'
 >
 	<slot></slot>
 </Layout>
