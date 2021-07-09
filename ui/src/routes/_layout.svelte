@@ -2,7 +2,7 @@
 	import ScreenGauge, {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
-	import {onMount} from 'svelte';
+	import {onMount, beforeUpdate, tick} from 'svelte';
 
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import Nav from 'app/components/Nav.svelte';
@@ -22,29 +22,34 @@
 	let a11yHeight;
 	let rootStyle;
 	let showA11yMenu;
-	let loading = true;
-
-	const completeLoading = () => {
-		loading = false;
-	}
+	let isLayoutUndefined = true;
 
 	onMount(() => {
 		const root = document.documentElement;
 		rootStyle = root.style;
 	})
+	beforeUpdate(async () => {
+		if (isLayoutUndefined) {
+			await tick();
+		}
+	});
 
 	$: rootStyle && applyStyles(rootStyle, $_a11yTextStyles);
 	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
-	$: $_screen?.classes && setTimeout(completeLoading, 10);
+	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>
 
 <ScreenGauge />
 <ColorCorrection />
 
+{#if isLayoutUndefined}
+	<LoadingView stroke={theme.colorMain} />
+{/if}
+
 <div
 	class={$_screen?.classes}
-	class:hidden={loading}
+	class:hidden={isLayoutUndefined}
 	style='--menu-height: {menuHeight}px;'
 	role='none'
 >
@@ -78,10 +83,6 @@
 		</section>
 	{/if}
 </div>
-
-{#if loading}
-	<LoadingView stroke={theme.colorMain} />
-{/if}
 
 <style>
 	div {
