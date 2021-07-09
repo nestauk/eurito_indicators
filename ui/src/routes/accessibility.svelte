@@ -13,6 +13,7 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
+	import {basename} from 'app/utils/assets';
 	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
@@ -192,6 +193,7 @@
 			aren't accessible by screen readers. However, the data is available
 			for
 			<Link
+				download={basename}
 				href='/download'
 				isBold={true}
 				theme={linkTheme}

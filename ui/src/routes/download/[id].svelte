@@ -1,4 +1,5 @@
 <script context="module">
+	import Link from '@svizzle/ui/src/Link.svelte';
 	import {availableDownloadIds, basename} from 'app/utils/assets';
 
 	const maxIndex = availableDownloadIds.length - 1;
@@ -14,10 +15,21 @@
 	<h2>Sorry, the file you're looking for is not available.</h2>
 	<p>Please try one of
 		{#each availableDownloadIds as availableId, index}
-			<a href='/download/{availableId}'>{availableId}</a>
+			<Link
+				download={availableId}
+				href='/download/{availableId}'
+			>
+				{availableId}
+			</Link>
 			{#if index < maxIndex},{/if}
 		{/each}
-		or find the collection of all indicators <a href='/download'>here</a>.
+		or find the collection of all indicators 
+		<Link
+			download={basename}
+			href='/download'
+		>
+			here
+		</Link>.
 	</p>
 </section>
 
