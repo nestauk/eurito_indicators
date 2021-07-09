@@ -1,6 +1,7 @@
 <script>
 	import ScreenGauge, {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import {onMount} from 'svelte';
 
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
@@ -12,6 +13,7 @@
 		_isA11yDirty,
 		applyStyles,
 	} from 'app/stores/a11ySettings';
+	import theme from 'app/theme';
 
 	export let segment;
 
@@ -20,6 +22,11 @@
 	let a11yHeight;
 	let rootStyle;
 	let showA11yMenu;
+	let loading = true;
+
+	const completeLoading = () => {
+		loading = false;
+	}
 
 	onMount(() => {
 		const root = document.documentElement;
@@ -29,6 +36,7 @@
 	$: rootStyle && applyStyles(rootStyle, $_a11yTextStyles);
 	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
+	$: $_screen?.classes && setTimeout(completeLoading, 10);
 </script>
 
 <ScreenGauge />
@@ -36,6 +44,7 @@
 
 <div
 	class={$_screen?.classes}
+	class:hidden={loading}
 	style='--menu-height: {menuHeight}px;'
 	role='none'
 >
@@ -69,6 +78,10 @@
 		</section>
 	{/if}
 </div>
+
+{#if loading}
+	<LoadingView stroke={theme.colorMain} />
+{/if}
 
 <style>
 	div {
@@ -108,5 +121,8 @@
 	}
 	.accessibility {
 		grid-area: accessibility;
+	}
+	.hidden {
+		display: none;
 	}
 </style>
