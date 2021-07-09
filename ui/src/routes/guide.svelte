@@ -215,6 +215,7 @@
 			be considered as non-official extras:
 			{#each availableDownloadIds as availableId, index}
 				<Link
+					download={availableId}
 					href='/download/{availableId}'
 					isBold={true}
 					theme={linkTheme}
