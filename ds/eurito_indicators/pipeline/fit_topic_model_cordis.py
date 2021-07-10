@@ -4,7 +4,11 @@ import logging
 
 from eurito_indicators.getters.cordis_getters import get_cordis_projects
 from eurito_indicators.pipeline.processing_utils import cordis_combine_text, save_model
-from eurito_indicators.pipeline.text_processing import text_pipeline
+from eurito_indicators.pipeline.text_processing import (
+    make_engram,
+    pre_process,
+    remove_extr_freq,
+)
 from eurito_indicators.pipeline.topic_modelling import (
     post_process_model_clusters,
     train_model,
@@ -30,10 +34,16 @@ if __name__ == "__main__":
 
     logging.info("Reading data")
     cord_corp = make_training_set()
-    cord_tokenised = text_pipeline(cord_corp["text"], high_freq=0.997)
+
+    cordis_tokenised = remove_extr_freq(
+        make_engram([pre_process(doc) for doc in cord_corp["text"]])
+    )
+
+    # text_pipeline(cord_corp["text"], high_freq=0.997)
+    logging.info(len(cord_corp))
 
     logging.info("Training topic model")
-    model = train_model(cord_tokenised, cord_corp["project_id"].tolist())
+    model = train_model(cordis_tokenised, cord_corp["project_id"].tolist())
 
     modelling_outputs = post_process_model_clusters(
         model, top_level=0, cl_level=0, top_thres=0.9

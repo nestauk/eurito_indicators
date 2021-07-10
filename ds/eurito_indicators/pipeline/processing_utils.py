@@ -75,6 +75,18 @@ def cordis_combine_text(cordis_corpus):
 
     return cordis_corpus
 
+def filter_by_length(corpus, text_var, min_length=300):
+    ''' Remove very short documents from a corpus
+    '''
+
+    filtered = corpus.loc[[len(doc)>min_length for doc in corpus[text_var]]]
+    filtered = filtered.reset_index(drop=True)
+
+    return filtered
+
+
+
+
 def save_model(model, name):
     with open(f"{MOD_PATH}/{name}.p", 'wb') as outfile:
         pickle.dump(model, outfile)

@@ -50,7 +50,7 @@ def remove_extr_freq(corpus, high=0.999, low=5):
     drop_high = freqs[freqs > very_high].index.tolist()
     drop_low = freqs[freqs < low].index.tolist()
 
-    todrop = drop_high + drop_low
+    todrop = set(drop_high + drop_low)
 
     corpus_filt = [[x for x in doc if x not in todrop] for doc in corpus]
 
