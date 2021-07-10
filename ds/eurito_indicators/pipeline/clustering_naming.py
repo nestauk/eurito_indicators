@@ -224,7 +224,7 @@ def get_closest_documents(
     dist_df: pd.DataFrame,
     cluster: int,
     cluster_assignments: dict,
-    sds: int = 2,
+    sd_scale: int = 2,
     exclude_in_cluster: bool = True,
 ) -> list:
     """Returns closest documents to a cluster
@@ -232,7 +232,7 @@ def get_closest_documents(
         dist_df: dataframe with distances
         cluster: cluster we are interested in
         cluster assignments: lookup between cluster ids and project ids
-        sds: standard deviation to define proximity
+        sd_scale: standard deviation to define proximity
         exclude_in_cluster: whether we want to exclude docs already in a cluster from the results
     Returns:
         A list of project ids
@@ -247,7 +247,7 @@ def get_closest_documents(
     sd = np.std(dist_copy[cluster])
 
     selected = dist_copy.loc[
-        dist_copy[0] < (np.mean(dist_copy[0]) - sds * sd)
+        dist_copy[0] < (np.mean(dist_copy[0]) - sd_scale * sd)
     ].index.tolist()
 
     logging.info(len(selected))
