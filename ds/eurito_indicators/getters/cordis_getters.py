@@ -16,7 +16,6 @@ def get_cordis_projects():
         f"{PROJECT_DIR}/inputs/data/cordis_projects.csv", parse_dates=["start_date"]
     )
 
-
 def get_cordis_organisations():
 
     return pd.read_csv(f"{PROJECT_DIR}/inputs/data/cordis_organisations.csv")
