@@ -12,9 +12,15 @@ LEVEL_LOOKUP = config["covid_level_names"]
 
 def get_cordis_projects():
 
-    return pd.read_csv(
+    projs = pd.read_csv(
         f"{PROJECT_DIR}/inputs/data/cordis_projects.csv", parse_dates=["start_date"]
     )
+
+    projs["ec_max_contribution"] = [
+        float(re.sub(",", ".", val)) for val in projs["ec_max_contribution"]
+    ]
+    return projs
+
 
 def get_cordis_organisations():
 
@@ -45,3 +51,9 @@ def get_cordis_labelled() -> pd.DataFrame:
 def get_doc2vec():
     with open(f"{PROJECT_DIR}/outputs/models/doc2vec_cordis.p", "rb") as infile:
         return pickle.load(infile)
+
+
+def get_specter():
+    return pd.read_csv(
+        f"{PROJECT_DIR}/inputs/data/specter_embeddings.csv", index_col="project_id"
+    )
