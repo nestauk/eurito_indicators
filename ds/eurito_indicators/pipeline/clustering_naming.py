@@ -4,12 +4,14 @@ import logging
 from collections import Counter
 from itertools import combinations
 
+import altair as alt
 import networkx as nx
 import numpy as np
 import pandas as pd
 from community import community_louvain
+from eurito_indicators.pipeline.processing_utils import clean_table_names, make_lq
 from scipy.spatial.distance import cosine
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 
 def build_cluster_graph(
@@ -111,7 +113,7 @@ def name_category(
     text_table: pd.DataFrame,
     cat_var: str = "community",
     text_var: str = "title",
-    top_words: int = 20,
+    top_words: int = 15,
 ) -> dict:
     """Names the clusters with their highest tfidf tokens
     Args:
@@ -128,7 +130,7 @@ def name_category(
     )
 
     tfidf = TfidfVectorizer(
-        stop_words="english", ngram_range=[1, 3], max_features=3000, max_df=0.7
+        stop_words="english", ngram_range=[2, 3], max_features=150, max_df=0.8
     )
     tfidf_fit = tfidf.fit_transform(grouped_names)
     tfidf_df = pd.DataFrame(tfidf_fit.todense(), columns=tfidf.vocabulary_)
@@ -215,10 +217,29 @@ def check_community_consensus(doc_ids: list, communities: list) -> pd.DataFrame:
     return id_consensus_df
 
 
-def make_doc_comm_lookup(comm_doc_lookup):
-    """Creates doc to comm lookup from a comm to list of docs lookup"""
+def make_doc_comm_lookup(comm_doc_lookup: dict, method: str = "single") -> dict:
+    """Creates doc to comm lookup from a comm to list of docs lookup
+    Args:
+        comm_doc_lookup: lookup between clusters and their related vectors
+        method: if single, assign one element to each cluster. If multiple,
+        many clusters can be assigned to the same document
+    """
+    if method == "single":
 
-    return {el: k for k, v in comm_doc_lookup.items() for el in v}
+        return {el: k for k, v in comm_doc_lookup.items() for el in v}
+    elif method == "multiple":
+        assign_dict = dict()
+
+        for cl, assignments in comm_doc_lookup.items():
+
+            for _id in assignments:
+                if _id not in assign_dict.keys():
+                    assign_dict[_id] = []
+                    assign_dict[_id].append(cl)
+                else:
+                    assign_dict[_id].append(cl)
+
+        return assign_dict
 
 
 def get_closest_documents(
@@ -251,6 +272,292 @@ def get_closest_documents(
         dist_copy[0] < (np.mean(dist_copy[0]) - sd_scale * sd)
     ].index.tolist()
 
+    logging.info(cluster)
     logging.info(len(selected))
 
     return selected
+
+
+def tag_clusters(docs, cluster_assignment, cluster_name="cluster_covid"):
+    """Tag clusters with an assignment"""
+
+    docs_copy = docs.copy()
+    docs_copy[cluster_name] = docs_copy["project_id"].map(cluster_assignment)
+    docs_copy[cluster_name] = docs_copy[cluster_name].fillna("non_covid")
+
+    return docs_copy
+
+
+def make_activity(
+    table: pd.DataFrame,
+    reg_var: str = "coordinator_country",
+    cat_var: str = "cluster_covid",
+    funding_var: str = "ec_max_contribution",
+) -> pd.DataFrame:
+    """Counts activity, funding and LQs in a project activity table"""
+
+    if reg_var == "participant_country":
+        table = process_participant(table)
+
+    table_wide = table.groupby([reg_var, cat_var]).size().unstack().fillna(0)
+
+    table_funding = (
+        table.groupby([reg_var, cat_var])[funding_var].sum().unstack().fillna(0)
+    )
+
+    table_lq, table_funding_lq = [make_lq(t) for t in [table_wide, table_funding]]
+
+    stacked_tables = [
+        t.stack().reset_index(name="value").assign(variable=v)
+        for t, v in zip(
+            [table_wide, table_lq, table_funding, table_funding_lq],
+            ["project_total", "project_lq", "funding_total", "funding_lq"],
+        )
+    ]
+
+    return pd.concat(stacked_tables, axis=0)
+
+
+def process_participant(table):
+    """Creates a participant table (requires exploding a combined variable
+    in the projects table)
+    """
+
+    docs = table.copy()
+    docs["participant_country"] = docs["participant_countries"].apply(
+        lambda x: x.split(";") if type(x) == str else np.nan
+    )
+    docs_expl = docs.dropna(axis=0, subset=["participant_country"]).explode(
+        "participant_country"
+    )
+
+    return docs_expl
+
+
+def specialisation_robust(
+    doc_distances,
+    sd_thres,
+    projects,
+    cluster_assignments,
+    pre_covid_date="2019/01/01",
+    reg_var="coordinator_country",
+):
+    """Extract activity levels based on different thresholds of "distance"
+    from a cluster centroid
+    """
+
+    docs = projects.copy().query(f"start_date<'{pre_covid_date}'")
+    # Get project lists under different threshold
+
+    close_to_clusters = [
+        make_doc_comm_lookup(
+            {
+                cl: get_closest_documents(
+                    doc_distances, cl, cluster_assignments, sd_scale=sd
+                )
+                for cl in doc_distances.columns
+            },
+            method="multiple",
+        )
+        for sd in sd_thres
+    ]
+
+    # Assign projects to categories
+
+    results = []
+
+    for thres, assign in zip(["low", "high"], close_to_clusters):
+
+        docs_ = docs.copy()
+        docs_["cluster_covid"] = docs_["project_id"].map(assign)
+        docs_["cluster_covid"] = docs_["cluster_covid"].fillna("non_covid")
+
+        docs_expl = docs_.explode("cluster_covid")
+
+        if reg_var == "participant_country":
+
+            docs_part = process_participant(docs_expl)
+            act = make_activity(docs_part, reg_var="participant_country")
+        else:
+            act = make_activity(docs_expl)
+        act = act.rename(columns={"value": f"value_{str(thres)}"})
+        results.append(act)
+
+    if len(results) > 1:
+        merged = results[0].merge(results[1], on=[reg_var, "cluster_covid", "variable"])
+        return merged
+    else:
+        return results[0]
+
+
+def chart_specialisation_robust(
+    reg_var,
+    activity_var,
+    dist_to_clusters,
+    cluster_assignments,
+    projs,
+    focus_countries,
+    clean_var_lookup,
+    thres=[1.5, 2.5],
+):
+    """Plot level of preparedness in a covid cluster"""
+
+    specialisation_related = specialisation_robust(
+        dist_to_clusters, [1.5, 2.5], projects=projs, reg_var=reg_var,
+        cluster_assignments=cluster_assignments
+    )
+
+    specialisation_long = (
+        specialisation_related.loc[
+            specialisation_related[reg_var].isin(focus_countries)
+        ]
+        .query(f"variable=='{activity_var}'")
+        .reset_index(drop=True)
+        .melt(id_vars=[reg_var, "variable", "cluster_covid"], var_name="position")
+        .reset_index(drop=True)
+    )
+
+    specialisation_long_clean = clean_table_names(
+        specialisation_long, [reg_var, "cluster_covid"], clean_var_lookup
+    ).query("cluster_covid!='non_covid'")
+    spec_comp = (
+        alt.Chart()
+        .mark_line()
+        .encode(
+            x=alt.X("value", title=activity_var),
+            detail="cluster_covid",
+            y=alt.Y(
+                "cluster_covid",
+                title=None,
+                axis=alt.Axis(ticks=False, labels=False),
+                sort="descending",
+            ),
+            color="cluster_covid_clean:N",
+        )
+    ).properties(height=20, width=200)
+
+    ruler = (
+        alt.Chart()
+        .transform_calculate(v="1")
+        .mark_rule(color="black", strokeDash=[1, 1])
+        .encode(x="v:Q")
+    )
+
+    comp_chart = alt.layer(spec_comp, ruler, data=specialisation_long_clean).facet(
+        row=alt.Row(
+            f"{reg_var}_clean",
+            sort=alt.EncodingSortField("value", "median", order="descending"),
+            header=alt.Header(labelAngle=360, labelAlign="left"),
+        )
+    )
+
+    return comp_chart
+
+
+def make_pre_post_table(
+    projs,
+    cluster_groups,
+    distance_to_clusters,
+    reg_var="coordinator_country",
+    sd=1.5,
+):
+    """Extracts activity levels before and after covid-19"""
+
+    response = make_activity(
+        projs.query("start_date>'2019/01/01'").assign(
+            cluster_covid=lambda df: df["project_id"].map(make_doc_comm_lookup(cluster_groups))
+        ),
+        reg_var=reg_var,
+    )
+
+    print(response.head())
+
+    sp_related = specialisation_robust(
+        distance_to_clusters, [sd], projects=projs, reg_var=reg_var,
+        cluster_assignments=cluster_groups
+    ).rename(columns={"value_low": "value_pre"})
+
+    print(sp_related.head())
+
+    combi = response.merge(sp_related, on=[reg_var, "cluster_covid", "variable"])
+
+    logging.info(
+        combi.groupby(["variable", "cluster_covid"]).apply(
+            lambda df: df[["value", "value_pre"]].corr(method='spearman').iloc[0, 1]
+        )
+    )
+
+    return combi
+
+
+def filter_pre_post_table(
+    combi_table,
+    focus_countries,
+    reg_var="coordinator_country",
+    focus_var="project_lq",
+    volume_var="project_total",
+):
+    """Filters an activity table to focus on particular variables and countries"""
+
+    combined_table_focus = combi_table.loc[
+        combi_table[reg_var].isin(focus_countries)
+    ].query(f"variable=='{focus_var}'")
+    
+    size_lookup = (
+        combi_table.query(f"variable=='{volume_var}'")
+        [[reg_var,'cluster_covid',"value"]]
+        .rename(columns={'value':'volume'})
+    )
+    
+    combined_table_focus = (combined_table_focus
+                            .merge(size_lookup,
+                                   on=[reg_var, 'cluster_covid'])
+                            )
+
+    return combined_table_focus
+
+
+def preparedness_response_chart(data, clean_var_lookup, reg_var):
+    """Plots a comparison between preparedness and response"""
+
+    data_clean = clean_table_names(data, [reg_var, "cluster_covid"], clean_var_lookup)
+    clean_country_name = reg_var + "_clean"
+    data_clean["cluster_covid_clean"] = [
+        x[:50] + "..." for x in data_clean["cluster_covid_clean"]
+    ]
+
+    comp_ch = (
+        alt.Chart()
+        .mark_point(filled=True, stroke="black", strokeWidth=0.5)
+        .encode(
+            x=alt.X(
+                "value_pre",
+                title="Related activity pre 2020",
+                scale=alt.Scale(zero=False),
+            ),
+            size="volume",
+            y=alt.Y("value", title="Activity post-2020", scale=alt.Scale(zero=False)),
+            color=alt.Color(clean_country_name, scale=alt.Scale(scheme="tableau20")),
+            tooltip=[clean_country_name, "volume"],
+        )
+    ).properties(height=200, width=400)
+
+    hor = (
+        alt.Chart()
+        .transform_calculate(y="1")
+        .mark_rule(strokeDash=[2, 2])
+        .encode(y="y:Q")
+    )
+
+    vert = (
+        alt.Chart()
+        .transform_calculate(x="1")
+        .mark_rule(strokeDash=[2, 2])
+        .encode(x="x:Q")
+    )
+
+    lay = alt.layer(comp_ch, hor, vert, data=data_clean).facet(
+        "cluster_covid_clean", columns=3
+    )
+
+    return lay
