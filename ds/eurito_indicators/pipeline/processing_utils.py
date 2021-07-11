@@ -12,7 +12,8 @@ covid_names = config["covid_names"]
 MOD_PATH = f"{PROJECT_DIR}/outputs/models"
 
 if os.path.exists(MOD_PATH) is False:
-    os.makedirs(MOD_PATH, exist_ok = True)
+    os.makedirs(MOD_PATH, exist_ok=True)
+
 
 def covid_getter(text: str, covid_terms: list = covid_names) -> bool:
     """Check if a string contains a covid related term
@@ -45,6 +46,11 @@ def make_iso_country_lookup() -> dict:
     return country_names
 
 
+def get_top_countries(docs, reg_var="coordinator_country", top_n=15):
+    """Returns top countries in a cordis table"""
+    return docs[reg_var].value_counts().index[:15].tolist()
+
+
 def clean_variable_names(
     table: pd.DataFrame, variables: str, lookup: dict
 ) -> pd.DataFrame:
@@ -66,28 +72,49 @@ def clean_variable_names(
 
     return table_clean
 
+
 def cordis_combine_text(cordis_corpus):
-    '''Combines title and objective in Cordis corpus
-    '''
+    """Combines title and objective in Cordis corpus"""
 
     cordis_corpus = cordis_corpus.dropna(axis=0, subset=["objective"])
-    cordis_corpus["text"] = [r["title"] + r["objective"] for _, r in cordis_corpus.iterrows()]
+    cordis_corpus["text"] = [
+        r["title"] + r["objective"] for _, r in cordis_corpus.iterrows()
+    ]
 
     return cordis_corpus
 
-def filter_by_length(corpus, text_var, min_length=300):
-    ''' Remove very short documents from a corpus
-    '''
 
-    filtered = corpus.loc[[len(doc)>min_length for doc in corpus[text_var]]]
+def filter_by_length(corpus, text_var, min_length=300):
+    """Remove very short documents from a corpus"""
+
+    filtered = corpus.loc[[len(doc) > min_length for doc in corpus[text_var]]]
     filtered = filtered.reset_index(drop=True)
 
     return filtered
 
 
+def make_lq(table: pd.DataFrame) -> pd.DataFrame:
+    """Calculate LQ for a category X in  population of categories Y
+    Args:
+        table where the rows are the categories X and columns the categories Y
+    Returns:
+        a table with LQs
+    """
+    denom = table.sum(axis=1) / table.sum().sum()
+    return table.apply(lambda x: (x / x.sum()) / denom)
 
 
 def save_model(model, name):
-    with open(f"{MOD_PATH}/{name}.p", 'wb') as outfile:
+    with open(f"{MOD_PATH}/{name}.p", "wb") as outfile:
         pickle.dump(model, outfile)
 
+
+def clean_table_names(
+    table: pd.DataFrame, variables: list, lookup: dict
+) -> pd.DataFrame:
+    """Adds clean names to a table"""
+    t = table.copy()
+
+    for v in variables:
+        t[v + "_clean"] = t[v].map(lookup)
+    return t
