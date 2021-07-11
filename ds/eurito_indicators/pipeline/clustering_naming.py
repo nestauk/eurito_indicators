@@ -462,6 +462,11 @@ def make_pre_post_table(
 ):
     """Extracts activity levels before and after covid-19"""
 
+    # NB there is some confusion between the two types of lookups we use
+    #   one that maps one project id to one cluster
+    #   one that maps one cluster to a list of project ids
+    #   Should find a clearer way to organise this
+
     response = make_activity(
         projs.query("start_date>'2019/01/01'").assign(
             cluster_covid=lambda df: df["project_id"].map(make_doc_comm_lookup(cluster_groups))
