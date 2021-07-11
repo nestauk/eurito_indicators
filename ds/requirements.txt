@@ -15,3 +15,8 @@ openpyxl
 scikit-learn
 nltk
 gensim
+ipywidgets
+leidenalg
+seaborn
+networkx
+python-louvain
