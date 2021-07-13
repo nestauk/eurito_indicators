@@ -122,6 +122,8 @@ def name_category(
     cat_var: str = "community",
     text_var: str = "title",
     top_words: int = 15,
+    max_features: int = 150,
+    max_df: float = 0.8
 ) -> dict:
     """Names the clusters with their highest tfidf tokens
     Args:
@@ -138,20 +140,20 @@ def name_category(
     )
 
     tfidf = TfidfVectorizer(
-        stop_words="english", ngram_range=[2, 3], max_features=150, max_df=0.8
+        stop_words="english", ngram_range=[2, 3], max_features=max_features, max_df=max_df
     )
     tfidf_fit = tfidf.fit_transform(grouped_names)
     tfidf_df = pd.DataFrame(tfidf_fit.todense(), columns=tfidf.vocabulary_)
 
-    cluster_names = {}
+    cluster_salient = {}
 
     for ind, _ in tfidf_df.iterrows():
 
         salient_words = tfidf_df.loc[ind].sort_values(ascending=False).index[:top_words]
 
-        cluster_names[ind] = "_".join(salient_words)
+        cluster_salient[ind] = "_".join(salient_words)
 
-    return cluster_names
+    return cluster_salient
 
 
 def make_distance_to_clusters(

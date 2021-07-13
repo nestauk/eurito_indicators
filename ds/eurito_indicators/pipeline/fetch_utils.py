@@ -15,10 +15,12 @@ def get_engine(config_path, database="production", **engine_kwargs):
               username=cp["user"], host=cp["host"], password=cp["password"])
     return create_engine(url, **engine_kwargs)
 
-def fetch_daps_table(table, con, chunks=1000):
+def fetch_daps_table(table, con, cols='all',chunks=1000):
     '''Fetch a DAPS table
     '''
-
-    ch = pd.read_sql_table(table, con, chunksize=chunks)
+    if cols == 'all':
+        ch = pd.read_sql_table(table, con, chunksize=chunks)
+    else:
+        ch = pd.read_sql_table(table, con, chunksize=chunks, columns=cols)
 
     return pd.concat(ch).reset_index(drop=True)
