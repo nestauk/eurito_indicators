@@ -16,3 +16,17 @@ model_parametres:
     - estimator__class_weight: ["balanced"]
       estimator__min_samples_leaf: [2, 5]
       estimator__n_estimators: [20, 50, 100]
+fetch_columns:
+  nih_projects:
+    - application_id
+    - ic_name
+    - org_country
+    - project_start
+    - project_title
+    - total_cost
+  gtr_projects:
+    - id
+    - title
+    - status
+    - abstractText
+    - start
