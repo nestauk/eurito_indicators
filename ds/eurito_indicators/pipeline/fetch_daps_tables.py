@@ -30,12 +30,6 @@ if __name__ == "__main__":
         "arxiv_articles",
         "arxiv_article_institutes",
         "gtr_projects",
-        "gtr_funds",
-        "gtr_link_table",
-        'arxiv_categories',
-        'arxiv_article_categories',
-        'arxiv_article_fields_of_study',
-        'mag_fields_of_study'
     ]:
 
         if os.path.exists(f"{DATA_PATH}/{t}.csv") is False:
