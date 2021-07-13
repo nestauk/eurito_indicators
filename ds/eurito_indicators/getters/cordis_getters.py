@@ -1,5 +1,6 @@
 # cordis data getters
 
+import json
 import pickle
 import re
 
@@ -61,3 +62,13 @@ def get_specter():
 def get_topsbm():
     with open(f"{PROJECT_DIR}/outputs/models/topsbm_cordis.p", "rb") as infile:
         return pickle.load(infile)
+
+def get_cordis_clusters():
+    with open(f"{PROJECT_DIR}/outputs/models/cordis_clusters.p", "rb") as infile:
+        return pickle.load(infile)
+
+def get_cluster_labels():
+    with open(f"{PROJECT_DIR}/inputs/data/cluster_labels.json", 'r') as infile:
+        out = json.load(infile)
+    return {int(k):v for k,v in out.items()}
+
