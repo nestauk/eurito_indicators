@@ -9,15 +9,17 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 from community import community_louvain
-from scipy.spatial.distance import cosine
+from scipy.spatial.distance import cityblock, cosine
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from eurito_indicators.pipeline.processing_utils import clean_table_names, make_lq
 
 
 def build_cluster_graph(
-    vectors: pd.DataFrame, clustering_algorithms: list, n_runs: int = 10, 
-    sample:int = None
+    vectors: pd.DataFrame,
+    clustering_algorithms: list,
+    n_runs: int = 10,
+    sample: int = None,
 ):
     """Builds a cluster network based on observation co-occurrences in a clustering output
     Args:
@@ -123,7 +125,7 @@ def name_category(
     text_var: str = "title",
     top_words: int = 15,
     max_features: int = 150,
-    max_df: float = 0.8
+    max_df: float = 0.8,
 ) -> dict:
     """Names the clusters with their highest tfidf tokens
     Args:
@@ -140,7 +142,10 @@ def name_category(
     )
 
     tfidf = TfidfVectorizer(
-        stop_words="english", ngram_range=[2, 3], max_features=max_features, max_df=max_df
+        stop_words="english",
+        ngram_range=[2, 3],
+        max_features=max_features,
+        max_df=max_df,
     )
     tfidf_fit = tfidf.fit_transform(grouped_names)
     tfidf_df = pd.DataFrame(tfidf_fit.todense(), columns=tfidf.vocabulary_)
@@ -401,7 +406,7 @@ def specialisation_robust(
         return results[0]
 
 
-def chart_specialisation_robust(
+def plot_specialisation_robust(
     reg_var,
     activity_var,
     dist_to_clusters,
@@ -538,7 +543,7 @@ def filter_pre_post_table(
     return combined_table_focus
 
 
-def preparedness_response_chart(data, clean_var_lookup, reg_var):
+def plot_preparedness_response(data, clean_var_lookup, reg_var):
     """Plots a comparison between preparedness and response"""
 
     data_clean = clean_table_names(data, [reg_var, "cluster_covid"], clean_var_lookup)
@@ -580,3 +585,96 @@ def preparedness_response_chart(data, clean_var_lookup, reg_var):
     )
 
     return lay
+
+
+def calculate_pairwise_distances(df_1: pd.DataFrame, df_2: pd.DataFrame):
+    """Calculate pairwise distances between two groups of vectors
+    Args:
+    """
+
+    df_1_array = np.array(df_1)
+    df_2_array = np.array(df_2)
+
+    distances = []
+
+    for v_1 in df_1_array:
+        vect_dist = []
+        for v_2 in df_2_array:
+            vect_dist.append(cityblock(v_1, v_2))
+        distances.append(vect_dist)
+
+    dist_df = pd.DataFrame(distances, index=df_1.index, columns=df_2.index)
+
+    return dist_df
+
+
+def rank_org_distances(org_cluster_dist, cluster, orgs_in_cluster, cluster_labels):
+    """Ranks distances between organisations a covid-related corpus of research
+    and adds extra variables to aggregate results later
+    Args:
+        org_cluster_dist: semantic distance between an organisation and a
+            cluster
+        cluster: cluster we are focusing on
+        orgs_in_cluster: lookup between cluster and organisations that
+        participated in its projects
+        cluster_labels: clean cluster names
+
+    """
+
+    dist_copy = org_cluster_dist.copy()
+    dist_copy["ranking"] = pd.qcut(
+        dist_copy[cluster], q=np.arange(0, 1.1, 0.1), labels=False
+    )
+    dist_copy["is_participant"] = dist_copy.index.get_level_values(level=0).isin(
+        orgs_in_cluster[cluster]
+    )
+    dist_copy["cluster"] = cluster_labels[cluster]
+
+    return dist_copy.rename(columns={cluster: "distance"})[
+        ["cluster", "ranking", "is_participant", "country"]
+    ]
+
+
+def plot_participation_distance(org_distances, focus_countries):
+    """Plots level of participation by country and cluster at different levels of distance"""
+
+    org_distances_mean = (
+        org_distances.groupby(["country", "cluster", "ranking"])["is_participant"]
+        .mean()
+        .loc[focus_countries]
+        .reset_index(drop=False)
+        .rename(columns={"is_participant": "share"})
+    )
+    org_distances_sum = (
+        org_distances.groupby(["country", "cluster", "ranking"])["is_participant"]
+        .sum()
+        .loc[focus_countries]
+        .reset_index(drop=False)
+        .rename(columns={"is_participant": "total"})
+    )
+
+    org_distances_aggregate = pd.concat(
+        [org_distances_mean, org_distances_sum["total"]], axis=1
+    )
+
+    distances_chart = (
+        alt.Chart(org_distances_aggregate)
+        .mark_point(filled=True, stroke="black", strokeWidth=0.5)
+        .encode(
+            y=alt.Y(
+                "country",
+                sort=alt.EncodingSortField("share", op="median", order="descending"),
+            ),
+            x=alt.X("share", axis=alt.Axis(format="%"), title="Share of participation"),
+            tooltip=["country", "share", "total", "ranking"],
+            size=alt.Size("total", title="Volume of participation"),
+            color=alt.Color(
+                "ranking:O",
+                scale=alt.Scale(scheme="redblue"),
+                title="Distance to cluster",
+            ),
+            facet=alt.Facet("cluster", columns=3),
+        )
+    )
+
+    return distances_chart
