@@ -9,13 +9,15 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 from community import community_louvain
-from eurito_indicators.pipeline.processing_utils import clean_table_names, make_lq
 from scipy.spatial.distance import cosine
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+from eurito_indicators.pipeline.processing_utils import clean_table_names, make_lq
 
 
 def build_cluster_graph(
-    vectors: pd.DataFrame, clustering_algorithms: list, n_runs: int = 10
+    vectors: pd.DataFrame, clustering_algorithms: list, n_runs: int = 10, 
+    sample:int = None
 ):
     """Builds a cluster network based on observation co-occurrences in a clustering output
     Args:
@@ -23,6 +25,7 @@ def build_cluster_graph(
         clustering_algorithms: a list where the first element is the clustering
             algorithm and the second element are the parameter names and sets
         n_runs: number of times to run a clustering algorithm
+        sample: size of the vector to sample.
     Returns:
         A network where the nodes are observations and their edges number
             of co-occurrences in the clustering
@@ -81,13 +84,17 @@ def extract_name_communities(
     resolution: float,
     index_lookup: dict,
     text_table: pd.DataFrame,
+    doc_id: str = "project_id",
+    doc_text: str = "title",
 ) -> list:
-    """Extracts community from the cluster graph
+    """Extracts community from the cluster graph and names them
     Args:
         cluster_graph: network object
         resolution: resolution for community detection
         index_lookup: lookup between integer indices and project ids
         text_table: table with variable names
+        doc_id: document id in the text table
+        doc_text: text variable in the text table
     Returns:
         a lookup between communities and the projects that belong to them
         a lookup between community indices and names
@@ -103,7 +110,8 @@ def extract_name_communities(
 
     logging.info("Naming communities")
     comm_names = name_category(
-        (text_table.assign(community=lambda df: df["project_id"].map(ids_to_comms))),
+        (text_table.assign(community=lambda df: df[doc_id].map(ids_to_comms))),
+        text_var=doc_text,
     )
 
     return comm_assignments, comm_names
@@ -245,7 +253,7 @@ def get_closest_documents(
     dist_df: pd.DataFrame,
     cluster: int,
     cluster_assignments: dict,
-    sd_scale: int = 2,
+    sd_scale: float = 2,
     exclude_in_cluster: bool = True,
 ) -> list:
     """Returns closest documents to a cluster
@@ -267,9 +275,11 @@ def get_closest_documents(
 
     sd = np.std(dist_copy[cluster])
 
-    selected = dist_copy.loc[
-        dist_copy[0] < (np.mean(dist_copy[0]) - sd_scale * sd)
-    ].index.tolist()
+    selected = (
+        dist_copy.sort_values(cluster, ascending=True)
+        .loc[dist_copy[cluster] < (np.mean(dist_copy[cluster]) - sd_scale * sd)]
+        .index.tolist()
+    )
 
     logging.info(cluster)
     logging.info(len(selected))
@@ -402,8 +412,11 @@ def chart_specialisation_robust(
     """Plot level of preparedness in a covid cluster"""
 
     specialisation_related = specialisation_robust(
-        dist_to_clusters, [1.5, 2.5], projects=projs, reg_var=reg_var,
-        cluster_assignments=cluster_assignments
+        dist_to_clusters,
+        [1.5, 2.5],
+        projects=projs,
+        reg_var=reg_var,
+        cluster_assignments=cluster_assignments,
     )
 
     specialisation_long = (
@@ -469,7 +482,9 @@ def make_pre_post_table(
 
     response = make_activity(
         projs.query("start_date>'2019/01/01'").assign(
-            cluster_covid=lambda df: df["project_id"].map(make_doc_comm_lookup(cluster_groups))
+            cluster_covid=lambda df: df["project_id"].map(
+                make_doc_comm_lookup(cluster_groups)
+            )
         ),
         reg_var=reg_var,
     )
@@ -477,8 +492,11 @@ def make_pre_post_table(
     print(response.head())
 
     sp_related = specialisation_robust(
-        distance_to_clusters, [sd], projects=projs, reg_var=reg_var,
-        cluster_assignments=cluster_groups
+        distance_to_clusters,
+        [sd],
+        projects=projs,
+        reg_var=reg_var,
+        cluster_assignments=cluster_groups,
     ).rename(columns={"value_low": "value_pre"})
 
     print(sp_related.head())
@@ -487,7 +505,7 @@ def make_pre_post_table(
 
     logging.info(
         combi.groupby(["variable", "cluster_covid"]).apply(
-            lambda df: df[["value", "value_pre"]].corr(method='spearman').iloc[0, 1]
+            lambda df: df[["value", "value_pre"]].corr(method="spearman").iloc[0, 1]
         )
     )
 
@@ -506,17 +524,14 @@ def filter_pre_post_table(
     combined_table_focus = combi_table.loc[
         combi_table[reg_var].isin(focus_countries)
     ].query(f"variable=='{focus_var}'")
-    
-    size_lookup = (
-        combi_table.query(f"variable=='{volume_var}'")
-        [[reg_var,'cluster_covid',"value"]]
-        .rename(columns={'value':'volume'})
+
+    size_lookup = combi_table.query(f"variable=='{volume_var}'")[
+        [reg_var, "cluster_covid", "value"]
+    ].rename(columns={"value": "volume"})
+
+    combined_table_focus = combined_table_focus.merge(
+        size_lookup, on=[reg_var, "cluster_covid"]
     )
-    
-    combined_table_focus = (combined_table_focus
-                            .merge(size_lookup,
-                                   on=[reg_var, 'cluster_covid'])
-                            )
 
     return combined_table_focus
 
@@ -526,9 +541,7 @@ def preparedness_response_chart(data, clean_var_lookup, reg_var):
 
     data_clean = clean_table_names(data, [reg_var, "cluster_covid"], clean_var_lookup)
     clean_country_name = reg_var + "_clean"
-    data_clean["cluster_covid_clean"] = [
-        x[:50] + "..." for x in data_clean["cluster_covid_clean"]
-    ]
+    data_clean["cluster_covid_clean"] = [x for x in data_clean["cluster_covid_clean"]]
 
     comp_ch = (
         alt.Chart()
@@ -544,7 +557,7 @@ def preparedness_response_chart(data, clean_var_lookup, reg_var):
             color=alt.Color(clean_country_name, scale=alt.Scale(scheme="tableau20")),
             tooltip=[clean_country_name, "volume"],
         )
-    ).properties(height=200, width=400)
+    ).properties(height=200, width=300)
 
     hor = (
         alt.Chart()

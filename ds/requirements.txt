@@ -20,3 +20,5 @@ leidenalg
 seaborn
 networkx
 python-louvain
+pip install git+https://github.com/nestauk/wiki_topic_labels.git
+pymysql

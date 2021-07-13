@@ -57,3 +57,7 @@ def get_specter():
     return pd.read_csv(
         f"{PROJECT_DIR}/inputs/data/specter_embeddings.csv", index_col="project_id"
     )
+
+def get_topsbm():
+    with open(f"{PROJECT_DIR}/outputs/models/topsbm_cordis.p", "rb") as infile:
+        return pickle.load(infile)

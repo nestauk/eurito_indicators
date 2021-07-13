@@ -36,7 +36,10 @@ if __name__ == "__main__":
     cord_corp = make_training_set()
 
     cordis_tokenised = remove_extr_freq(
-        make_engram([pre_process(doc) for doc in cord_corp["text"]])
+        make_engram(
+            [pre_process(doc) for doc in cord_corp["text"]],
+        ),
+        high=0.997,
     )
 
     # text_pipeline(cord_corp["text"], high_freq=0.997)
@@ -45,9 +48,11 @@ if __name__ == "__main__":
     logging.info("Training topic model")
     model = train_model(cordis_tokenised, cord_corp["project_id"].tolist())
 
-    modelling_outputs = post_process_model_clusters(
-        model, top_level=0, cl_level=0, top_thres=0.9
+    topic_mix, clusters = post_process_model_clusters(
+        model, top_level=0, cl_level=0, top_thres=0.8
     )
 
+    topic_mix.index = cord_corp["project_id"].tolist()
+
     logging.info("Saving outputs")
-    save_model(modelling_outputs, "topsbm_cordis")
+    save_model([model, topic_mix, clusters], "topsbm_cordis")

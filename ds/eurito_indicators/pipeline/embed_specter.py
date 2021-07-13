@@ -7,7 +7,6 @@ from eurito_indicators import PROJECT_DIR
 from eurito_indicators.getters.cordis_getters import get_cordis_projects
 from eurito_indicators.pipeline.processing_utils import filter_by_length
 
-
 if __name__ == "__main__":
 
     model = SentenceTransformer("allenai-specter")
