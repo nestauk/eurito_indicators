@@ -1,6 +1,4 @@
-# Script to work with network data
 import logging
-import random
 from itertools import chain, combinations
 
 import networkx as nx
@@ -86,39 +84,26 @@ def process_network(net, extra_edges=100):
     return pos, united_graph, labs
 
 
-def make_topic_network(
-    topic_df: pd.DataFrame,
-    covid_ids,
-    threshold: float = 0.1,
-    resolution: float = 0.7,
-    seed=None,
-):
+def make_topic_network(topic_df: pd.DataFrame, covid_ids, threshold: float = 0.1,
+                       resolution: float = 0.7):
     """Plots a topic network
     Args:
         topic_df: topic mix
         threshold: threshold for considering that a topic is present in a corpus
     """
-
     net = make_network_from_doc_term_matrix(
         topic_df.reset_index(drop=False), threshold=threshold, id_var="index"
     )
     net2 = process_network(net, extra_edges=100)
 
     covid_topics = (
-        topic_df.loc[topic_df.index.isin(covid_ids)]
-        .applymap(lambda x: x > threshold)
-        .sum()
+        topic_df.loc[topic_df.index.isin(covid_ids)].applymap(lambda x: x > threshold).sum()
     )
 
     keep_topics = covid_topics.loc[covid_topics > 1].index.tolist()
     covid_size_dict = covid_topics.loc[keep_topics].to_dict()
 
-    if seed is None:
-        comms = community_louvain.best_partition(net2[1], resolution=resolution)
-    else:
-        comms = community_louvain.best_partition(
-            net2[1], resolution=resolution, random_state=seed
-        )
+    comms = community_louvain.best_partition(net2[1], resolution= resolution)
 
     node_df = (
         pd.DataFrame(net2[0])
