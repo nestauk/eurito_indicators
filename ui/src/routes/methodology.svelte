@@ -5,6 +5,7 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {toolName} from 'app/config';
+	import {zipUrl} from 'app/utils/assets';
 	import theme from 'app/theme';
 
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
@@ -176,9 +177,9 @@
 
 		<div class='cta'>
 			<LinkButton
-				download={basename}
+				download
 				glyph={Download}
-				href='/download'
+				href={zipUrl}
 				text='Download all indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
