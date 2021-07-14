@@ -15,22 +15,11 @@ def node_layer(
     **kwargs
 ):
     """Creates node_layer in the plot"""
-
-    x_range = [min(node_df['x'])-0.03, max(node_df['x'])+0.03]
-    y_range = [min(node_df['y'])-0.03, max(node_df['y'])+0.03]
-
     node_chart = (
         alt.Chart(node_df)
         .mark_point(filled=True, stroke="black", strokeWidth=0.5)
         .encode(
-            x=alt.X("x", axis=None,
-                    scale=alt.Scale(domain=x_range)
-
-                    ), 
-            y=alt.Y("y", axis=None,
-                    scale=alt.Scale(domain=y_range)
-                    ), 
-            fillOpacity=alt.value(1)
+            x=alt.X("x", axis=None), y=alt.Y("y", axis=None), fillOpacity=alt.value(1)
         )
     )
 
