@@ -46,7 +46,7 @@ const auditURL = async (id, url) => {
 	const reportHtml = runnerResult.report.replaceAll(urlBases.development, '');
 
 	// eslint-disable-next-line no-sync
-	fs.writeFileSync(`static/a11y/${id}.html`, reportHtml);
+	fs.writeFileSync(`static/audits/lighthouse/${id}.html`, reportHtml);
 
 	// `.lhr` is the Lighthouse Result as a JS object
 	console.log(

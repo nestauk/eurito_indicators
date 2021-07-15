@@ -71,7 +71,7 @@
 		() => hasPrevValue && updateCurrentReport(prevValue);
 	$: clickedNext =
 		() => hasNextValue && updateCurrentReport(nextValue);
-	$: reportUrl = `/a11y/${currentreport}.html`;
+	$: reportUrl = `/audits/lighthouse/${currentreport}.html`;
 </script>
 
 <svelte:head>
