@@ -8,6 +8,7 @@
 	import {
 		allNUTS2IndicatorsCsvName,
 		availableDownloadIds,
+		basename
 	} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
@@ -215,7 +216,8 @@
 			be considered as non-official extras:
 			{#each availableDownloadIds as availableId, index}
 				<Link
-					href='/download/{availableId}'
+					download
+					href='/data/{basename}_{availableId}.csv'
 					isBold={true}
 					theme={linkTheme}
 				>
