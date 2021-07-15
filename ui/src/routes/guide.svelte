@@ -5,15 +5,10 @@
 
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
-	import {
-		allNUTS2IndicatorsCsvName,
-		availableDownloadIds,
-		basename
-	} from 'app/utils/assets';
+	import {allNUTS2IndicatorsCsvName, basename} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
-	const maxIndex = availableDownloadIds.length - 1;
 
 	const linkTheme = {
 		color: theme.colorLink,
@@ -206,25 +201,6 @@
 			That zip file also contains an extra CSV file (titled
 			<code>{allNUTS2IndicatorsCsvName}</code>) containing all datapoints
 			of all indicators in a single file.
-		</p>
-
-		<h3>Extras</h3>
-
-		<p>
-			Note that some indicators have been created for NUTS3 and LEP, but
-			these are not provided in the tool, nor they are official and should
-			be considered as non-official extras:
-			{#each availableDownloadIds as availableId, index}
-				<Link
-					download
-					href='/data/{basename}_{availableId}.csv'
-					isBold={true}
-					theme={linkTheme}
-				>
-					{availableId}
-				</Link>
-				{#if index < maxIndex},{/if}
-			{/each}.
 		</p>
 
 		<!-- feedback -->

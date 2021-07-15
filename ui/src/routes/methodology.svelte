@@ -13,7 +13,6 @@
 	const eurostatUrl = 'https://ec.europa.eu/eurostat';
 	const HausmanAndHidalgoUrl = 'https://www.pnas.org/content/106/26/10570';
 	const hesaUrl = 'https://www.hesa.ac.uk';
-	const lepUrl = 'https://geoportal.statistics.gov.uk/search?collection=Dataset&sort=name&tags=all(BDY_LEP)';
 	const MateosGarciaUrl = 'https://osf.io/preprints/socarxiv/3cu67';
 	const nutsUrl = 'https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts';
 	const onsUrl = 'https://ons.gov.uk';
@@ -100,17 +99,7 @@
 			>NUTS2</Link>
 			regions as our geographical unit of analysis. This has allowed us to
 			collect data about regional R&D activity which is only available at
-			that level. We note that were possible we have also calculated
-			indicators at a higher level of granularity (NUTS3) as well as using
-			policy-relevant
-			<Link
-				href={lepUrl}
-				isBold={true}
-				theme={linkTheme}
-				type='external'
-			>LEP</Link>
-			boundaries. These will be released when the tool is published later
-			in 2020.
+			that level.
 		</p>
 		<p>
 			In many cases we have reverse geocoded observations available at
