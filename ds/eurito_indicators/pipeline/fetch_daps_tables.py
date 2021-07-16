@@ -32,7 +32,7 @@ if __name__ == "__main__":
         "gtr_projects",
     ]:
 
-        if os.path.exists(f"{DATA_PATH}/{t}.csv") is False:
+        if os.path.exists(f"{DATA_PATH}/{t}_v2.csv") is False:
             logging.info(f"Donwloading table: {t}")
 
             if t in COLUMNS.keys():
@@ -45,4 +45,4 @@ if __name__ == "__main__":
             else:
                 daps_t = fetch_daps_table(t, con, chunks=1000)
 
-            daps_t.to_csv(f"{DATA_PATH}/{t}.csv", index=False)
+            daps_t.to_csv(f"{DATA_PATH}/{t}_v2.csv", index=False)

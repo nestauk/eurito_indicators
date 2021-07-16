@@ -21,6 +21,11 @@ def google_chrome_driver_setup():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     return driver
 
+def make_altair_save_dirs(path):
+    os.makedirs(path + "/png", exist_ok=True)
+    os.makedirs(path + "/html", exist_ok=True)
+
+
 
 def save_altair(fig, name, driver, path=FIG_PATH):
     """Saves an altair figure as png and html

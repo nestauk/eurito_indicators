@@ -46,7 +46,27 @@ This is the equivalent to comparing the distribution of weights for a topic in a
 
 ## 2. Open science
 
+We are interested in understanding Covid-19 related research trends and in particular the role that open science dissemination strategies and research might have played in the fight against the pandemic. In order to do this we have created a dataset that draws on the CORD19 dataset compiled by the Allen AI institute, and a pipeline to collect end enrich preprint data from arXiv, biorXiv and medrXiv, three popular preprints datasets. In order to do this we have:
+
+* Identified all papers related to Covid-19 in a corpus of 1.8 million pre-prints.
+* Removed from the CORD19 dataset any articles that do not mention any terms directly related to Covid-19, as well as (title) duplicates, as well as articles already present in our preprints corpus.
+
+This yields a corpus of 250,000 papers, X of which were published after 2020.  
+
 ### Data source triangulation
+
+#### National shares of activity
+
+![Figure](val_figures/png/share_correlation.png)
+
+![Figure](val_figures/png/country_shares.png)
+
+#### Temporal evolution
+
+![Figure](val_figures/png/trend_chart.png)
+
+#### Topical comparison
+
 
 ### Research Paper clustering
 

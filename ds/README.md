@@ -10,6 +10,7 @@
   - Configure pre-commit
   - Configure metaflow to use AWS
 - Run `git clone git@github.com:martingerlach/hSBM_Topicmodel.git` in `eu_indicators/pipeline` to install `topSBM`
+- Run `python3 -m spacy download en_core_web_sm` to install the language model we use for text processing.
 
 ## Contributor guidelines
 

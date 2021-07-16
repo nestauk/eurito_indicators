@@ -1,6 +1,7 @@
 # Text processing functions
 
 import logging
+import re
 import string
 from itertools import chain
 
@@ -11,14 +12,14 @@ from nltk.stem import WordNetLemmatizer
 
 stem = WordNetLemmatizer()
 STOP = stopwords.words("english")
-BAD = [x for x in string.punctuation + string.digits] + ["\n"]
+BAD = [x for x in string.punctuation + string.digits]
 BAD.remove("-")
 
 
 def pre_process(text):
     """Removes stopwords and symbols and lemmatises"""
 
-    lowercase = text.lower()
+    lowercase = re.sub("\n", " ",text.lower())
     no_numbers_symbols = "".join([x for x in lowercase if x not in BAD])
     tokenised = [x for x in no_numbers_symbols.split(" ") if x not in STOP]
     lemmatised = [stem.lemmatize(x) for x in tokenised if len(x) > 2]
