@@ -29,3 +29,13 @@ fetch_columns:
     - status
     - abstractText
     - start
+finding_ai:
+  min_count: 5
+  topic_filter:
+    presence_threshold: 0
+    prevalence_threshold: 0.1
+  expansion_dict:
+    cs.AI: 2
+    cs.NE: 2
+    cs.LG: 1
+    stat.ML: 1
