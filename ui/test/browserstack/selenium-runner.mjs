@@ -34,7 +34,7 @@ async function getBrowsers () {
 const url = 'hub-cloud.browserstack.com/wd/hub';
 const tests = 'test/browserstack/scripts/automate';
 const target = 'http://localhost:3000';
-const report = 'data/tests/selenium-report.json';
+const report = 'test/data/selenium-report.json';
 const browserstackURL = `https://${username}:${key}@${url}`;
 const optionsKey = 'bstack:options';
 const results = [];
