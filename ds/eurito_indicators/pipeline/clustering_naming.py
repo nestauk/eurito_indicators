@@ -2,7 +2,7 @@
 
 import logging
 from collections import Counter
-from itertools import combinations
+from itertools import chain, combinations
 
 import altair as alt
 import networkx as nx
@@ -10,7 +10,8 @@ import numpy as np
 import pandas as pd
 from community import community_louvain
 from scipy.spatial.distance import cityblock, cosine
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer
 
 from eurito_indicators.pipeline.processing_utils import clean_table_names, make_lq
 
@@ -81,6 +82,41 @@ def build_cluster_graph(
     return cluster_graph, index_to_id_lookup
 
 
+def name_categories_tokenised(table, category, tokenised, top_terms=3000, top_words=10):
+    """Analyses a tokenised variable to extract salient terms"""
+
+    docterm_matrix = (
+        table.groupby(category)[tokenised]
+        .apply(lambda x: pd.Series(chain(*list(x))).value_counts())
+        .unstack(level=1)
+        .fillna(0)
+    )
+
+    pop_words = (
+        docterm_matrix.sum().sort_values(ascending=False)[:top_terms].index.tolist()
+    )
+
+    docterm_popular = docterm_matrix[pop_words]
+
+    tf = TfidfTransformer()
+
+    tfidf_df = pd.DataFrame(
+        tf.fit_transform(docterm_popular).todense(),
+        columns=docterm_popular.columns,
+        index=docterm_popular.index,
+    )
+
+    names = {}
+
+    for _id, row in tfidf_df.iterrows():
+        salient = "_".join(
+            tfidf_df.loc[_id].sort_values(ascending=False)[:top_words].index.tolist()
+        )
+        names[_id] = salient
+
+    return names
+
+
 def extract_name_communities(
     cluster_graph: nx.Graph,
     resolution: float,
@@ -124,7 +160,7 @@ def name_category(
     cat_var: str = "community",
     text_var: str = "title",
     top_words: int = 15,
-    max_features: int = 150,
+    max_features: int = 5000,
     max_df: float = 0.8,
 ) -> dict:
     """Names the clusters with their highest tfidf tokens
@@ -683,3 +719,63 @@ def plot_participation_distance(org_distances, focus_countries):
     )
 
     return distances_chart
+
+
+def k_check_clusters(vectors, cluster_assignments, n_clust=25, sample_size=1000):
+    """Checks the robustness of a cluster assignment using a Kmeans baseline
+    Args:
+        vectors: docs to assess
+        cluster_assignment: lookup between clusters and document lists that we are validating
+        n_cluster: number of clusters to use in the test
+        sample_size: sample_size for comparing pairs
+    Returns:
+        a df with number of cluster co-occurrences and a df with cluster distribution co-occurrences
+    """
+
+    doc_cluster_lookup = make_doc_comm_lookup(cluster_assignments)
+
+    logging.info("fitting cluster")
+    k = KMeans(n_clusters=n_clust)
+    fit = k.fit_predict(vectors)
+    k_labs = {i: k for i, k in zip(vectors.index, fit)}
+
+    samp = vectors.sample(n=1000).index.tolist()
+
+    pairs = combinations(samp, 2)
+
+    matches = []
+
+    logging.info("Calculating co-occurrences")
+    for p in pairs:
+
+        if k_labs[p[0]] == k_labs[p[1]]:
+            matches.append([doc_cluster_lookup[p[0]], doc_cluster_lookup[p[1]]])
+
+    co_occ_df = (
+        pd.DataFrame(matches, columns=["c1", "c2"])
+        .pivot_table(index="c1", columns="c2", aggfunc="size")
+        .fillna(0)
+        .stack()
+    )
+
+    logging.info("Calculating share similarities")
+
+    reclassify = {
+        clust: pd.Series(
+            [v for k, v in k_labs.items() if k in cluster_assignments[clust]]
+        ).value_counts(normalize=True)
+        for clust in cluster_assignments.keys()
+    }
+
+    corrs = []
+
+    for p in combinations(reclassify.keys(), 2):
+
+        comb = pd.concat([reclassify[p[0]], reclassify[p[1]]], axis=1).fillna(0).corr()
+        corrs.append([p[0], p[1], comb.iloc[0, 1]])
+
+    corr_df = pd.DataFrame(corrs, columns=["c1", "c2", "share_corr"]).set_index(
+        ["c1", "c2"]
+    )
+
+    return [co_occ_df, corr_df]

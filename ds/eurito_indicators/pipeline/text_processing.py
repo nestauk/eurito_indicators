@@ -11,15 +11,18 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 stem = WordNetLemmatizer()
-STOP = stopwords.words("english")
-BAD = [x for x in string.punctuation + string.digits]
-BAD.remove("-")
+STOP = set(stopwords.words("english"))
+BAD = set([x for x in string.punctuation + string.digits if x != "-"])
 
 
-def pre_process(text):
+def pre_process(text, count=None, decs=1e4):
     """Removes stopwords and symbols and lemmatises"""
 
-    lowercase = re.sub("\n", " ",text.lower())
+    if count is not None:
+        if count % decs == 0:
+            logging.info(count)
+
+    lowercase = re.sub("\n", " ", text.lower())
     no_numbers_symbols = "".join([x for x in lowercase if x not in BAD])
     tokenised = [x for x in no_numbers_symbols.split(" ") if x not in STOP]
     lemmatised = [stem.lemmatize(x) for x in tokenised if len(x) > 2]

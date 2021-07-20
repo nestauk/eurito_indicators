@@ -1,17 +1,16 @@
 import logging
 import os
 import pickle
-import json
+from numpy.random import choice
 
-import yaml
+from gensim.models import Word2Vec
 
-from gensim.models import FastText
-
-from eurito_indicators import PROJECT_DIR, config
+from eurito_indicators import config, PROJECT_DIR
 from eurito_indicators.getters.arxiv_getters import get_arxiv_tokenised
 
-min_count = config['find_ai']['min_count']
+min_count = config["finding_ai"]["min_count"]
 MOD_PATH = f"{PROJECT_DIR}/outputs/models/arxiv_w2v.p"
+
 
 def train_word2vec():
 
@@ -24,11 +23,11 @@ def train_word2vec():
         tok = list(arxiv_tokenised.values())
 
         logging.info("Training model")
-        ft = FastText(tok, min_count=min_count, word_ngrams=0)
+        w2v = Word2Vec(tok, min_count=min_count)
 
         # Save model
         with open(MOD_PATH, "wb") as outfile:
-            pickle.dump(ft, outfile)
+            pickle.dump(w2v, outfile)
 
 
 if __name__ == "__main__":

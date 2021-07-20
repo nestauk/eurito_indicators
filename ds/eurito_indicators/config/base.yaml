@@ -30,7 +30,7 @@ fetch_columns:
     - abstractText
     - start
 finding_ai:
-  min_count: 5
+  min_count: 700
   topic_filter:
     presence_threshold: 0
     prevalence_threshold: 0.1
