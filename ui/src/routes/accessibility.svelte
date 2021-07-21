@@ -50,7 +50,8 @@
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
-		testResults = summarizeResults(getTest(indexedResults, environment));
+		const test = getTest(indexedResults, environment)
+		testResults = summarizeResults(test);
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
@@ -284,7 +285,7 @@
 			</dd>
 		</dl>
 
-		{#if testResults.tested}
+		{#if testResults?.tested}
 			<p>
 				{#if testResults.passed}
 					This browsing environment has been tested and is supported.
