@@ -14,7 +14,12 @@
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
 	import {zipUrl} from 'app/utils/assets';
-	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
+	import {
+		getTest,
+		groupTests,
+		testResultsURL,
+		summarizeResults
+	} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
 
@@ -45,7 +50,7 @@
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
-		testResults = getTest(indexedResults, environment);
+		testResults = summarizeResults(getTest(indexedResults, environment));
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
@@ -279,9 +284,13 @@
 			</dd>
 		</dl>
 
-		{#if testResults}
+		{#if testResults.tested}
 			<p>
-				This browsing environment has been tested and is supported.
+				{#if testResults.passed}
+					This browsing environment has been tested and is supported.
+				{:else}
+					This browsing environment has been tested but failed.
+				{/if}
 			</p>
 		{:else}
 			<p>
