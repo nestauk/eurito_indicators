@@ -1,10 +1,12 @@
 import fs from 'fs/promises';
 import path from 'path';
-import {capitalize} from '@svizzle/utils';
+import * as _ from 'lamb';
 
 import fetch from 'node-fetch';
 import Queue from 'queue-promise';
 import webdriver from 'selenium-webdriver';
+
+import {capitalize} from '@svizzle/utils';
 import * as options from './options.mjs';
 
 // import {environments} from './environments.mjs';
@@ -81,24 +83,21 @@ async function run (test, capabilities) {
 				By,
 				until,
 				target,
-				fail: message => fail(driver, message),
-				log: message => log(capabilities, message)
+				fail: (...message) => fail(driver, ...message),
+				log: (...message) => log(capabilities, ...message)
 			}),
-			20000,
+			30000,
 			TIMEOUT_ERROR
 		);
 
-		return {
-			capabilities,
-			result: testResult
-		}
+		return testResult
 	} catch (e) {
 		if (e === TIMEOUT_ERROR) {
 			e = 'Timeout!'
 		}
 		err(capabilities, e);
 		return {
-			capabilities,
+			passed: false,
 			exception: e,
 			trace: e.stack
 		};
@@ -119,12 +118,23 @@ queue.on('end', async () =>{
 	console.log('Done!');
 });
 
-function runTest (s4caps, task) {
-	s4caps.forEach(caps => {
-		const doTest = extra => async () => results.push(await run(task, {
-			...caps,
-			...extra
-		}));
+function runTest (caps, tasks) {
+	const platform = {
+		capabilities: caps,
+		results: []
+	};
+	results.push(platform);
+	tasks.forEach(async ([id, task]) => {
+		const doTest = extra => async () => {
+			const output = await run(task, {
+				...caps,
+				...extra
+			});
+			platform.results.push({
+				id,
+				result: output
+			});
+		}
 		if (caps.device) {
 			queue.enqueue(doTest({deviceOrientation: 'portrait'}));
 			queue.enqueue(doTest({deviceOrientation: 'landscape'}));
@@ -183,8 +193,9 @@ async function runAll() {
 	const modulePromises = files.map(file => import(path.resolve(tests, file)));
 	const modules = (await Promise.all(modulePromises))
 		.map(module => module.default);
+	const tasks = _.zip(files, modules);
 	console.log('Tests loaded:', modules.length);
-	modules.forEach(task => runTest(s4caps, task));
+	s4caps.forEach(caps => runTest(caps, tasks));
 }
 
 runAll();

@@ -21,8 +21,6 @@ export default async ({driver, target, log}) => {
 		// const timings = await driver.executeScript(() => window.performance.navigation.timing);
 		// log(timings);
 
-		log("Wait for layout defined");
-
 		let isFunctionReady = false;
 		let isPageLoaded = false;
 
@@ -30,7 +28,6 @@ export default async ({driver, target, log}) => {
 			() => Boolean(window.nesta_isLayoutUndefined)
 		);
 		if (isFunctionReady) {
-			log('function ready');
 			isPageLoaded = await driver.executeScript(
 				() => !window.nesta_isLayoutUndefined()
 			);
@@ -44,7 +41,7 @@ export default async ({driver, target, log}) => {
 
 	const retVal = {
 		passed: _.reduce(results, (p, c) => p && c[1]),
-		reasons: _.pipe([
+		reasonsForFailure: _.pipe([
 			_.filterWith(c => !c[1]),
 			_.mapWith(c => c[0]),
 		])(results)
