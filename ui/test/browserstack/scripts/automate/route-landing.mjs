@@ -40,10 +40,13 @@ export default async ({driver, target, log}) => {
 	}
 
 	const retVal = {
-		passed: _.reduce(results, (p, c) => p && c[1]),
+		passed: _.reduce(
+			results,
+			(previousPassed, result) => previousPassed && result[1]
+		),
 		reasonsForFailure: _.pipe([
-			_.filterWith(c => !c[1]),
-			_.mapWith(c => c[0]),
+			_.filterWith(result => !result[1]),
+			_.mapWith(([route]) => route),
 		])(results)
 	}
 	log(retVal);
