@@ -106,7 +106,15 @@ When we consider the distribution of correlations in the test allocations of var
 
 ![Average co-occurrences between documents in topSBM clusters](val_figures/png/corr_distr.png)
 
-### Research benchmarking
+### Finding robust clusters in research funding
+
+In our thematic analysis of research funding we integrate information about the activities of three funders - the European Commission, UKRI in the UK, and the Wellcome Trust. Our goal is to compare the composition of their funding portfolios related to Covid-19. In order to do this, we train a hierarchical topic model on the combined corpus. One challenge with this approach is that different initialisations of the algorithm might yield different topics and topic distribution across documents. 
+
+To address this, we exploit the fact that the relative small size of the corpus (ca. 2000 documents) makes it possible to run the topic modelling algorithm multiple times. Having done this over 30 runs, we combine the estimated topic distributions for all documents and use them to cluster topics based on their similarity (the propensity to appear in the same documents) if that distance is below a minimum threshold (we select this threshold heuristically after a visual inspection of the data). This has the goal of clustering 'duplicated' topics that have been extracted from the corpus in multiple runs. Our assumption is that topics that appear in multiple runs are more robust that those that appear in a single run. We select all topic clusters that contain two topics or more and randomly sample one topic from them in order to create a 'robust' topic mix for the corpus that we use in subsequent analyses. It would be possible to increase the robustness of the topic mix by restricting our analysis to topics in robust clusters with larger sizes (i.e. to focus on topics that are generated even more frequently by the topic model).
+
+The charts below show the cumulative share of distances between topic pairs and the threshold we have used to define similar / duplicated topics (0.6), accounting only for 0.7% of all topic pairs, and the distribution of topic cluster sizes when we use this distance threshold for clustering.
+
+![Cumulative share of pairwise topic distances and distribution of topic clusters](val_figures/topic_distances.png)
 
 ## 3. Open AIRE
 
