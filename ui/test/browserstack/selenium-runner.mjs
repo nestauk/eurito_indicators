@@ -36,7 +36,7 @@ async function getBrowsers () {
 const url = 'hub-cloud.browserstack.com/wd/hub';
 const tests = 'test/browserstack/scripts/automate';
 const target = 'http://localhost:3000';
-const report = 'test/data/selenium-report.json';
+const reportPath = 'test/data/selenium-report.json';
 const browserstackURL = `https://${username}:${key}@${url}`;
 const optionsKey = 'bstack:options';
 const results = [];
@@ -86,7 +86,7 @@ async function run (test, capabilities) {
 				fail: (...message) => fail(driver, ...message),
 				log: (...message) => log(capabilities, ...message)
 			}),
-			30000,
+			60000,
 			TIMEOUT_ERROR
 		);
 
@@ -114,7 +114,7 @@ const queue = new Queue({
 });
 
 queue.on('end', async () =>{
-	await fs.writeFile(report, JSON.stringify(results, null, 2));
+	await fs.writeFile(reportPath, JSON.stringify(results, null, 2));
 	console.log('Done!');
 });
 
@@ -134,7 +134,7 @@ function runTest (caps, tasks) {
 				id,
 				result: output
 			});
-		}
+		};
 		if (caps.device) {
 			queue.enqueue(doTest({deviceOrientation: 'portrait'}));
 			queue.enqueue(doTest({deviceOrientation: 'landscape'}));

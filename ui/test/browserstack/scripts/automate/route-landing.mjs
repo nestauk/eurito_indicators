@@ -4,6 +4,9 @@ const routes = [
 	'/',
 	'/guide',
 	'/methodology',
+	'/indicators',
+	'/indicators/area_university_site',
+	'/indicators/area_university_site/2015'
 ];
 
 export default async ({driver, target, log}) => {
