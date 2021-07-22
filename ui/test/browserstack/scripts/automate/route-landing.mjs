@@ -4,11 +4,14 @@ const routes = [
 	'/',
 	'/guide',
 	'/methodology',
-	'/font-test'
+	'/indicators',
+	'/indicators/area_university_site',
+	'/indicators/area_university_site/2015'
 ];
 
 export default async ({driver, target, log}) => {
-	const results = {};
+	const results = [];
+
 	/* eslint-disable no-await-in-loop */
 	for (const route of routes) {
 		log('Navigating...');
@@ -21,15 +24,34 @@ export default async ({driver, target, log}) => {
 		// const timings = await driver.executeScript(() => window.performance.navigation.timing);
 		// log(timings);
 
-		results[route] = title;
+		let isFunctionReady = false;
+		let isPageLoaded = false;
+
+		isFunctionReady = await driver.executeScript(
+			() => Boolean(window.nesta_isLayoutUndefined)
+		);
+		if (isFunctionReady) {
+			isPageLoaded = await driver.executeScript(
+				() => !window.nesta_isLayoutUndefined()
+			);
+			log(`page loaded: ${isPageLoaded}`);
+		} else {
+			log('function NOT ready!');
+		}
+
+		results.push([route, isPageLoaded]);
 	}
 
-	/*
-	const testPromises = routes.map(async route => {
-	});
-	const pairs = await Promise.all(testPromises)
-	const results = _.fromPairs(pairs);
-	*/
-	log(results);
-	return results;
+	const retVal = {
+		passed: _.reduce(
+			results,
+			(previousPassed, result) => previousPassed && result[1]
+		),
+		notes: _.pipe([
+			_.filterWith(result => !result[1]),
+			_.mapWith(([route]) => route),
+		])(results)
+	}
+	log(retVal);
+	return retVal;
 }

@@ -54,7 +54,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: 'Remove all but one indicator'
-      run: cd ds/data/processed && ls -Q | grep -v broadband | xargs rm -R
+      run: cd ds/outputs/data/processed && ls -Q | grep -v _broadband | xargs rm -R
 
     - name: 'Install npm modules and make data'
       run: cd ui && npm ci
