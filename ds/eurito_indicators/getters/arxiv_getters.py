@@ -15,6 +15,7 @@ import requests
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 from eurito_indicators import PROJECT_DIR
+from eurito_indicators.pipeline.clustering_naming import make_doc_comm_lookup
 from eurito_indicators.pipeline.processing_utils import covid_getter
 
 GRID_PATH = f"{PROJECT_DIR}/inputs/data/grid"
@@ -32,10 +33,15 @@ def get_arxiv_articles():
         parse_dates=["created"],
     )
     art = art.rename(columns={"id": "article_id"})
+    art["month_year"] = [
+        datetime(x.year, x.month, 1) if pd.isnull(x) == False else np.nan
+        for x in art["created"]
+    ]
 
     selected_columns = [
         "article_id",
         "created",
+        "month_year",
         "title",
         "journal_ref",
         "doi",
@@ -135,7 +141,8 @@ def get_covid_papers():
         arxiv_covid = (
             arts.query("article_source!='cord'")
             .dropna(axis=0, subset=["abstract"])
-            .assign(has_cov=lambda df: [covid_getter(text) for text in df["abstract"]])
+            .assign(text = lambda df: [" ".join(x,y) for x,y in zip(df['title'],df['abstract'])])
+            .assign(has_cov=lambda df: [covid_getter(text) for text in df["text"]])
             .query("has_cov == True")
         )
         arxiv_covid["month_year"] = [
@@ -177,8 +184,11 @@ def get_covid_papers():
         papers.to_csv(COV_PAPERS_PATH, index=False)
         return papers
     else:
-        return pd.read_csv(COV_PAPERS_PATH, dtype={"article_id": str},
-                           parse_dates=['created','month_year'])
+        return pd.read_csv(
+            COV_PAPERS_PATH,
+            dtype={"article_id": str},
+            parse_dates=["created", "month_year"],
+        )
 
 
 def get_grid_meta():
@@ -323,19 +333,32 @@ def query_article_discipline():
 
 
 def get_arxiv_topic_model():
-    with open(f"{PROJECT_DIR}/outputs/models/topsbm_arxiv_sampled.p",'rb') as infile:
+    with open(f"{PROJECT_DIR}/outputs/models/topsbm_arxiv_sampled.p", "rb") as infile:
         return pickle.load(infile)
 
 
 def get_arxiv_tokenised():
-    with open(f"{PROJECT_DIR}/inputs/data/arxiv_tokenised.json",'r') as infile:
+    with open(f"{PROJECT_DIR}/inputs/data/arxiv_tokenised.json", "r") as infile:
         return json.load(infile)
+
 
 def get_ai_results():
     with open(f"{PROJECT_DIR}/outputs/data/find_ai_outputs.p", "rb") as infile:
-            return pickle.load(infile)
+        return pickle.load(infile)
 
+def get_cluster_names():
+    with open(f"{PROJECT_DIR}/outputs/data/aux/arxiv_cluster_names.json",'r') as infile:
+        return json.load(infile)
 
+def get_cluster_ids():
+    with open(f"{PROJECT_DIR}/inputs/data/arxiv_cluster_lookup.json",'r') as infile:
+        paper_cluster_lookup = json.load(infile)
+
+    
+    cluster_names = get_cluster_names()
+    
+    paper_cluster_name = {k: cluster_names[str(v)] for k,v in paper_cluster_lookup.items()}
+    return paper_cluster_name
 
 
 if __name__ == "__main__":

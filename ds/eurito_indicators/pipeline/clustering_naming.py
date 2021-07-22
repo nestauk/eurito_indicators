@@ -204,6 +204,7 @@ def name_category(
 
 def make_distance_to_clusters(
     vectors_df: pd.DataFrame,
+    distance,
     cluster_ids: dict,
 ) -> pd.DataFrame:
     """Calculates distances between all vectors in a table and the centroids of identified clusters
@@ -233,7 +234,7 @@ def make_distance_to_clusters(
     for v in vectors_array:
         vect_dist = []
         for cl_centr in cluster_centroids_array:
-            vect_dist.append(cosine(v, cl_centr))
+            vect_dist.append(distance(v, cl_centr))
         dists.append(vect_dist)
 
     dist_df = pd.DataFrame(
