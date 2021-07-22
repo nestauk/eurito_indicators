@@ -47,7 +47,7 @@ export default async ({driver, target, log}) => {
 			results,
 			(previousPassed, result) => previousPassed && result[1]
 		),
-		reasonsForFailure: _.pipe([
+		notes: _.pipe([
 			_.filterWith(result => !result[1]),
 			_.mapWith(([route]) => route),
 		])(results)
