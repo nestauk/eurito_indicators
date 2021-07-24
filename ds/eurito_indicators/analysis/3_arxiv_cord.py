@@ -17,7 +17,11 @@ from eurito_indicators.getters.arxiv_getters import (
 )
 from eurito_indicators.pipeline.processing_utils import make_lq
 from eurito_indicators.pipeline.text_processing import text_pipeline
-from eurito_indicators.pipeline.topic_utils import make_topic_mix, topic_regression
+from eurito_indicators.pipeline.topic_utils import (
+    make_topic_mix,
+    topic_regression,
+    train_topic_model,
+)
 from eurito_indicators.utils.altair_save_utils import (
     ch_resize,
     google_chrome_driver_setup,
@@ -113,25 +117,6 @@ def plot_article_trends(articles):
     return trend_chart
 
 
-def train_topic_model(k, art_lookup, sample_size=None):
-    """Train topic model while grid searching"""
-    logging.info(f"training model with {k} topics")
-
-    mdl = tp.LDAModel(k=k)
-
-    texts = list(art_lookup.values())
-    ids = list(art_lookup.keys())
-
-    for t in texts:
-
-        mdl.add_doc(t)
-
-    for _ in range(0, 100, 10):
-        mdl.train(10)
-
-    return mdl, ids
-
-
 def make_article_discipline_lookup(topic_mix, art_disc):
 
     topic_mix_disc = (
@@ -210,7 +195,7 @@ if __name__ == "__main__":
         _id: tok for _id, tok in zip(arts_abstr["article_id"], art_tok) if len(tok) > 0
     }
 
-    model, ids = train_topic_model(100, art_tok_lookup)
+    model, ids = train_topic_model(100, art_tok_lookup.values(), art_tok_lookup.keys())
     print(ids)
     print(len(ids))
 
