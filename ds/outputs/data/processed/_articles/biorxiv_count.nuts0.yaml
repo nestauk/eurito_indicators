@@ -1,0 +1,39 @@
+api_doc_url:
+- DAPS
+- https://www.semanticscholar.org/cord19/download
+api_type:
+- MySQL
+- Fetch
+endpoint_url:
+- DAPS
+- https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/historical_releases.html
+framework_group: publications
+is_experimental: false
+order:
+- year
+- nuts_id
+- nuts_year_spec
+- value.id
+region:
+  level: 0
+  type: NutsRegion
+schema:
+  nuts_id:
+    type: NutsRegion.nuts_id
+  nuts_year_spec:
+    type: NutsRegion.nuts_year_spec
+  value:
+    data_type: int
+    id: biorxiv_count
+    label: Number participations in biorxiv articles
+  year:
+    data_type: int
+    label: Year
+source_name:
+- Nesta
+- Allen Institute for AI
+source_url:
+- https://github.com/nestauk/eurito_indicators
+- https://www.semanticscholar.org/
+subtitle: Number participations in biorxiv articles by institutions in the location
+title: Number of participations in biorxiv articles

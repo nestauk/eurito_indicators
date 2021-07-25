@@ -1,0 +1,36 @@
+api_doc_url:
+- DAPS
+api_type:
+- MySQL
+endpoint_url:
+- DAPS
+framework_group: covid_research
+is_experimental: true
+order:
+- year
+- nuts_id
+- nuts_year_spec
+- value.id
+region:
+  level: 1
+  type: NutsRegion
+schema:
+  nuts_id:
+    type: NutsRegion.nuts_id
+  nuts_year_spec:
+    type: NutsRegion.nuts_year_spec
+  value:
+    data_type: int
+    id: detection_diagnosis_lq
+    label: Relative specialisation in Detection Diagnosis preprints
+  year:
+    data_type: int
+    label: Year
+source_name:
+- Nesta
+source_url:
+- https://github.com/nestauk/eurito_indicators
+subtitle: Relative specialisation in Detection Diagnosis preprints by institutions
+  in the location (research clusters identified through a topic model of article abstracts,
+  specialisation calculated as a location quotient taking into account non-covid activity)
+title: Relative specialisation in Detection Diagnosis preprints
