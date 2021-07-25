@@ -5,7 +5,7 @@
 	import Bowser from 'bowser';
 	import {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
-		
+
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
@@ -13,7 +13,13 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
-	import {getTest, groupTests, testResultsURL} from 'app/utils/tests';
+	import {zipUrl} from 'app/utils/assets';
+	import {
+		getTest,
+		groupTests,
+		testResultsURL,
+		summarizeResults
+	} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
 	import theme from 'app/theme';
 
@@ -44,7 +50,8 @@
 		const response = await fetch(testResultsURL);
 		const allTests = await response.json();
 		const indexedResults = groupTests(allTests);
-		testResults = getTest(indexedResults, environment);
+		const test = getTest(indexedResults, environment)
+		testResults = summarizeResults(test);
 	}
 
 	function resizeIFrameToFitContent( iFrame ) {
@@ -70,7 +77,7 @@
 		() => hasPrevValue && updateCurrentReport(prevValue);
 	$: clickedNext =
 		() => hasNextValue && updateCurrentReport(nextValue);
-	$: reportUrl = `/a11y/${currentreport}.html`;
+	$: reportUrl = `/audits/lighthouse/${currentreport}.html`;
 </script>
 
 <svelte:head>
@@ -101,8 +108,8 @@
 			<Link
 				href={wcag21Url}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>
 				WCAG 2.1 guidelines
 			</Link>.
@@ -119,12 +126,12 @@
 				<p>
 					Offer a selection of typefaces for improved legibility,
 					including one widely believed to improve comprehension among
-					people with 
+					people with
 					<Link
 						href={openDyslexicUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>
 						Dyslexia
 					</Link>.
@@ -132,7 +139,7 @@
 			</li>
 			<li>
 				<p>
-					Wherever it's possible, enhance the semantic meta 
+					Wherever it's possible, enhance the semantic meta
 					information of each page to improve the reach of tools such
 					as screen readers.
 				</p>
@@ -140,7 +147,7 @@
 			<li>
 				<p>
 					We regularly measure our site using a variety of methods,
-					such as third-party automated and manual audits across a 
+					such as third-party automated and manual audits across a
 					range of different browsers and devices. You can review some
 					of those results in the "Quality audits" section below.
 				</p>
@@ -148,11 +155,11 @@
 		</ul>
 		<h2>WCAG compliance rating</h2>
 		<p>
-			According to automated testing using the 
+			According to automated testing using the
 			<Link
 				href={pa11yUrl}
 				isBold={true}
-				isExternal={true}
+				type='external'
 			>
 				Pa11y accessibility testing tool
 			</Link>,
@@ -162,7 +169,7 @@
 			<Link
 				href={lighthouseUrl}
 				isBold={true}
-				isExternal={true}
+				type='external'
 			>
 				Google's Lighthouse tool
 			</Link>.
@@ -177,13 +184,23 @@
 			recommendations.
 		</p>
 		<p>
+			Meeting all of the WCAG criteria requires evaluating some of
+			them manually. Due to time constraints we might not have been able 
+			to test all of the recommendations listed in the section "Additional
+			items to manually check" in the "Accessibility" part of each audit
+			below, in the "Quality audits" section of this page. In particular
+			at this time ARIA and keyboard navigation are only partially
+			supported.
+		</p>
+		<p>
 			While we aim to make the information provided as accessible as
 			possible, this website presents data mostly as interactive charts
 			which at the moment do not also render a text alternative, so those
 			aren't accessible by screen readers. However, the data is available
 			for
 			<Link
-				href='/download'
+				download
+				href={zipUrl}
 				isBold={true}
 				theme={linkTheme}
 			>
@@ -194,7 +211,7 @@
 		<p>
 			If you see any errors or have other suggestions on how we
 			can further improve the accessibility of our site,
-			please contact us at 
+			please contact us at
 			<Link
 				href="mailto:dataanalytics@nesta.org.uk"
 				isBold={true}
@@ -212,8 +229,8 @@
 			<Link
 				href={screenReadersUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>
 				comprehensive list of screen readers
 			</Link>.
@@ -231,11 +248,13 @@
 				href={windowsMouseURL}
 				text='Windows'
 				theme={{backgroundColor: theme.colorLink}}
+				type='external'
 			/>
 			<LinkButton
 				href={osxMouseURL}
 				text='OS X'
 				theme={{backgroundColor: theme.colorLink}}
+				type='external'
 			/>
 		</div>
 
@@ -266,9 +285,13 @@
 			</dd>
 		</dl>
 
-		{#if testResults}
+		{#if testResults?.tested}
 			<p>
-				This browsing environment has been tested and is supported.
+				{#if testResults.passed}
+					This browsing environment has been tested and is supported.
+				{:else}
+					This browsing environment has been tested but failed.
+				{/if}
 			</p>
 		{:else}
 			<p>
@@ -324,7 +347,7 @@
 							</div>
 						{/if}
 					</label>
-					
+
 					<button
 						class:clickable={hasPrevValue}
 						disabled={!hasPrevValue}
@@ -349,8 +372,8 @@
 				<Link
 					href={lighthouseIssueUrl}
 					isBold={true}
-					isExternal={true}
 					theme={linkTheme}
+					type='external'
 				>
 					issue
 				</Link> in Google Lighthouse.

@@ -5,6 +5,7 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {toolName} from 'app/config';
+	import {zipUrl} from 'app/utils/assets';
 	import theme from 'app/theme';
 
 	const crunchbaseUrl = 'https://www.crunchbase.com/';
@@ -12,7 +13,6 @@
 	const eurostatUrl = 'https://ec.europa.eu/eurostat';
 	const HausmanAndHidalgoUrl = 'https://www.pnas.org/content/106/26/10570';
 	const hesaUrl = 'https://www.hesa.ac.uk';
-	const lepUrl = 'https://geoportal.statistics.gov.uk/search?collection=Dataset&sort=name&tags=all(BDY_LEP)';
 	const MateosGarciaUrl = 'https://osf.io/preprints/socarxiv/3cu67';
 	const nutsUrl = 'https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts';
 	const onsUrl = 'https://ons.gov.uk';
@@ -43,26 +43,26 @@
 			<Link
 				href={onsUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>ONS</Link>,
 			<Link
 				href={eurostatUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>Eurostat</Link>,
 			<Link
 				href={hesaUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>HESA</Link>,
 			<Link
 				href={ukriUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>UKRI</Link>.
 		</p>
 		<p>
@@ -75,15 +75,15 @@
 			<Link
 				href={patstatUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>PATSTAT</Link>
 			for the analysis of patenting, and
 			<Link
 				href={crunchbaseUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>Crunchbase</Link>
 			for the analysis of venture capital investment.
 		</p>
@@ -94,22 +94,12 @@
 			<Link
 				href={nutsUrl}
 				isBold={true}
-				isExternal={true}
 				theme={linkTheme}
+				type='external'
 			>NUTS2</Link>
 			regions as our geographical unit of analysis. This has allowed us to
 			collect data about regional R&D activity which is only available at
-			that level. We note that were possible we have also calculated
-			indicators at a higher level of granularity (NUTS3) as well as using
-			policy-relevant
-			<Link
-				href={lepUrl}
-				isBold={true}
-				isExternal={true}
-				theme={linkTheme}
-			>LEP</Link>
-			boundaries. These will be released when the tool is published later
-			in 2020.
+			that level.
 		</p>
 		<p>
 			In many cases we have reverse geocoded observations available at
@@ -136,8 +126,8 @@
 					<Link
 						href={HausmanAndHidalgoUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Hausman and Hidalgo (2009)</Link>.
 				</p>
 			</li>
@@ -149,8 +139,8 @@
 					<Link
 						href={DelgadoEtAlUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Delgado et al (2015)</Link>.
 				</p>
 			</li>
@@ -162,8 +152,8 @@
 					<Link
 						href={MateosGarciaUrl}
 						isBold={true}
-						isExternal={true}
 						theme={linkTheme}
+						type='external'
 					>Mateos-Garcia (2017)</Link>.
 				</p>
 			</li>
@@ -176,8 +166,9 @@
 
 		<div class='cta'>
 			<LinkButton
+				download
 				glyph={Download}
-				href='/download'
+				href={zipUrl}
 				text='Download all indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>

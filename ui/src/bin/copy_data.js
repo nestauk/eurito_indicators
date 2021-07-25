@@ -3,7 +3,7 @@
 import path from 'path';
 
 import yaml from 'js-yaml';
-import {readCsv, readDir, readFile, saveString} from '@svizzle/file';
+import {isCsvFile, readCsv, readDir, readFile, saveString} from '@svizzle/file';
 import {tapMessage} from '@svizzle/dev';
 import { applyFnMap, transformValues } from '@svizzle/utils';
 import {zip} from 'zip-a-folder';
@@ -14,16 +14,7 @@ import del from 'del';
 import tempy from 'tempy';
 
 import {basename} from 'app/utils/assets';
-import LEP_UK_labels from 'app/data/LEP_UK_labels';
 import NUTS2_UK_labels from 'app/data/NUTS2_UK_labels';
-import NUTS3_UK_labels from 'app/data/NUTS3_UK_labels';
-
-import {
-	isNotLepFile,
-	isLepFile,
-	isNotNuts3File,
-	isNuts3File
-} from './utils';
 
 const DS_DATA_REL_PATH = '../../../ds/outputs/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
@@ -31,12 +22,9 @@ const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml'
 const DATA_DIR_STATIC = path.resolve(__dirname, '../../static/data');
 const UK_REGIONS_LABELS = {
 	NUTS2: NUTS2_UK_labels,
-	NUTS3: NUTS3_UK_labels,
-	LEP: LEP_UK_labels,
 };
 
 const isDir = name => !name.startsWith('.') && path.parse(name).ext === '';
-const isCsvFile = name => path.parse(name).ext === '.csv';
 const makePath = dirName => filename => path.resolve(
 	DATA_DIR,
 	dirName,
@@ -87,9 +75,7 @@ const makeSingleFileWith = async (condition, regionType) => {
 				region_id: _.getKey(regionIdHeader),
 				region_year_spec: _.getKey(regionYearSpecHeader),
 				region_name: obj => {
-					const yearSpec = regionType === 'LEP' && obj[regionYearSpecHeader] < 0
-						? 2014
-						: obj[regionYearSpecHeader];
+					const yearSpec = obj[regionYearSpecHeader];
 
 					return UK_REGIONS_LABELS[regionType][yearSpec][obj[regionIdHeader]]
 				},
@@ -127,7 +113,7 @@ const run = async () => {
 		_.map(dirNames, dirName =>
 			readDir(path.resolve(DATA_DIR, dirName))
 			.then(_.pipe([
-				_.filterWith(_.allOf([isCsvFile, isNotNuts3File, isNotLepFile])),
+				_.filterWith(_.allOf([isCsvFile])),
 				_.mapWith(makePath(dirName))
 			]))
 		)
@@ -139,7 +125,7 @@ const run = async () => {
 	/* make an all-indicators single file */
 
 	await makeSingleFileWith(
-		_.allOf([isCsvFile, isNotNuts3File, isNotLepFile]),
+		_.allOf([isCsvFile]),
 		'NUTS2'
 	);
 
@@ -148,18 +134,6 @@ const run = async () => {
 	const tmpZipPath = tempy.file({name: `${basename}.zip`});
 	await zip(DATA_DIR_STATIC, tmpZipPath);
 	await cpy(tmpZipPath, DATA_DIR_STATIC);
-
-	/* make remaining all-indicators single files */
-
-	await makeSingleFileWith(
-		_.allOf([isCsvFile, isNuts3File]),
-		'NUTS3'
-	);
-
-	await makeSingleFileWith(
-		_.allOf([isCsvFile, isLepFile]),
-		'LEP'
-	);
 }
 
 run().then(tapMessage(`Updated data in ${DATA_DIR_STATIC}`));
