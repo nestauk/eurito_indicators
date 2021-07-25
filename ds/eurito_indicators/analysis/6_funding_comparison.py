@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     all_projects["cost_euro"] = converted
 
-    all_projects["tokenised"] = text_pipeline(all_projects["abstract"], high_freq=0.97)
+    all_projects["tokenised"] = text_pipeline(all_projects["abstract"], high_freq=0.99)
 
     id_funder_lookup, id_date_lookup = make_id_lookups(all_projects)
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             cl_level=1,
             top_thres=0.8,
         )[0]
-        for _ in range(3)
+        for _ in range(30)
     ]
 
     topic_mix_combined = pd.concat(topic_mix_container, axis=1)
