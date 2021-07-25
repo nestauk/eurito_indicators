@@ -3,6 +3,7 @@
 import os
 import pickle
 
+import numpy as np
 import pandas as pd
 
 from eurito_indicators import config, PROJECT_DIR
@@ -118,3 +119,20 @@ def clean_table_names(
     for v in variables:
         t[v + "_clean"] = t[v].map(lookup)
     return t
+
+def make_bins(vector:pd.Series, bins:int=30)->pd.Series:
+    """Creates a binned vector
+    """
+    
+    bins = pd.cut(vector,bins=100)
+    bins_mid = pd.Series([float(x.mid) for x in bins])
+    
+    bins_norm = bins_mid.value_counts(normalize=True)
+    return bins_norm
+
+def remove_diagonal(table, c1, c2, value):
+
+    for _, row in table.iterrows():
+        if row[c1] == row[c2]:
+            table.loc[_, value] = np.nan
+    return table
