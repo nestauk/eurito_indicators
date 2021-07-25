@@ -8,6 +8,7 @@ from datetime import datetime
 import altair as alt
 import pandas as pd
 import statsmodels.api as sm
+from numpy.random import choice
 from scipy.spatial.distance import cityblock
 from statsmodels.api import OLS, Poisson, ZeroInflatedPoisson
 
@@ -687,16 +688,17 @@ if __name__ == "__main__":
 
     for n, comp in enumerate(covid_comparisons):
 
-        print(clean_names[n])
+        logging.info(clean_names[n])
 
         cov, no_cov = [comp[2].query(f"is_covid=={v}") for v in [True, False]]
-
+        logging.info("Covid papers")
         for c in choice(list(cov["title"]), 5):
-            print(c)
+            logging.info(c)
         print("\n")
-
+        
+        logging.info("Covid papers")
         for c in choice(list(no_cov["title"]), 5):
-            print(c)
+            logging.info(c)
         print("\n")
 
     # %%
