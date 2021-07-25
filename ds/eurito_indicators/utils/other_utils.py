@@ -1,3 +1,4 @@
+import json
 import matplotlib.pyplot as plt 
 
 from eurito_indicators import PROJECT_DIR
@@ -12,3 +13,8 @@ def save_lookup(file, name):
     with open(f"{PROJECT_DIR}/inputs/data/{name}.json", 'w') as outfile:
         json.dump(file,outfile)
 
+def clean_table(table, columns, clean_lookup):
+    t = table.copy()
+    for c in columns:
+        t[f"{c}_clean"] = t[c].map(clean_lookup)
+    return t

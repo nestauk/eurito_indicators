@@ -72,3 +72,9 @@ def get_cluster_labels():
         out = json.load(infile)
     return {int(k):v for k,v in out.items()}
 
+def get_topic_community_names():
+    with open(f"{PROJECT_DIR}/inputs/data/community_labels.json", 'r') as infile:
+        out = json.load(infile)
+    return {int(k):v for k,v in out.items()}
+
+

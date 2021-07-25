@@ -25,4 +25,6 @@ pymysql
 statsmodels
 tomotopy
 kaggle
-import spacy
+spacy
+geopandas
+currencyconverter

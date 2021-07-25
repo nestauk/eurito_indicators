@@ -596,9 +596,10 @@ def plot_preparedness_response(data, clean_var_lookup, reg_var):
                 title="Related activity pre 2020",
                 scale=alt.Scale(zero=False),
             ),
-            size="volume",
+            size=alt.Size("volume",title='Number of projects'),
             y=alt.Y("value", title="Activity post-2020", scale=alt.Scale(zero=False)),
-            color=alt.Color(clean_country_name, scale=alt.Scale(scheme="tableau20")),
+            color=alt.Color(clean_country_name, scale=alt.Scale(scheme="tableau20"),
+                            title='Coordinator country'),
             tooltip=[clean_country_name, "volume"],
         )
     ).properties(height=200, width=300)
@@ -618,8 +619,7 @@ def plot_preparedness_response(data, clean_var_lookup, reg_var):
     )
 
     lay = alt.layer(comp_ch, hor, vert, data=data_clean).facet(
-        "cluster_covid_clean", columns=3
-    )
+        facet=alt.Facet("cluster_covid_clean", title="Covid research cluster"), columns=3)
 
     return lay
 
@@ -672,7 +672,7 @@ def rank_org_distances(org_cluster_dist, cluster, orgs_in_cluster, cluster_label
     ]
 
 
-def plot_participation_distance(org_distances, focus_countries):
+def plot_participation_distance(org_distances, focus_countries, clean_variable_lookup):
     """Plots level of participation by country and cluster at different levels of distance"""
 
     org_distances_mean = (
@@ -693,24 +693,25 @@ def plot_participation_distance(org_distances, focus_countries):
     org_distances_aggregate = pd.concat(
         [org_distances_mean, org_distances_sum["total"]], axis=1
     )
+    org_distances_aggregate['country_clean'] = org_distances_aggregate['country'].map(clean_variable_lookup)
 
     distances_chart = (
         alt.Chart(org_distances_aggregate)
         .mark_point(filled=True, stroke="black", strokeWidth=0.5)
         .encode(
             y=alt.Y(
-                "country",
+                "country_clean",title='Country',
                 sort=alt.EncodingSortField("share", op="median", order="descending"),
             ),
             x=alt.X("share", axis=alt.Axis(format="%"), title="Share of participation"),
-            tooltip=["country", "share", "total", "ranking"],
+            tooltip=["country_clean", "share", "total", "ranking"],
             size=alt.Size("total", title="Volume of participation"),
             color=alt.Color(
                 "ranking:O",
                 scale=alt.Scale(scheme="redblue"),
                 title="Distance to cluster",
             ),
-            facet=alt.Facet("cluster", columns=3),
+            facet=alt.Facet("cluster", columns=3, title='Covid research cluster'),
         )
     )
 

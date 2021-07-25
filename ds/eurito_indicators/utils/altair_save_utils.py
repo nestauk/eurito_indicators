@@ -26,7 +26,6 @@ def make_altair_save_dirs(path):
     os.makedirs(path + "/html", exist_ok=True)
 
 
-
 def save_altair(fig, name, driver, path=FIG_PATH):
     """Saves an altair figure as png and html
     Args:
@@ -53,10 +52,20 @@ def altair_text_resize(chart: alt.Chart, sizes: list) -> alt.Chart:
             title size
     """
 
-    ch = chart.configure_axis(
-        labelFontSize=sizes[0], titleFontSize=sizes[1]
-    ).configure_legend(labelFontSize=sizes[0], titleFontSize=sizes[1])
+    ch = (chart.
+          configure_axis(
+                         labelFontSize=sizes[0], titleFontSize=sizes[1])
+          .configure_legend(labelFontSize=sizes[0], titleFontSize=sizes[1])
+          .configure_header(labelFontSize=sizes[0], titleFontSize=sizes[1])
+          )
+
     return ch
+
+def ch_resize(chart):
+    '''Resizes altair charts with a set size for labels and titles
+    '''
+    
+    return altair_text_resize(chart, [12,12])
 
 
 if __name__ == "__main__":
