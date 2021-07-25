@@ -58,7 +58,7 @@ def get_arxiv_institutes():
     """Lookup between paper ids and org id"""
 
     inst = pd.read_csv(
-        f"{PROJECT_DIR}/inputs/data/arxiv_article_institutes_v2.csv",
+        f"{PROJECT_DIR}/inputs/data/arxiv_article_institutes_updated.csv",
         dtype={"article_id": str, "institute_id": str},
     )
     return inst
@@ -140,8 +140,8 @@ def get_covid_papers():
         logging.info("processing arxiv papers")
         arxiv_covid = (
             arts.query("article_source!='cord'")
-            .dropna(axis=0, subset=["abstract"])
-            .assign(text = lambda df: [" ".join(x,y) for x,y in zip(df['title'],df['abstract'])])
+            .dropna(axis=0, subset=["abstract","title"])
+            .assign(text = lambda df: [" ".join([x,y]) for x,y in zip(df['title'],df['abstract'])])
             .assign(has_cov=lambda df: [covid_getter(text) for text in df["text"]])
             .query("has_cov == True")
         )
@@ -348,7 +348,7 @@ def get_ai_results():
 
 def get_cluster_names():
     with open(f"{PROJECT_DIR}/outputs/data/aux/arxiv_cluster_names.json",'r') as infile:
-        return json.load(infile)
+        return {int(k):v for k,v in json.load(infile).items()}
 
 def get_cluster_ids():
     with open(f"{PROJECT_DIR}/inputs/data/arxiv_cluster_lookup.json",'r') as infile:
@@ -357,7 +357,7 @@ def get_cluster_ids():
     
     cluster_names = get_cluster_names()
     
-    paper_cluster_name = {k: cluster_names[str(v)] for k,v in paper_cluster_lookup.items()}
+    paper_cluster_name = {k: cluster_names[v] for k,v in paper_cluster_lookup.items()}
     return paper_cluster_name
 
 
