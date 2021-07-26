@@ -5,8 +5,8 @@ const routes = [
 	'/guide',
 	'/methodology',
 	'/indicators',
-	'/indicators/area_university_site',
-	'/indicators/area_university_site/2015'
+	'/indicators/broadband_download_speed_data',
+	'/indicators/broadband_download_speed_data/2015'
 ];
 
 export default async ({driver, target, log}) => {
@@ -14,11 +14,11 @@ export default async ({driver, target, log}) => {
 
 	/* eslint-disable no-await-in-loop */
 	for (const route of routes) {
-		log('Navigating...');
+		// log('Navigating...');
 		await driver.get(target + route);
-		log("Retrieving document title");
-		const title = await driver.getTitle();
-		log(title);
+		// log("Retrieving document title");
+		// const title = await driver.getTitle();
+		// log(title);
 
 		// log("Retrieving page timings");
 		// const timings = await driver.executeScript(() => window.performance.navigation.timing);
@@ -34,9 +34,9 @@ export default async ({driver, target, log}) => {
 			isPageLoaded = await driver.executeScript(
 				() => !window.nesta_isLayoutUndefined()
 			);
-			log(`page loaded: ${isPageLoaded}`);
+			// log(`page loaded: ${isPageLoaded}`);
 		} else {
-			log('function NOT ready!');
+			// log('function NOT ready!');
 		}
 
 		results.push([route, isPageLoaded]);
