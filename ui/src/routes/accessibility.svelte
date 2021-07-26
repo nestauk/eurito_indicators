@@ -16,8 +16,9 @@
 	import {zipUrl} from 'app/utils/assets';
 	import {
 		getTest,
+		getTestResultsFilename,
 		groupTests,
-		testResultsURL,
+		testResultsBaseURL,
 		summarizeResults
 	} from 'app/utils/tests';
 	import {failingA11yAudit, lighthouseUrls, toolName} from 'app/config';
@@ -40,28 +41,34 @@
 		iconStroke: theme.colorLink
 	};
 
-	let environment;
-	let testResults = null;
-	let lighthouseFrame;
 	let currentreport = reportNames[0];
+	let environment;
+	let lighthouseFrame;
 	let loadingResults = false;
+	let testResults = {
+		tested: false,
+		passed: false
+	};
 
-	async function loadResults() {
-		const response = await fetch(testResultsURL);
-		const allTests = await response.json();
-		const indexedResults = groupTests(allTests);
-		const test = getTest(indexedResults, environment)
-		testResults = summarizeResults(test);
+	async function loadResults (environment) {
+		const fileName = getTestResultsFilename(environment);
+		if (fileName) {
+			const response = await fetch(`${testResultsBaseURL}/${fileName}`);
+			const allTests = await response.json();
+			const indexedResults = groupTests(allTests);
+			const test = getTest(indexedResults, environment)
+			testResults = summarizeResults(test);
+		}
 	}
 
-	function resizeIFrameToFitContent( iFrame ) {
+	function resizeIFrameToFitContent ( iFrame ) {
 		loadingResults = false
 		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
 	}
 
 	onMount(() => {
 		environment = Bowser.parse(window.navigator.userAgent);
-		loadResults();
+		loadResults(environment);
 	})
 
 	$: currentreport, loadingResults = true;
@@ -290,7 +297,8 @@
 				{#if testResults.passed}
 					This browsing environment has been tested and is supported.
 				{:else}
-					This browsing environment has been tested but failed.
+					This browsing environment has been tested but some tests
+					have failed and it may not be fully supported.
 				{/if}
 			</p>
 		{:else}
