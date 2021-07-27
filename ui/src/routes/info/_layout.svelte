@@ -42,7 +42,7 @@
 
 <main class={$_screen?.classes}>
 	<section>
-		<h1>Info</h1>
+		<h1>App information</h1>
 		<menu class='tabs'>
 			{#if $_screen?.sizes?.medium}
 				<ul>
