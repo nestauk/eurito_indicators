@@ -111,6 +111,7 @@
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
+		width: 100%;
 	}
 
 	h1 {
