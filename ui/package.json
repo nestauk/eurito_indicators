@@ -57,7 +57,7 @@
 	},
 	"license": "MIT",
 	"main": "index.js",
-	"name": "eurito_indicators_ui_",
+	"name": "eurito_indicators_ui",
 	"scripts": {
 		"build": "npm run rmsappers && sapper build --legacy",
 		"chmod": "chmod u+x src/bin/*",
