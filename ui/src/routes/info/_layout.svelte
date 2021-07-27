@@ -56,7 +56,9 @@
 									color: segment === id ? 'white' : theme.colorLink,
 								}}
 							>
-								{links[id]}
+								<span>
+									{links[id]}
+								</span>
 							</Link>
 						</li>
 					{/each}
@@ -139,8 +141,6 @@
 		border-left: thin solid var(--color-main);
 	}
 	.tabs li {
-		display: block;
-		padding: 0.5em 1em;
 		border-top: thin solid var(--color-main);
 		border-right: thin solid var(--color-main);
 	}
@@ -149,6 +149,11 @@
 	}
 	.tabs li.selected {
 		background: var(--color-main);
+	}
+
+	.tabs li span {
+		display: block;
+		padding: 0.5em 1em;
 	}
 
 	.tabs .tab-selector {
