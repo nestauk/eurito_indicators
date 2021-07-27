@@ -127,11 +127,11 @@
 		user-select: none;
 	}
 	.tabs ul {
-		border-bottom: thin solid var(--color-main);
 		display: flex;
 		flex-direction: row;
+		justify-content: center;
 		list-style-type: none;
-		margin: 0;
+		margin: 3rem 0 1rem 0;
 	}
 	.tab-selector label{
 		display: block;
@@ -142,6 +142,7 @@
 		border-left: thin solid var(--color-main);
 	}
 	.tabs li {
+		border-bottom: thin solid var(--color-main);
 		border-top: thin solid var(--color-main);
 		border-right: thin solid var(--color-main);
 	}
