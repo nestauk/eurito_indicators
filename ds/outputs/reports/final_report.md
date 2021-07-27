@@ -11,8 +11,8 @@ author:
 date:
     - 30 July 2021
 figPrefix:
-  - "figure"
-  - "figures"
+  - "Figure"
+  - "Figures"
 tblPrefix:
   - "table"
   - "tables"
@@ -90,7 +90,84 @@ Together, these analyses illustrate the potential of novel semantic methods and 
 
 # Covid-19 R&D response {#sec:covid}
 
+The Covid-19 pandemic has a complex relationship with R&I: on the one hand, it has elicited a massive R&D&I response culminating in the development of effective vaccines. On the other, it has impacted on how science itself is conducted, creating a digital shift in scientific collaboration and communication and the adoption of open modes for dissemination of results, data and software code [@paunov2020science]. In this section we present the results of our own analysis of research funding and publication activities connected with Covid-19, which we have undertaken as part of a 'pandemic pivot' in response to the pandemic. 
+
+We undertook a short consultation round with EC policymakers and identified a number of areas where semantic methods could add value to those indicators that are already available. We go through them in turn, describing the context for our research, the methods we used, the indicators we developed and their interpretation.
+
 ## CORDIS analysis {#subsec:cordis}
+
+We begin with an analysis of the European Commission funded response to Covid-19 under the rubric of the Horizon 2020 Framework Programme.^[We recognise that this does not capture all EC contributions to the R&I fight against the pandemic, for example through the activities of the European Research Council and EC contributions to the [Innovative Medicines Initiative](https://www.imi.europa.eu/apply-funding/closed-calls/imi2-call-21).] There were three areas of interest in this analysis: 
+
+1. What is the composition of the EC response to Covid-19?
+2. What are the levels of national participation in different streams of research to tackle Covid-19?
+3. What other research activities have taken place in the past / are currently taking place which are (semantically) similar to Covid-19 and might capture investments in societal preparedness and resilience against the current and future crises. 
+4. Is there a link between previous research activities in areas related to Covid-19 and current levels of participation in the Covid-19 effort?
+5. What is the topical composition of the response to Covid-19 and how does it compare with the wider portfolio of EC-funded research?
+
+### Sentence embedding and document clustering
+
+Our starting point is a labelled dataset including a list of 569 H2020 projects that have been either commissioned directly in response to Covid-19 or pivoted their activities to make their outputs more relevant for tackling Covid-19 (EURITO was itself in this latter category). 
+
+An initial analysis of this corpus suggested that the categories used to label the data ("direct actions", "health emergency" and "resilience") were too broad to inform this analysis so we undertook additionl semantic and clustering analyses. In order to do this, we created a vector representation of Covid-19 related projects in the Cordis data using Specter, a language model trained on scientific research by the Allen Institute for AI [@cohan2020specter] and available from the sentence-transformers Python library [@reimers-2019-sentence-bert]. These high-dimensional vector representations capture semantic similarities and differences between documents that can be used to cluster them. 
+
+We did this robustly through an ensemble clustering approach that draws on a variety of clustering algorithms and parametre sets (including number of clusters) initialised multiple times in order to draw a graph were documents are nodes connected by the number of times they are classified by a clustering algorithm in one of our iterations. We then decomposed the networks into its consituent communities using the Louvain algorithm, which looks for a partition of the network which maximises its modularity [@que2015scalable]. The result could be seen as a "consensus" assignment based on the ensemble of clusters. We implement multiple runs of the community detection algorithm and find that any given pair of documents that are placed together in a cluster once are placed in the same cluster 95% of the times.
+
+This clustering strategy yields six Covid-19 related research streams within the EC response to the pandemic. They are:
+
+1. Diagnosis and prevention (9%)
+2. Public health (26%)
+3. Systems and networks (12%)
+4. Policy (22%)
+5. Products and services (11%)
+6. Biotechnology (19%)
+
+We present some (randomly) drawn sample projects inside each category in [@tbl:cord] and the distribution of cluster research areas in the categories initially used to classify the data in [@fig:covid_levels]. They illustrate the discplinary and domain expanse of the EC response to Covid-19 and the high degree of thematic crossover in the initial labels we obtained, motivating the use of the more granular and informative categories generated by our cluster analysis.
+
+| Cluster                           | Examples                                                                                                                                                                                  |
+|:--------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cluster 3: Policy                 | Expecting the unexpected and know how to respond                                                                                                                                          |
+|                                   |  The First Responder (FR) of the Future: a Next Generation Integrated Toolkit (NGIT) for Collaborative Response, increasing protection and augmenting operational capacity                |
+|                                   |  Next generation of AdVanced InteGrated Assessment modelling to support climaTE policy making                                                                                             |
+| Cluster 1: Public health          | Development of an intelligent and multi-hospital end-to-end surgical process management system                                                                                            |
+|                                   |  COVID-19 infections - Remote Early Detection                                                                                                                                             |
+|                                   |  QUantitative Imaging Biomarkers Medicine                                                                                                                                                 |
+| Cluster 2: Systems and Networks   | ACCIA programme to foster mobility of researchers with a focus in applied research and technology transfer                                                                                |
+|                                   |  Growth Welfare Innovation Productivity                                                                                                                                                   |
+|                                   |  New issues in the Analysis of Business Cycles                                                                                                                                            |
+| Cluster 5: Biotechnology          | Simulating the dynamics of viral evolution: A computer-aided study toward engineering effective vaccines                                                                                  |
+|                                   |  Leveraging Pharmaceutical Sciences and Structural Biology Training to develop 21st Century Vaccines                                                                                      |
+|                                   |  Integration of herpesvirus into telomeres: From the mechanism of genome integration and mobilization to therapeutic intervention                                                         |
+| Cluster 0: Diagnosis & prevention | SIGNIA: An innovative drug discovery platform for rapid identification and validation of antimicrobial applications in available pharmaceutical resources and drugs open for repurposing. |
+|                                   |  AI-based infectious diseases diagnosis in seconds                                                                                                                                        |
+|                                   |  conect4children (COllaborative Network for European Clinical Trials For Children)                                                                                                        |
+| Cluster 4: Products and Services  | EpiShuttle: Isolation and Transportation of Infectious Disease Patients                                                                                 |
+|                                   |  EUropean Vital Medical Supplies and Equipment Resilient and Reliable Repurposing Manufacturing as a Service NetworK for Fast PAndemic Reaction                                           |
+|                                   |  Additive Manufacturing of 3D Microfluidic MEMS for Lab-on-a-Chip applications                                                                                                            |
+: Examples of CORDIS projects in the research cluster we have identified {#tbl:cord}
+
+![Distribution of covid research clusters over initial labels in the data](final_report_deck/png/covid_levels_clusters.png){#fig:covid_levels}
+
+### National participation and representation in the Covid-19 response
+
+Having classified Covid-response projects in different research clusters, we move to analyse the levels of participation of different countries in the EU Covid-19 research response. 
+
+[@fig:country_spec] presents, for the top 15 countries in terms of project coordination activity, their levels of 'relative specialisation' in a Covid-19 research cluster (in the horizontal axis) and their overall volume of activity (size of the points).^[Levels of specialisation are calculated using a relative comparative advantage index that normalises the share of activity in a cluster in each country by the overall share of activity accounted by that country also including non-Covid 19 related research and restricting our analysis after 2019, when most of the Covid-19 projects started [@balassa1965trade]. Scores above one represent relative positive specialisation in a topic, an scores below one represent relative underspecialisation.] We sort the countries by their average specialisation over all Covid-19 research clusters so that countries at the top of the chart are overrepresented in the Covid-19 research response while countries towards the bottom are underrepresented.
+
+![Level of relative specialisation and overall volumes of activity in streams of the EC Covid-19 research response by nationality of project coordinator](final_report_deck/png/cordis_specialisation.png){#fig:country_spec}
+
+This analysis shows that Israel, Ireland, the Netherlands and Germany are overrepresented in the Covid-19 research respone while Spain, the United Kingdom and Switzerland are underrepresented. We also find that some countries are overrepresented in some Covid-19 research areas and underrepresented in others. For instance, Sweden has a high degree of activity in the Covid-18 research clusters (six times higher than we might have expected given its overall levels of coordination of H2020 projects after 2019). Italy is overrrepresented in Products and Services and Systems and Networks and generally underrepresented in other areas.
+
+There are many possible explanations for these international differences including different levels of agility in national R&I systems, variation in the availability of alternative funding sources (e.g. national or philanthropic) for Covid-19 reponse projects, or presence of established capabilities and networks enabling countries to rapidly coordinate Covid-19 projects in particular areas. We will explore the last mechanism in further detail below.
+
+## Measuring semantic relatedness to Covid-19 research
+
+
+
+
+
+
+
+
 
 ## Research publications {#subsec:paper}
 
