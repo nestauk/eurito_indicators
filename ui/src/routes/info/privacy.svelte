@@ -1,3 +1,13 @@
+<script>
+	import Link from '@svizzle/ui/src/Link.svelte';
+	import theme from 'app/theme';
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
+</script>
+
 <section>
 	<h2>Cookies and data privacy policy</h2>
 	<p>
@@ -11,21 +21,38 @@
 	<ul>
 		<li>the tool itself does not collect any personal data.</li>
 		<li>
-			the feedback form is using Google Forms, which installs cookies in
-			your browser.
+			the feedback form is using 
+			<Link
+				href='https://www.google.com/forms/about/'
+				theme={linkTheme}
+			>
+				Google Forms
+			</Link>
+			, which installs cookies in your browser.
 		</li>
 	</ul>
 
 	<p>
-		By submitting data with Google Forms you accept the Terms of Service
-		and the Data Privacy Policy of Google Inc.
+		By submitting data with Google Forms you accept the
+		<Link
+			href='https://policies.google.com/terms'
+			theme={linkTheme}
+		>
+			Terms of Service
+		</Link>
+		and the 
+		<Link
+			href='https://policies.google.com/privacy'
+			theme={linkTheme}
+		>
+			Data Privacy Policy of Google Inc
+		</Link>.
 	</p>
 </section>
 
 <style>
 	section {
 		background-color: white;
-		box-shadow: var(--box-shadow-y);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;

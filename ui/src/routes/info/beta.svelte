@@ -1,3 +1,13 @@
+<script>
+	import Link from '@svizzle/ui/src/Link.svelte';
+	import theme from 'app/theme';
+
+	const linkTheme = {
+		color: theme.colorLink,
+		iconStroke: theme.colorLink
+	};
+</script>
+
 <section>
 	<h2>Beta release</h2>
 	<p>
@@ -7,8 +17,20 @@
 	</p>
 	
 	<p>
-		Please use the feedback form provided [here](/info) in the Feedback tab,
-		or alternatively email your feedback to dataanalytics@nesta.org.uk.
+		Please use the feedback form provided 
+		<Link
+			href='/info/feedback'
+			theme={linkTheme}
+		>
+			here
+		</Link>
+		in the Feedback tab, or alternatively email your feedback to
+		<Link
+			href='mailto:dataanalytics@nesta.org.uk'
+			theme={linkTheme}
+		>
+			dataanalytics@nesta.org.uk.
+		</Link>
 	</p>
 
 	<p>Thanks!</p>
@@ -17,7 +39,6 @@
 <style>
 	section {
 		background-color: white;
-		box-shadow: var(--box-shadow-y);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;

@@ -42,7 +42,7 @@
 
 <main class={$_screen?.classes}>
 	<section>
-		<h2>Info</h2>
+		<h1>Info</h1>
 		<menu class='tabs'>
 			{#if $_screen?.sizes?.medium}
 				<ul>
@@ -106,20 +106,22 @@
 
 	section {
 		background-color: white;
-		box-shadow: var(--box-shadow-y);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
 	}
 
-	h2 {
-		font-weight: normal;
-		margin-bottom: 1.5rem;
-		margin-top: 1.5rem;
+	h1 {
+		font-weight: bold;
 	}
+
 	ul {
 		list-style: initial;
 		margin-left: 20px;
+	}
+
+	.tabs {
+		user-select: none;
 	}
 	.tabs ul {
 		border-bottom: thin solid var(--color-main);

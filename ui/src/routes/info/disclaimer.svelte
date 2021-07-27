@@ -90,7 +90,6 @@
 <style>
 	section {
 		background-color: white;
-		box-shadow: var(--box-shadow-y);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
