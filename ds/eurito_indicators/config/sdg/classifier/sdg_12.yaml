@@ -1,0 +1,72 @@
+xgb:
+  estimator_class_name: XGBClassifier
+  estimator_module: xgboost.sklearn
+  params:
+    xgb__base_score: 0.5
+    xgb__booster: gbtree
+    xgb__colsample_bylevel: !!python/object/apply:numpy.core.multiarray.scalar
+    - &id001 !!python/object/apply:numpy.dtype
+      args:
+      - f8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      WWPRjr4i5z8=
+    xgb__colsample_bynode: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      wNEzVgDBgD8=
+    xgb__colsample_bytree: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      vN3uKLB17j8=
+    xgb__eta: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      YDUx44NU2T8=
+    xgb__eval_metric: auc
+    xgb__gamma: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      fS4Gir8L8j8=
+    xgb__gpu_id: -1
+    xgb__importance_type: gain
+    xgb__interaction_constraints: ''
+    xgb__learning_rate: 0.395783395
+    xgb__max_delta_step: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      /9KmpzPIIEA=
+    xgb__max_depth: 6
+    xgb__min_child_weight: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      aHRLiGiWIUA=
+    xgb__missing: .nan
+    xgb__monotone_constraints: ()
+    xgb__n_estimators: 100
+    xgb__n_jobs: 32
+    xgb__num_parallel_tree: 4
+    xgb__objective: binary:logistic
+    xgb__random_state: 0
+    xgb__reg_alpha: 0
+    xgb__reg_lambda: 1
+    xgb__sampling_method: uniform
+    xgb__scale_pos_weight: !!python/object/apply:numpy.core.multiarray.scalar
+    - *id001
+    - !!binary |
+      cRdWM+XUFkA=
+    xgb__subsample: 1
+    xgb__tree_method: exact
+    xgb__use_label_encoder: false
+    xgb__validate_parameters: 1
+    xgb__verbosity: null
