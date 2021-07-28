@@ -19,7 +19,8 @@ class SDGClassifierTrainFlow(FlowSpec):
                         type=bool
                         )
     test = Parameter('test',
-                     help='Only trains a model for 2 SDGs if True',
+                     help=('Trains a model for only 2 SDGs with 100 samples '
+                           'each if True'),
                      default=False,
                      type=bool
                      )
