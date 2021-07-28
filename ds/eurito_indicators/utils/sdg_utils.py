@@ -1,9 +1,22 @@
 import json
 
-from eurito_indicators import project_dir
+from eurito_indicators import PROJECT_DIR
 
 
-LOOKUP_DIR = f'{project_dir}/inputs/sdg/official'
+LOOKUP_DIR = f'{PROJECT_DIR}/inputs/sdg/official'
+
+
+def stringify_sdg_number(sdg):
+    """Converts integer to string and zero pads to 2 digits. Used for saving 
+    and loading individual goal data.
+    
+    Args:
+        sdg (int): Typically 1 - 17
+
+    Returns:
+        (str): e.g. '06'
+    """
+    return str(sdg).zfill(2)
 
 
 def sdg_name_lookup():
