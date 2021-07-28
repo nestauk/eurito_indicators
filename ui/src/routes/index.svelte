@@ -6,7 +6,7 @@
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
 
-	const repoUrl = 'https://github.com/nestauk/eurito_indicators_ui';
+	const repoUrl = 'https://github.com/nestauk/eurito_indicators';
 
 	const linkTheme = {
 		color: theme.colorLink,

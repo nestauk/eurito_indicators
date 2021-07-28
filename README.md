@@ -20,8 +20,8 @@ Please take the following steps within the same dir:
 			- `@svizzle/ui@0.1.0 -> /path/to/svizzle/packages/components/ui`
 		- in general, you need to `npm link` all packages that end up being modified by `173_time_region_value`
 - app:
-	- clone [this repo](https://github.com/nestauk/eurito_indicators_ui)
-	- `cd eurito_indicators_ui`
+	- clone [this repo](https://github.com/nestauk/eurito_indicators)
+	- `cd eurito_indicators/ui`
 	- `git checkout dev` (or another branch depending on what we're currently working on)
 	- linking:
 		- `npm link @svizzle/time_region_value`
