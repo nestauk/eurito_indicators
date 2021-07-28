@@ -1,5 +1,4 @@
-numpy
-scipy
+xgboost
 pandas
 matplotlib
 altair
