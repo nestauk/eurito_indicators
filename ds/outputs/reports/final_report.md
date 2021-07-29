@@ -26,7 +26,7 @@ toc-depth: 2
 toc: true
 secnumdepth: 3
 numbersections: True
-fontsize: 11pt
+fontsize: 11pt 
 ---
 # Introduction
 
@@ -401,14 +401,42 @@ This suggests that our clustering results are robust and that overlaps between c
 
 ![Number of co-occurrences in the Kmeans test group between observations in the original cluster categories](final_report_deck/png/cluster_cooccurrences.png){#fig:cluster_co_occs}
 
-![Number of co-occurrences in the Kmeans test group between observations in the original cluster categories](final_report_deck/png/cluster_cooccurrences.png){#fig:cluster_co_occs}
-
 ### Thematic evolution of activity
+
+We continue by analysing temporal patterns of activity in different Covid-19 research clusters. [@fig:topic_evol] presents the results, which we sort based on the share of overall activity by June 2021 - in other words, by the extent to which research activity in a theme took place earlier in the pandemic.
+
+The chart shows a striking sorting of research efforts that seems to mirror various phases in the evolution of the pandemic and the policy, medical and scientific response to it: earlier on we see the bulk of activity in research topics related to the prediction of the evolution of the pandemic ands its impact, diagnosis of the Covid-19, social distancing policies and mitigation of its impact on the heathcare system. Later on, topics related to longer term and indirect impacts of the pandemic, and on vaccines and the vaccination programmes started in 2021 become more prominent. We note with interest spikes of activity in the Trials research cluster in July - this month saw intense trial activity around the Pzifer/BioNtech, Moderna and AstroZeneca/Oxford vaccines. All these results suggest that our dataset of research preprints offers a timely window into the evolution of key activities in the global R&D response to the pandemic.
+
+![Shares of Covid-19 publications by month and research cluster. The orange line represents the evolution of activity in all Covid publications.](final_report_deck/png/arxiv_topic_evolution.png){#fig:topic_evol}
 
 ### Geography of Covid-19 research and specialisation
 
+We have enriched our publication data with information about the institutional affiliation of researchers involved in Covid-19 publications and their geography. This yields a total of 134 countries and 1,638 cities with some research activity in response to the pandemic. We visualise the results in [@fig:combi_geo]. The chart shows a strong concentration of activity in a small number of (mostly developed) countries and cities.
+
+![The top map is a choropleth of Covid-19 related preprints by country and city. The bottom bar-charts represent the distribution of activity by country and city for the top 40 countries and cities by level of Covid-19 related activity](final_report_deck/png/combi_geo.png){#fig:combi_geo}
+
+Aggregate maps of preprint activity related to Covid-19 mask important differences in the geography of the Covid-19 response across research clusters. In [@fig:prep_country_spec] we show the levels of activity and relative specialisation (based on a relative comparative advantage index) by country and Covid-19 research cluster. We have arranged the axes based on the similarity between country / research clusters specialisation profiles.  
+
+The heatmap shows some interesting differences between countries - for example, the UK seems to be relatively specialised in topics related to the impact of the pandemic and the public health response while Israel specialises in detection and diagnosis, vaccination programmes and trials. Combined with other data, these indicators could help understand the composition of different country's Covid-19 response.
+
+![The heatmap displays the levels of activity (size of squares) and specialisation (share of squares) by Covid-19 research cluster and country. The axes are respectively arranged by similarity of countries / research clusters based on an agglomerative clustering of their specialisation profiles / geographical patterns.](final_report_deck/png/country_specialisation.png){#fig:prep_country_spec}
+
+We proxy the level of co-location between different Covid-19 research clusters by calculating the correlation coefficient between Relative Comparative Advantage indices at the city level: this tells us what types of Covid research themes tend to be found in the same cities, suggesting the presence of knowledge spillovers and complementarities between them. We present the results in [@fig:coloc], which suggests co-location between a cluster of Covid-19 research clusters related to genetic analysis of the pandemic, another around the public health system, hospitalisation and impact, and another around vaccination programmes. An important question for further research will be to determine whether cities specialised in different Covid-19 clusters based on established capabilities or on local / national impacts of the pandemic and / or local policy priorities.
+
+![This matrix shows the correlation between specialisation indices in Covid-19 research clusters at the city level: warmer colours indicate that two research clusters tend to concentrate in the same cities. The axes are arranged by similarity between research clusters based on an agglometative clustering algorithm.](final_report_deck/png/colocation_chart.png){#fig:coloc}
+
 ### International evolution of activity
 
+Having studied the geography of the Covid-19 response, we focus on temporal patterns of activity in different countries. [@fig:country_trend] presents the share of Covid-19 related preprint activity in a country accounted by any given month. As in our analysis of the temporal sequence of thematic activity, we sort countries based on the share of overall activity that took place by June 2020, a proxy for the speediness with which a country started to produce Covid-19 related research. The chart suggests that countries in Asia, and the Middle East together with Australia and Italy were faster in their response to the pandemic.
+
+![Shares of Covid-19 preprints by month and country. The orange line represents the evolution of activity for all preprints in the country.](final_report_deck/png/arxiv_country_trends.png){#fig:country_trend}
+
+These international differences in the dynamics of the response to the pandemic might have partly been shaped by the research specialisation of different countries: if a country is focused on research topics that take longer to yield results, or that became salient later in the pandemic, this might explain why it took longer for the country to generate Covid-19 related research. We explore this idea by regressing the number of days since the beginning of the pandemic when a paper was published on whether a country was involved, the research cluster that the paper belongs to, and the number of institutions involved in the paper, which we take as a proxy of the complexity of the research (and the time it takes to publish it). 
+
+The results, which we present in [@fig:country_reg], show that the results do not change substantially after we introduce controls for the research cluster where a paper sits, suggesting that the timing of national responses to the pandemic were not wholly driven by the research fields where different countries specialise. More research will be needed the role that other factors played in shaping the velocity of national responses to the pandemic.
+
+![Estimated confidence intervals for a preprint-level regression of the days elapsed since the beginning of the pandemic on the country involved (orange line), and additional controls for the research cluster that a preprint belongs to. We order countries by the average of the estimated coefficients.](final_report_deck/png/country_reg.png){#fig:country_reg}
+  
 ### Comparative analysis of influence and collaboration
 
 ## Funder benchmarking {#subsec:funder}
