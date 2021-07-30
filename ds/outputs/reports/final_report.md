@@ -3,11 +3,12 @@ title: EURITO Final Report
 author:
     - Juan Mateos-Garcia
     - George Richardson
+    - Chantale Tippet
     - Agzam Idrissov
+    - Knut Blind
     - Eva Senra
     - Ramón Xifré
-    - Knut Blind
-    - Chantale Tippet
+    - Pilar Caro
 date:
     - 30 July 2021
 figPrefix:
@@ -27,7 +28,10 @@ toc: true
 secnumdepth: 3
 numbersections: True
 fontsize: 11pt 
+abstract: 
+    This is the abstract blah
 ---
+
 # Introduction
 
 In EURITO (EU Relevant, Inclusive and Trusted Indicators) we explored the opportunities and challenges for developing indicators based on novel data sources and data science methods with the goal of informing Research and Innovation (R&I) policy. 
@@ -46,7 +50,7 @@ This final report describes our activities and outputs throughout the project wi
 
 [@sec:outputs] outlines the outputs of the project.
 
-[@sec:org] discusses the organisational implications of our analysis: what activities are required to encourage the adoption of new indicators in the R&I evidence system, and what changes - in terms of capabilities, orgaanisation and culture - are required if R&I agencies are going to realise the value of novel data sources and methods.
+[@sec:org] discusses the organisational implications of our analysis: what activities are required to encourage the adoption of new indicators in the R&I evidence system, and what changes - in terms of capabilities, organisation and culture - are required if R&I agencies are going to realise the value of novel data sources and methods.
 
 [@sec:conclusion] concludes.
 
@@ -57,7 +61,7 @@ This final report describes our activities and outputs throughout the project wi
 In the scoping phase of the project we organised two workshops in Brussels involving representatives from the European Commission, member states and the research and data community. These workshops were attended by XXX people. Our goal with them was to ensure that our indicator development activities were focused on policy-relevant areas, and to assess which features of R&I indicators might encourage or constrain their adoption. The workshops led to the identification of eight areas for further exploration through data science pilots. The detailed results of each pilot are available in **deliverable X** [TO_ADD]. In the list that follows we also indicate additional peer reviewed publications and working papers based on these pilots.
 
 1. **Emerging technology ecosystems:** Here we analysed data about research funding, publications and startups to map activities related to emerging technologies with a case study focusing on Artificial Intelligence.
-2. **Advanced research funding analytics:** We explored potential indicators capturing diversity, complexity and novelty in reseaarch with the goal of informing funding decisions. 
+2. **Advanced research funding analytics:** We explored potential indicators capturing diversity, complexity and novelty in research with the goal of informing funding decisions. 
 3. **Mission-driven innovation indicators:** We developed indicators about the level of activity in R&I missions with an application to the UK government mission to deploy Artificial Intelligence to improve the prevention, diagnisis and treatment of chronic diseases [@mateos2019mapping].
 4. **Gender diversity in R&I workforce:** We explored the potential for using semantic analyses of researcher names in order to generate measures of diversity in R&I activities.
 5. **Nowcasting R&D investment:** We assessed the feasibility of nowcasting R&D investment using timely web proxies.
@@ -86,7 +90,7 @@ This research agenda was informed by the perception of a 'geopolitical race' in 
 
 Together, these analyses illustrate the potential of novel semantic methods and diversity metrics for shedding light on the trajectory of AI R&D and its dynamics, and to inform R&I policies to mitigate its risks for inclusion and sustainability thus ensuring that this powerful technology evolves in a direction that maximises its public benefits. The pipelines that we have developed also yield a collection of indicators about levels of AI and deep learning research activity and about the level of adoption of AI methods in Covid-19 related research (a topic we come back to in [@sec:covid].
 
-## Sustainable Development Goal Modelling {#subsec:sdg}
+## Sustainable Development Goal Modelling {#sec:sdg}
 
 # Covid-19 R&D response {#sec:covid}
 
@@ -233,7 +237,7 @@ The chart shows a strong correlation between pre and post coordination specialis
 
 ### Organisational proximity and participation in Covid-19 related research
 
-The semantic approach we described can also be used to measure organisational relatedness to Covid-19 research. In order to do this, we calculate the mean of the vector representations of all projects involving eaach organisation in the Cordis database before the pandemic, and measure its (cityblock) distance to the centroids of all our Covid-19 research clusters. Our prior, based on the Principle of Relatedness studied in economic geography and economic complexity, is that countries 'closer' to those clusters are more likely to participate in Covid-19 related research when the pandemic arrives because they have the right capabilities to do so [@hidalgo2018principle].
+The semantic approach we described can also be used to measure organisational relatedness to Covid-19 research. In order to do this, we calculate the mean of the vector representations of all projects involving each organisation in the Cordis database before the pandemic, and measure its (cityblock) distance to the centroids of all our Covid-19 research clusters. Our prior, based on the Principle of Relatedness studied in economic geography and economic complexity, is that countries 'closer' to those clusters are more likely to participate in Covid-19 related research when the pandemic arrives because they have the right capabilities to do so [@hidalgo2018principle].
 
 We present the results by Covid-19 research cluster and country in [@fig:org_dist]. The points represent the share of organisations in a country and rank of proximity to the centre of the Covid-19 cluster that did in fact participate (in any role) in Covid-19 projects. One way to think about this is as a proxy for the 'utilisation' of related organisational capabilities in the Covid-19 research respose. 
 
@@ -566,7 +570,7 @@ These differences highlight many opportunities for knowledge sharing and collabo
 
 ## OpenAIRE analysis {#sec:openaire}
 
-### Conclusion {#sec:conclusion}
+## Conclusion {#sec:covid_conclusion}
 
 In this section we have reported the results of a semantic analysis of the R&D response to the Covid-19 pandemic using state-of-the-art  unsupervised machine learning, natural language processing and network analysis techniques. We implemented various methods to enhance the robustness of our results involving ensemble methods and benchmarking, and statistical comparisons between groups that provide measures of uncertainty about our estimates. We have presented extensive random (non-cherrypicked) examples of our results suggesting that the methods that we have developed add informative structure to the data despite its complexity. 
 
@@ -576,15 +580,98 @@ Going beyond this, our comparative analysis of Covid-19 research papers with a s
 
 # Validation {#sec:val}
 
+The development of EURITO indicators has involved an interative cycle of quantitative validation using quantitative methods that we have outlined in previous sections, such as the use of training and test sets and creation of new labelled datasets in the case of the SDG indicators in [@sec:sdg] and the implementation of various ensemble techniques and robustness tests with the unsupervised methods and relatedness analyses in [@sec:covid]. We have discussed emerging findings from the analysis of these indicators and gathered views from policy and research experts in a variety of venues. In addition to this, the project includes a formal validation stage that has the goal of making explicit the strengths and weaknesses of the indicator production process and to explore the consistency of the indicator results with external sources,  and which was undertaken by consortium members who had not participated directly in the production of the indicators. 
+
+This implies an assessment of:
+
+1. The statistical quality of the indicator production process
+2. The relevance for the end users and society of the knowledge generated,
+3. The consistency of the results with external sources that track the response of science, technology and innovation (STI) activity to COVID-19.
+
+The conceptual framework for the entire validation stage is adapted from the Quality Assurance Framework V 2.0 (QAF) of the European Statistical System (ESS) (European Statistical System, 2019), based upon the European Statistics Code of Practice (CoP) [@ess2019qa, @eurostat2017cop]. According to this framework, quality is a multi-faceted concept that affects all aspects of the operation of a process, covering not only the statistical outputs, but also the statistical processes that produce them and the environment in which the statistical system develops.
+
+The ESS-QAF includes 17 principles of statistical quality organized in three pillars: institutional environment (principles 1 - 6), statistical processes (principles 7 - 10) and statistical output (principles 11 - 15). The first pillar and principles 9 and 10 of the second pilar relate to the institutional activities of national statistical agencies and are thus less relevant for the EURITO project. 
+
+For this reason, we focus the validation exercise on principles 7, 8, 11, 12, 13, 14 and  15, checking the degree of compliance of EURITO's indicators and their production with the relevant principles Deliverable 
+
+[To_add deliverable number] provides a detailed rationale for EURITO's scores against relevant principles, which we also summarise here (see [tbl:val_assm]).
+
+In overall terms, we conclude that the degree of compliance of the EURITO project with the QAF-ESS principles of statistical output is medium-high. The justification for this score is that:
+
+1. The views of experts and users have been taken into account and explicitly incorporated in the statistical processes through scoping and validation activities in the first phase of the project and during the latter phase of the Covid-19 pivot. There have been procedures to systematically consult users. The project is considered to meet users' needs.
+2. The data sources and methods deployed are innovative and go beyond conventional approaches, while putting in place checks to assess and ensure the statistical quality of the outputs. The methodology adopted is innovative and rigorous and entails the intensive use of textual analysis and machine learning techniques. The resulting indicators are timely.
+3. The methodology appropriately tackles robustness issues and provides measures of uncertainty regarding the indicators. One limitation of the project is the low comparability of some statistics and indicators over time, in particular those related to the Covid R&I response since the pandemic appears to have a break in the use of open science venues for the dissemination of research results. However, this limitation is in part a necessary consequence of the phenomenon under study.
+
+EURITO indicators and methodology have been distributed through reports, working papers and peer-reviewed datasets, open datasets and interactive visualisations. All EURITO code is openly available for others to inspect and build on at [http://www.github.com/nestauk/eurito_indicators](http://www.github.com/nestauk/eurito_indicators).
+
+|Principle                                     | Score |
+|----------------------------------------------|-------|
+| **Principle 7: Sound methodology**                        |
+| |
+|    7.1: The overall methodological framework used for European Statistics follows European and other international standards, guidelines, and good practices, while constantly striving for innovation | High |
+|    7.2: Procedures are in place to ensure that standard concepts, definitions, classifications and other types of standards are consistently applied throughout the statistical authority | High |
+|**Principle 8: Statistical Procedures** |
+| |
+|    8.1: When European Statistics are based on administrative and other data, the definitions and concepts used for non-statistical purposes are a good approximation to those required for statistical purposes | Medium-High |
+|    8.3: Statistical processes are routinely monitored and revised as required. | High |
+|**Principle 11: Relevance** |
+| |
+|    11.1: Procedures are in place to consult users, to monitor the relevance and value of existing statistics in meeting their needs, and to consider and anticipate their emerging needs and priorities. Innovation is pursued to continuously improve statistical output. | High |
+|    Indicator 11.2: Priority needs are being met and reflected in the work programme. | High |
+|    Indicator 11.3: User satisfaction is monitored on a regular basis and is systematically followed up. | Medium |
+|**Principle 12: Accuracy & Reliability** |
+| |
+|    12.1: Source data, integrated data, intermediate results and statistical outputs are regularly assessed and validated | Medium-high |
+|**Principle 13: Punctuality & Timely indicators** |
+| |
+|    13.1: Timeliness meets European and other international release standards. | Medium-high |
+|    13.5: Preliminary results of acceptable aggregate accuracy and reliability can be released when considered useful.  | Medium-high |
+|**Principle 14: Coherence & comparability** |
+| |
+|    14.1: Statistics are internally coherent and consistent (i.e. arithmetic and accounting identities observed). | Medium-high |
+|    14.2: Statistics are comparable over a reasonable period of time.  | Low |
+|    14.3: Statistics are compiled on the basis of common standards with respect to scope, definitions, units and classifications in the different surveys and data sources  | Medium-high |
+|    14.4: Statistics from different data sources and with different periodicity are compared and reconciled   | High |
+|**Principle 15: Accessibility** |
+| |
+|    15.1: Statistics and the corresponding metadata are presented, and archived, in a form that facilitates proper interpretation and meaningful comparisons. | High |
+|    15.2: Dissemination services use modern information and communication technology, methods, platforms and open data standards.  | High |
+|    15.4: Access to microdata is allowed for  | High |
+|    Users are kept informed about the methodology of statistical processes including the use and integration of administrative and other data.   | High |
+|    15.7: Users are kept informed about the quality of statistical outputs with respect to the quality criteria for European Statistics. | High |
+: Overall Summary of the validation of compliance. ESS-QAF Principles 7-8 and 11-15 {#tbl:val_assm}
+
+
+
 # Outputs {#sec:outputs}
+
+AAAA
 
 # Organisational implications {#sec:org}
 
+Based on a model of a two-sided market for innovation indicators developed and presented in D4.5, a set of organisational implications have been derived and presented in D5.4.. In the following, we present a summary of the implications differentiated into the demand and supply side, but also related to the externalities between the two of them and the regulatory framework conditions. Finally, Covid-19 has not only consequences for innovation policy, but also on innovation indicators. We also consider the feedback we have received during the final workshop on July 26th 2021.  
+
+Regarding the implications relevant for the organisations at the demand side, which are mainly policy makers being responsible for R&I policies, we recommend to reduce the cycles of updating the Oslo Manual, which lasted 13 years from the 3rd to the current 4th edition. In addition, the focus on survey-based approach in the Oslo Manual should be widened to consider the data sources and methodologies investigated during EURITO, but also other related efforts, e.g. in the indicators projects funded by the Federal Ministry of Education and Research in Germany. Finally, the process of updating the Oslo Manual should be more transparent to benefit from the knowledge of the various stakeholders involved in the development of innovation indicators.
+
+Since the negotiation process related to the update of the Oslo Manual is quite complicated and lengthy, countries could also go for bi- or multilateral co-operations related to the establishment of new indicators, which can then be fed into the OECD level at a later stage.
+
+Policy makers responsible for R&I should consider during the phase of developing new R&I policies, like the mission-oriented innovation policy, already the needs for  new indicators. 
+
+In order to assure an absorptive capacity,  ministries or organisations being responsible for R&I policies should establish an organisational unit explicitly responsible for innovation indicators, which might be liaised with the domestic statistical office. It should have a critical mass of staff with the relevant skills, which have to be timely updated. If these units collect and process data by themselves, they should be equipped with the necessary IT hard- and software. Regarding the performance of R&D programmes, innovation indicators should be considered from the very beginning of the R&I policy life cycle and not only towards the end, when the evaluation of these programmes take place. Finally, units responsible for innovation indicators are launching  public procurement processes. Here, it is recommended that within countries, but also across countries common definitions of the innovation indicators are implemented, e.g. following the Oslo Manual or other internationally or at least EU-wide accepted guidelines. Finally, the indicators, but also the related raw, data should be accessible open access both for other users, e.g. R&I policy makers, but also organisations developing innovation indicators.
+
+However, we derived not only implications for the demand side, but also for the actors at the supply side. To improve the efficiency of the market of innovation indicators, they might consider making at least part of their data available open access. Complementary to the data, open source software might be used, but also contributed to, e.g. on GitHub, for processing the data. This might increase both their productivity by saving labour costs, but also the reliability and consequently the trust in their used methodologies. From a conceptual perspective, joining networks with academics having expertise in innovation research and policy will contribute to a better theoretical base or frame for the development of innovation indicators. Closer collaboration with Higher Education Institutes, including common lecture series, might be an effective approach to address the skill shortage of data scientists. Finally, a close monitoring of the needs at demand side, e.g. related to upcoming new R&I policies, might allow a timely development of related innovation indicators. The increased complexity of innovation indicators might be compensated by an attractive visualisation of the data and indicators. Overall, the supply side should be not only technology, but in particular demand driven to be successful in establishing new innovation indicators.
+
+The demand side in the market of innovation indicators, i.e. the policy makers and agencies, is able to generate strong externalities on the supply side. It has the chance to find an efficient balance between existing and new indicators in their funding decisions, i.e. it is also inefficient to substitute too fast already established indicators by new indicators. Big data based start-ups might also become new players at the supply side, which could be supported by specific funding policies of the demand side. The demand side can even invite the supply side to the  common development of new indicators, e.g. via two stage public procurement processes, but can even use crowdsourcing, e.g. via hackathons, to collect new ideas, data and methodologies for the development of innovation indicators.
+
+The supply side also has opportunities to generate positive externalities on the demand side, however to a lesser extent than the latter. In addition to the presentation of new opportunities; the validation of results based on new data sources by established data sources might be convincing for the demand side.Overall, new innovation indicators should be based on sound theories, methodologies and have to meet needs at the demand side.
+
+Finally,  regulatory framework conditions can have implications on the availability and granularity of data being relevant for the construction of innovation indicators, e.g. e.g. the directives on Copyright in the Digital Single Market, Databases and Open Data and the General Data Protection Regulation. In the ex ante impact assessment, their relevance for innovation indicators have not been considered. Therefore, the upcoming Digital Markets Act, but also further regulations and directives should consider their implications on the accessibility of data relevant for the development of innovation indicators.   
+
+Covid-19 required not only an increased agility of R&I policy, but might also have implications for the markets of innovation indicators, which has to be investigated. In addition to the need for the speedy provision of innovation data and indicators, the relevance and feasibility of additional indicators, e.g. related to sustainability or distribution aspects, but also related to technological sovereignty, have to be investigated, then integrated into the traditional set of innovation indicators and eventually included in the update of the OECD Oslo Manual. Finally, the demand side of innovation indicators in general, but in particular the provider of research grants should react timely to crises by allowing pivots in running research projects in close collaboration with the beneficiaries, like realised within the pivot of EURITO in coordination with the European Commission.
+
 # Conclusions {#sec:conclusion}
 
-
-
-# Conclusions
+# References
 
 
     
