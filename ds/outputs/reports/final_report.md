@@ -29,7 +29,7 @@ secnumdepth: 3
 numbersections: True
 fontsize: 11pt 
 abstract: 
-    This is the abstract blah
+    We present the policy context, activities and outputs of EURITO, a three-year H2020 project to develop indicators for research and innovation policy that are more Relevant, Inclusive, Trusted and Open. The report includes a detailed description of the methodology and results of our machine learning analysis of EC funding data to identify projects related to Sustainable Development Goals, and our multi-pronged analysis of the R&I activities related to Covid-19, undertaken as part of a project pivot to support R&I policies in response to the pandemic. We conclude with a discussion of the organisational implications for R&I policymakers and the R&I indicator-production system.
 ---
 
 # Introduction
@@ -594,7 +594,7 @@ The ESS-QAF includes 17 principles of statistical quality organized in three pil
 
 For this reason, we focus the validation exercise on principles 7, 8, 11, 12, 13, 14 and  15, checking the degree of compliance of EURITO's indicators and their production with the relevant principles Deliverable 
 
-[To_add deliverable number] provides a detailed rationale for EURITO's scores against relevant principles, which we also summarise here (see [tbl:val_assm]).
+Deliverables 4.1 and 4.4 provide a detailed rationale for considering particular principles and for the project scores against them (see [tbl:val_assm]). We summarise here.
 
 In overall terms, we conclude that the degree of compliance of the EURITO project with the QAF-ESS principles of statistical output is medium-high. The justification for this score is that:
 
@@ -675,7 +675,7 @@ The analysis undertaken in EURITO suggests that R&I indicators based on novel da
 
 Research groups, innovation agencies and private sector organisations developing R&I indicators based on new sources and methods should strive for openness and standardisation in the definitions and methods that they use. This could be done following the Oslo Manual as it is updated or other public standards that increase comparability and mutual learning. The adoption of open data and open source dissemination strategies such as those that we have used in EURITO could play an important role in this effort by reducing duplication of efforts and making indicators more reproducible and transparent.
 
-Data scientists with the technical capabilities to produce new types of indicators should collaborate with domain experts in innovation research and policy who can contribute to a better theoretical base or frame for those indicators, and for their deployment in social science and economics research, itself a long-term form of indicator assessment and validation. These collaborations might also strengthen knwoledge flows between computational researchers and social science reseaarchers helping build up the innovation expertise of the first group, and the data science capabilities of the latter.
+Data scientists with the technical capabilities to produce new types of indicators should collaborate with domain experts in innovation research and policy who can contribute to a better theoretical base or frame for those indicators, and for their deployment in social science and economics research, itself a long-term form of indicator assessment and validation. These collaborations might also strengthen knwoledge flows between computational researchers and social science researchers helping build up the innovation expertise of the first group, and the data science capabilities of the latter.
 
 Finally, organisations developing new R&I indicators should monitor closely the needs of R&I policymakers in order to ensure that they are able to develop policy-relevant indicators on a timely base. Here, there is great scope for closer collaboration between innovation developers and users through two stage public procurement processes and open innovation strategies to collect new ideas, data and methodologies for the development of R&I indicators. Innovation developers should also explore ways to compensate the increased complexity of innovation indicators with user-friendly visualisations of the data and indicators. 
 
@@ -695,6 +695,15 @@ Finally,  regulatory framework conditions can have implications on the availabil
 In addition to requiring an increased agility in R&I policy, Covid-19 also has important implications for the market for innovation indicators that deserve further investigation. Not only have we seen demand for faster indicators, but also for new types of indicators capturing dimensions of sustainability, distributional aspects and technological sovereignty. This illustrates the need for R&I policymakers and funders to react rapidly to crises by allowing adaptation in existing research projects in order to steer them in a direction that enables the production of policy-relevant outputs including new evidence and indicators - this is what we did in the EURITO project in collaboration with the European Commission.
 
 # Conclusions {#sec:conclusion}
+
+In EURITO, we have followed a structured process to scope, explore, scale-up, validate and disseminate indicators for R&I policy that are more relevant, inclusive, trusted and open. 
+
+We believe that our results strongly support the idea that there are important opportunities to inform R&I policy with new indicators but this will require strong levels of engagement with policymakers, a recognition of the importance of qualitative and quantitative validation (including triangulation with existing indicators), and openness and transparency in outputs. Deep technical skills to deploy advanced analytical methods like we have done in this project is not enough to transform new data into impact. The honest approach we adocate will undoubtedly reveal some of the limitations of new indicators and it will be up to policymakers to decide how to trade those limitations off against their strengths, recognising that the indicator status quo is not without its limitations particularly when trying to inform directional R&I policies and respond to crises like Covid-19, which require real-time, highly detailed information [@mazzucato2018mission, @paunov2020science, @aghion2009science]. We believe that indicator pluralism and pragmatism are the way to go.
+
+As we noted in the previous section, creating value from these indicators will require complementary investments in R&I agencies who, we believe, may need to adopt the role of user-innovators in the development of novel indicators, and in data and digital infrastructures to increase the timeliness and robustness with which new indicators are available. Only this way will we be able to ensure that when the next crisis comes (as it will inevitably will), the right evidence is immediately at the fingertips of R&I policymakers, or even better, has already been used to build R&I and societal systems better able to whitstand the shock of the crisis. Doing this will require a strong degree of coordination between the public and private sector and researchers in academia, and developing suitable mechanisms and funding models to make long term investment on the infrastructure required to produce a RITO evidence base. 
+
+If EURITO has contributed, even if only to a small degree, to strengthen the case for this agenda, and for the need to have those difficult but potentially transformative conversations, then we will be satisfied that the project has advanced one of its key goals. 
+
 
 # References
 
