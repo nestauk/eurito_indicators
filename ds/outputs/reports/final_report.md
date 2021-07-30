@@ -570,6 +570,127 @@ These differences highlight many opportunities for knowledge sharing and collabo
 
 ## OpenAIRE analysis {#sec:openaire}
 
+
+
+### Introduction
+
+While [CORDIS ](https://cordis.europa.eu/projects/en)dataset provides a comprehensive overview of R&I projects funded by the European Commission through Horizon2020 and FP7 programmes, it is important to benchmark the COVID response in comparison with both national funding agencies, as well as outside of Europe. [OpenAIRE](https://www.openaire.eu/) - is a repository of research outputs from more than 60 funders across the globe with the goal to push forward the Open Science principles. 
+
+In this section, we explore the OpenAIRE dataset to examine the European Commission’s R&I response to COVID pandemic in comparison with other funders. To achieve this, we perform the following steps:
+
+1. Determine which publications from the OpenAIRE dataset have data about related funded projects. 
+
+2. Find out which of these funded publications also appear in [CORD19 dataset](https://github.com/allenai/cord19). CORD19 dataset de-facto became the main repository of COVID-related publications.
+
+3. For funded COVID-related publications, we use [Semantic Scholar API](https://api.semanticscholar.org/) to extract data about citations and influential citations. Here, influential citations show that the publication was not only cited because it is related, but because the cited publication extends the citing publication. This provides a more accurate proxy for estimating the research impact of produced publications. For the more detailed methodology on influential citations, please refer to [Valenzuela et al. (2015).](https://www.semanticscholar.org/paper/Identifying-Meaningful-Citations-Valenzuela-Ha/1c7be3fc28296a97607d426f9168ad4836407e4b)
+
+
+### Data pipeline
+
+OpenAIRE provides a [data dump, ](https://zenodo.org/record/4201546#.X7PcVchKhPY)from which we were able to extract:
+
+
+
+* 13 711 372 datasets
+* 387 658 organizations
+* 2 279 601 projects
+* 7 754 242 other research products
+* 102 701 493 publications
+* 200 578 software records
+
+The schema for the published data is available [here](https://zenodo.org/record/4238939#.YQBz2-gzZPY).
+
+**Step 1.** First, we removed publications without a title or publication date, which yielded around 82 718 887 publications. To link publications with funded projects, we have also extracted 5 531 670 relationships. The Python code for linking publications to projects is located [here](https://github.com/EURITO/openaire/tree/main/files_to_DB).
+
+**Step 2**. From CORD19 dataset, we were able to extract 599616 publications. Then, we joined OpenAIRE publications and CORD19 publications by their ‘doi’ field. Due to the computationally extensive nature of the table joins, these operations are performed in SQL with scripts available [here](https://github.com/EURITO/openaire/tree/main/DB_transformation).
+
+**Step 3.** We then searched the resulted 5434 publications in the Semantic Scholar API to retrieve their citations and influential citations data. The Python code is available [here](https://github.com/EURITO/openaire/blob/main/OpenAIRE_COVID_track.ipynb).
+
+
+### Findings
+
+The final table with all the publications enriched with citations and influential citations data is available [here](https://github.com/EURITO/openaire/tree/main/data). Below we present some of the aggregated extracts from this table. European Commission is highlighted for readability.
+
+As seen from Figure 1 below, National Institute of Health (NIH), a US-based funding body, is leading in the number of publications. Further, in Figure 2, this is explained by the larger number of the funded projects. For one funded project, there are ca. 0.73 publications for NIH and 0.6 publications for EC-funded projects. In itself, however, these numbers could be stem from the fact that part of publications in OpenAIRE are missing DOI identifiers or publications are not linked to the funded projects.
+
+**Figure 1. CORD19 publications by funders**
+
+![CORD19 publications by funders](final_report_deck/png/openaire_publications.png){#fig:openaire_publications}
+
+Figure 2 illustrates the distribution of funded projects by funders. Here, we must note the differences in what constitutes a project across different funders. For instance, all three Canadian funding bodies, Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council of Canada and Social Sciences and Humanities Research Council, each have only one funded project, which is linked to 472, 256 and 20 COVID-related publications, respectively. At the same time, the projects from all the other funders are only linked to, at most, five publications.
+
+**Figure 2. CORD19 projects by funders**
+
+![CORD19 projects by funders](final_report_deck/png/openaire_projects.png){#fig:openaire_projects}
+
+In the table below, we present the top10 publications by the number of citations. The number of citations is, of course, affected by how long ago the publications were published. For instance, some of the publications presented here have been published long before COVID. At the same time, this indicates that the projects that were funded for seemingly unrelated topics (e.g. sepsis), can still be impactful in other contexts, such as global pandemic.
+
+**Table 1. Top10 cited publications**
+
+| Publication title                                                                                                               | Project title                                                                                                          | Funder                                  | Citations |
+|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|-----------|
+| Surviving Sepsis Campaign: International Guidelines for Management of Severe Sepsis and Septic Shock, 2012                      | unidentified                                                                                                           | Canadian Institutes of Health Research; | 4752      |
+| The Incubation Period of Coronavirus Disease 2019 (COVID-19) From Publicly Reported Confirmed Cases: Estimation and Application | Statistical methods for real-time forecasts of infectious disease: dynamic time-series and machine learning approaches | National Institutes of Health;          | 3092      |
+| UniProt: a worldwide hub of protein knowledge                                                                                   | Semantic Literature Annotation and Integrative Panomics Analysis for PTM-Disease Knowledge Network Discovery           | National Institutes of Health;          | 2156      |
+| Interferon-inducible antiviral effectors                                                                                        | REGULATION OF INTERFERON-INDUCED DSRNA-ACTIVATED KINASE                                                                | National Institutes of Health;          | 1679      |
+| Fatal outcome of human influenza A (H5N1) is associated with high viral load and hypercytokinemia.                              | unidentified                                                                                                           | Wellcome Trust;                         | 1626      |
+| Angiotensin-converting enzyme 2 protects from severe acute lung failure                                                         | unidentified                                                                                                           | Canadian Institutes of Health Research; | 1609      |
+| Multiscale mobility networks and the spatial spreading of infectious diseases                                                   | Developing the Framework for an Epidemic Forecast Infrastructure                                                       | European Commission;                    | 1465      |
+| Interfering with disease: a progress report on siRNA-based therapeutics                                                         | Rna Interference As A Weapon Against Bioterrorism                                                                      | National Institutes of Health;          | 1090      |
+| Graphene and graphene oxide: biofunctionalization and applications in biotechnology                                             | Innovative Biomonitoring Device for Rapid Diagnosis of Exposure to Nerve Agents                                        | National Institutes of Health;          | 1085      |
+
+Figure 3 presents the sum of citations for each funder, while Table 3 lists the top10 EU-funded projects by citations. 
+
+**Figure 3. Citations by funders**
+
+![Citations by funders](final_report_deck/png/openaire_citations.png){#fig:openaire_citations}
+
+As seen from the Table 2, our analysis was able to identify EU-funded projects that are highly relevant to COVID research, such as “[ANTIcipating the Global Onset of Novel Epidemics](https://cordis.europa.eu/project/id/278976/fr)” or “[Small-molecule Inhibitor Leads Versus emerging and neglected RNA viruses](https://cordis.europa.eu/project/id/260644)”. Both of these projects were completed in 2015-2016, but their relevance and impact can be still tracked in the global R&I response to pandemic.
+
+**Table 2. Top10 EU-funded projects by citations**
+
+| Project title                                                                                                                   | Citations |
+|---------------------------------------------------------------------------------------------------------------------------------|-----------|
+| ANTIcipating the Global Onset of Novel Epidemics                                                                                | 4321      |
+| Small-molecule Inhibitor Leads Versus emerging and neglected RNA viruses                                                        | 1952      |
+| Developing the Framework for an Epidemic Forecast Infrastructure                                                                | 1783      |
+| European Virus Archive                                                                                                          | 1194      |
+| HUMAN AND MOUSE MODELS OF RHINOVIRUS INDUCED ACUTE ASTHMA EXACERBATIONS                                                         | 1059      |
+| Modelling the spread of pandemic influenza and strategies for its containment and mitigation.                                   | 946       |
+| COllaborative Management Platform for detection and Analyses of (Re-)emerging and foodborne outbreaks in Europe                 | 903       |
+| Understanding and fighting metastasis by modulating the tumour microenvironment through interference with the protease network. | 886       |
+| Trained immunity: improving the next generation of vaccines for the older generation                                            | 819       |
+| European Virus Archive goes global                                                                                              | 778       |
+
+
+For each funder, we have also determined the number of influential citations generated by the related publications, as illustrated in Figure 4. Again, National Institutes of Health (USA), European Commision (EU) and Wellcome Trust (UK) are the top3 funders according to this criteria. 
+
+**Figure 4. Influential citations by funders**
+
+![Influential citations by funders](final_report_deck/png/openaire_inf_citations.png){#fig:openaire_inf_citations}
+
+Next, we calculate the Citations to Publications ratio, i.e. how many citations, on average, does one publication generate. This allows to control for the number of publications in large funders, such as NIH and EC. Here, national funders from Netherlands, Portugal, Ireland and Canada outperform large funders in citation productivity. For instance, each publication funded by Netherlands Organisation for Scientific Research (NWO) have generated approximately 81 citation.
+
+**Figure 5. Citations to publications ratio**
+
+![Citations to publications ratio](final_report_deck/png/openaire_cit_pub_ratio.png){#fig:openaire_cit_pub_ratio}
+
+Similarly, we analyze the Influential Citations to Publications ratio. Again, as seen from Figure 6, some national funders in Europe are more productive in generating influential citations compared to larger funders. For instance, publications funded by Netherlands Organisation for Scientific Research (NWO) produce more than 5 influential citations per publication, followed by Science Foundation Ireland (ca. 4 influential citations/publication) and Fundação para a Ciência e a Tecnologia, I.P. in Portugal (ca. 3 influential citations/publication).
+
+**Figure 6. Influential citations by publications ratio**
+
+![Influential citations to publications ratio](final_report_deck/png/openaire_inf_cit_pub_ratio.png){#fig:openaire_inf_cit_pub_ratio}
+
+
+### Limitations and Outlook
+
+In this subsection, we reported on our exploration of the OpenAIRE, CORD19 and Semantic Scholar datasets to analyse R&I impact of COVID-related funding across national and supranational research funding bodies.
+
+While there are limitations related to the coverage and linkages in these datasets, we observe the large progress in those areas and believe that with the development of artificial intelligence, natural language processing and overall data management technologies, usefulness of these datasets (and their combination) will grow with time.
+
+Similarly, there is a potential to use most of the techniques presented in the previous subsections to perform a more detailed analysis of these datasets, such as, for instance, topical composition of these publications and projects. 
+
+
 ## Conclusion {#sec:covid_conclusion}
 
 In this section we have reported the results of a semantic analysis of the R&D response to the Covid-19 pandemic using state-of-the-art  unsupervised machine learning, natural language processing and network analysis techniques. We implemented various methods to enhance the robustness of our results involving ensemble methods and benchmarking, and statistical comparisons between groups that provide measures of uncertainty about our estimates. We have presented extensive random (non-cherrypicked) examples of our results suggesting that the methods that we have developed add informative structure to the data despite its complexity. 
@@ -706,6 +827,3 @@ If EURITO has contributed, even if only to a small degree, to strengthen the cas
 
 
 # References
-
-
-    
