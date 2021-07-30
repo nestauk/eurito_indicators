@@ -641,11 +641,16 @@ EURITO indicators and methodology have been distributed through reports, working
 |    15.7: Users are kept informed about the quality of statistical outputs with respect to the quality criteria for European Statistics. | High |
 : Overall Summary of the validation of compliance. ESS-QAF Principles 7-8 and 11-15 {#tbl:val_assm}
 
-
-
 # Outputs {#sec:outputs}
 
-AAAA
+All of the activities described above yield the following dissemination outputs:
+
+* A collection of indicators about the evolution and geography of Artificial Intelligence research, EC funding activity related to the sustainable development goals and R&I activities related to Covid-19. Where possible, these indicators are distributed at the national level and multiple subnational levels (NUTS1, NUTS2 and NUTS3) helping to inform detailed analyses of geographical clustering in the R&I activities being measured. These indicators are available in tabular format from the [EURITO GitHub repository](http://www.github.com/eu_indicators) and the EURITO dashboard to be launched in fall 2021. The indicators are documented using a YAML schema.
+* Enriched micro-datasets that may be of interest to policymakers such as individual H2020 projects tagged with SDG goals and Covid-19 preparedness levels. 
+* An accessible, responsive and interactive dashboard that can be used to explore R&I indicators. In addition to those indicators developed in the project, the dashboard also includes Eurostat indicators related to innovation which have a detailed geographical dimensions (the tool will be launched in September 2021).
+* All the source code (written in Python) used to collect, process and enrich the data used in the project and to produce the indicators and visualisation frontend.
+
+
 
 # Organisational implications {#sec:org}
 
