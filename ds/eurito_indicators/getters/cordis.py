@@ -2,13 +2,13 @@ import json
 import os
 import pandas as pd
 
-from eurito_indicators import project_dir
+from eurito_indicators import PROJECT_DIR
 from eurito_indicators.utils.misc_utils import camel_to_snake
 
 
 FRAMEWORK_PROGRAMMES = ['fp1', 'fp2', 'fp3', 'fp4', 'fp5', 'fp6', 'fp7', 'h2020']
 
-CORDIS_DIR = f'{project_dir}/inputs/cordis'
+CORDIS_DIR = f'{PROJECT_DIR}/inputs/cordis'
 
 
 def cordis_file_path(fp_name, resource_name):
