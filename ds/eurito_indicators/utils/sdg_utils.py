@@ -1,4 +1,5 @@
 import json
+import os
 
 from eurito_indicators import PROJECT_DIR
 
@@ -44,6 +45,6 @@ def _sdg_lookup(lookup_file):
     Returns:
         A dict with integer keys and values of the corresponding lookup.
     """
-    with open(LOOKUP_DIR / lookup_file, "rt") as f:
+    with open(os.path.join(LOOKUP_DIR, lookup_file), "rt") as f:
        lookup  = json.load(f)
     return {int(k): v for k, v in lookup.items()}
