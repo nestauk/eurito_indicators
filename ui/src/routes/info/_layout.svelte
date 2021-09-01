@@ -13,7 +13,6 @@
 	import theme from 'app/theme';
 
 	const links = {
-		beta: 'Beta release',
 		privacy: 'Privacy',
 		disclaimer: 'Disclaimer',
 		feedback: 'Feedback',
