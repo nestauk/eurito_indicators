@@ -4,9 +4,11 @@
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
-	import ColorCorrection from 'app/components/ColorCorrection.svelte';
-	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	import ColorCorrection from 'app/components/ColorCorrection.svelte';
+	import MultiBanner from 'app/components/MultiBanner.svelte';
+	import Nav from 'app/components/Nav.svelte';
+	import Privacy from 'app/components/content/info/Privacy.svelte';
 	import {
 		_a11yColorStyles,
 		_a11yTextStyles,
@@ -14,6 +16,10 @@
 		applyStyles,
 	} from 'app/stores/a11ySettings';
 	import theme from 'app/theme';
+
+	const bannerComponents = [
+		Privacy
+	];
 
 	export let segment;
 
@@ -44,6 +50,10 @@
 
 <ScreenGauge />
 <ColorCorrection />
+<MultiBanner
+	{_screen}
+	components={bannerComponents}
+/>
 
 {#if isLayoutUndefined}
 	<LoadingView stroke={theme.colorMain} />
