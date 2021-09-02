@@ -9,35 +9,23 @@
 	import Link from '@svizzle/ui/src/Link.svelte';
 
 	import {isNotNil} from '@svizzle/utils';
-	import {toolName} from 'app/config';
 	import theme from 'app/theme';
 
-	const links = {
+	const segments = ['privacy', 'disclaimer', 'feedback'];
+	const titles = {
 		privacy: 'Privacy',
 		disclaimer: 'Disclaimer',
 		feedback: 'Feedback',
 	}
-	const segments = _.keys(links);
 
 	export let segment;
 
-	$: currentValueIndex = _.findIndex(
-		segments,
-		_.is(segment)
-	);
+	$: currentValueIndex = _.findIndex(segments, _.is(segment));
 	$: prevSegment = segments[currentValueIndex - 1];
 	$: nextSegment = segments[currentValueIndex + 1];
 	$: hasPrevSegment = isNotNil(prevSegment);
 	$: hasNextSegment = isNotNil(nextSegment);
 </script>
-
-<svelte:head>
-	<title>EURITO - Info</title>
-	<meta
-		name='description'
-		content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'
-	>
-</svelte:head>
 
 <main class={$_screen?.classes}>
 	<section>
@@ -56,7 +44,7 @@
 								}}
 							>
 								<span>
-									{links[id]}
+									{titles[id]}
 								</span>
 							</Link>
 						</li>
@@ -65,7 +53,7 @@
 			{:else}
 				<div class='tab-selector'>
 					<label for=''>
-						{links[segment]}
+						{titles[segment]}
 					</label>
 
 					<div>
@@ -107,14 +95,26 @@
 
 	section {
 		background-color: white;
+		display: grid;
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
 		width: 100%;
 	}
 
+	.small section {
+		grid-template-areas: 'header' 'slot' 'menu';
+		grid-template-rows: auto 1fr auto;
+	}
+
+	.medium section {
+		grid-template-areas: 'header' 'menu' 'slot';
+		grid-template-rows: auto auto 1fr;
+	}
+
 	h1 {
 		font-weight: bold;
+		grid-area: header;
 	}
 
 	ul {
@@ -124,6 +124,14 @@
 
 	.tabs {
 		user-select: none;
+		grid-area: menu;
+	}
+
+	.small .tabs {
+		margin-top: 2rem;
+	}
+	.medium .tabs {
+		margin-top: 0;
 	}
 	.tabs ul {
 		display: flex;
