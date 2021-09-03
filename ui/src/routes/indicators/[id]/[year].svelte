@@ -1,4 +1,4 @@
-<script context="module">
+<script context='module'>
 	import {lookup} from 'app/data/groups';
 	import {parseCSV} from 'app/utils/domain';
 

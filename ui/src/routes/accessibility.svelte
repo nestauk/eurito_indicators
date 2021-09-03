@@ -225,7 +225,7 @@
 			can further improve the accessibility of our site,
 			please contact us at
 			<Link
-				href="mailto:{contactEmail}"
+				href='mailto:{contactEmail}'
 				isBold={true}
 				theme={linkTheme}
 			>
