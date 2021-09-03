@@ -1,8 +1,8 @@
-<script context="module">
+<script context='module'>
 	import {lookup} from 'app/data/groups';
 	import {parseCSV} from 'app/utils/domain';
 
-	export function preload({ params: {id, year}, query }) {
+	export function preload ({params: {id, year}}) {
 		return this.fetch(lookup[id].url)
 			.then(r => r.text())
 			.then(parseCSV(id))
