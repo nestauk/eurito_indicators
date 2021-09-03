@@ -88,10 +88,10 @@
 </script>
 
 <svelte:head>
-	<title>EURITO - Accessibility</title>
+	<title>Accessibility - {toolName}</title>
 	<meta
 		name='description'
-		content='All about accessibility in {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'
+		content='All about accessibility in the {toolName}, including a guide on how to enable the accessibility dialog, accessibility audit and other quality audits, plus some pointers to setup various accessibility tools on your system'
 	>
 </svelte:head>
 

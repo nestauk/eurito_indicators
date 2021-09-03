@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO - Timelines</title>
+	<title>Timelines - {toolName}</title>
 	<meta
 		content='{toolName}: the temporal distribution of all the indicators in this tool'
 		name='description'
