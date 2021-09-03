@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>EURITO - Home</title>
+	<title>Home - {toolName}</title>
 	<meta
 		content='{toolName}: homepage'
 		name='description'
