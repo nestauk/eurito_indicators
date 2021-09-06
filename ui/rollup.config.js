@@ -9,6 +9,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import yaml from '@rollup/plugin-yaml';
 
+import {mdsvex} from 'mdsvex';
+
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
@@ -42,6 +44,13 @@ export default {
 				'process.env.SAPPER_EXPORT': JSON.stringify(isExported)
 			}),
 			svelte({
+				extensions: [
+					'.svelte',
+					'.svx'
+				],
+				preprocess: mdsvex({
+					layout:'./src/node_modules/app/components/content/MDLayout.svelte'
+				}),
 				compilerOptions: {
 					dev,
 					hydratable: true,
@@ -94,6 +103,13 @@ export default {
 				'process.env.SAPPER_EXPORT': JSON.stringify(isExported)
 			}),
 			svelte({
+				extensions: [
+					'.svelte',
+					'.svx'
+				],
+				preprocess: mdsvex({
+					layout:'./src/node_modules/app/components/content/MDLayout.svelte'
+				}),
 				compilerOptions: {
 					generate: 'ssr',
 					dev,

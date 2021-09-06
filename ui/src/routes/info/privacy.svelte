@@ -1,5 +1,5 @@
 <script>
-	import Privacy from 'app/components/content/info/Privacy.svelte';
+	import Privacy from 'app/components/content/info/Privacy.svx';
 	import {toolName} from 'app/config';
 </script>
 
