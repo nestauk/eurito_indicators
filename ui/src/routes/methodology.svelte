@@ -2,6 +2,7 @@
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import CTA from 'app/components/CTA.svelte';
 	import Methodology from 'app/components/content/Methodology.svx';
 
 	import {toolName} from 'app/config';
@@ -21,7 +22,7 @@
 	<div>
 		<Methodology/>
 
-		<div class='cta'>
+		<CTA>
 			<LinkButton
 				download
 				glyph={Download}
@@ -39,7 +40,7 @@
 				text='Explore the indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
-		</div>
+		</CTA>
 	</div>
 </main>
 
@@ -59,18 +60,5 @@
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
-	}
-
-	.cta {
-		display: flex;
-		justify-content: space-around;
-		margin: 4rem 0 3rem 0;
-		flex-direction: column;
-		row-gap: 1em;
-	}
-
-	:global(.medium) .cta {
-		flex-direction: row;
-		row-gap: 0;
 	}
 </style>

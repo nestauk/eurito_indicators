@@ -1,4 +1,5 @@
 <script>
+	import CTA from 'app/components/CTA.svelte';
 	import Home from 'app/components/content/Home.svx';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import theme from 'app/theme';
@@ -18,7 +19,7 @@
 	<div>
 		<Home />
 
-		<div class='cta'>
+		<CTA>
 			<LinkButton
 				href='/methodology'
 				text='Read more about the methodology'
@@ -29,7 +30,7 @@
 				text='Explore the indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
-		</div>
+		</CTA>
 	</div>
 </main>
 
@@ -48,18 +49,5 @@
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
-	}
-	.cta {
-		align-content: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		margin: 2rem 0 3rem 0;
-		row-gap: 1em;
-	}
-
-	:global(.medium) .cta {
-		flex-direction: row;
-		row-gap: 0;
 	}
 </style>
