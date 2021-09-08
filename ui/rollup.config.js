@@ -49,7 +49,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/MDLayout.svelte'
+					layout:'./src/node_modules/app/components/md/_layout.svelte'
 				}),
 				compilerOptions: {
 					dev,
@@ -108,7 +108,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/MDLayout.svelte'
+					layout:'./src/node_modules/app/components/md/_layout.svelte'
 				}),
 				compilerOptions: {
 					generate: 'ssr',
