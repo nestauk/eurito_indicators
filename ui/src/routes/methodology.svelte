@@ -3,7 +3,8 @@
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import CTA from 'app/components/CTA.svelte';
-	import Methodology from 'app/components/content/Methodology.svx';
+
+	import Methodology from './Methodology.svx';
 
 	import {toolName} from 'app/config';
 	import {zipUrl} from 'app/utils/assets';

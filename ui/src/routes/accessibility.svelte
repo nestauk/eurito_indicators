@@ -11,8 +11,15 @@
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
-	import Accessibility from 'app/components/content/Accessibility.svx';
 
+	import Accessibility from './Accessibility.svx';
+
+	import {
+		failingA11yAudit,
+		lighthouseUrls,
+		toolName
+	} from 'app/config';
+	import theme from 'app/theme';
 	import {
 		getTest,
 		getTestResultsFilename,
@@ -20,12 +27,6 @@
 		testResultsBaseURL,
 		summarizeResults
 	} from 'app/utils/tests';
-	import {
-		failingA11yAudit,
-		lighthouseUrls,
-		toolName
-	} from 'app/config';
-	import theme from 'app/theme';
 
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
 

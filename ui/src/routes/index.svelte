@@ -1,10 +1,11 @@
 <script>
 	import CTA from 'app/components/CTA.svelte';
-	import Home from 'app/components/content/Home.svx';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-	import theme from 'app/theme';
 
+	import Home from './Index.svx';
+	
 	import {toolName} from 'app/config';
+	import theme from 'app/theme';
 </script>
 
 <svelte:head>

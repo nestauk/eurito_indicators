@@ -1,11 +1,9 @@
 <script>
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import CTA from 'app/components/CTA.svelte';
-	import IndicatorsMedium
-		from 'app/components/content/guides/IndicatorsMedium.svx';
-	import IndicatorsSmall
-		from 'app/components/content/guides/IndicatorsSmall.svx';
-		import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import IndicatorsMedium from './IndicatorsMedium.svx';
+	import IndicatorsSmall from './IndicatorsSmall.svx';
+	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
@@ -46,6 +44,5 @@
 		background-color: white;
 		max-width: 900px;
 		overflow-y: auto;
-		padding: 2rem;
 	}
 </style>
