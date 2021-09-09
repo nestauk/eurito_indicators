@@ -181,7 +181,10 @@ indicators in a single file.
 
 Some indicators have been created for NUTS3 and LEP, but these are not provided
 in the tool, nor they are official and should be considered as non-official
-extras: {#each extraDownloadIds as availableId, index}[{availableId}](/data/{basename}_{availableId}.csv){#if index < maxIndex}, {/if}{/each}.
+extras:
+{#each extraDownloadIds as availableId, index}
+[{availableId}](/data/{basename}_{availableId}.csv){#if index < maxIndex}, {/if}
+{/each}.
 
 {/if}
 
