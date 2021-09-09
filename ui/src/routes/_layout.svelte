@@ -9,7 +9,6 @@
 	import MultiBanner from 'app/components/MultiBanner.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import NoScript from 'app/components/NoScript.svelte';
-
 	import Privacy from './info/Privacy.svx';
 
 	import {

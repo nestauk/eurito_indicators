@@ -1,11 +1,8 @@
 <script>
-	import CTA from 'app/components/CTA.svelte';
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
-	import {
-		contactEmail,
-		toolName
-	} from 'app/config';
+	import {contactEmail,toolName} from 'app/config';
 	import theme from 'app/theme';
 	import {zipUrl} from 'app/utils/assets';
 
@@ -77,6 +74,7 @@ the accessibility of our site, please contact us at
 [{contactEmail}](mailto:{contactEmail}).
 
 ## Resources
+
 ### Using a screen reader
 
 If you need a screen reader and have not installed one already, you may choose
@@ -88,7 +86,7 @@ You can customize a computer mouse pointer in several ways. For example, you can
 slow down the speed of the mouse pointer for easier handling. You can also
 change its appearance so that it contrasts more with the screen content.
 
-<CTA>
+<ResponsiveFlex>
 	<LinkButton
 		href={windowsMouseURL}
 		text='Windows'
@@ -101,4 +99,4 @@ change its appearance so that it contrasts more with the screen content.
 		theme={{backgroundColor: theme.colorLink}}
 		type='external'
 	/>
-</CTA>
+</ResponsiveFlex>

@@ -1,15 +1,15 @@
-<script>
-	const crunchbaseUrl = 'https://www.crunchbase.com/';
-	const DelgadoEtAlUrl = 'https://www.nber.org/papers/w20375.pdf';
-	const eurostatUrl = 'https://ec.europa.eu/eurostat';
-	const HausmanAndHidalgoUrl = 'https://www.pnas.org/content/106/26/10570';
-	const hesaUrl = 'https://www.hesa.ac.uk';
-	const MateosGarciaUrl = 'https://osf.io/preprints/socarxiv/3cu67';
-	const nutsUrl = 'https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts';
-	const onsUrl = 'https://ons.gov.uk';
-	const patstatUrl = 'https://www.epo.org/searching-for-patents/business/patstat.html';
-	const ukriUrl = 'https://www.ukri.org/';
-</script>
+---
+crunchbaseUrl: https://www.crunchbase.com/
+DelgadoEtAlUrl: https://www.nber.org/papers/w20375.pdf
+eurostatUrl: https://ec.europa.eu/eurostat
+HausmanAndHidalgoUrl: https://www.pnas.org/content/106/26/10570
+hesaUrl: https://www.hesa.ac.uk
+MateosGarciaUrl: https://osf.io/preprints/socarxiv/3cu67
+nutsUrl: https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+onsUrl: https://ons.gov.uk
+patstatUrl: https://www.epo.org/searching-for-patents/business/patstat.html
+ukriUrl: https://www.ukri.org/
+---
 
 # Methodology
 

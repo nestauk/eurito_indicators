@@ -1,8 +1,7 @@
 <script>
-	import CTA from 'app/components/CTA.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-
 	import Home from './Index.svx';
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 	
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
@@ -20,7 +19,7 @@
 	<div>
 		<Home />
 
-		<CTA>
+		<ResponsiveFlex>
 			<LinkButton
 				href='/methodology'
 				text='Read more about the methodology'
@@ -31,7 +30,7 @@
 				text='Explore the indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
-		</CTA>
+		</ResponsiveFlex>
 	</div>
 </main>
 

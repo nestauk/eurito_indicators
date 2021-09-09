@@ -1,6 +1,6 @@
-<script>
-	const repoUrl = 'https://github.com/nestauk/eurito_indicators';
-</script>
+---
+repoUrl: https://github.com/nestauk/eurito_indicators
+---
 
 # EURITO indicators
 

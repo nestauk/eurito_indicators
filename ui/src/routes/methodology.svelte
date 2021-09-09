@@ -2,9 +2,8 @@
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-	import CTA from 'app/components/CTA.svelte';
-
 	import Methodology from './Methodology.svx';
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 
 	import {toolName} from 'app/config';
 	import {zipUrl} from 'app/utils/assets';
@@ -23,7 +22,7 @@
 	<div>
 		<Methodology/>
 
-		<CTA>
+		<ResponsiveFlex>
 			<LinkButton
 				download
 				glyph={Download}
@@ -41,7 +40,7 @@
 				text='Explore the indicators'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
-		</CTA>
+		</ResponsiveFlex>
 	</div>
 </main>
 

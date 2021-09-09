@@ -1,6 +1,6 @@
 <script>
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
-	import CTA from 'app/components/CTA.svelte';
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 	import IndicatorsMedium from './IndicatorsMedium.svx';
 	import IndicatorsSmall from './IndicatorsSmall.svx';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
@@ -25,7 +25,7 @@
 		<IndicatorsSmall />
 	{/if}
 
-	<CTA>
+	<ResponsiveFlex>
 		<LinkButton
 			href='/accessibility'
 			text='Read the accessibility statement'
@@ -36,7 +36,7 @@
 			text='Explore the indicators'
 			theme={{backgroundColor: theme.colorLink}}
 		/>
-	</CTA>
+	</ResponsiveFlex>
 </div>
 
 <style>

@@ -8,7 +8,6 @@ import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import yaml from '@rollup/plugin-yaml';
-
 import {mdsvex} from 'mdsvex';
 
 import config from 'sapper/config/rollup.js';
