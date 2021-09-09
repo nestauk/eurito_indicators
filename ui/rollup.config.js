@@ -1,19 +1,18 @@
-import { terser } from 'rollup-plugin-terser';
+import {mdsvex} from 'mdsvex';
 import babel from 'rollup-plugin-babel';
 import cleanup from "rollup-plugin-cleanup";
 import commonjs from '@rollup/plugin-commonjs';
 import dsv from '@rollup/plugin-dsv';
 import json from '@rollup/plugin-json';
-import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import svelte from 'rollup-plugin-svelte';
+import { terser } from 'rollup-plugin-terser';
 import yaml from '@rollup/plugin-yaml';
-import {mdsvex} from 'mdsvex';
-
 import config from 'sapper/config/rollup.js';
-import pkg from './package.json';
 
 import {unescape_code} from './src/node_modules/app/utils/unescape-inlineCode';
+import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
 const isExported = process.env.SAPPER_EXPORT;
@@ -50,7 +49,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/_layout.svelte',
+					layout:'./src/node_modules/app/components/mdsvex/_layout.svelte',
 					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {
@@ -110,7 +109,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/_layout.svelte',
+					layout:'./src/node_modules/app/components/mdsvex/_layout.svelte',
 					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {

@@ -1,10 +1,7 @@
 <script>
-	import {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
-
 	import {toolName} from 'app/config';
 
-	import A11ymenu from './A11ymenu.svx';
+	import A11ymenu from '../_content/guides/A11ymenu.svx';
 </script>
 
 <svelte:head>

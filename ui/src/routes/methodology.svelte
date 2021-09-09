@@ -2,7 +2,7 @@
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-	import Methodology from './Methodology.svx';
+	import Methodology from './_content/Methodology.svx';
 	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 
 	import {toolName} from 'app/config';

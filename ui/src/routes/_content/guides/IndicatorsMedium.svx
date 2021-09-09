@@ -157,7 +157,6 @@ extras:
 [{availableId}](/data/{basename}_{availableId}.csv){#if index < maxIndex}, {/if}
 {/each}.
 
-
 {/if}
 
 ### Version, changelog and feedback

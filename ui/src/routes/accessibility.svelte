@@ -12,7 +12,7 @@
 	import Link from '@svizzle/ui/src/Link.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
-	import Accessibility from './Accessibility.svx';
+	import Accessibility from './_content/Accessibility.svx';
 
 	import {
 		failingA11yAudit,

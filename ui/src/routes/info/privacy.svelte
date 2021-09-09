@@ -1,5 +1,5 @@
 <script>
-	import Privacy from './Privacy.svx';
+	import Privacy from '../_content/info/Privacy.svx';
 	import {toolName} from 'app/config';
 </script>
 

@@ -1,6 +1,6 @@
 <script>
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 
 	import {contactEmail,toolName} from 'app/config';
 	import theme from 'app/theme';
