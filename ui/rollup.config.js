@@ -14,6 +14,8 @@ import {mdsvex} from 'mdsvex';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
+import {unescape_code} from './src/node_modules/app/utils/unescape-inlineCode';
+
 const mode = process.env.NODE_ENV;
 const isExported = process.env.SAPPER_EXPORT;
 const dev = mode === 'development';
@@ -49,7 +51,8 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/_layout.svelte'
+					layout:'./src/node_modules/app/components/md/_layout.svelte',
+					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {
 					dev,
@@ -108,7 +111,8 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/md/_layout.svelte'
+					layout:'./src/node_modules/app/components/md/_layout.svelte',
+					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {
 					generate: 'ssr',

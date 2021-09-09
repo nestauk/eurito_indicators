@@ -1,5 +1,4 @@
 <script>
-	import Code from 'app/components/md/code.svelte';
 	import {
 		allNUTS2IndicatorsCsvName,
 		extraDownloadIds,
@@ -174,7 +173,7 @@ appears to download a zip file containing the CSV files of all of the
 indicators.
 
 That zip file also contains an extra CSV file (titled 
-<Code>{allNUTS2IndicatorsCsvName}</Code>) containing all datapoints of all
+`{allNUTS2IndicatorsCsvName}`) containing all datapoints of all
 indicators in a single file.
 
 {#if extraDownloadIds.length}
@@ -189,7 +188,7 @@ extras: {#each extraDownloadIds as availableId, index}[{availableId}](/data/{bas
 ### Version, changelog and feedback
 
 Please click on the hamburger then find the app version number of the tool
-(currently <Code>{version}</Code>).
+(currently `{version}`).
 
 Clicking on the it will navigate to a list of all the notable changes introduced
 in each version of the tool on GitHub.
