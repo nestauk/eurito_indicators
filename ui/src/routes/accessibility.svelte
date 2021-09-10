@@ -96,7 +96,7 @@
 </svelte:head>
 
 <main class={$_screen?.classes}>
-	<div>
+	<section>
 		<Accessibility/>
 
 		<H2>Detected Browsing Environment</H2>
@@ -232,7 +232,7 @@
 		>
 			Loading...
 		</iframe>
-	</div>
+	</section>
 </main>
 
 <style>
@@ -245,7 +245,7 @@
 		width: 100%;
 	}
 
-	div {
+	section {
 		background-color: white;
 		box-shadow: var(--box-shadow-y);
 		max-width: 900px;
