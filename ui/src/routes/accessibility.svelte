@@ -1,10 +1,10 @@
 <script>
-	import {onMount} from 'svelte';
-	import * as _ from 'lamb';
 	import {isNotNil} from '@svizzle/utils';
-	import Bowser from 'bowser';
 	import {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import Bowser from 'bowser';
+	import * as _ from 'lamb';
+	import {onMount} from 'svelte';
 
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
@@ -12,7 +12,8 @@
 	import Link from '@svizzle/ui/src/Link.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
-	import Accessibility from './_content/Accessibility.svx';
+	import H2 from 'app/components/mdsvex/h2.svelte';
+	import P from 'app/components/mdsvex/p.svelte';
 
 	import {
 		failingA11yAudit,
@@ -27,6 +28,8 @@
 		testResultsBaseURL,
 		summarizeResults
 	} from 'app/utils/tests';
+
+	import Accessibility from './_content/Accessibility.svx';
 
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
 
@@ -96,7 +99,7 @@
 	<div>
 		<Accessibility/>
 
-		<h2>Detected Browsing Environment</h2>
+		<H2>Detected Browsing Environment</H2>
 		<dl>
 			<dt>Platform</dt>
 			<dd>{environment?.platform?.type}</dd>
@@ -124,26 +127,26 @@
 		</dl>
 
 		{#if testResults?.tested}
-			<p>
+			<P>
 				{#if testResults.passed}
 					This browsing environment has been tested and is supported.
 				{:else}
 					This browsing environment has been tested but some tests
 					have failed and it may not be fully supported.
 				{/if}
-			</p>
+			</P>
 		{:else}
-			<p>
+			<P>
 				This browsing environment hasn't been tested and user experience
 				may vary.
 				{#if environment?.os?.name === 'Linux'}
 					Browserstack does not offer testing under Linux operating
 					systems
 				{/if}
-			</p>
+			</P>
 		{/if}
 
-		<h2>Quality audits</h2>
+		<H2>Quality audits</H2>
 		<menu class='tabs'>
 			{#if $_screen?.sizes?.medium}
 				<ul>
