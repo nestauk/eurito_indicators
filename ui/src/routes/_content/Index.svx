@@ -1,0 +1,36 @@
+---
+repoUrl: https://github.com/nestauk/eurito_indicators
+---
+
+# EURITO indicators
+
+## Intro
+
+We have created an [open repository](repoUrl) of indicators TODO: complete.
+
+We have also built a tool to [visualise and explore](indicators) these
+indicators TODO: complete.
+
+## The framework
+
+Our indicators are arranged in four broad categories.
+
+### Public R&D Capability
+
+Measuring the quantity and excellence of R&D activity taking place in higher
+education institutions in a region.
+
+### Business R&D Capability
+
+Measuring the level of R&D activity and innovative outputs in the private sector
+in a region.
+
+### Knowledge exchange
+
+Measuring the connectivity between higher education institutions in a region and
+the wider economy.
+
+### Place potential
+
+Measuring wider infrastructures and framework conditions in a region that might
+drive - or hinder - its innovative performance.

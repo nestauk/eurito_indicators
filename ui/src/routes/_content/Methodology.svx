@@ -1,0 +1,56 @@
+---
+crunchbaseUrl: https://www.crunchbase.com/
+DelgadoEtAlUrl: https://www.nber.org/papers/w20375.pdf
+eurostatUrl: https://ec.europa.eu/eurostat
+HausmanAndHidalgoUrl: https://www.pnas.org/content/106/26/10570
+hesaUrl: https://www.hesa.ac.uk
+MateosGarciaUrl: https://osf.io/preprints/socarxiv/3cu67
+nutsUrl: https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+onsUrl: https://ons.gov.uk
+patstatUrl: https://www.epo.org/searching-for-patents/business/patstat.html
+ukriUrl: https://www.ukri.org/
+---
+
+# Methodology
+
+## Data sources
+
+As much as possible we have used data from official sources such as
+[ONS]({onsUrl}), [Eurostat]({eurostatUrl}), [HESA]({hesaUrl}), [UKRI]({ukriUrl}).
+
+One reason to do this is to enable the reproducibility of our analysis, and to
+remove the reliance of the tool on proprietary sources.
+
+Having said this, in a small number of instances we have used proprietary data
+sources such as [PATSTAT]({patstatUrl}) for the analysis of patenting, and
+[Crunchbase]({crunchbaseUrl}) for the analysis of venture capital investment.
+
+## Geographies
+
+We use [NUTS2]({nutsUrl}) regions as our geographical unit of analysis. This has
+allowed us to collect data about regional R&D activity which is only available
+at that level.
+
+In many cases we have reverse geocoded observations available at high level of
+geographical resolution (for example, the geographical coordinates of a higher
+education institution) using NUTS2 boundary files available from Eurostat. When
+doing this, we have assigned observations to regions in the NUTS2 version that
+was in use at the time when the data were collected / when the events captured
+in the data took place.
+
+## Data processing
+
+In general, we have avoided complex data processing beyond what was required to
+aggregate data at our preferred level of geographical resolution. There are
+however a couple of exceptions to this:
+	* We have calculated indices of economic complexity for UK regions used the
+	  algorithm developed by [Hausman and Hidalgo (2009)]({HausmanAndHidalgoUrl})
+	* We have measured levels of employment in entertainment and cultural
+	  sectors using an industrial segmentation based on the methodology
+	  developed by [Delgado et al (2015)]({DelgadoEtAlUrl}).
+	* We have identified UKRI-funded research projects in STEM disciplines using
+	  a machine learning analysis of project descriptions presented in
+	  [Mateos-Garcia (2017)]({MateosGarciaUrl})
+
+We indicate those indicators based on experimental methodologies or data sources
+where relevant.

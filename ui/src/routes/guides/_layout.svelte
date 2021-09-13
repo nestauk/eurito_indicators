@@ -7,9 +7,12 @@
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
+	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 
 	import {isNotNil} from '@svizzle/utils';
 	import theme from 'app/theme';
+
+	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 
 	const segments = ['app', 'indicators', 'a11ymenu'];
 	const titles = {
@@ -79,7 +82,22 @@
 				</div>
 			{/if}
 		</menu>
-		<slot />
+		<div>
+			<slot />
+			
+			<ResponsiveFlex>
+				<LinkButton
+					href='/accessibility'
+					text='Read the accessibility statement'
+					theme={{backgroundColor: theme.colorLink}}
+				/>
+				<LinkButton
+					href='/indicators'
+					text='Explore the indicators'
+					theme={{backgroundColor: theme.colorLink}}
+				/>
+			</ResponsiveFlex>
+		</div>
 	</section>
 </main>
 
@@ -110,6 +128,12 @@
 	.medium section {
 		grid-template-areas: 'header' 'menu' 'slot';
 		grid-template-rows: auto auto 1fr;
+	}
+
+	div {
+		background-color: white;
+		max-width: 900px;
+		overflow-y: auto;
 	}
 
 	h1 {
@@ -175,13 +199,5 @@
 		margin-left: 1em;
 		height: 1rem;
 		width: 1rem;
-	}
-
-	.cta {
-		display: flex;
-		justify-content: space-around;
-		margin: 4rem 0 3rem 0;
-		flex-direction: column;
-		row-gap: 1em;
 	}
 </style>
