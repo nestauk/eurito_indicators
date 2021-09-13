@@ -176,12 +176,4 @@
 		height: 1rem;
 		width: 1rem;
 	}
-
-	.cta {
-		display: flex;
-		justify-content: space-around;
-		margin: 4rem 0 3rem 0;
-		flex-direction: column;
-		row-gap: 1em;
-	}
 </style>

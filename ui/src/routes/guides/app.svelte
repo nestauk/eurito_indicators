@@ -1,9 +1,7 @@
 <script>
 	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
-	import AppMedium
-		from 'app/components/content/guides/AppMedium.svelte';
-	import AppSmall
-		from 'app/components/content/guides/AppSmall.svelte';
+	import AppMedium from '../_content/guides/AppMedium.svx';
+	import AppSmall from '../_content/guides/AppSmall.svx';
 
 	import {toolName} from 'app/config';
 </script>
