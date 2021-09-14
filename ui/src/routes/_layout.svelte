@@ -3,13 +3,14 @@
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
-    import { persist, cookieStorage } from "@macfja/svelte-persistent-store";
 
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
 	import MultiBanner from 'app/components/MultiBanner.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import NoScript from 'app/components/NoScript.svelte';
+	import Storage from 'app/components/Storage.svelte';
+
 	import Privacy from './_content/info/Privacy.svx';
 
 	import {
@@ -18,10 +19,10 @@
 		_a11yTextStyles,
 		_isA11yDirty,
 		applyStyles,
+		defaultA11ySettings
 	} from 'app/stores/a11ySettings';
 	import theme from 'app/theme';
 
-	const cookie = persist(_a11ySettings, cookieStorage(), 'a11y_settings');
 	const bannerComponents = [
 		Privacy
 	];
@@ -54,6 +55,14 @@
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
 	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>
+
+<Storage
+	_store={_a11ySettings}
+	defaultValue={defaultA11ySettings}
+	isReactive={true}
+	key='a11y_settings'
+	type='localStorage'
+/>
 
 <ScreenGauge />
 <ColorCorrection />
