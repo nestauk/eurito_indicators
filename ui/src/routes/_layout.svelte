@@ -3,6 +3,7 @@
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
+    import { persist, cookieStorage } from "@macfja/svelte-persistent-store";
 
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
@@ -12,6 +13,7 @@
 	import Privacy from './_content/info/Privacy.svx';
 
 	import {
+		_a11ySettings,
 		_a11yColorStyles,
 		_a11yTextStyles,
 		_isA11yDirty,
@@ -19,6 +21,7 @@
 	} from 'app/stores/a11ySettings';
 	import theme from 'app/theme';
 
+	const cookie = persist(_a11ySettings, cookieStorage(), 'a11y_settings');
 	const bannerComponents = [
 		Privacy
 	];
