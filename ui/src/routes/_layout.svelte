@@ -9,15 +9,18 @@
 	import MultiBanner from 'app/components/MultiBanner.svelte';
 	import Nav from 'app/components/Nav.svelte';
 	import NoScript from 'app/components/NoScript.svelte';
-	import Privacy from './_content/info/Privacy.svx';
-
+	import Storage from 'app/components/Storage.svelte';
 	import {
+		_a11ySettings,
 		_a11yColorStyles,
 		_a11yTextStyles,
 		_isA11yDirty,
 		applyStyles,
+		defaultA11ySettings
 	} from 'app/stores/a11ySettings';
 	import theme from 'app/theme';
+
+	import Privacy from './_content/info/Privacy.svx';
 
 	const bannerComponents = [
 		Privacy
@@ -51,6 +54,14 @@
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
 	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>
+
+<Storage
+	_store={_a11ySettings}
+	defaultValue={defaultA11ySettings}
+	isReactive={true}
+	key='a11ySettings'
+	type='localStorage'
+/>
 
 <ScreenGauge />
 <ColorCorrection />
