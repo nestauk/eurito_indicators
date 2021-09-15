@@ -10,9 +10,6 @@
 	import Nav from 'app/components/Nav.svelte';
 	import NoScript from 'app/components/NoScript.svelte';
 	import Storage from 'app/components/Storage.svelte';
-
-	import Privacy from './_content/info/Privacy.svx';
-
 	import {
 		_a11ySettings,
 		_a11yColorStyles,
@@ -22,6 +19,8 @@
 		defaultA11ySettings
 	} from 'app/stores/a11ySettings';
 	import theme from 'app/theme';
+
+	import Privacy from './_content/info/Privacy.svx';
 
 	const bannerComponents = [
 		Privacy
@@ -60,7 +59,7 @@
 	_store={_a11ySettings}
 	defaultValue={defaultA11ySettings}
 	isReactive={true}
-	key='a11y_settings'
+	key='a11ySettings'
 	type='localStorage'
 />
 
