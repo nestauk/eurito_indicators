@@ -23,7 +23,7 @@
 		setNextId,
 		setPrevId,
 		updateCurrentValue,
-	} from 'app/stores/a11ySettings';
+	} from '../stores/a11ySettings';
 
 	export let _screen;
 

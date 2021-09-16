@@ -3,7 +3,7 @@
 	import IndicatorsMedium from '../_content/guides/IndicatorsMedium.svx';
 	import IndicatorsSmall from '../_content/guides/IndicatorsSmall.svx';
 
-	import {toolName} from 'app/config';
+	import {toolName} from '$lib/config';
 </script>
 
 <svelte:head>

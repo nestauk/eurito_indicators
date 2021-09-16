@@ -3,11 +3,11 @@
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import Methodology from './_content/Methodology.svx';
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
+	import ResponsiveFlex from '$lib/components/ResponsiveFlex.svelte';
 
-	import {toolName} from 'app/config';
-	import {zipUrl} from 'app/utils/assets';
-	import theme from 'app/theme';
+	import {toolName} from '$lib/config';
+	import {zipUrl} from '$lib/utils/assets';
+	import theme from '$lib/theme';
 </script>
 
 <svelte:head>

@@ -8,11 +8,10 @@
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-
 	import {isNotNil} from '@svizzle/utils';
-	import theme from 'app/theme';
+	import theme from '$lib/theme';
 
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
+	import ResponsiveFlex from '$lib/components/ResponsiveFlex.svelte';
 
 	const segments = ['app', 'indicators', 'a11ymenu'];
 	const titles = {
@@ -84,7 +83,7 @@
 		</menu>
 		<div>
 			<slot />
-			
+
 			<ResponsiveFlex>
 				<LinkButton
 					href='/accessibility'

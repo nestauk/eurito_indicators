@@ -4,12 +4,12 @@
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
-	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
-	import ColorCorrection from 'app/components/ColorCorrection.svelte';
-	import MultiBanner from 'app/components/MultiBanner.svelte';
-	import Nav from 'app/components/Nav.svelte';
-	import NoScript from 'app/components/NoScript.svelte';
-	import Storage from 'app/components/Storage.svelte';
+	import AccessibilityMenu from '$lib/components/AccessibilityMenu.svelte';
+	import ColorCorrection from '$lib/components/ColorCorrection.svelte';
+	import MultiBanner from '$lib/components/MultiBanner.svelte';
+	import Nav from '$lib/components/Nav.svelte';
+	import NoScript from '$lib/components/NoScript.svelte';
+	import Storage from '$lib/components/Storage.svelte';
 	import {
 		_a11ySettings,
 		_a11yColorStyles,
@@ -17,8 +17,8 @@
 		_isA11yDirty,
 		applyStyles,
 		defaultA11ySettings
-	} from 'app/stores/a11ySettings';
-	import theme from 'app/theme';
+	} from '$lib/stores/a11ySettings';
+	import theme from '$lib/theme';
 
 	import Privacy from './_content/info/Privacy.svx';
 

@@ -1,10 +1,10 @@
 <script>
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import Home from './_content/Index.svx';
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
+	import ResponsiveFlex from '$lib/components/ResponsiveFlex.svelte';
 	
-	import {toolName} from 'app/config';
-	import theme from 'app/theme';
+	import {toolName} from '$lib/config';
+	import theme from '$lib/theme';
 </script>
 
 <svelte:head>

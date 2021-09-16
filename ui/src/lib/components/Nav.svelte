@@ -8,10 +8,10 @@
 	import A11yPerson from '@svizzle/ui/src/icons/svizzle/A11yPerson.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
 
-	import theme from 'app/theme';
-	import {zipUrl} from 'app/utils/assets';
-	import {isServerSide} from 'app/utils/env';
-	import {version} from 'app/utils/version';
+	import theme from '../theme';
+	import {zipUrl} from '../utils/assets';
+	import {isServerSide} from '../utils/env';
+	import {version} from '../utils/version';
 
 	const changelogUrl = 'https://github.com/nestauk/eurito-indicators/blob/staging/CHANGELOG.md';
 

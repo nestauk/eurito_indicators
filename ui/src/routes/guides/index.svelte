@@ -1,5 +1,8 @@
 <script context='module'>
-	export async function preload (page, session) {
-		return this.redirect(301, '/guides/app');
+	export async function load () {
+		return {
+			status: 301,
+			redirect: '/guides/app'
+		};
 	}
 </script>
