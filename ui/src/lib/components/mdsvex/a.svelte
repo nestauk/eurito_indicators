@@ -1,6 +1,6 @@
 <script>
 	import Link from '@svizzle/ui/src/Link.svelte';
-	import appTheme from 'app/theme';
+	import appTheme from '$lib/theme';
   
 	const theme = {
 	  color: appTheme.colorLink,

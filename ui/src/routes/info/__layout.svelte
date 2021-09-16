@@ -9,7 +9,7 @@
 	import Link from '@svizzle/ui/src/Link.svelte';
 
 	import {isNotNil} from '@svizzle/utils';
-	import theme from 'app/theme';
+	import theme from '$lib/theme';
 
 	const segments = ['privacy', 'disclaimer', 'feedback'];
 	const titles = {

@@ -1,11 +1,11 @@
 import {
 	getYearExtent,
 	makeIndicatorsLookup
-} from '@svizzle/time_region_value/src/node_modules/utils/data';
+} from '@svizzle/time_region_value/src/lib/utils/data';
 import {inclusiveRange} from '@svizzle/utils';
 import {derived, readable} from 'svelte/store';
 
-import groups from 'app/data/indicatorsGroups.json';
+import groups from '$lib/data/indicatorsGroups.json';
 
 export const _groups = readable(groups);
 export const _lookup = derived(_groups, makeIndicatorsLookup);

@@ -1,8 +1,10 @@
 _
-/__sapper__/
 /cypress/screenshots/
 /node_modules/
 /src/node_modules/@sapper/
+/build
+/.svelte-kit
+/package
 /static/data/
 !/static/data/tests
 /static/font/unused/

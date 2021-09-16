@@ -3,8 +3,8 @@
 		allNUTS2IndicatorsCsvName,
 		extraDownloadIds,
 		basename,
-	} from 'app/utils/assets';
-	import {version} from 'app/utils/version';
+	} from '$lib/utils/assets';
+	import {version} from '$lib/utils/version';
 
 	const choroplethURL = 'https://en.wikipedia.org/wiki/Choropleth';
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';

@@ -1,7 +1,7 @@
 import {
 	getYearExtent,
 	makeIndicatorsLookup
-} from '@svizzle/time_region_value/src/node_modules/utils/data';
+} from '@svizzle/time_region_value/src/lib/utils/data';
 import {inclusiveRange} from '@svizzle/utils';
 
 import groups from './indicatorsGroups.json';

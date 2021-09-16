@@ -1,6 +1,6 @@
 <script context='module'>
-	import {lookup} from 'app/data/groups';
-	import {parseCSV} from 'app/utils/domain';
+	import {lookup} from '$lib/data/groups';
+	import {parseCSV} from '$lib/utils/domain';
 
 	export function preload ({params: {id, year}}) {
 		return this.fetch(lookup[id].url)
@@ -16,10 +16,10 @@
 
 	/* local deps */
 
-	import {toolName} from 'app/config';
-	import types from 'app/data/types';
-	import {_lookup} from 'app/stores/data';
-	import {_availableYears, _selectedYear} from 'app/stores/selection';
+	import {toolName} from '$lib/config';
+	import types from '$lib/data/types';
+	import {_lookup} from '$lib/stores/data';
+	import {_availableYears, _selectedYear} from '$lib/stores/selection';
 
 	/* props */
 

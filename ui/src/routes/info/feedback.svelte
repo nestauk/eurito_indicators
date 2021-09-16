@@ -1,5 +1,5 @@
 <script>
-	import {toolName, userTestingUrl} from 'app/config';
+	import {toolName, userTestingUrl} from '$lib/config';
 </script>
 
 <svelte:head>
