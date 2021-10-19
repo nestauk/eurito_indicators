@@ -15,8 +15,6 @@ import {
 import {tapMessage, tapWith} from '@svizzle/dev';
 import {applyFnMap, isKeyOf, transformValues} from '@svizzle/utils';
 
-import {isNotLepFile, isNotNuts3File} from './utils';
-
 const DS_DATA_REL_PATH = '../../../ds/outputs/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
 const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml');
@@ -93,7 +91,7 @@ const run = async () => {
 		_.map(dirNames, dirName =>
 			readDir(path.resolve(DATA_DIR, dirName))
 			.then(_.pipe([
-				_.filterWith(_.allOf([isYamlFile, isNotNuts3File, isNotLepFile])),
+				_.filterWith(_.allOf([isYamlFile])),
 				_.mapWith(applyFnMap({
 					specFilepath: makePath(dirName),
 					url: makeCsvUrl,

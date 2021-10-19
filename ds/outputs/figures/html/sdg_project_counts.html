@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-12d4ef2b155697a61adadb47775b4a03"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "field": "N Projects"}, "y": {"type": "nominal", "field": "SDG", "sort": null}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-12d4ef2b155697a61adadb47775b4a03": [{"index": 1, "N Projects": 664, "SDG": "1. No Poverty", "color": "#E5243B"}, {"index": 2, "N Projects": 1322, "SDG": "2. Zero Hunger", "color": "#DDA63A"}, {"index": 3, "N Projects": 12286, "SDG": "3. Good Health & Well-being", "color": "#4C9F38"}, {"index": 4, "N Projects": 521, "SDG": "4. Quality Education", "color": "#C5192D"}, {"index": 5, "N Projects": 665, "SDG": "5. Gender Equality", "color": "#FF3A21"}, {"index": 6, "N Projects": 1106, "SDG": "6. Clean Water & Sanitation", "color": "#26BDE2"}, {"index": 7, "N Projects": 2642, "SDG": "7. Affordable & Clean Energy", "color": "#FCC30B"}, {"index": 8, "N Projects": 3684, "SDG": "8. Decent Work & Economic Growth", "color": "#A21942"}, {"index": 9, "N Projects": 6872, "SDG": "9. Industry, Innovation & Infrastructure", "color": "#FD6925"}, {"index": 10, "N Projects": 1515, "SDG": "10.  Reduced Inequalities", "color": "#DD1367"}, {"index": 11, "N Projects": 1481, "SDG": "11.  Sustainable Cities & Communities", "color": "#FD9D24"}, {"index": 12, "N Projects": 3928, "SDG": "12.  Responsible Consumption & Production", "color": "#BF8B2E"}, {"index": 13, "N Projects": 1613, "SDG": "13.  Climate Action", "color": "#3F7E44"}, {"index": 14, "N Projects": 699, "SDG": "14.  Life Below Water", "color": "#0A97D9"}, {"index": 15, "N Projects": 3294, "SDG": "15.  Life on Land", "color": "#56C02B"}, {"index": 16, "N Projects": 2675, "SDG": "16.  Peace, Justice & Strong Institutions", "color": "#00689D"}, {"index": 0, "N Projects": 25516, "SDG": "No Goal", "color": "#dfdfdf"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,17 +1,30 @@
 <script>
 	import ScreenGauge, {_screen}
 		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
-	import {onMount} from 'svelte';
+	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
+	import {onMount, beforeUpdate, tick} from 'svelte';
 
-	import ColorCorrection from 'app/components/ColorCorrection.svelte';
-	import Nav from 'app/components/Nav.svelte';
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
+	import ColorCorrection from 'app/components/ColorCorrection.svelte';
+	import MultiBanner from 'app/components/MultiBanner.svelte';
+	import Nav from 'app/components/Nav.svelte';
+	import NoScript from 'app/components/NoScript.svelte';
+	import Storage from 'app/components/Storage.svelte';
 	import {
+		_a11ySettings,
 		_a11yColorStyles,
 		_a11yTextStyles,
 		_isA11yDirty,
 		applyStyles,
+		defaultA11ySettings
 	} from 'app/stores/a11ySettings';
+	import theme from 'app/theme';
+
+	import Privacy from './_content/info/Privacy.svx';
+
+	const bannerComponents = [
+		Privacy
+	];
 
 	export let segment;
 
@@ -20,25 +33,63 @@
 	let a11yHeight;
 	let rootStyle;
 	let showA11yMenu;
+	let isLayoutUndefined = true;
+	let scriptingActive = false;
 
 	onMount(() => {
 		const root = document.documentElement;
 		rootStyle = root.style;
-	})
+
+		scriptingActive = true;
+		window.nesta_isLayoutUndefined = () => isLayoutUndefined;
+	});
+	beforeUpdate(async () => {
+		if (isLayoutUndefined) {
+			await tick();
+		}
+	});
 
 	$: rootStyle && applyStyles(rootStyle, $_a11yTextStyles);
 	$: rootStyle && applyStyles(rootStyle, $_a11yColorStyles);
 	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
+	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>
+
+<Storage
+	_store={_a11ySettings}
+	defaultValue={defaultA11ySettings}
+	isReactive={true}
+	key='a11ySettings'
+	type='localStorage'
+/>
 
 <ScreenGauge />
 <ColorCorrection />
 
-<section
+<NoScript />
+
+{#if scriptingActive}
+	<MultiBanner
+		{_screen}
+		components={bannerComponents}
+	/>
+{/if}
+
+{#if isLayoutUndefined}
+	<LoadingView stroke={theme.colorMain} />
+{/if}
+
+<div
 	class={$_screen?.classes}
+	class:hidden={isLayoutUndefined}
 	style='--menu-height: {menuHeight}px;'
+	role='none'
 >
-	<header bind:offsetHeight={headerHeight}>
+	<header
+		aria-label='Website header'
+		bind:offsetHeight={headerHeight}
+		role='banner'
+	>
 		<Nav
 			{_screen}
 			{contentHeight}
@@ -47,18 +98,26 @@
 			isA11yDirty={$_isA11yDirty}
 		/>
 	</header>
-	<main bind:offsetHeight={contentHeight}>
+	<main
+		aria-label='Website content'
+		bind:offsetHeight={contentHeight}
+		role='main'
+	>
 		<slot></slot>
 	</main>
 	{#if showA11yMenu}
-		<div class='accessibility' bind:offsetHeight={a11yHeight}>
+		<section
+			bind:offsetHeight={a11yHeight}
+			class='accessibility'
+			role='region'
+		>
 			<AccessibilityMenu {_screen} />
-		</div>
+		</section>
 	{/if}
-</section>
+</div>
 
 <style>
-	section {
+	div {
 		display: grid;
 		grid-template-areas:
 			'content'
@@ -68,7 +127,7 @@
 		height: 100%;
 		overflow: hidden;
 	}
-	section.medium {
+	div.medium {
 		grid-template-areas:
 			'nav'
 			'content'
@@ -95,5 +154,8 @@
 	}
 	.accessibility {
 		grid-area: accessibility;
+	}
+	.hidden {
+		display: none;
 	}
 </style>

@@ -1,0 +1,37 @@
+api_doc_url:
+- DAPS
+api_type:
+- MySQL
+endpoint_url:
+- DAPS
+framework: artificial_intelligence
+framework_group: covid_research
+is_experimental: true
+order:
+- year
+- nuts_id
+- nuts_year_spec
+- value.id
+region:
+  level: 3
+  type: NutsRegion
+schema:
+  nuts_id:
+    type: NutsRegion.nuts_id
+  nuts_year_spec:
+    type: NutsRegion.nuts_year_spec
+  value:
+    data_type: int
+    id: ai_covid_count
+    label: Number participations in AI application to Covid-19 preprints
+  year:
+    data_type: int
+    label: Year
+source_name:
+- Nesta
+source_url:
+- https://github.com/nestauk/eurito_indicators
+subtitle: Number participations in AI application to Covid-19 preprints by institutions
+  in the location (AI application to Covid-19 papers identified through a semantic
+  analysis of article abstracts)
+title: Number of participations in AI application to Covid-19 preprints

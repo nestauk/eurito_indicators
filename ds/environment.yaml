@@ -1,10 +1,19 @@
 channels:
-  - defaults
   - conda-forge
   - giuliorossetti
 dependencies:
   - pip
   - python=3.8
+  - defaults
+dependencies:
+  - pip
+  - python=3.8
+  - numpy
+  - scipy
+  - scikit-learn
+  - lightgbm
+  - sentence-transformers
+  - giuliorossetti
   - graph-tool
   - cdlib
   # Only put dependencies that are NOT available with pip here (e.g. graph-tool)

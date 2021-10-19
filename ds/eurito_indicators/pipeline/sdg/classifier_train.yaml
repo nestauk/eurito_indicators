@@ -1,0 +1,3 @@
+encoder: 'distilbert-base-cased'
+save_model: true
+test: false
