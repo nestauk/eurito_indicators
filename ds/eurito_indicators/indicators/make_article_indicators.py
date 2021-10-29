@@ -27,11 +27,6 @@ NUTS_SHAPE_PATH = f"{PROJECT_DIR}/inputs/data/nuts"
 
 arx_clusters = get_cluster_ids()
 
-CLEAN_CLUSTERS = {
-    n: " ".join([x.capitalize() for x in re.sub("_", " ", n).split(" ")])
-    for n in set(arx_clusters.values())
-}
-
 nuts_lookup = {
     "2010": set(range(2010, 2013)),
     "2013": set(range(2013, 2016)),
@@ -40,6 +35,22 @@ nuts_lookup = {
 }
 
 # FUNCTIONS
+
+def make_clean_clusters():
+    '''Creates a lookup between data variable names and clean variable names
+    '''
+
+    CLEAN_CLUSTERS = {
+    n: " ".join([x.capitalize() for x in re.sub("_", " ", n).split(" ")])
+    for n in set(arx_clusters.values())}
+
+    CLEAN_CLUSTERS['deep_learning'] = 'Deep Learning'
+    CLEAN_CLUSTERS['artificial_intelligence'] = 'Artificial Intelligence'
+    CLEAN_CLUSTERS['covid'] = 'AI applications to Covid-19'
+
+    return CLEAN_CLUSTERS
+
+CLEAN_CLUSTERS = make_clean_clusters()
 
 
 def fetch_nuts_shape():
@@ -54,7 +65,7 @@ def fetch_nuts_shape():
         ZipFile(BytesIO(content)).extractall(f"{NUTS_SHAPE_PATH}/{nuts_version}")
 
 
-def reverse_geocode_table(table, nuts_version):
+def reverse_geocode_table(table, nuts_version,vars_to_keep=['article_source','cluster']):
     """Reverse geocodes a table of articles taking into account what nuts version was available when it was published"""
 
     # Filter the table by year
@@ -75,7 +86,7 @@ def reverse_geocode_table(table, nuts_version):
 
     logging.info("spatial join")
     table_geo = gp.sjoin(table_coord, nuts_geoshape, op="within")[
-        ["article_id", "year", "article_source", "cluster", "NUTS_ID", "LEVL_CODE"]
+        ["article_id", "year", "NUTS_ID", "LEVL_CODE"]+vars_to_keep
     ]
 
     return table_geo
@@ -220,6 +231,35 @@ def make_schema(indicator_type, category, suffix="count"):
             "label"
         ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints"
         schema["schema"]["value"]["id"] = f"{category}_{suffix}"
+    elif indicator_type == "ai_counts":
+        schema = fetch_template_schema("articles_ai_base")
+        schema["date"] = str(datetime.date.today())
+        schema["is_experimental"] = True
+        schema[
+            "title"
+        ] = f"Number of participations in {CLEAN_CLUSTERS[category]} preprints"
+        schema[
+            "subtitle"
+        ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints by institutions in the location (papers identified through a semantic analysis of abstract topics"
+        schema["schema"]["value"][
+            "label"
+        ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints"
+        schema["schema"]["value"]["id"] = f"{category}_{suffix}"
+    elif indicator_type == "ai_spec":
+        schema = fetch_template_schema("articles_ai_base")
+        schema["date"] = str(datetime.date.today())
+        schema["is_experimental"] = True
+        schema[
+            "title"
+        ] = f"Relative specialisation {CLEAN_CLUSTERS[category]} preprints"
+        schema[
+            "subtitle"
+        ] = f"Relative specialisation in {CLEAN_CLUSTERS[category]} preprints by institutions in the location (papers identified through a semantic analysis of abstract topics, specialisation calculated as a location quotient taking into account activity outside the category)"
+        schema["schema"]["value"][
+            "label"
+        ] = f"Relative specialisation in {CLEAN_CLUSTERS[category]} preprints"
+        schema["schema"]["value"]["id"] = f"{category}_{suffix}"
+
     elif indicator_type == "clusters_specialisation":
         schema = fetch_template_schema("articles_clusters_specialisation_base")
         schema["date"] = str(datetime.date.today())
