@@ -1,6 +1,6 @@
 <script>
 	import {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 </script>
 
 ## What the accessibility menu does

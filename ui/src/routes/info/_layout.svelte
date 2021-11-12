@@ -1,7 +1,7 @@
 <script>
 	import * as _ from 'lamb';
 	import {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';

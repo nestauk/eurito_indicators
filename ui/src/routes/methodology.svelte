@@ -1,9 +1,9 @@
 <script>
-	import {_screen} from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import {_screen} from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import Download from '@svizzle/ui/src/icons/feather/Download.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import Methodology from './_content/Methodology.svx';
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
+	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
 
 	import {toolName} from 'app/config';
 	import {zipUrl} from 'app/utils/assets';

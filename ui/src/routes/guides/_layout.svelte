@@ -1,18 +1,16 @@
 <script>
 	import * as _ from 'lamb';
-	import {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
 
 	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
+	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
+	import {_screen} from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 
 	import {isNotNil} from '@svizzle/utils';
 	import theme from 'app/theme';
-
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
 
 	const segments = ['app', 'indicators', 'a11ymenu'];
 	const titles = {
