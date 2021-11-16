@@ -6,12 +6,17 @@
 		from '@svizzle/ui/src/a11y/menu/A11yMenu.svelte';
 	import A11yMenuDriver
 		from '@svizzle/ui/src/a11y/menu/A11yMenuDriver.svelte';
-	import {_isA11yDirty} from '@svizzle/ui/src/a11y/menu/settings';
+	import {
+		_a11ySettings,
+		_isA11yDirty
+	} from '@svizzle/ui/src/a11y/menu/settings';
+	import FontsLoader from '@svizzle/ui/src/drivers/fonts/FontsLoader.svelte';
 	import MultiBanner from '@svizzle/ui/src/MultiBanner.svelte';
 	import NoScript from '@svizzle/ui/src/NoScript.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
 	import Nav from 'app/components/Nav.svelte';
+	import {a11yFontFamilies, fontsInfo} from 'app/config';
 	import theme from 'app/theme';
 
 	import Privacy from './_content/info/Privacy.svx';
@@ -22,12 +27,13 @@
 
 	export let segment;
 
-	let contentHeight;
-	let headerHeight;
 	let a11yHeight;
-	let showA11yMenu;
+	let contentHeight;
+	let fontLoadStatus;
+	let headerHeight;
 	let isLayoutUndefined = true;
 	let scriptingActive = false;
+	let showA11yMenu;
 
 	onMount(() => {
 		scriptingActive = true;
@@ -47,23 +53,21 @@
 <A11yMenuDriver
 	defaults={{
 		typeface: {
-			defaultValue: 'Avenir Next Variable',
-			values: [
-				'Avenir Next Variable',
-				'Archivo',
-				'Noboto Flex',
-				'Courier New',
-				'Open Dyslexia'
-			],
+			defaultValue: a11yFontFamilies[0],
+			values: a11yFontFamilies,
 		}
 	}}
 />
 
-<ScreenSensor />
-
+<FontsLoader
+	bind:status={fontLoadStatus}
+	firstFamilyToLoad={$_a11ySettings.typeface.value}
+	{fontsInfo}
+/>
 <NoScript />
 
-{#if scriptingActive}
+{#if scriptingActive && fontLoadStatus.isFirstLoaded}
+	<ScreenSensor />
 	<MultiBanner
 		{_screen}
 		components={bannerComponents}
