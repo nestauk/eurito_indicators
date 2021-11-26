@@ -1,7 +1,5 @@
 <script>
-	import ScreenSensor, {_screen}
-		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
-	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
+	import {setupResizeObserver} from '@svizzle/ui/src/actions/resizeObserver';
 	import A11yMenu
 		from '@svizzle/ui/src/a11y/menu/A11yMenu.svelte';
 	import A11yMenuDriver
@@ -11,8 +9,11 @@
 		_isA11yDirty
 	} from '@svizzle/ui/src/a11y/menu/settings';
 	import FontsLoader from '@svizzle/ui/src/drivers/fonts/FontsLoader.svelte';
+	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 	import MultiBanner from '@svizzle/ui/src/MultiBanner.svelte';
 	import NoScript from '@svizzle/ui/src/NoScript.svelte';
+	import ScreenSensor, {_screen}
+		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
 	import Nav from 'app/components/Nav.svelte';
@@ -27,10 +28,18 @@
 
 	export let segment;
 
+	// actions
+	const {
+		_writable: _headerSize,
+		resizeObserver: headerSizeObserver
+	} = setupResizeObserver();
+	const {
+		_writable: _contentSize,
+		resizeObserver: contentSizeObserver
+	} = setupResizeObserver();
+
 	let a11yHeight;
-	let contentHeight;
 	let fontLoadStatus;
-	let headerHeight;
 	let isLayoutUndefined = true;
 	let scriptingActive = false;
 	let showA11yMenu;
@@ -46,7 +55,7 @@
 		}
 	});
 
-	$: menuHeight = headerHeight + (showA11yMenu ? a11yHeight : 0);
+	$: menuHeight = $_headerSize.blockSize + (showA11yMenu ? a11yHeight : 0);
 	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>
 
@@ -86,12 +95,12 @@
 >
 	<header
 		aria-label='Website header'
-		bind:offsetHeight={headerHeight}
 		role='banner'
+		use:headerSizeObserver
 	>
 		<Nav
 			{_screen}
-			{contentHeight}
+			contentHeight={$_contentSize.blockSize}
 			{segment}
 			bind:showA11yMenu
 			isA11yDirty={$_isA11yDirty}
@@ -99,7 +108,7 @@
 	</header>
 	<main
 		aria-label='Website content'
-		bind:offsetHeight={contentHeight}
+		use:contentSizeObserver
 		role='main'
 	>
 		<slot></slot>
