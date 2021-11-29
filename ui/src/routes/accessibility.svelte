@@ -1,7 +1,7 @@
 <script>
 	import {isNotNil} from '@svizzle/utils';
 	import {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import Bowser from 'bowser';
 	import * as _ from 'lamb';
 	import {onMount} from 'svelte';

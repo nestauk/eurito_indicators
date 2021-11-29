@@ -1,7 +1,7 @@
 <script>
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import Home from './_content/Index.svx';
-	import ResponsiveFlex from 'app/components/ResponsiveFlex.svelte';
+	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
 	
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';

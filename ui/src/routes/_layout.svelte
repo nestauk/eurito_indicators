@@ -1,14 +1,14 @@
 <script>
-	import ScreenGauge, {_screen}
-		from '@svizzle/ui/src/gauges/screen/ScreenGauge.svelte';
+	import ScreenSensor, {_screen}
+		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
+	import MultiBanner from '@svizzle/ui/src/MultiBanner.svelte';
+	import NoScript from '@svizzle/ui/src/NoScript.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
 	import AccessibilityMenu from 'app/components/AccessibilityMenu.svelte';
 	import ColorCorrection from 'app/components/ColorCorrection.svelte';
-	import MultiBanner from 'app/components/MultiBanner.svelte';
 	import Nav from 'app/components/Nav.svelte';
-	import NoScript from 'app/components/NoScript.svelte';
 	import Storage from 'app/components/Storage.svelte';
 	import {
 		_a11ySettings,
@@ -63,7 +63,7 @@
 	type='localStorage'
 />
 
-<ScreenGauge />
+<ScreenSensor />
 <ColorCorrection />
 
 <NoScript />
