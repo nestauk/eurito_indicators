@@ -84,7 +84,10 @@
 {/if}
 
 {#if isLayoutUndefined}
-	<LoadingView stroke={theme.colorMain} />
+	<!-- FIXME: See: https://github.com/nestauk/eurito_indicators/pull/212#issuecomment-985176516 -->
+	<div class='spinnerContainer'>
+		<LoadingView stroke={theme.colorMain} />
+	</div>
 {/if}
 
 <div
@@ -172,5 +175,14 @@
 	}
 	.hidden {
 		display: none;
+	}
+
+	.spinnerContainer {
+		top: 0;
+		left: 0;
+		display: flex;
+		height: 100%;
+		position: fixed;
+		width: 100%;
 	}
 </style>
