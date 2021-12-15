@@ -1,6 +1,7 @@
 <script context='module'>
+	import {parseCSV} from '@svizzle/time_region_value/src/node_modules/utils/domain';
+
 	import {lookup} from 'app/data/groups';
-	import {parseCSV} from 'app/utils/domain';
 
 	export function preload ({params: {id, year}}) {
 		return this.fetch(lookup[id].url)
@@ -48,7 +49,6 @@
 </svelte:head>
 
 <IdYear
-	{_lookup}
 	{data}
 	{id}
 	{types}

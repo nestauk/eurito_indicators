@@ -1,6 +1,7 @@
 <script context='module'>
+	import {parseCSV} from '@svizzle/time_region_value/src/node_modules/utils/domain';
+
 	import {lookup} from 'app/data/groups';
-	import {parseCSV} from 'app/utils/domain';
 
 	export function preload ({params: {id}}) {
 		return this.fetch(lookup[id].url)
@@ -11,8 +12,8 @@
 </script>
 
 <script>
-	import * as _ from 'lamb';
 	import IdIndex from '@svizzle/time_region_value/src/routes/[id]/index.svelte';
+	import * as _ from 'lamb';
 
 	/* local deps */
 
@@ -50,7 +51,6 @@
 </svelte:head>
 
 <IdIndex
-	{_lookup}
 	{data}
 	{id}
 	{types}

@@ -1,12 +1,12 @@
 {
 	"author": "nestauk (https://www.nesta.org.uk/)",
 	"dependencies": {
-		"@svizzle/atlas": "^0.5.0",
-		"@svizzle/time_region_value": "^0.4.1",
+		"@svizzle/atlas": "^0.6.0",
+		"@svizzle/time_region_value": "^0.6.1",
 		"@svizzle/ui": "^0.5.0",
 		"@svizzle/utils": "^0.16.0",
 		"d3-array": "^2.9.1",
-		"lamb": "^0.59.2",
+		"lamb": "^0.60.0",
 		"node-fetch": "^2.6.1",
 		"queue-promise": "^2.1.0"
 	},
@@ -70,17 +70,19 @@
 		"dev": "npm run rmsappers && sapper dev",
 		"export": "npm run rmsappers && export SAPPER_EXPORT=true && sapper export --legacy",
 		"lighthouse": "node -r esm test/lighthouse/validate.js",
-		"linksvizzles": "npm link @svizzle/time_region_value @svizzle/ui @svizzle/atlas @svizzle/dev @svizzle/file @svizzle/utils && npm list",
+		"linksvizzles": "npm link @svizzle/atlas @svizzle/time_region_value @svizzle/ui @svizzle/utils @svizzle/dev @svizzle/file && npm list",
 		"lint": "eslint rollup.config.js 'src/**/*.{js,svelte}'",
 		"makedata": "npm run makeindex && npm run rmdata && npm run copydata",
 		"makeindex": "npm run chmod && node -r esm src/bin/make_index.js",
 		"pa11y": "node -r esm test/pa11y/validate.js",
+		"reinstall": "npm run uninstall && npm install",
 		"reportToCSV": "npm run chmod && node -r esm src/bin/reportToCSV.js",
 		"rmdata": "rimraf static/data",
 		"rmsappers": "rimraf __sapper__ src/node_modules/@sapper",
+		"selenium": "node test/browserstack/selenium-runner.mjs",
 		"start": "node __sapper__/build",
 		"test": "run-p --race dev cy:run",
-		"selenium": "node test/browserstack/selenium-runner.mjs",
+		"uninstall": "rimraf node_modules package-lock.json",
 		"unittest": "mocha -r esm --spec src/**/*.spec.js"
 	}
 }

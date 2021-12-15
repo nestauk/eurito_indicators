@@ -1,30 +1,6 @@
 [{
-    "description": "Existing capability to perform public R&D",
-    "id": "public_rnd_capability",
-    "label": "__Public R&D capability",
-    "order": 1
-},
-{
-    "description": "Business absorptive capacity and private R&D investment",
-    "id": "business_rnd_capacity",
-    "label": "__Business R&D capacity",
-    "order": 2
-},
-{
-    "description": "Knowledge exchange and commercialisation",
-    "id": "knowledge_exchange",
-    "label": "__Knowledge exchange",
-    "order": 3
-},
-{
-    "description": "Place potential to attract researchers and innovators",
-    "id": "place_potential",
-    "label": "__Place potential",
-    "order": 4
-},
-{
-    "description": "Challenge oriented activity",
-    "id": "challenge_activity",
-    "label": "__Challenge oriented activity",
-    "order": 5
+    "description": "Publications",
+    "id": "publications",
+    "label": "Publications",
+    "order": 0
 }]
