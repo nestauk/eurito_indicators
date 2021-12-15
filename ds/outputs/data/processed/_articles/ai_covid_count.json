@@ -1,7 +1,7 @@
 {
 "api_type": "MySQL",
 "data_date": "2021/07/01",
-"description": "Level of specialisation (location quotient) in a Covid research cluster",
+"description": "Number of preprints related to an AI category",
 "endpoint_url": "DAPS",
 "framework_group": "publications",
 "is_experimental": true,
@@ -22,10 +22,10 @@
 "region_type": "string",
 "region_year_spec": "int",
 "value": {
-"data_type": "float",
-"format": ".2f",
-"id": "variants_count",
-"label": "Relative specialisation in Variants preprints"
+"data_type": "int",
+"format": ".1f",
+"id": "ai_covid_count",
+"label": "Number participations in AI applications to Covid-19 preprints"
 },
 "year": {
 "data_type": "int",
@@ -34,7 +34,7 @@
 },
 "source_name": "Nesta",
 "source_url": "https://github.com/nestauk/eurito_indicators",
-"subtitle": "Relative specialisation in Variants preprints by institutions in the location (research clusters identified through a topic model of article abstracts, specialisation calculated as a location quotient taking into account non-covid activity)",
-"title": "Relative specialisation in Variants preprints",
+"subtitle": "Number participations in AI applications to Covid-19 preprints by institutions in the location (papers identified through a semantic analysis of abstract topics",
+"title": "Number of participations in AI applications to Covid-19 preprints",
 "date": "2021-12-15"
 }

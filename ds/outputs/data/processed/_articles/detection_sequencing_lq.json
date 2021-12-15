@@ -1,1 +1,40 @@
-{"api_doc_url": "DAPS", "api_type": "MySQL", "data_date": "add_date", "description": "Level of specialisation (location quotient) in a Covid research cluster", "endpoint_url": "DAPS", "framework_group": "publications", "is_experimental": true, "order": ["year", "region_type", "region_year_spec", "region_id", "region_level", "value.id"], "region_types": ["NUTS"], "schema": {"region_id": "string", "region_level": "int", "region_type": "string", "region_year_spec": "int", "value": {"data_type": "float", "format": ".2f", "id": "detection_sequencing_count", "label": "Relative specialisation in Detection Sequencing preprints"}, "year": {"data_type": "int", "label": "Year"}}, "source_name": "Nesta", "source_url": "https://github.com/nestauk/eurito_indicators", "subtitle": "Relative specialisation in Detection Sequencing preprints by institutions in the location (research clusters identified through a topic model of article abstracts, specialisation calculated as a location quotient taking into account non-covid activity)", "title": "Relative specialisation in Detection Sequencing preprints", "date": "2021-10-19"}
+{
+"api_type": "MySQL",
+"data_date": "2021/07/01",
+"description": "Level of specialisation (location quotient) in a Covid research cluster",
+"endpoint_url": "DAPS",
+"framework_group": "publications",
+"is_experimental": true,
+"order": [
+"year",
+"region_type",
+"region_year_spec",
+"region_id",
+"region_level",
+"value.id"
+],
+"region_types": [
+"NUTS"
+],
+"schema": {
+"region_id": "string",
+"region_level": "int",
+"region_type": "string",
+"region_year_spec": "int",
+"value": {
+"data_type": "float",
+"format": ".2f",
+"id": "detection_sequencing_count",
+"label": "Relative specialisation in Detection Sequencing preprints"
+},
+"year": {
+"data_type": "int",
+"label": "Year"
+}
+},
+"source_name": "Nesta",
+"source_url": "https://github.com/nestauk/eurito_indicators",
+"subtitle": "Relative specialisation in Detection Sequencing preprints by institutions in the location (research clusters identified through a topic model of article abstracts, specialisation calculated as a location quotient taking into account non-covid activity)",
+"title": "Relative specialisation in Detection Sequencing preprints",
+"date": "2021-12-15"
+}
