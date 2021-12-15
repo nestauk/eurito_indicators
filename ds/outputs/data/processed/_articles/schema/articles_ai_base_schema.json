@@ -1,5 +1,4 @@
 {
-  "api_doc_url": "DAPS",
   "api_type": "MySQL",
   "data_date":"add_date",
   "description": "Number of preprints related to an AI category",
