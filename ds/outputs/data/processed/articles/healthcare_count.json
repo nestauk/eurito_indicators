@@ -1,0 +1,38 @@
+{
+  "api_type": "MySQL",
+  "data_date": "2021/07/01",
+  "description": "Number of preprints in a Covid-19 research cluster",
+  "framework_group": "publications",
+  "is_experimental": true,
+  "order": [
+    "year",
+    "region_type",
+    "region_year_spec",
+    "region_id",
+    "region_level",
+    "value.id"
+  ],
+  "region_types": [
+    "NUTS"
+  ],
+  "schema": {
+    "region_id": "string",
+    "region_level": "int",
+    "region_type": "string",
+    "region_year_spec": "int",
+    "value": {
+      "data_type": "int",
+      "format": ".1f",
+      "id": "healthcare_count",
+      "label": "Number of participations in Healthcare preprints"
+    },
+    "year": {
+      "data_type": "int",
+      "label": "Year"
+    }
+  },
+  "source_name": "Nesta",
+  "source_url": "https://github.com/nestauk/eurito_indicators",
+  "subtitle": "Number of participations in Healthcare preprints by institutions in the location (research clusters identified through a topic model of article abstracts)",
+  "title": "Healthcare preprints (count)"
+}
