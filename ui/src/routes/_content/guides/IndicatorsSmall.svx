@@ -1,14 +1,8 @@
 <script>
-	import {
-		allNUTS2IndicatorsCsvName,
-		extraDownloadIds,
-		basename,
-	} from 'app/utils/assets';
 	import {version} from 'app/utils/version';
 
 	const choroplethURL = 'https://en.wikipedia.org/wiki/Choropleth';
 	const csvWikiURL = 'https://en.wikipedia.org/wiki/Comma-separated_values';
-	const maxIndex = extraDownloadIds.length - 1;
 </script>
 
 ## Exploring the indicators
@@ -25,10 +19,8 @@ divided in two areas:
 #### Sidebar
 
 Here you will find a list of indicators, grouped by theme sections. These are:
-	* Public R&D
-	* Knowledge exchange and university commercialisation
-	* Private R&D
-	* Places attracting R&amp;D firms and workers
+	* Publications
+	* TODO: complete
 
 Clicking on the name of an indicator will navigate to the trend page for that
 indicator.
@@ -62,9 +54,9 @@ areas:
 #### Trends
 
 Here you will see a set of trend lines, with each line showing the indicator
-value for one NUTS2 region over time (where data is available).
+value for one region over time (where data is available) at the selected level.
 
-Hovering over a trend line highlights the trend and shows the value of the data
+Hovering a trend line highlights the trend and shows the value of the data
 point nearest to the pointer.
 
 #### Timeline
@@ -88,20 +80,32 @@ Here you can find three sections:
 
 ##### Regional selection
 
-The trend lines shown correspond to NUTS2 regions, however it is possible to
-select and filter regions based on the larger NUTS1 regions, of which they are a
-part. This is particularly useful for clarity when focusing on specific regions
-and also because NUTS1 regions don't vary over time whereas NUTS2 regions do.
+By default all regions are selected.
 
-By default all NUTS2 regions are selected.
-
-The selected NUTS2 regions can be highlighted or filtered using the switch in
+The selected regions can be highlighted or filtered using the switch in
 the first section:
-	* highlighting is useful to focus the attention on the trends for the
+	- highlighting is useful to focus the attention on the trends for the
 	  desired regions while still being able to see them all;
-	* filtering is useful to isolate trends for the desired regions. When
+	- filtering is useful to isolate trends for the desired regions. When
 	  filtering, the colour scale on the left is updated to reflect only the
 	  values of the active trends.
+
+To select a NUTS level you can use the XOR selector.
+
+You should see see one menu to select countries: you can (de)select countries by
+clicking on their checkboxes.
+
+Next you should see another menu to select descendant regions of the focused
+country.
+
+Clicking on a country label updates the list of the focused country descendants.
+
+Note that when changing level:
+- by navigating to a smaller level,
+  the app makes sure the selection is consistent, that is, if before switching
+	level there were partially selected regions these will be selected completely
+	again;
+- navigating to a higher level, the regions selection remains as it is.
 
 ##### Color scale
 
@@ -109,7 +113,6 @@ We provide two color scales for your convenience, that you can set using the
 switch in this section.
 
 ##### Y scale
-
 
 You can use the switch in this section to choose between showing absolute values
 or the values of the region rank: this second mode helps seeing how a region
@@ -136,17 +139,13 @@ areas:
 #### Map
 
 The [choropleth]({choroplethURL}) in this view shows the indicator values on a
-map of the UK for the NUTS2 regions in the selected year.
+map of European regions at the selected level, for the selected year.
 
 Gray regions indicate that there is no data available for that region.
 
-The map shows cities with the most research intensive universities (those in
-&quot;TRAC peer group A&quot;). This group has been chosen due to its key
-relevance for BEIS regional policies.
-
 #### Bar chart
 
-The bar chart in this view shows the indicator values for each NUTS2 region in
+The bar chart in this view shows the indicator values for each region in
 descending order.
 
 The national average is also shown, represented by a vertical dashed line. This
@@ -172,22 +171,6 @@ Please click on the hamburger and then on the download icon in the menu that
 appears to download a zip file containing the CSV files of all of the
 indicators.
 
-That zip file also contains an extra CSV file (titled 
-`{allNUTS2IndicatorsCsvName}`) containing all datapoints of all
-indicators in a single file.
-
-{#if extraDownloadIds.length}
-#### Extras
-
-Some indicators have been created for NUTS3 and LEP, but these are not provided
-in the tool, nor they are official and should be considered as non-official
-extras:
-{#each extraDownloadIds as availableId, index}
-[{availableId}](/data/{basename}_{availableId}.csv){#if index < maxIndex}, {/if}
-{/each}.
-
-{/if}
-
 ### Version, changelog and feedback
 
 Please click on the hamburger then find the app version number of the tool
@@ -196,6 +179,6 @@ Please click on the hamburger then find the app version number of the tool
 Clicking on the it will navigate to a list of all the notable changes introduced
 in each version of the tool on GitHub.
 
-Should you find bugs or have ideas about how to enhance this tool, 
+Should you find bugs or have ideas about how to enhance this tool,
 [here](info/feedback) you can find a short survey and our contact details to
 post your feedback.

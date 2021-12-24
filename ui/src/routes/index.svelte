@@ -1,10 +1,11 @@
 <script>
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-	import Home from './_content/Index.svx';
 	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
-	
+
 	import {toolName} from 'app/config';
 	import theme from 'app/theme';
+
+	import Home from './_content/Index.svx';
 </script>
 
 <svelte:head>
@@ -22,7 +23,7 @@
 		<ResponsiveFlex>
 			<LinkButton
 				href='/methodology'
-				text='Read more about the methodology'
+				text='Our methodology'
 				theme={{backgroundColor: theme.colorLink}}
 			/>
 			<LinkButton
