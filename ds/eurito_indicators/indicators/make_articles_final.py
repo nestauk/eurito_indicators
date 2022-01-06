@@ -37,22 +37,22 @@ nuts_lookup = {
 
 # FUNCTIONS
 
+
 def make_clean_clusters():
-    '''Creates a lookup between data variable names and clean variable names
-    '''
+    """Creates a lookup between data variable names and clean variable names"""
 
     CLEAN_CLUSTERS = {
-    n: " ".join([x.capitalize() for x in re.sub("_", " ", n).split(" ")])
-    for n in set(arx_clusters.values())}
-    
+        n: " ".join([x.capitalize() for x in re.sub("_", " ", n).split(" ")])
+        for n in set(arx_clusters.values())
+    }
+
     AI_CLUSTERS = {}
-    
-    AI_CLUSTERS['deep_learning'] = 'Deep Learning'
-    AI_CLUSTERS['artificial_intelligence'] = 'Artificial Intelligence'
-    AI_CLUSTERS['ai_covid'] = 'AI applications to Covid-19'
 
-    return CLEAN_CLUSTERS,AI_CLUSTERS
+    AI_CLUSTERS["deep_learning"] = "Deep Learning"
+    AI_CLUSTERS["artificial_intelligence"] = "Artificial Intelligence"
+    AI_CLUSTERS["ai_covid"] = "AI applications to Covid-19"
 
+    return CLEAN_CLUSTERS, AI_CLUSTERS
 
 
 CLEAN_CLUSTERS, AI_CLUSTERS = make_clean_clusters()
@@ -70,7 +70,17 @@ def fetch_nuts_shape():
         ZipFile(BytesIO(content)).extractall(f"{NUTS_SHAPE_PATH}/{nuts_version}")
 
 
-def reverse_geocode_table(table, nuts_version,vars_to_keep=['article_source','cluster','artificial_intelligence','deep_learning','ai_covid']):
+def reverse_geocode_table(
+    table,
+    nuts_version,
+    vars_to_keep=[
+        "article_source",
+        "cluster",
+        "artificial_intelligence",
+        "deep_learning",
+        "ai_covid",
+    ],
+):
     """Reverse geocodes a table of articles taking into account what nuts version was available when it was published"""
 
     # Filter the table by year
@@ -91,7 +101,7 @@ def reverse_geocode_table(table, nuts_version,vars_to_keep=['article_source','cl
 
     logging.info("spatial join")
     table_geo = gp.sjoin(table_coord, nuts_geoshape, op="within")[
-        ["article_id", "year", "NUTS_ID", "LEVL_CODE"]+vars_to_keep
+        ["article_id", "year", "NUTS_ID", "LEVL_CODE"] + vars_to_keep
     ]
 
     return table_geo
@@ -147,14 +157,18 @@ def country_filter(table, reg="region_id"):
 
     return table_
 
+
 def get_ai_outputs():
-    '''Gets AI outputs. first AI papers, second DL papers, third Covid
-    '''
-    
-    with open(f"{PROJECT_DIR}/inputs/data/ai_lookups.p","rb") as infile:
+    """Gets AI outputs. first AI papers, second DL papers, third Covid"""
+
+    with open(f"{PROJECT_DIR}/inputs/data/ai_lookups.p", "rb") as infile:
         ai_ids = pickle.load(infile)
-        
-    return {'ai':ai_ids[0],'dl':ai_ids[1],'ai_covid':set(ai_ids[0]) & set(ai_ids[2])}
+
+    return {
+        "ai": ai_ids[0],
+        "dl": ai_ids[1],
+        "ai_covid": set(ai_ids[0]) & set(ai_ids[2]),
+    }
 
 
 def make_indicator(
@@ -163,6 +177,7 @@ def make_indicator(
     suffix,
     table_type,
     categories=["arxiv", "medrxiv", "biorxiv", "cord"],
+    drop_zeroes=True,
 ):
     """Function to create article indicators.
     Args:
@@ -171,6 +186,7 @@ def make_indicator(
         table_type: what type of table is this
         nuts_spec: year for the nuts specification we are using
         categories: categories we use to split the table
+        drop_zeroes: remove zeroes from the table
     """
 
     split_tables = {}
@@ -205,11 +221,17 @@ def make_indicator(
 
         table_filtered = country_filter(table)
 
-        table_filtered['year'] = table_filtered['year'].astype(int)
+        table_filtered["year"] = table_filtered["year"].astype(int)
+
+        if drop_zeroes is True:
+            table_filtered = table_filtered.loc[
+                table_filtered[f"{cat}_{suffix}"] != 0
+            ].reset_index(drop=True)
 
         table_filtered.to_csv(
             f"{PROJECT_DIR}/outputs/data/processed/articles/{cat}_{suffix}.csv",
-            index_label=False,index=False
+            index_label=False,
+            index=False,
         )
 
         sch = make_schema(indicator_type=table_type, category=cat, suffix=suffix)
@@ -226,8 +248,8 @@ def make_schema(indicator_type, category, suffix="count"):
     """
     if indicator_type == "article_sources":
         schema = fetch_template_schema()
-        #schema["date"] = str(datetime.date.today())
-        schema['data_date'] = "2021/07/01"
+        # schema["date"] = str(datetime.date.today())
+        schema["data_date"] = "2021/07/01"
         schema["title"] = f"{category} articles (count)"
         schema[
             "subtitle"
@@ -238,45 +260,39 @@ def make_schema(indicator_type, category, suffix="count"):
         schema["schema"]["value"]["id"] = f"{category}_{suffix}"
     elif indicator_type == "clusters":
         schema = fetch_template_schema("articles_clusters_base")
-        #schema["date"] = str(datetime.date.today())
-        schema['data_date'] = "2021/07/01"
+        # schema["date"] = str(datetime.date.today())
+        schema["data_date"] = "2021/07/01"
         schema["is_experimental"] = True
-        schema[
-            "title"
-        ] = f"{CLEAN_CLUSTERS[category]} preprints (count)"
+        schema["title"] = f"{CLEAN_CLUSTERS[category]} preprints (count)"
         schema[
             "subtitle"
-        ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints by institutions in the location (research clusters identified through a topic model of article abstracts)"
+        ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints by institutions in the location"
         schema["schema"]["value"][
             "label"
         ] = f"Number participations in {CLEAN_CLUSTERS[category]} preprints"
         schema["schema"]["value"]["id"] = f"{category}_{suffix}"
     elif indicator_type == "ai_counts":
         schema = fetch_template_schema("articles_ai_base")
-        #schema["date"] = str(datetime.date.today())
-        schema['data_date'] = "2021/07/01"
+        # schema["date"] = str(datetime.date.today())
+        schema["data_date"] = "2021/07/01"
         schema["is_experimental"] = True
-        schema[
-            "title"
-        ] = f"{AI_CLUSTERS[category]} preprints (count)"
+        schema["title"] = f"{AI_CLUSTERS[category]} preprints (count)"
         schema[
             "subtitle"
-        ] = f"Number participations in {AI_CLUSTERS[category]} preprints by institutions in the location (papers identified through a semantic analysis of abstract topics)"
+        ] = f"Number participations in {AI_CLUSTERS[category]} preprints by institutions in the location"
         schema["schema"]["value"][
             "label"
         ] = f"Number participations in {AI_CLUSTERS[category]} preprints"
         schema["schema"]["value"]["id"] = f"{category}_{suffix}"
     elif indicator_type == "ai_spec":
         schema = fetch_template_schema("articles_ai_base")
-        #schema["date"] = str(datetime.date.today())
-        schema['data_date'] = "2021/07/01"
+        # schema["date"] = str(datetime.date.today())
+        schema["data_date"] = "2021/07/01"
         schema["is_experimental"] = True
-        schema[
-            "title"
-        ] = f"{AI_CLUSTERS[category]} preprints (relative specialisation)"
+        schema["title"] = f"{AI_CLUSTERS[category]} preprints (relative specialisation)"
         schema[
             "subtitle"
-        ] = f"Relative specialisation in {AI_CLUSTERS[category]} preprints by institutions in the location (papers identified through a semantic analysis of abstract topics, specialisation calculated as a location quotient taking into account activity outside the category)"
+        ] = f"Relative specialisation in {AI_CLUSTERS[category]} preprints by institutions in the location"
         schema["schema"]["value"][
             "label"
         ] = f"{AI_CLUSTERS[category]} preprints (relative specialisation)"
@@ -284,15 +300,15 @@ def make_schema(indicator_type, category, suffix="count"):
 
     elif indicator_type == "clusters_specialisation":
         schema = fetch_template_schema("articles_clusters_specialisation_base")
-        #schema["date"] = str(datetime.date.today())
-        schema['data_date'] = "2021/07/01"
+        # schema["date"] = str(datetime.date.today())
+        schema["data_date"] = "2021/07/01"
         schema["is_experimental"] = True
         schema[
             "title"
         ] = f"{CLEAN_CLUSTERS[category]} preprints (relative specialisation)"
         schema[
             "subtitle"
-        ] = f"Relative specialisation in {CLEAN_CLUSTERS[category]} preprints by institutions in the location (research clusters identified through a topic model of article abstracts, specialisation calculated as a location quotient taking into account non-covid activity)"
+        ] = f"Relative specialisation in {CLEAN_CLUSTERS[category]} preprints by institutions in the location"
         schema["schema"]["value"][
             "label"
         ] = f"Relative specialisation in {CLEAN_CLUSTERS[category]} preprints"
@@ -335,10 +351,9 @@ if __name__ == "__main__":
         inst["article_id"].map(arts_lookup[var]) for var in ["year", "article_source"]
     ]
     inst["cluster"] = inst["article_id"].map(arx_clusters)
-    inst['artificial_intelligence'] = inst['article_id'].isin(ai_outputs['ai'])
-    inst['deep_learning'] = inst['article_id'].isin(ai_outputs['dl'])
-    inst['ai_covid'] = inst['article_id'].isin(ai_outputs['ai_covid'])
-
+    inst["artificial_intelligence"] = inst["article_id"].isin(ai_outputs["ai"])
+    inst["deep_learning"] = inst["article_id"].isin(ai_outputs["dl"])
+    inst["ai_covid"] = inst["article_id"].isin(ai_outputs["ai_covid"])
 
     inst = inst.dropna(axis=0, subset=["year"]).reset_index(drop=True)
     inst["year"] = inst["year"].astype(int)
@@ -405,30 +420,51 @@ if __name__ == "__main__":
         list(CLEAN_CLUSTERS.keys()),
     )
 
-
     logging.info("make AI count")
 
     logging.info("Making article AI indicators")
-    all_tables_ai = pd.concat(
-        [make_table_aggr(t, "artificial_intelligence") for t in all_tables_geo]
-    ).reset_index(drop=True).replace({True:"artificial_intelligence"})
+    all_tables_ai = (
+        pd.concat(
+            [make_table_aggr(t, "artificial_intelligence") for t in all_tables_geo]
+        )
+        .reset_index(drop=True)
+        .replace({True: "artificial_intelligence"})
+    )
 
     make_indicator(
-        table=all_tables_ai, category="artificial_intelligence", suffix="count", table_type="ai_counts", categories=["artificial_intelligence"])
+        table=all_tables_ai,
+        category="artificial_intelligence",
+        suffix="count",
+        table_type="ai_counts",
+        categories=["artificial_intelligence"],
+    )
 
     # deep learning
-    all_tables_dl = pd.concat(
-        [make_table_aggr(t, "deep_learning") for t in all_tables_geo]
-    ).reset_index(drop=True).replace({True:"deep_learning"})
+    all_tables_dl = (
+        pd.concat([make_table_aggr(t, "deep_learning") for t in all_tables_geo])
+        .reset_index(drop=True)
+        .replace({True: "deep_learning"})
+    )
 
     make_indicator(
-        table=all_tables_dl, category="deep_learning", suffix="count", table_type="ai_counts", categories=["deep_learning"])
+        table=all_tables_dl,
+        category="deep_learning",
+        suffix="count",
+        table_type="ai_counts",
+        categories=["deep_learning"],
+    )
 
     # ai covid
-    all_tables_covid_ai = pd.concat(
-        [make_table_aggr(t, "ai_covid") for t in all_tables_geo]
-    ).reset_index(drop=True).replace({True:"ai_covid"})
+    all_tables_covid_ai = (
+        pd.concat([make_table_aggr(t, "ai_covid") for t in all_tables_geo])
+        .reset_index(drop=True)
+        .replace({True: "ai_covid"})
+    )
 
     make_indicator(
-        table=all_tables_covid_ai, category="ai_covid", suffix="count", table_type="ai_counts", categories=["ai_covid"])
-
+        table=all_tables_covid_ai,
+        category="ai_covid",
+        suffix="count",
+        table_type="ai_counts",
+        categories=["ai_covid"],
+    )

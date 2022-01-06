@@ -24,7 +24,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "detection_sequencing_count",
-      "label": "Number of participations in Detection Sequencing preprints"
+      "label": "Number participations in Detection Sequencing preprints"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Number of participations in Detection Sequencing preprints by institutions in the location (research clusters identified through a topic model of article abstracts)",
+  "subtitle": "Number participations in Detection Sequencing preprints by institutions in the location",
   "title": "Detection Sequencing preprints (count)"
 }
