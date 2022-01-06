@@ -1,0 +1,38 @@
+{
+  "api_type": "MySQL",
+  "data_date": "2021/07/01",
+  "description": "Level of specialisation (location quotient) in a Covid research cluster",
+  "framework_group": "publications",
+  "is_experimental": true,
+  "order": [
+    "year",
+    "region_type",
+    "region_year_spec",
+    "region_id",
+    "region_level",
+    "value.id"
+  ],
+  "region_types": [
+    "NUTS"
+  ],
+  "schema": {
+    "region_id": "string",
+    "region_level": "int",
+    "region_type": "string",
+    "region_year_spec": "int",
+    "value": {
+      "data_type": "float",
+      "format": ".2f",
+      "id": "patient_impact_lq",
+      "label": "Relative specialisation in Patient Impact preprints"
+    },
+    "year": {
+      "data_type": "int",
+      "label": "Year"
+    }
+  },
+  "source_name": "Nesta",
+  "source_url": "https://github.com/nestauk/eurito_indicators",
+  "subtitle": "Relative specialisation in Patient Impact preprints by institutions in the location",
+  "title": "Patient Impact preprints (relative specialisation)"
+}

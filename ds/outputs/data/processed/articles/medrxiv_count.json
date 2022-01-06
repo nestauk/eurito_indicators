@@ -1,0 +1,43 @@
+{
+  "data_date": "2021/07/01",
+  "description": "Number of preprints involving participation from institutes in the location",
+  "framework_group": "publications",
+  "is_experimental": true,
+  "order": [
+    "year",
+    "region_type",
+    "region_year_spec",
+    "region_id",
+    "region_level",
+    "value.id"
+  ],
+  "region_types": [
+    "NUTS"
+  ],
+  "schema": {
+    "region_id": "string",
+    "region_level": "int",
+    "region_type": "string",
+    "region_year_spec": "int",
+    "value": {
+      "data_type": "int",
+      "format": ".1f",
+      "id": "medrxiv_count",
+      "label": "Number participations in medrxiv articles"
+    },
+    "year": {
+      "data_type": "int",
+      "label": "Year"
+    }
+  },
+  "source_name": [
+    "Nesta",
+    "Allen Institute for AI"
+  ],
+  "source_url": [
+    "https://github.com/nestauk/eurito_indicators",
+    "https://www.semanticscholar.org/"
+  ],
+  "subtitle": "Number participations in medrxiv articles by institutions in the location",
+  "title": "medrxiv articles (count)"
+}
