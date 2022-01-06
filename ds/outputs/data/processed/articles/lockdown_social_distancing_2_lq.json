@@ -24,7 +24,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "lockdown_social_distancing_2_lq",
-      "label": "Relative specialisation in Lockdown Social Distancing 2 preprints"
+      "label": "Relative specialisation in Social Distancing 2 preprints"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Relative specialisation in Lockdown Social Distancing 2 preprints by institutions in the location",
-  "title": "Lockdown Social Distancing 2 preprints (relative specialisation)"
+  "subtitle": "Relative specialisation in Social Distancing 2 preprints by institutions in the location",
+  "title": "Social Distancing 2 preprints (relative specialisation)"
 }

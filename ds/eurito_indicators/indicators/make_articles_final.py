@@ -45,6 +45,10 @@ def make_clean_clusters():
         n: " ".join([x.capitalize() for x in re.sub("_", " ", n).split(" ")])
         for n in set(arx_clusters.values())
     }
+    CLEAN_CLUSTERS = {
+        k: v if "Lockdown" not in v else re.sub("Lockdown", "", v).strip()
+        for k, v in CLEAN_CLUSTERS.items()
+    }
 
     AI_CLUSTERS = {}
 
@@ -320,6 +324,8 @@ def make_schema(indicator_type, category, suffix="count"):
 if __name__ == "__main__":
     if os.path.exists(NUTS_SHAPE_PATH) is False:
         fetch_nuts_shape()
+
+    print(CLEAN_CLUSTERS)
 
     logging.info("Reading institute data")
     inst = (
