@@ -71,7 +71,7 @@ def sklearn_pipeline_from_config(config_path):
 
     steps = []
     for step_name, step in config.items():
-        estimator_ = importlib(step['module'], step['class_name'])
+        estimator_ = importlib.import_module(step['estimator_module'], step['estimator_class_name'])
         steps.append((step_name, estimator_(**step['params'])))
 
     return Pipeline(steps)
