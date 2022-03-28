@@ -87,6 +87,7 @@ def clean_table(table, name, nuts_edition=2010):
         .assign(region_type="NUTS")
         .assign(region_year_spec=nuts_edition)
         .assign(region_level=lambda df: df["region_id"].apply(get_nuts_level))
+        .dropna(axis=0, subset=[name.lower()])
     )
 
     table_clean.name = name.lower()
