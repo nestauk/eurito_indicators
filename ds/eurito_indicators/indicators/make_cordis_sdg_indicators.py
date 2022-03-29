@@ -274,7 +274,7 @@ if __name__ == "__main__":
         schema = fetch_template_sdg_schema(schema_type="specialisation")
 
         goal_lq = lq[cols]
-        indicator_name = f"sdg_{str(sdg).zfill(2)}_project_specialization"
+        indicator_name = f"sdg_{str(sdg).zfill(2)}_project_specialisation"
         goal_lq = goal_lq.rename(columns={sdg_col: indicator_name})
         
         goal_lq.to_csv(
