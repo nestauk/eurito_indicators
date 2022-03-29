@@ -71,10 +71,14 @@ def sklearn_pipeline_from_config(config_path):
 
     steps = []
     for step_name, step in config.items():
-        estimator_ = importlib.import_module(step['estimator_module'], step['estimator_class_name'])
-        steps.append((step_name, estimator_(**step['params'])))
+        module = importlib.import_module(step['estimator_module'])
+        estimator_ = getattr(module, step['estimator_class_name'])
+        steps.append((step_name, estimator_()))
+    
+    pipe = Pipeline(steps)
+    pipe.set_params(**step['params'])
 
-    return Pipeline(steps)
+    return pipe
 
 def make_sdg_pipeline(sdg):
     """Wrapper function to automatically make a model pipeline with only the 
