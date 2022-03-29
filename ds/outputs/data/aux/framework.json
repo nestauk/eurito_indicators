@@ -3,4 +3,10 @@
     "id": "publications",
     "label": "Publications",
     "order": 0
+},
+{
+    "description": "Horizon 2020 Projects",
+    "id": "h2020",
+    "label": "Horizon 2020 Projects",
+    "order": 0
 }]
