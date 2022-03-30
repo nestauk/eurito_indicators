@@ -268,7 +268,7 @@ if __name__ == "__main__":
         schema["schema"]["value"]["id"] = indicator_name
         
         with open(f"{PROJECT_DIR}/outputs/data/processed/cordis/{indicator_name}.json", "w") as f:
-            json.dump(schema, f)
+            json.dump(schema, f, indent=2)
 
         # Export specialisation
         schema = fetch_template_sdg_schema(schema_type="specialisation")
@@ -288,4 +288,4 @@ if __name__ == "__main__":
         schema["schema"]["value"]["id"] = indicator_name
         
         with open(f"{PROJECT_DIR}/outputs/data/processed/cordis/{indicator_name}.json", "w") as f:
-            json.dump(schema, f)
+            json.dump(schema, f, indent=2)

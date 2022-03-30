@@ -1,1 +1,44 @@
-{"api_type": "Fetch", "data_date": "2022/03/14", "description": "Number of projects relating to SDG 12.  Responsible Consumption & Production from institutes in the location", "framework_group": "cordis", "is_experimental": true, "order": ["year", "region_type", "region_year_spec", "region_id", "region_level", "value.id"], "region_types": ["NUTS"], "schema": {"region_id": "string", "region_level": "int", "region_type": "string", "region_year_spec": "int", "value": {"data_type": "int", "format": ".1f", "id": "sdg_12_project_count", "label": "Number of research participations"}, "year": {"data_type": "int", "label": "Year"}}, "source_name": ["Nesta", "CORDIS"], "source_url": ["https://github.com/nestauk/eurito_indicators", "https://data.europa.eu/data/datasets/cordish2020projects"], "subtitle": "Number of participations in projects relating to SDG 12.  Responsible Consumption & Production by institutions in the location (projects identified using machine learning on project abstracts)", "title": "Horizon 2020 projects relating to SDG 12.  Responsible Consumption & Production (count)"}
+{
+  "api_type": "Fetch",
+  "data_date": "2022/03/14",
+  "description": "Number of projects relating to SDG 12.  Responsible Consumption & Production from institutes in the location",
+  "framework_group": "cordis",
+  "is_experimental": true,
+  "order": [
+    "year",
+    "region_type",
+    "region_year_spec",
+    "region_id",
+    "region_level",
+    "value.id"
+  ],
+  "region_types": [
+    "NUTS"
+  ],
+  "schema": {
+    "region_id": "string",
+    "region_level": "int",
+    "region_type": "string",
+    "region_year_spec": "int",
+    "value": {
+      "data_type": "int",
+      "format": ".1f",
+      "id": "sdg_12_project_count",
+      "label": "Number of research participations"
+    },
+    "year": {
+      "data_type": "int",
+      "label": "Year"
+    }
+  },
+  "source_name": [
+    "Nesta",
+    "CORDIS"
+  ],
+  "source_url": [
+    "https://github.com/nestauk/eurito_indicators",
+    "https://data.europa.eu/data/datasets/cordish2020projects"
+  ],
+  "subtitle": "Number of participations in projects relating to SDG 12.  Responsible Consumption & Production by institutions in the location (projects identified using machine learning on project abstracts)",
+  "title": "Horizon 2020 projects relating to SDG 12.  Responsible Consumption & Production (count)"
+}
