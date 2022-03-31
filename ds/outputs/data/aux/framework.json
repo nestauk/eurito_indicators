@@ -3,4 +3,11 @@
     "id": "publications",
     "label": "Publications",
     "order": 0
-}]
+},
+{
+    "description": "EUROSTAT indicators",
+    "id": "EUROSTAT",
+    "label": "EUROSTAT",
+    "order": 1
+}
+]

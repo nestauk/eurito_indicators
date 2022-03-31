@@ -34,7 +34,6 @@ EURITO_INDICATORS = [
     ["HRST_ST_RCAT", 2010],
     ["PAT_EP_RTOT", 2010],
     ["PAT_EP_RTEC", 2010],
-    ["RD_E_GERDREG", 2010],
     ["RD_P_PERSREG", 2010],
 ]
 
@@ -91,6 +90,8 @@ def clean_table(table, name, nuts_edition=2010):
         .assign(var_name=lambda df: df[var_name].apply(lambda x: np.round(x, 3)))
         .assign(region_year_spec=nuts_edition)
         .assign(region_level=lambda df: df["region_id"].apply(get_nuts_level))
+        .query("year>2010")
+        .reset_index(drop=True)
         .dropna(axis=0, subset=[var_name])
     )
 

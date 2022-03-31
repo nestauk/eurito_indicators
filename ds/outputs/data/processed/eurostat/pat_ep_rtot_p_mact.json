@@ -4,7 +4,7 @@
   "data_date": "DATE_20220331",
   "description": "string",
   "endpoint_url": "URL",
-  "framework_group": "Eurostat",
+  "framework_group": "EUROSTAT",
   "is_experimental": false,
   "is_public": true,
   "order": [
