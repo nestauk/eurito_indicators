@@ -3,7 +3,7 @@ api_type: fetch
 data_date: Date_YYYYMMDD
 description: string
 endpoint_url: URL
-framework_group: Eurostat
+framework_group: EUROSTAT
 is_experimental: False
 is_public: True
 order: [year, region_id, region_year_spec, value.id]
