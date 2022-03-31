@@ -78,3 +78,6 @@ def get_topic_community_names():
     return {int(k):v for k,v in out.items()}
 
 
+def get_closest_cluster():
+    with open(f"{PROJECT_DIR}/inputs/data/covid_cluster_proximity.json","r") as infile:
+        return json.load(infile)
