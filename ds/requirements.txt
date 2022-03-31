@@ -27,3 +27,10 @@ kaggle
 spacy
 geopandas
 currencyconverter
+eurostat
+jupyterlab
+pyyaml
+ratelim
+black
+flake8
+eurostatapiclient
