@@ -6,6 +6,7 @@ from datetime import datetime
 from itertools import product
 
 import eurostat
+import numpy as np
 import pandas as pd
 import ratelim
 import yaml
@@ -75,22 +76,25 @@ def get_variable_combinations(table):
 def clean_table(table, name, nuts_edition=2010):
     """Processes a Eurostat table to align with our schema"""
 
+    var_name = name.lower()
+
     table_clean = (
         table.copy()
         .rename(
             columns={
                 "geo": "region_id",
                 "TIME_PERIOD": "year",
-                "OBS_VALUE": name.lower(),
+                "OBS_VALUE": var_name,
             }
         )
         .assign(region_type="NUTS")
+        .assign(var_name=lambda df: df[var_name].apply(lambda x: np.round(x, 3)))
         .assign(region_year_spec=nuts_edition)
         .assign(region_level=lambda df: df["region_id"].apply(get_nuts_level))
-        .dropna(axis=0, subset=[name.lower()])
+        .dropna(axis=0, subset=[var_name])
     )
 
-    table_clean.name = name.lower()
+    table_clean.name = var_name
 
     return table_clean[
         [
@@ -99,7 +103,7 @@ def clean_table(table, name, nuts_edition=2010):
             "region_year_spec",
             "region_id",
             "region_level",
-            name.lower(),
+            var_name,
         ]
     ]
 
@@ -135,10 +139,13 @@ def fill_schema(code, variables, table):
         type(table[var_name].iloc[0])
     )
 
-    if "unit" in variables.keys():
-        euro_schema["schema"]["value"]["unit_string"] = eurostat_dict("unit")[
-            variables["unit"]
-        ].lower()
+    if euro_schema["schema"]["value"]["data_type"] == "float":
+        euro_schema["schema"]["value"]["format"] = ".3f"
+
+    # if "unit" in variables.keys():
+    #     euro_schema["schema"]["value"]["unit_string"] = eurostat_dict("unit")[
+    #         variables["unit"]
+    #     ].lower()
 
     euro_schema["schema"]["value"]["label"] = make_label(code, variables)
     euro_schema["title"] = make_label(code, variables)
@@ -146,13 +153,20 @@ def fill_schema(code, variables, table):
     return euro_schema
 
 
-def save_table(table):
+def save_table(table, report=True):
     """Saves a table"""
 
     # We use the last column (indicator name) to name the table
 
+    indicator_name = table.columns[-1]
+
+    if report is True:
+        logging.info(table.shape)
+        logging.info(table[indicator_name].head())
+        logging.info(table.describe())
+
     table.to_csv(
-        f"{PROJECT_DIR}/outputs/data/processed/eurostat/{table.columns[-1]}.csv",
+        f"{PROJECT_DIR}/outputs/data/processed/eurostat/{indicator_name}.csv",
         index=False,
     )
 
@@ -166,7 +180,7 @@ def save_schema(schema):
         f"{PROJECT_DIR}/outputs/data/processed/eurostat/{schema['schema']['value']['id']}.json",
         "w",
     ) as outfile:
-        json.dump(schema, outfile)
+        json.dump(schema, outfile, indent=2)
 
 
 def make_indicator_schema(code, nuts_version):
