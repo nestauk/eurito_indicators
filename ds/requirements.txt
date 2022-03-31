@@ -34,3 +34,4 @@ ratelim
 black
 flake8
 eurostatapiclient
+ratelim
