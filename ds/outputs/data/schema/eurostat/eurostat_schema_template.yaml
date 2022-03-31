@@ -1,0 +1,37 @@
+api_doc_url: URL|URL[]|{key, URL}
+api_type: fetch
+data_date: Date_YYYYMMDD
+description: string
+endpoint_url: URL
+framework_group: Eurostat
+is_experimental: False
+is_public: True
+order: [year, region_id, region_year_spec, value.id]
+region:
+  type: string
+  level: int
+schema:
+  region_id: string,
+  region_level: int,
+  region_type: string,
+  region_year_spec": int,
+  value:
+    data_type: string
+      # OPTIONAL - (XOR `type`) use for native types like counts (int) or simple mean values (float). Consider using `type` if the unit has a well known Type (e.g. EUR, densities, etc.)
+      # for currencies, please use `data_type: int`, this helps limiting the decimal part in the bar chart label for the average value
+    format: string # OPTIONAL - the render format, useful for floats or dates (e.g. `.2f`), see [1] and [2], not needed for integers
+    id: string # indicator name, should be identical to the file name (e.g. `berd` and `berd.csv`)
+    label: string # a short text to be used as a label in charts
+    type: string # (XOR `data_type`) - the value Type (e.g. Euro). Consider using `data_type` first.
+    unit_string: string # OPTIONAL - the unit of measure, should we not provide a `type`. E.g. '%' for percentages.
+  year:
+    data_type: int
+    label: Year
+source_name: Eurostat
+source_url: https://ec.europa.eu/eurostat
+subtitle: string # a brief description of the indicator short enough to be used in menus or sidebars (~40 chars)
+title: string # a description of the indicator, of the data source and transformations that have been applied
+
+
+# [1] https://docs.python.org/3/library/string.html#format-specification-mini-language
+# [2] https://github.com/d3/d3-format
