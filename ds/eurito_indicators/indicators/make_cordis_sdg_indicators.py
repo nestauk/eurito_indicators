@@ -249,8 +249,8 @@ if __name__ == "__main__":
     for sdg in SDGS:
         sdg_col = f"sdg_{str(sdg).zfill(2)}"
         sdg_name = sdg_names[str(sdg)]
-        cols = ["region_id", "region_level", "region_type", "region_year_spec", sdg_col, "year"]
-        
+        cols = ["year", "region_type", "region_year_spec", "region_id", "region_level", sdg_col]
+
         # Export counts
         schema = fetch_template_sdg_schema(schema_type="base")
         goal_counts = counts[cols]
