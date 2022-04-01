@@ -27,3 +27,5 @@ kaggle
 spacy
 geopandas
 currencyconverter
+sentence-transformers
+xgboost
