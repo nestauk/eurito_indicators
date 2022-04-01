@@ -2,7 +2,7 @@
   "api_type": "Fetch",
   "data_date": "2022/03/14",
   "description": "Number of projects relating to SDG 13.  Climate Action from institutes in the location",
-  "framework_group": "cordis",
+  "framework_group": "h2020",
   "is_experimental": true,
   "order": [
     "year",

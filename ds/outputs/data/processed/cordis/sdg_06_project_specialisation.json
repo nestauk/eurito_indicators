@@ -2,7 +2,7 @@
   "api_type": "Fetch",
   "data_date": "2022/03/14",
   "description": "Level of specialisation (location quotient) in research and innovation relating to 6. Clean Water & Sanitation",
-  "framework_group": "cordis",
+  "framework_group": "h2020",
   "is_experimental": true,
   "order": [
     "year",
