@@ -254,8 +254,10 @@ if __name__ == "__main__":
         # Export counts
         schema = fetch_template_sdg_schema(schema_type="base")
         goal_counts = counts[cols]
+        goal_counts = goal_counts[goal_counts[sdg_col] > 0]
         indicator_name = f"sdg_{str(sdg).zfill(2)}_project_count"
         goal_counts = goal_counts.rename(columns={sdg_col: indicator_name})
+        
         
         goal_counts.to_csv(
             f"{PROJECT_DIR}/outputs/data/processed/cordis/{indicator_name}.csv",
@@ -274,6 +276,7 @@ if __name__ == "__main__":
         schema = fetch_template_sdg_schema(schema_type="specialisation")
 
         goal_lq = lq[cols]
+        goal_lq = goal_lq[goal_lq[sdg_col] > 0]
         indicator_name = f"sdg_{str(sdg).zfill(2)}_project_specialisation"
         goal_lq = goal_lq.rename(columns={sdg_col: indicator_name})
         
