@@ -1,8 +1,8 @@
 {
 	"background_color": "#ffffff",
 	"theme_color": "#0189c6",
-	"name": "BEIS_indicators",
-	"short_name": "BEIS_indicators",
+	"name": "EURITO",
+	"short_name": "EURITO",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
