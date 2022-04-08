@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "public_health_fund_amount",
-      "label": null
+      "label": "EC contribution to research in public health"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
   "subtitle": "EC contribution to research in public health",
-  "title": "EC contribution to organisations in the area participating in research about public health, identified through a semantic analysis of their similarity to Covid-19 related projects funded by the EC",
+  "title": "EC contribution to organisations in the area participating in research about public health",
   "warning": null
 }

@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "policy_proj_spec",
-      "label": null
+      "label": "Relative project specialisation in policy research area"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
   "subtitle": "Relative project specialisation in policy research area",
-  "title": "Relative specialisation in projects about policy based on participation from organisation in the area. Relevant projects are identified through a semantic analysis of their similarity to Covid-19 related projects funded by the EC",
+  "title": "Relative specialisation in projects about policy based on participation from organisation in the area.",
   "warning": null
 }

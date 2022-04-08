@@ -20,10 +20,10 @@
     "region_type": "string",
     "region_year_spec": "int",
     "value": {
-      "data_type": "float",
-      "format": ".2f",
+      "data_type": "int",
+      "format": ".1f",
       "id": "systems_proj_count",
-      "label": null
+      "label": "Number of projects in systems and networks"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
   "subtitle": "Number of projects in systems and networks",
-  "title": "Number of projects about systems and networks involving organisations in the area, identified through a semantic analysis of their similarity to Covid-19 related projects funded by the EC",
+  "title": "Number of EC projects about systems and networks involving organisations in the area",
   "warning": null
 }
