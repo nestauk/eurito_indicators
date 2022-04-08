@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 from collections import defaultdict
 from datetime import datetime
@@ -36,6 +37,9 @@ EURITO_INDICATORS = [
     ["PAT_EP_RTEC", 2010],
     ["RD_P_PERSREG", 2010],
 ]
+
+with open(f"{PROJECT_DIR}/inputs/data/unsupportedRegions.json", "r") as infile:
+    UNSUPP = json.load(infile)
 
 
 # Functions
@@ -277,7 +281,26 @@ def make_label(code, variables):
     return f"{var_name} ({variables})"
 
 
+def filter_bad_regions(indicator_path):
+    """Removes rows with bad region ids from an indicator table"""
+
+    return pipe(
+        pd.read_csv(f"{PROJECT_DIR}/{indicator_path[2:]}"),
+        lambda table: [
+            row
+            for _, row in table.iterrows()
+            if dict(row) not in UNSUPP[indicator_path]
+        ],
+        pd.DataFrame,
+    )
+
+
 if __name__ == "__main__":
     for ind in EURITO_INDICATORS:
         logging.info(ind)
         make_indicator_schema(ind[0], ind[1])
+
+    logging.info("filtering bad regions")
+    problem_tables = list(UNSUPP.keys())
+    for prob_tab in problem_tables:
+        save_table(filter_bad_regions(prob_tab))
