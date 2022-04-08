@@ -22,8 +22,8 @@
     "value": {
       "data_type": "float",
       "format": ".2f",
-      "id": "products_proj_spec",
-      "label": "Relative project specialisation in products and services research area"
+      "id": "policy_fund_spec",
+      "label": "Relative funding specialisation in policy research area"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in products and services research area",
-  "title": "Relative specialisation in projects about products and services",
+  "subtitle": "Relative funding specialisation in policy research area",
+  "title": "Relative funding specialisation in projects about policy",
   "warning": null
 }

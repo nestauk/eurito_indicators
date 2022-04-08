@@ -155,7 +155,7 @@ def make_cordis_indicators(proj_labs):
                 funding_spec.query(f"cluster_label=='{cluster}'"), cluster, "fund_spec"
             )
         )
-        pipe(clean_proj_spec, make_schema, save_schema)
+        pipe(clean_funding_spec, make_schema, save_schema)
 
 
 def save_table(table):
@@ -195,7 +195,7 @@ def make_schema(table):
         sch["subtitle"] = f"Number of projects in {CLUSTER_LONG[cluster_name]}"
         sch[
             "title"
-        ] = f"Number of EC projects about {CLUSTER_LONG[cluster_name]} involving organisations in the area"
+        ] = f"Number of EC projects about {CLUSTER_LONG[cluster_name]}"
 
     if "proj_spec" in var_name:
 
@@ -206,7 +206,7 @@ def make_schema(table):
         ] = f"Relative project specialisation in {CLUSTER_LONG[cluster_name]} research area"
         sch[
             "title"
-        ] = f"Relative specialisation in projects about {CLUSTER_LONG[cluster_name]} based on participation from organisation in the area."
+        ] = f"Relative specialisation in projects about {CLUSTER_LONG[cluster_name]}"
 
     if "fund_amount" in var_name:
 
@@ -226,7 +226,7 @@ def make_schema(table):
         ] = f"Relative funding specialisation in {CLUSTER_LONG[cluster_name]} research area"
         sch[
             "title"
-        ] = f"Relative specialisation in projects about {CLUSTER_LONG[cluster_name]} based on funding received by projects involving organisation in the area"
+        ] = f"Relative funding specialisation in projects about {CLUSTER_LONG[cluster_name]}"
 
     return sch
 
