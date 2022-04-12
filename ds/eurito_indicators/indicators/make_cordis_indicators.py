@@ -162,7 +162,7 @@ def save_table(table):
     """Saves a table"""
     table.to_csv(
         f"{PROJECT_DIR}/outputs/data/processed/cordis_covid/{table.columns[-1]}.csv",
-        index=False
+        index=False,
     )
 
     return table
@@ -187,52 +187,59 @@ def make_schema(table):
 
     if "proj_count" in var_name:
 
-        sch["schema"]["value"]["label"] = f"Number of projects in {CLUSTER_LONG[cluster_name]}"
+        sch["schema"]["value"][
+            "label"
+        ] = f"Number of EC projects in {CLUSTER_LONG[cluster_name]}"
 
         sch["schema"]["value"]["data_type"] = "int"
         sch["schema"]["value"]["format"] = ".1f"
 
-        sch["subtitle"] = f"Number of projects in {CLUSTER_LONG[cluster_name]}"
-        sch[
-            "title"
-        ] = f"Number of EC projects about {CLUSTER_LONG[cluster_name]}"
+        sch["subtitle"] = f"Number of EC projects in {CLUSTER_LONG[cluster_name]}"
+        sch["title"] = f"{CLUSTER_LONG[cluster_name]} (Number of projects)"
 
     if "proj_spec" in var_name:
 
-        sch["schema"]["value"]["label"] = f"Relative project specialisation in {CLUSTER_LONG[cluster_name]} research area"
+        sch["schema"]["value"][
+            "label"
+        ] = f"Project specialisation in {CLUSTER_LONG[cluster_name]}"
 
         sch[
             "subtitle"
-        ] = f"Relative project specialisation in {CLUSTER_LONG[cluster_name]} research area"
-        sch[
-            "title"
-        ] = f"Relative specialisation in projects about {CLUSTER_LONG[cluster_name]}"
+        ] = f"Project specialisation in {CLUSTER_LONG[cluster_name]} research area"
+        sch["title"] = f"Project specialisation in {CLUSTER_LONG[cluster_name]}"
 
     if "fund_amount" in var_name:
 
-        sch["schema"]["value"]["label"] = f"EC contribution to research in {CLUSTER_LONG[cluster_name]}"
-
-        sch["subtitle"] = f"EC contribution to research in {CLUSTER_LONG[cluster_name]}"
-        sch[
-            "title"
-        ] = f"EC contribution to organisations in the area participating in research about {CLUSTER_LONG[cluster_name]}"
-
-    if "fund_spec" in var_name:
-
-        sch["schema"]["value"]["label"] = f"Relative funding specialisation in {CLUSTER_LONG[cluster_name]} research area"
+        sch["schema"]["value"]["label"] = f"EC funding for {CLUSTER_LONG[cluster_name]}"
 
         sch[
             "subtitle"
-        ] = f"Relative funding specialisation in {CLUSTER_LONG[cluster_name]} research area"
+        ] = f"EC funding for local organisations involved in {CLUSTER_LONG[cluster_name]} projects"
+        sch["title"] = f"EC funding for projects in {CLUSTER_LONG[cluster_name]}"
+
+    if "fund_spec" in var_name:
+
+        sch["schema"]["value"][
+            "label"
+        ] = f"EC funding specialisation in {CLUSTER_LONG[cluster_name]}"
+
         sch[
-            "title"
-        ] = f"Relative funding specialisation in projects about {CLUSTER_LONG[cluster_name]}"
+            "subtitle"
+        ] = f"Funding specialisation for local organisations involved in {CLUSTER_LONG[cluster_name]}"
+        sch["title"] = f"Funding specialisation in {CLUSTER_LONG[cluster_name]}"
 
     return sch
 
 
 def save_schema(schema):
     """Saves a schema"""
+
+    if len(schema["title"]) > 60:
+        logging.info(f"Long title: {len(schema['title'])} characters")
+
+    if len(schema["subtitle"]) > 140:
+        logging.info(f"Long title: {len(schema['subtitle'])} characters")
+
     with open(
         f"{PROJECT_DIR}/outputs/data/processed/cordis_covid/{schema['schema']['value']['id']}.json",
         "w",
