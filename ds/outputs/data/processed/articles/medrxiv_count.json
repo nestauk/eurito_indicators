@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "medrxiv_count",
-      "label": "Number of participations in medrxiv articles"
+      "label": "Number participations in medrxiv articles"
     },
     "year": {
       "data_type": "int",
@@ -38,6 +38,6 @@
     "https://github.com/nestauk/eurito_indicators",
     "https://www.semanticscholar.org/"
   ],
-  "subtitle": "Number of participations in medrxiv articles by institutions in the location",
+  "subtitle": "Number participations in medrxiv articles by institutions in the location",
   "title": "medrxiv articles (count)"
 }

@@ -1,6 +1,14 @@
-[{
-    "description": "Publications",
-    "id": "publications",
-    "label": "Publications",
-    "order": 0
-}]
+[
+    {
+        "description": "Publications",
+        "id": "publications",
+        "label": "Publications",
+        "order": 0
+    },
+    {
+        "description": "Cordis",
+        "id": "cordis_covid_clusters",
+        "label": "Cordis",
+        "order": 1
+    }
+]

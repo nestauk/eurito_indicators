@@ -1,5 +1,6 @@
 # Script to produce Cordis related analytical charts
 
+import json
 import logging
 import warnings
 from datetime import datetime
@@ -417,3 +418,6 @@ if __name__ == "__main__":
     ).properties(width=300, height=300)
 
     save_altair(part_distances, "participation_distances", driver=driv, path=FIG_PATH)
+
+    with open(f"{PROJECT_DIR}/inputs/data/covid_cluster_proximity.json","w") as outfile:
+        json.dump(cluster_proximity_lookup, outfile)

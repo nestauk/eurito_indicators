@@ -1,0 +1,32 @@
+api_type: fetch
+description: This indicator provides levels of activity by region in research projects that are semantically similar to the Covid-19 research clusters supported by the Commission. It can be interpreted as a measure of the levels of activity and investment in research areas related to societal preparedness and resilience to crisis with a particular focus on the biomedical domain
+endpoint_url: https://cordis.europa.eu/data/cordis-h2020projects-xlsx.zip
+framework_group: cordis_covid_clusters
+is_experimental: True
+is_public: True
+order:
+  - year
+  - region_type
+  - region_year_spec
+  - region_id
+  - region_level
+  - value.id
+region_types: NUTS
+schema:
+  region_id: string # e.g. FR
+  region_level: int # e.g. 3
+  region_type: string # e.g. NUTS, World, LEP, etc
+  region_year_spec: int # spec year, e.g. 2003
+  value:
+    data_type: float
+    format: ".2f"
+    id: 
+    label: 
+  year:
+    data_type: int
+    label: Year
+source_name: cordis
+source_url: https://cordis.europa.eu/
+subtitle: 
+title: 
+warning:

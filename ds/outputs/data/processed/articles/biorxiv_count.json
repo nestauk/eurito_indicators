@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "biorxiv_count",
-      "label": "Number of participations in biorxiv articles"
+      "label": "Number participations in biorxiv articles"
     },
     "year": {
       "data_type": "int",
@@ -38,6 +38,6 @@
     "https://github.com/nestauk/eurito_indicators",
     "https://www.semanticscholar.org/"
   ],
-  "subtitle": "Number of participations in biorxiv articles by institutions in the location",
+  "subtitle": "Number participations in biorxiv articles by institutions in the location",
   "title": "biorxiv articles (count)"
 }

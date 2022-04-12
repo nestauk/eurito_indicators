@@ -1,0 +1,38 @@
+{
+  "api_type": "fetch",
+  "description": "This indicator provides levels of activity by region in research projects that are semantically similar to the Covid-19 research clusters supported by the Commission. It can be interpreted as a measure of the levels of activity and investment in research areas related to societal preparedness and resilience to crisis with a particular focus on the biomedical domain",
+  "endpoint_url": "https://cordis.europa.eu/data/cordis-h2020projects-xlsx.zip",
+  "framework_group": "cordis_covid_clusters",
+  "is_experimental": true,
+  "is_public": true,
+  "order": [
+    "year",
+    "region_type",
+    "region_year_spec",
+    "region_id",
+    "region_level",
+    "value.id"
+  ],
+  "region_types": "NUTS",
+  "schema": {
+    "region_id": "string",
+    "region_level": "int",
+    "region_type": "string",
+    "region_year_spec": "int",
+    "value": {
+      "data_type": "int",
+      "format": ".1f",
+      "id": "diagnosis_proj_count",
+      "label": "Number of EC projects in diagnosis & prevention"
+    },
+    "year": {
+      "data_type": "int",
+      "label": "Year"
+    }
+  },
+  "source_name": "cordis",
+  "source_url": "https://cordis.europa.eu/",
+  "subtitle": "Number of EC projects in diagnosis & prevention",
+  "title": "diagnosis & prevention (Number of projects)",
+  "warning": null
+}

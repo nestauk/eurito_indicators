@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Relative specialisation in Impact Studies 2 preprints by institutions in the location (research clusters identified through a topic model of article abstracts, specialisation calculated as a location quotient taking into account non-covid activity)",
+  "subtitle": "Relative specialisation in Impact Studies 2 preprints by institutions in the location",
   "title": "Impact Studies 2 preprints (relative specialisation)"
 }
