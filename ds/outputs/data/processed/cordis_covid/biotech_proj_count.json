@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "biotech_proj_count",
-      "label": "Number of projects in biotechnology"
+      "label": "Number of EC projects in biotechnology"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in biotechnology",
-  "title": "Number of EC projects about biotechnology",
+  "subtitle": "Number of EC projects in biotechnology",
+  "title": "biotechnology (Number of projects)",
   "warning": null
 }

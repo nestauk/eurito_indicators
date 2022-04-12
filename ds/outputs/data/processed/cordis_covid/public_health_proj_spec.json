@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "public_health_proj_spec",
-      "label": "Relative project specialisation in public health research area"
+      "label": "Project specialisation in public health"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in public health research area",
-  "title": "Relative specialisation in projects about public health",
+  "subtitle": "Project specialisation in public health research area",
+  "title": "Project specialisation in public health",
   "warning": null
 }

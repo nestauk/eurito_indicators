@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "public_health_fund_amount",
-      "label": "EC contribution to research in public health"
+      "label": "EC funding for public health"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "EC contribution to research in public health",
-  "title": "EC contribution to organisations in the area participating in research about public health",
+  "subtitle": "EC funding for local organisations involved in public health projects",
+  "title": "EC funding for projects in public health",
   "warning": null
 }

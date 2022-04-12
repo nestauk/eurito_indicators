@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "products_proj_count",
-      "label": "Number of projects in products and services"
+      "label": "Number of EC projects in products and services"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in products and services",
-  "title": "Number of EC projects about products and services",
+  "subtitle": "Number of EC projects in products and services",
+  "title": "products and services (Number of projects)",
   "warning": null
 }

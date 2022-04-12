@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "policy_proj_count",
-      "label": "Number of projects in policy"
+      "label": "Number of EC projects in policy"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in policy",
-  "title": "Number of EC projects about policy",
+  "subtitle": "Number of EC projects in policy",
+  "title": "policy (Number of projects)",
   "warning": null
 }

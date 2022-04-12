@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "biotech_fund_spec",
-      "label": "Relative funding specialisation in biotechnology research area"
+      "label": "EC funding specialisation in biotechnology"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative funding specialisation in biotechnology research area",
-  "title": "Relative funding specialisation in projects about biotechnology",
+  "subtitle": "Funding specialisation for local organisations involved in biotechnology",
+  "title": "Funding specialisation in biotechnology",
   "warning": null
 }

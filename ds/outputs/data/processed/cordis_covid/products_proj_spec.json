@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "products_proj_spec",
-      "label": "Relative project specialisation in products and services research area"
+      "label": "Project specialisation in products and services"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in products and services research area",
-  "title": "Relative specialisation in projects about products and services",
+  "subtitle": "Project specialisation in products and services research area",
+  "title": "Project specialisation in products and services",
   "warning": null
 }

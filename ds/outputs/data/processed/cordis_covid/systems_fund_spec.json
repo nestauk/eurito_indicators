@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "systems_fund_spec",
-      "label": "Relative funding specialisation in systems and networks research area"
+      "label": "EC funding specialisation in systems and networks"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative funding specialisation in systems and networks research area",
-  "title": "Relative funding specialisation in projects about systems and networks",
+  "subtitle": "Funding specialisation for local organisations involved in systems and networks",
+  "title": "Funding specialisation in systems and networks",
   "warning": null
 }

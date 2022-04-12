@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "public_health_proj_count",
-      "label": "Number of projects in public health"
+      "label": "Number of EC projects in public health"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in public health",
-  "title": "Number of EC projects about public health",
+  "subtitle": "Number of EC projects in public health",
+  "title": "public health (Number of projects)",
   "warning": null
 }

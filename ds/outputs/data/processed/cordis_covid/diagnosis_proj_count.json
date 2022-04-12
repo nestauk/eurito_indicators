@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "diagnosis_proj_count",
-      "label": "Number of projects in diagnosis & prevention"
+      "label": "Number of EC projects in diagnosis & prevention"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in diagnosis & prevention",
-  "title": "Number of EC projects about diagnosis & prevention",
+  "subtitle": "Number of EC projects in diagnosis & prevention",
+  "title": "diagnosis & prevention (Number of projects)",
   "warning": null
 }

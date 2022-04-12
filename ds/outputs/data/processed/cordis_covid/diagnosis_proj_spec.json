@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "diagnosis_proj_spec",
-      "label": "Relative project specialisation in diagnosis & prevention research area"
+      "label": "Project specialisation in diagnosis & prevention"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in diagnosis & prevention research area",
-  "title": "Relative specialisation in projects about diagnosis & prevention",
+  "subtitle": "Project specialisation in diagnosis & prevention research area",
+  "title": "Project specialisation in diagnosis & prevention",
   "warning": null
 }

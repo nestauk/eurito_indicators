@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "policy_proj_spec",
-      "label": "Relative project specialisation in policy research area"
+      "label": "Project specialisation in policy"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in policy research area",
-  "title": "Relative specialisation in projects about policy",
+  "subtitle": "Project specialisation in policy research area",
+  "title": "Project specialisation in policy",
   "warning": null
 }

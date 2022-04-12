@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "systems_proj_count",
-      "label": "Number of projects in systems and networks"
+      "label": "Number of EC projects in systems and networks"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Number of projects in systems and networks",
-  "title": "Number of EC projects about systems and networks",
+  "subtitle": "Number of EC projects in systems and networks",
+  "title": "systems and networks (Number of projects)",
   "warning": null
 }

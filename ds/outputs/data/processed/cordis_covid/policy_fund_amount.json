@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "policy_fund_amount",
-      "label": "EC contribution to research in policy"
+      "label": "EC funding for policy"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "EC contribution to research in policy",
-  "title": "EC contribution to organisations in the area participating in research about policy",
+  "subtitle": "EC funding for local organisations involved in policy projects",
+  "title": "EC funding for projects in policy",
   "warning": null
 }

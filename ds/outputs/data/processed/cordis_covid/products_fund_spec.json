@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "products_fund_spec",
-      "label": "Relative funding specialisation in products and services research area"
+      "label": "EC funding specialisation in products and services"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative funding specialisation in products and services research area",
-  "title": "Relative funding specialisation in projects about products and services",
+  "subtitle": "Funding specialisation for local organisations involved in products and services",
+  "title": "Funding specialisation in products and services",
   "warning": null
 }

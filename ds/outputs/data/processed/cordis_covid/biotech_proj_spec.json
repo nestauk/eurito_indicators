@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "biotech_proj_spec",
-      "label": "Relative project specialisation in biotechnology research area"
+      "label": "Project specialisation in biotechnology"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "Relative project specialisation in biotechnology research area",
-  "title": "Relative specialisation in projects about biotechnology",
+  "subtitle": "Project specialisation in biotechnology research area",
+  "title": "Project specialisation in biotechnology",
   "warning": null
 }

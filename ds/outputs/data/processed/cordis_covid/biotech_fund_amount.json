@@ -23,7 +23,7 @@
       "data_type": "float",
       "format": ".2f",
       "id": "biotech_fund_amount",
-      "label": "EC contribution to research in biotechnology"
+      "label": "EC funding for biotechnology"
     },
     "year": {
       "data_type": "int",
@@ -32,7 +32,7 @@
   },
   "source_name": "cordis",
   "source_url": "https://cordis.europa.eu/",
-  "subtitle": "EC contribution to research in biotechnology",
-  "title": "EC contribution to organisations in the area participating in research about biotechnology",
+  "subtitle": "EC funding for local organisations involved in biotechnology projects",
+  "title": "EC funding for projects in biotechnology",
   "warning": null
 }
