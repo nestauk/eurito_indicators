@@ -6,3 +6,5 @@ _
 !/static/data/tests
 /static/font/unused/
 /test/browserstack/.config.mjs
+/.svelte-kit
+/.netlify

@@ -1,18 +1,27 @@
-import {mdsvex} from 'mdsvex';
-import babel from 'rollup-plugin-babel';
-// import cleanup from "rollup-plugin-cleanup";
 import commonjs from '@rollup/plugin-commonjs';
 import dsv from '@rollup/plugin-dsv';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import svelte from 'rollup-plugin-svelte';
-import { terser } from 'rollup-plugin-terser';
 import yaml from '@rollup/plugin-yaml';
+import {mdsvex} from 'mdsvex';
+import path from 'path';
+import alias from 'rollup-plugin-alias';
+import babel from 'rollup-plugin-babel';
+import svelte from 'rollup-plugin-svelte';
+import {terser} from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 
-import {unescape_code} from './src/node_modules/app/utils/unescape-inlineCode';
+import {unescape_code} from './src/lib/utils/unescape-inlineCode';
 import pkg from './package.json';
+
+const appRoot = path.join(__dirname, 'src/lib');
+const aliasConfig = alias({
+	resolve: ['.js', 'svelte'],
+	entries: [
+		{find: '$lib', replacement: appRoot}
+	]
+});
 
 const mode = process.env.NODE_ENV;
 const isExported = process.env.SAPPER_EXPORT;
@@ -52,7 +61,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/mdsvex/_layout.svelte',
+					layout:'./src/lib/components/mdsvex/_layout.svelte',
 					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {
@@ -112,7 +121,7 @@ export default {
 					'.svx'
 				],
 				preprocess: mdsvex({
-					layout:'./src/node_modules/app/components/mdsvex/_layout.svelte',
+					layout:'./src/lib/components/mdsvex/_layout.svelte',
 					remarkPlugins: [unescape_code]
 				}),
 				compilerOptions: {
@@ -127,7 +136,7 @@ export default {
 			dsv(),
 			json(),
 			yaml(),
-			// removeComments,
+			aliasConfig,
 		],
 		external:
 			Object.keys(pkg.dependencies)
@@ -159,7 +168,7 @@ export default {
 			dsv(),
 			json(),
 			yaml(),
-			// removeComments,
+			aliasConfig,
 			!dev && terser()
 		],
 
