@@ -16,6 +16,7 @@
 		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import {onMount, beforeUpdate, tick} from 'svelte';
 
+	import {page as _page} from '$app/stores';
 	import Nav from '$lib/components/Nav.svelte';
 	import {a11yFontFamilies, fontsInfo} from '$lib/config';
 	import theme from '$lib/theme';
@@ -25,8 +26,6 @@
 	const bannerComponents = [
 		Privacy
 	];
-
-	export let segment;
 
 	// actions
 	const {
@@ -55,6 +54,7 @@
 		}
 	});
 
+	$: [,segment] = $_page.url.pathname.split('/');
 	$: menuHeight = $_headerSize.blockSize + (showA11yMenu ? a11yHeight : 0);
 	$: $_screen?.classes && (isLayoutUndefined = false);
 </script>

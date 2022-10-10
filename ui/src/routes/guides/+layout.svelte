@@ -8,8 +8,9 @@
 	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
 	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
 	import {_screen} from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
-
 	import {isNotNil} from '@svizzle/utils';
+
+	import {page as _page} from '$app/stores';
 	import theme from '$lib/theme';
 
 	const segments = ['app', 'indicators', 'a11ymenu'];
@@ -19,8 +20,8 @@
 		a11ymenu: 'Accessibility menu',
 	};
 
-	export let segment;
 
+	$: [,,segment] = $_page.url.pathname.split('/');
 	$: currentValueIndex = _.findIndex(segments, _.is(segment));
 	$: prevSegment = segments[currentValueIndex - 1];
 	$: nextSegment = segments[currentValueIndex + 1];

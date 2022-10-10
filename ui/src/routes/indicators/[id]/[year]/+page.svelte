@@ -1,16 +1,3 @@
-<script context='module'>
-	import {parseCSV} from '@svizzle/time_region_value/src/lib/utils/domain';
-
-	import {lookup} from '$lib/data/groups';
-
-	export function preload ({params: {id, year}}) {
-		return this.fetch(lookup[id].url)
-			.then(r => r.text())
-			.then(parseCSV(id))
-			.then(data => ({data, id, year}))
-	}
-</script>
-
 <script>
 	import * as _ from 'lamb';
 	import IdYear from '@svizzle/time_region_value/src/routes/[id]/[year].svelte';
@@ -25,8 +12,6 @@
 	/* props */
 
 	export let data;
-	export let id;
-	export let year;
 
 	/* local vars */
 
@@ -35,6 +20,9 @@
 
 	/* reactive vars */
 
+	$: json = data.data;
+	$: year = data.year;
+	$: id = data.id;
 	$: $_selectedYear = Number(year);
 	$: ({availableYears, title} = $_lookup[id] || {});
 	$: $_availableYears = availableYears;
@@ -49,7 +37,7 @@
 </svelte:head>
 
 <IdYear
-	{data}
+	data={json}
 	{id}
 	{types}
 	{year}

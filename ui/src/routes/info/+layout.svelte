@@ -7,8 +7,9 @@
 	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
 	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
 	import Link from '@svizzle/ui/src/Link.svelte';
-
 	import {isNotNil} from '@svizzle/utils';
+
+	import {page as _page} from '$app/stores';
 	import theme from '$lib/theme';
 
 	const segments = ['privacy', 'disclaimer', 'feedback'];
@@ -18,8 +19,8 @@
 		feedback: 'Feedback',
 	}
 
-	export let segment;
 
+	$: [,,segment] = $_page.url.pathname.split('/');
 	$: currentValueIndex = _.findIndex(segments, _.is(segment));
 	$: prevSegment = segments[currentValueIndex - 1];
 	$: nextSegment = segments[currentValueIndex + 1];
