@@ -27,7 +27,7 @@ const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
 const TYPES_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'schema/types.yaml');
 const FRAMEWORK_PATH = path.resolve(__dirname, DS_DATA_REL_PATH, 'aux/framework.json');
 const GROUPS_PATH =
-	path.resolve(__dirname, '../node_modules/app/data/indicatorsGroups.json');
+	path.resolve(__dirname, '../lib/data/indicatorsGroups.json');
 
 const saveIndex = saveObj(GROUPS_PATH, 2);
 const isDir = name => !name.startsWith('.') && path.parse(name).ext === '';
