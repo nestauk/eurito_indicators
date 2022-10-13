@@ -5,7 +5,7 @@ import path from 'path';
 import unifiedNuts from '@svizzle/atlas/data/dist/NUTS/unifiedNuts.json';
 import {tapMessage} from '@svizzle/dev';
 import {isCsvFile, readDir, readFile, saveObjPassthrough} from '@svizzle/file';
-import {parseCSV} from '@svizzle/time_region_value/src/lib/utils/domain';
+import {parseCSV} from '@svizzle/time_region_value';
 import {getObjSize} from '@svizzle/utils';
 import cpy from 'cpy';
 import del from 'del';

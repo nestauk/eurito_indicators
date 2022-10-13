@@ -1,4 +1,4 @@
-import {parseCSV} from '@svizzle/time_region_value/src/lib/utils/domain';
+import {parseCSV} from '@svizzle/time_region_value';
 
 import {lookup} from '$lib/data/groups';
 

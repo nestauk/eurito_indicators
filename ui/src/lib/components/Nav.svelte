@@ -10,7 +10,7 @@
 
 	import theme from '$lib/theme';
 	import {zipUrl} from '$lib/utils/assets';
-	import {isServerSide} from '$lib/utils/env';
+	import {isServerSide} from '$lib/env';
 	import {version} from '$lib/utils/version';
 
 	const changelogUrl = 'https://github.com/nestauk/eurito_indicators/blob/staging/CHANGELOG.md';
