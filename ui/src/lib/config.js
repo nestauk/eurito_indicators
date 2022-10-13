@@ -19,8 +19,8 @@ export const flags = {
 /* regional selection */
 
 const regionType = 'NUTS';
-const nutsLevels = regionSpecs[regionType].levels;
-const [rootLevel,] = nutsLevels;
+const {levels, years} = regionSpecs[regionType];
+const [rootLevel] = levels;
 
 export const regionSettings = {
 	canSelectLevels: true,
@@ -104,11 +104,12 @@ export const regionSettings = {
 	],
 	key: 'NUTS_ID',
 	initialLevel: rootLevel,
-	levels: nutsLevels,
+	levels,
 	objectId: 'NUTS',
 	resolution: '10M',
 	rootIds: undefined, // all roots
 	type: regionType,
+	years,
 }
 
 /* testing */
