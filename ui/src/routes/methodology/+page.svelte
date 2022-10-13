@@ -6,7 +6,7 @@
 
 	import {toolName} from '$lib/config';
 	import {zipUrl} from '$lib/utils/assets';
-	import theme from '$lib/theme';
+	import {_currThemeVars} from '$lib/stores/theme';
 
 	import Methodology from '$lib/_content/Methodology.svx';
 </script>
@@ -19,7 +19,7 @@
 	>
 </svelte:head>
 
-<main class={$_screen?.classes}>
+<main class='_layout methodology {$_screen?.classes}'>
 	<div>
 		<Methodology/>
 
@@ -29,17 +29,17 @@
 				glyph={Download}
 				href={zipUrl}
 				text='Download all indicators'
-				theme={{backgroundColor: theme.colorLink}}
+				theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 			/>
 			<LinkButton
 				href='/guides'
 				text='Read the guides'
-				theme={{backgroundColor: theme.colorLink}}
+				theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 			/>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorLink}}
+				theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 			/>
 		</ResponsiveFlex>
 	</div>
@@ -47,7 +47,7 @@
 
 <style>
 	main {
-		background-color: var(--color-background);
+		background-color: var(--colorPageBackground);
 		display: flex;
 		font-weight: 200;
 		height: 100%;
@@ -56,8 +56,7 @@
 	}
 
 	div {
-		background-color: white;
-		box-shadow: var(--box-shadow-y);
+		background-color: var(--colorBackground);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;

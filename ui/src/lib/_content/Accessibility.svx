@@ -2,7 +2,7 @@
 	import {LinkButton, ResponsiveFlex} from '@svizzle/ui';
 
 	import {contactEmail,toolName} from '$lib/config';
-	import theme from '$lib/theme';
+	import {_currThemeVars} from '$lib/stores/theme';
 	import {zipUrl} from '$lib/utils/assets';
 
 	const lighthouseUrl = 'https://developers.google.com/web/tools/lighthouse';
@@ -12,6 +12,10 @@
 	const screenReadersUrl = 'https://en.wikipedia.org/wiki/List_of_screen_readers';
 	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
 	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
+
+	const theme = {
+		backgroundColor: $_currThemeVars['--colorLink']
+	};
 </script>
 
 # Accessibility
@@ -42,7 +46,7 @@ We follow the recommendations of the [WCAG 2.1 guidelines]({wcag21Url}). Also:
 
 According to automated testing using the
 [Pa11y accessibility testing tool]({pa11yUrl}), no accessibility issues were
-detected and this website is reported to have a WCAG 2.0 AAA compliance level.
+detected and this website is reported to have a WCAG 2.0 AA compliance level.
 This website also passes the accessibility audits checked by
 [Google's Lighthouse tool]({lighthouseUrl}).
 
@@ -89,13 +93,13 @@ change its appearance so that it contrasts more with the screen content.
 	<LinkButton
 		href={windowsMouseURL}
 		text='Windows'
-		theme={{backgroundColor: theme.colorLink}}
+		{theme}
 		type='external'
 	/>
 	<LinkButton
 		href={osxMouseURL}
 		text='OS X'
-		theme={{backgroundColor: theme.colorLink}}
+		{theme}
 		type='external'
 	/>
 </ResponsiveFlex>

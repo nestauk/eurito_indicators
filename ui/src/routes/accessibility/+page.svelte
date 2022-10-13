@@ -1,16 +1,16 @@
 <script>
+	import {
+		_screen,
+		ChevronLeft,
+		ChevronRight,
+		Icon,
+		Link,
+		LoadingView
+	} from '@svizzle/ui';
 	import {isNotNil} from '@svizzle/utils';
-	import {_screen}
-		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
 	import Bowser from 'bowser';
 	import * as _ from 'lamb';
 	import {onMount} from 'svelte';
-
-	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
-	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
-	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
-	import Link from '@svizzle/ui/src/Link.svelte';
-	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
 
 	import H2 from '$lib/components/mdsvex/h2.svelte';
 	import P from '$lib/components/mdsvex/p.svelte';
@@ -20,7 +20,7 @@
 		lighthouseUrls,
 		toolName
 	} from '$lib/config';
-	import theme from '$lib/theme';
+	import {_currThemeVars} from '$lib/stores/theme';
 	import {
 		getTest,
 		getTestResultsFilename,
@@ -34,14 +34,13 @@
 	const lighthouseIssueUrl = 'https://github.com/GoogleChrome/lighthouse/issues/12039';
 
 	const reportNames = _.keys(lighthouseUrls)
-	const updateCurrentReport = id => currentreport = id;
 
 	const linkTheme = {
-		color: theme.colorLink,
-		iconStroke: theme.colorLink
+		color: $_currThemeVars['--colorLink'],
+		iconStroke: $_currThemeVars['--colorLink']
 	};
 
-	let currentreport = reportNames[0];
+	let [currentreport] = reportNames;
 	let environment;
 	let lighthouseFrame;
 	let loadingResults = false;
@@ -50,18 +49,22 @@
 		passed: false
 	};
 
-	async function loadResults (environment) {
-		const fileName = getTestResultsFilename(environment);
+	function updateCurrentReport (id) {
+		currentreport = id
+	}
+
+	async function loadResults (env) {
+		const fileName = getTestResultsFilename(env);
 		if (fileName) {
 			const response = await fetch(`${testResultsBaseURL}/${fileName}`);
 			const allTests = await response.json();
 			const indexedResults = groupTests(allTests);
-			const test = getTest(indexedResults, environment)
+			const test = getTest(indexedResults, env)
 			testResults = summarizeResults(test);
 		}
 	}
 
-	function resizeIFrameToFitContent ( iFrame ) {
+	function resizeIFrameToFitContent (iFrame) {
 		loadingResults = false
 		iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
 	}
@@ -71,7 +74,11 @@
 		loadResults(environment);
 	})
 
-	$: currentreport, loadingResults = true;
+	$: {
+		currentreport; // eslint-disable-line no-unused-expressions
+
+		loadingResults = true;
+	}
 	$: currentValueIndex = _.findIndex(
 		reportNames,
 		_.is(currentreport)
@@ -95,7 +102,7 @@
 	>
 </svelte:head>
 
-<main class={$_screen?.classes}>
+<main class='accessibility {$_screen?.classes}'>
 	<section>
 		<Accessibility/>
 
@@ -168,7 +175,7 @@
 							<div class='spinner'>
 								<LoadingView
 									size={24}
-									stroke={theme.colorMain}
+									stroke={$_currThemeVars['--colorIcon']}
 									strokeWidth={1}
 								/>
 							</div>
@@ -183,7 +190,7 @@
 							<div class='spinner'>
 								<LoadingView
 									size={24}
-									stroke={theme.colorMain}
+									stroke={$_currThemeVars['--colorIcon']}
 									strokeWidth={1}
 								/>
 							</div>
@@ -191,6 +198,7 @@
 					</label>
 
 					<button
+						aria-label={hasPrevValue ? 'Previous Result' : null}
 						class:clickable={hasPrevValue}
 						disabled={!hasPrevValue}
 						on:click={clickedPrev}
@@ -198,6 +206,7 @@
 						<Icon glyph={ChevronLeft} />
 					</button>
 					<button
+						aria-label={hasNextValue ? 'Next Result' : null}
 						class:clickable={hasNextValue}
 						disabled={!hasNextValue}
 						on:click={clickedNext}
@@ -228,7 +237,7 @@
 			marginwidth='0'
 			src={reportUrl}
 			title='Accessibility validation results'
-			on:load={e => resizeIFrameToFitContent(lighthouseFrame)}
+			on:load={() => resizeIFrameToFitContent(lighthouseFrame)}
 		>
 			Loading...
 		</iframe>
@@ -236,8 +245,8 @@
 </main>
 
 <style>
-	main {
-		background-color: var(--color-background);
+	.accessibility {
+		background-color: var(--colorPageBackground);
 		display: flex;
 		font-weight: 200;
 		height: 100%;
@@ -246,17 +255,17 @@
 	}
 
 	section {
-		background-color: white;
-		box-shadow: var(--box-shadow-y);
+		background-color: var(--colorBackground);
+		box-shadow: var(--boxShadowY);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
 	}
 
 	figure {
-		background: var(--color-warning-background);
-		border: thin solid var(--color-warning-border);
-		color: var(--color-warning-text);
+		background: var(--colorWarningBackground);
+		border: thin solid var(--colorWarningBorder);
+		color: var(--colorWarningText);
 		padding: 0.5em 1em;
 	}
 
@@ -271,23 +280,23 @@
 	}
 	dt {
 		padding: 0.5em 1em;
-		border-top: thin solid white;
-		color: white;
-		background: var(--color-main);
+		border-top: var(--border);
+		color: var(--colorWarningBackground);
+		background: var(--colorText);
 		text-align: right;
 	}
 	dt:first-child {
 		border-top: none;
 	}
 	dd {
-		border: thin solid var(--color-main);
+		border: var(--border);
 		padding: 0.5em 1em;
 	}
 	dd:not(:last-child) {
 		border-bottom: none;
 	}
 	.tabs ul {
-		border-bottom: thin solid var(--color-main);
+		border-bottom: var(--border);
 		display: flex;
 		flex-direction: row;
 		list-style-type: none;
@@ -301,11 +310,11 @@
 		padding: 0.5em 1em;
 	}
 	.tabs li:first-child {
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 	}
 	.tabs li {
-		border-top: thin solid var(--color-main);
-		border-right: thin solid var(--color-main);
+		border-top: var(--border);
+		border-right: var(--border);
 	}
 	.tabs li.meta {
 		align-items: center;
@@ -313,19 +322,19 @@
 		display: flex;
 	}
 	.tabs input[type="radio"]:checked + label {
-		background: var(--color-main);
-		color: white;
+		background: var(--colorText);
+		color: var(--colorBackground);
 	}
 
 	.tabs .tab-selector {
-		border: thin solid var(--color-main);
+		border: var(--border);
 		display: grid;
 		grid-template-columns: 1fr min-content min-content;
 	}
 	.tabs button {
-		background: white;
+		background: var(--colorBackground);
 		border: none;
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 		height: 2.5rem;
 		width: 2.5rem;
 	}

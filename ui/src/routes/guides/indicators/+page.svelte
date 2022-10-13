@@ -24,7 +24,6 @@
 
 <style>
 	div {
-		background-color: white;
 		max-width: 900px;
 		overflow-y: auto;
 	}

@@ -1,17 +1,19 @@
 <script>
+	import {
+		_screen,
+		ChevronLeft,
+		ChevronRight,
+		Icon,
+		LinkButton,
+		isClientSide,
+		ResponsiveFlex
+	} from '@svizzle/ui';
+	import {isNotNil} from '@svizzle/utils';
 	import * as _ from 'lamb';
 
-	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
-	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
-	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
-	import Link from '@svizzle/ui/src/Link.svelte';
-	import LinkButton from '@svizzle/ui/src/LinkButton.svelte';
-	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
-	import {_screen} from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
-	import {isNotNil} from '@svizzle/utils';
-
 	import {page as _page} from '$app/stores';
-	import theme from '$lib/theme';
+	import Link from '$lib/components/svizzle/Link.svelte';
+	import {_currThemeVars} from '$lib/stores/theme';
 
 	const segments = ['app', 'indicators', 'a11ymenu'];
 	const titles = {
@@ -20,6 +22,7 @@
 		a11ymenu: 'Accessibility menu',
 	};
 
+	let contentElement;
 
 	$: [,,segment] = $_page.url.pathname.split('/');
 	$: currentValueIndex = _.findIndex(segments, _.is(segment));
@@ -27,9 +30,15 @@
 	$: nextSegment = segments[currentValueIndex + 1];
 	$: hasPrevSegment = isNotNil(prevSegment);
 	$: hasNextSegment = isNotNil(nextSegment);
+
+	$: {
+		// eslint-disable-next-line no-unused-expressions
+		$_page;
+		isClientSide && contentElement?.scrollTo(0, 0);
+	}
 </script>
 
-<main class={$_screen?.classes}>
+<main class='_layout guides {$_screen?.classes}'>
 	<section>
 		<h1>Guides</h1>
 		<menu class='tabs'>
@@ -42,7 +51,9 @@
 							<Link
 								href='/guides/{id}'
 								theme={{
-									color: segment === id ? 'white' : theme.colorLink,
+									color: segment === id
+										? $_currThemeVars['--colorTextInverted']
+										: $_currThemeVars['--colorLink']
 								}}
 							>
 								<span>
@@ -60,9 +71,12 @@
 
 					<div>
 						<Link
+							ariaLabel={hasPrevSegment ? 'Previous guide' : null}
 							href={hasPrevSegment && `/guides/${prevSegment}`}
 							theme={{
-								color: hasPrevSegment ? theme.colorLink : 'gray',
+								color: hasPrevSegment
+									? $_currThemeVars['--colorLink']
+									: $_currThemeVars['--colorTextDisabled']
 							}}
 						>
 							<Icon glyph={ChevronLeft} />
@@ -70,9 +84,12 @@
 					</div>
 					<div>
 						<Link
+							ariaLabel={hasNextSegment ? 'Next guide' : null}
 							href={hasNextSegment && `/guides/${nextSegment}`}
 							theme={{
-								color: hasNextSegment ? theme.colorLink : 'gray',
+								color: hasNextSegment
+									? $_currThemeVars['--colorLink']
+									: $_currThemeVars['--colorTextDisabled']
 							}}
 						>
 							<Icon glyph={ChevronRight} />
@@ -81,19 +98,19 @@
 				</div>
 			{/if}
 		</menu>
-		<div>
+		<div bind:this={contentElement}>
 			<slot />
 
 			<ResponsiveFlex>
 				<LinkButton
 					href='/accessibility'
 					text='Read the accessibility statement'
-					theme={{backgroundColor: theme.colorLink}}
+					theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 				/>
 				<LinkButton
 					href='/indicators'
 					text='Explore the indicators'
-					theme={{backgroundColor: theme.colorLink}}
+					theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 				/>
 			</ResponsiveFlex>
 		</div>
@@ -102,7 +119,7 @@
 
 <style>
 	main {
-		background-color: var(--color-background);
+		background-color: var(--colorPageBackground);
 		display: flex;
 		font-weight: 200;
 		height: 100%;
@@ -111,7 +128,7 @@
 	}
 
 	section {
-		background-color: white;
+		background-color: var(--colorBackground);
 		display: grid;
 		max-width: 900px;
 		overflow-y: auto;
@@ -130,7 +147,7 @@
 	}
 
 	div {
-		background-color: white;
+		background-color: var(--colorBackground);
 		max-width: 900px;
 		overflow-y: auto;
 	}
@@ -169,18 +186,18 @@
 	}
 	.tab-selector div {
 		padding: 0.5em 0.5em;
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 	}
 	.tabs li {
-		border-bottom: thin solid var(--color-main);
-		border-top: thin solid var(--color-main);
-		border-right: thin solid var(--color-main);
+		border-bottom: var(--border);
+		border-top: var(--border);
+		border-right: var(--border);
 	}
 	.tabs li:first-child {
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 	}
 	.tabs li.selected {
-		background: var(--color-main);
+		background: var(--colorActiveBackground);
 	}
 
 	.tabs li span {
@@ -189,7 +206,7 @@
 	}
 
 	.tabs .tab-selector {
-		border: thin solid var(--color-main);
+		border: var(--border);
 		display: grid;
 		grid-template-columns: 1fr min-content min-content;
 	}

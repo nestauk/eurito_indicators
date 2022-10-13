@@ -1,25 +1,38 @@
 <script>
-	import {setupResizeObserver} from '@svizzle/ui/src/actions/resizeObserver';
-	import A11yMenu
-		from '@svizzle/ui/src/a11y/menu/A11yMenu.svelte';
-	import A11yMenuDriver
-		from '@svizzle/ui/src/a11y/menu/A11yMenuDriver.svelte';
 	import {
 		_a11ySettings,
-		_isA11yDirty
-	} from '@svizzle/ui/src/a11y/menu/settings';
-	import FontsLoader from '@svizzle/ui/src/drivers/fonts/FontsLoader.svelte';
-	import LoadingView from '@svizzle/ui/src/LoadingView.svelte';
-	import MultiBanner from '@svizzle/ui/src/MultiBanner.svelte';
-	import NoScript from '@svizzle/ui/src/NoScript.svelte';
-	import ScreenSensor, {_screen}
-		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
-	import {onMount, beforeUpdate, tick} from 'svelte';
+		_screen,
+		A11yMenu,
+		A11yMenuDriver,
+		FontsLoader,
+		LoadingView,
+		NoScript,
+		ScreenSensor,
+		setupResizeObserver
+	} from '@svizzle/ui';
+	import Bowser from 'bowser';
+	import {beforeUpdate, onMount, tick} from 'svelte';
 
 	import {page as _page} from '$app/stores';
-	import Nav from '$lib/components/Nav.svelte';
-	import {a11yFontFamilies, fontsInfo} from '$lib/config';
-	import theme from '$lib/theme';
+	import Footer from '$lib/components/layout/medium/Footer.svelte';
+	import Nav from '$lib/components/layout/Nav.svelte';
+	import ThemeEditor from '$lib/components/layout/medium/ThemeEditor.svelte';
+	import MultiBanner from '$lib/components/svizzle/MultiBanner.svelte';
+	import StyleSensor from '$lib/components/svizzle/StyleSensor.svelte';
+	import {
+		a11yFontFamilies,
+		bannersDefaultFooterText,
+		fontsInfo,
+	} from '$lib/config';
+	import {isDev} from '$lib/env';
+	import {_isSmallScreen} from '$lib/stores/layout';
+	import {
+		_bannersTheme,
+		_currThemeVars,
+		_isThemeEditorActive,
+		_themeName,
+		_themeVars
+	} from '$lib/stores/theme'
 
 	import Privacy from '$lib/_content/info/Privacy.svx';
 
@@ -42,10 +55,19 @@
 	let isLayoutUndefined = true;
 	let scriptingActive = false;
 	let showA11yMenu;
+	let ScrollBarStyler
 
-	onMount(() => {
+	onMount(async () => {
 		scriptingActive = true;
 		window.nesta_isLayoutUndefined = () => isLayoutUndefined;
+
+		const agentObj = Bowser.parse(window.navigator.userAgent);
+		const environment = `${agentObj?.os?.name}/${agentObj?.browser.name}`;
+		if (environment === 'Windows/Chrome') {
+			// No need to instance component as CSS is already loaded on the
+			// page after this point!
+			ScrollBarStyler = await import('$lib/components/svizzle/ScrollbarStyler.svelte');
+		}
 	});
 
 	beforeUpdate(async () => {
@@ -57,7 +79,21 @@
 	$: [,segment] = $_page.url.pathname.split('/');
 	$: menuHeight = $_headerSize.blockSize + (showA11yMenu ? a11yHeight : 0);
 	$: $_screen?.classes && (isLayoutUndefined = false);
+	$: withThemeEditor = isDev && !$_isSmallScreen && $_isThemeEditorActive;
+	$: a11yMenuTheme = {
+		colorBackground: $_currThemeVars['--colorBackground'],
+		colorBorder: $_currThemeVars['--colorBorderAux'],
+		colorKnob: $_currThemeVars['--colorSwitchKnob'],
+		colorDisabled: $_currThemeVars['--colorTextDisabled'],
+		colorText: $_currThemeVars['--colorText']
+	}
 </script>
+
+<StyleSensor
+	href='/css/global.css'
+	selectorRegex={/\.theme.*/u}
+	bind:styleRules={$_themeVars}
+/>
 
 <A11yMenuDriver
 	defaults={{
@@ -80,59 +116,78 @@
 	<MultiBanner
 		{_screen}
 		components={bannerComponents}
+		footerText={bannersDefaultFooterText}
+		theme={$_bannersTheme}
 	/>
 {/if}
 
 {#if isLayoutUndefined}
 	<!-- FIXME: See: https://github.com/nestauk/eurito_indicators/pull/212#issuecomment-985176516 -->
 	<div class='spinnerContainer'>
-		<LoadingView stroke={theme.colorMain} />
+		<LoadingView stroke={$_currThemeVars['--colorIcon']} />
 	</div>
 {/if}
 
 <div
-	class={$_screen?.classes}
 	class:hidden={isLayoutUndefined}
-	style='--menu-height: {menuHeight}px;'
+	class:withThemeEditor
+	class='_layout root {$_screen?.classes} {$_themeName}'
 	role='none'
+	style='--menu-height: {menuHeight}px;'
 >
 	<header
 		aria-label='Website header'
-		role='banner'
 		use:headerSizeObserver
 	>
 		<Nav
-			{_screen}
 			contentHeight={$_contentSize.blockSize}
-			{segment}
 			bind:showA11yMenu
-			isA11yDirty={$_isA11yDirty}
+			{segment}
 		/>
 	</header>
 	<main
 		aria-label='Website content'
 		use:contentSizeObserver
-		role='main'
 	>
 		<slot></slot>
 	</main>
+	{#if !$_isSmallScreen}
+		<footer
+			aria-label='Website footer'
+		>
+			<Footer
+				bind:showA11yMenu
+				{segment}
+			/>
+		</footer>
+	{/if}
+	{#if withThemeEditor}
+		<section class='editor'>
+			<ThemeEditor />
+		</section>
+	{/if}
+
 	{#if showA11yMenu}
 		<section
 			bind:offsetHeight={a11yHeight}
 			class='accessibility'
-			role='region'
 		>
-			<A11yMenu {_screen} />
+			<A11yMenu
+				{_screen}
+				theme={a11yMenuTheme}
+			/>
 		</section>
 	{/if}
 </div>
 
 <style>
-	div {
+	._layout {
+		background: var(--colorBackground) ;
+		color: var(--colorText);
 		display: grid;
 		grid-template-areas:
 			'content'
-			'nav'
+			'header'
 			'accessibility';
 		grid-template-rows: calc(100% - var(--menu-height)) min-content min-content;
 		height: 100%;
@@ -140,20 +195,27 @@
 	}
 	div.medium {
 		grid-template-areas:
-			'nav'
+			'header'
 			'content'
-			'accessibility';
+			'footer';
 		grid-template-rows: min-content 1fr min-content;
 	}
+	.medium.withThemeEditor {
+		grid-template-areas:
+			'header editor'
+			'content editor'
+			'footer editor';
+		grid-template-columns: 3.5fr 1fr;
+	}
 	header {
-		border-top: 1px solid var(--color-main-lighter);
-		grid-area: nav;
-		height: var(--dim-header-height);
-		padding: 0 var(--dim-padding);
+		border-top: var(--border);
+		grid-area: header;
+		height: var(--dimHeaderHeight);
+		padding: 0 var(--dimPadding);
 		width: 100%;
 	}
 	.medium header {
-		border-bottom: 1px solid var(--color-main-lighter);
+		border-bottom: var(--border);
 		border-top: none;
 	}
 	main {
@@ -163,8 +225,18 @@
 		position: relative;
 		width: 100%;
 	}
+	footer {
+		border-top: var(--border);
+		grid-area: footer;
+		height: var(--dimHeaderHeight);
+		padding: 0 var(--dimPadding);
+	}
+	.editor {
+		grid-area: editor;
+	}
 	.accessibility {
 		grid-area: accessibility;
+		z-index: var(--z1000);
 	}
 	.medium .accessibility {
 		bottom: 150px;
@@ -174,7 +246,7 @@
 		width: 480px;
 	}
 	.hidden {
-		display: none;
+		visibility: hidden;
 	}
 
 	.spinnerContainer {

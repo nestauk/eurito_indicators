@@ -4,6 +4,12 @@ import {getFamilies} from "@svizzle/ui/src/drivers/fonts/utils";
 export const toolName = 'EURITO';
 export const toolLongName = 'EURITO spatial data tool';
 export const contactEmail = 'dataanalytics@nesta.org.uk';
+export const changelogUrl = 'https://github.com/nestauk/eurito_indicators/blob/staging/CHANGELOG.md';
+export const jsonUrl = '/data/ai_map_annotated_orgs.json';
+
+/* banners */
+
+export const bannersDefaultFooterText = 'Click on background to dismiss';
 
 /* navigation */
 
@@ -113,11 +119,19 @@ export const regionSettings = {
 	type: regionType,
 	years,
 }
+export const LOGOS = {
+	themeLight: {
+		nesta: '/logos/Nesta-light.svg',
+	},
+	themeDark: {
+		nesta: '/logos/Nesta-dark.svg',
+	}
+}
 
 /* testing */
 
 export const urlBases = {
-    development: 'http://localhost:3000',
+	development: 'http://localhost:5173',
     preview: 'https://eurito-indicators-ui-dev.netlify.app',
     // production: '',
 };
@@ -141,8 +155,6 @@ export const failingA11yAudit = [
 //    'Trends',
 //    'Geo'
 ];
-
-export const isDev = process.env.NODE_ENV === 'development';
 
 export const fontsInfo = [
 	{

@@ -3,9 +3,9 @@
 	import ResponsiveFlex from '@svizzle/ui/src/ResponsiveFlex.svelte';
 
 	import {toolName} from '$lib/config';
-	import theme from '$lib/theme';
+	import {_currThemeVars} from '$lib/stores/theme';
 
-	import Home from '$lib/_content/Index.svx';
+	import Content from '$lib/_content/Index.svx';
 </script>
 
 <svelte:head>
@@ -16,28 +16,28 @@
 	>
 </svelte:head>
 
-<main>
+<main class='home'>
 	<div>
-		<Home />
+		<Content />
 
 		<ResponsiveFlex>
 			<LinkButton
 				href='/methodology'
 				text='Our methodology'
-				theme={{backgroundColor: theme.colorLink}}
+				theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 			/>
 			<LinkButton
 				href='/indicators'
 				text='Explore the indicators'
-				theme={{backgroundColor: theme.colorLink}}
+				theme={{backgroundColor: $_currThemeVars['--colorLink']}}
 			/>
 		</ResponsiveFlex>
 	</div>
 </main>
 
 <style>
-	main {
-		background-color: var(--color-background);
+	.home {
+		background-color: var(--colorPageBackground);
 		display: flex;
 		font-weight: 200;
 		height: 100%;
@@ -46,7 +46,7 @@
 	}
 
 	div {
-		background-color: white;
+		background-color: var(--colorBackground);
 		max-width: 900px;
 		overflow-y: auto;
 		padding: 2rem;
