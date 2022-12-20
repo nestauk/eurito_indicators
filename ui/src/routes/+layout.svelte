@@ -5,12 +5,13 @@
 		A11yMenu,
 		A11yMenuDriver,
 		FontsLoader,
+		isPlatformIn,
 		LoadingView,
 		NoScript,
 		ScreenSensor,
+		ScrollbarStyler,
 		setupResizeObserver
 	} from '@svizzle/ui';
-	import Bowser from 'bowser';
 	import {beforeUpdate, onMount, tick} from 'svelte';
 
 	import {page as _page} from '$app/stores';
@@ -55,19 +56,10 @@
 	let isLayoutUndefined = true;
 	let scriptingActive = false;
 	let showA11yMenu;
-	let ScrollBarStyler
 
 	onMount(async () => {
 		scriptingActive = true;
 		window.nesta_isLayoutUndefined = () => isLayoutUndefined;
-
-		const agentObj = Bowser.parse(window.navigator.userAgent);
-		const environment = `${agentObj?.os?.name}/${agentObj?.browser.name}`;
-		if (environment === 'Windows/Chrome') {
-			// No need to instance component as CSS is already loaded on the
-			// page after this point!
-			ScrollBarStyler = await import('$lib/components/svizzle/ScrollbarStyler.svelte');
-		}
 	});
 
 	beforeUpdate(async () => {
@@ -86,6 +78,12 @@
 		colorKnob: $_currThemeVars['--colorSwitchKnob'],
 		colorDisabled: $_currThemeVars['--colorTextDisabled'],
 		colorText: $_currThemeVars['--colorText']
+	}
+	$: scrollbarTheme = {
+		thumbColor: $_currThemeVars['--colorScrollbarThumb'],
+		trackBorderColor: $_currThemeVars['--colorScrollbarTrackBorder'],
+		trackColor: $_currThemeVars['--colorScrollbarTrack'],
+		// TBD, include `thumbRadius` & `trackWidth`?
 	}
 </script>
 
@@ -110,6 +108,11 @@
 	{fontsInfo}
 />
 <NoScript />
+
+<ScrollbarStyler
+	isEnabled={isPlatformIn(['Windows'], ['Chrome'])}
+	theme={scrollbarTheme}
+/>
 
 {#if scriptingActive && fontLoadStatus.isFirstLoaded}
 	<ScreenSensor />
