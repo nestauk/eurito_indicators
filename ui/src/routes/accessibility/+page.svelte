@@ -35,11 +35,6 @@
 
 	const reportNames = _.keys(lighthouseUrls)
 
-	const linkTheme = {
-		color: $_currThemeVars['--colorLink'],
-		iconStroke: $_currThemeVars['--colorLink']
-	};
-
 	let [currentreport] = reportNames;
 	let environment;
 	let lighthouseFrame;
@@ -92,6 +87,13 @@
 	$: clickedNext =
 		() => hasNextValue && updateCurrentReport(nextValue);
 	$: reportUrl = `/audits/lighthouse/${currentreport}.html`;
+	$: linkTheme = {
+		color: $_currThemeVars['--colorLink'],
+		iconStroke: $_currThemeVars['--colorLink'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 </script>
 
 <svelte:head>

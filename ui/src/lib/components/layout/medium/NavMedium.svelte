@@ -9,6 +9,13 @@
 
 	export let segment;
 
+	$: linkTheme = {
+		color: $_currThemeVars['--colorNavLink'],
+		iconStroke: $_currThemeVars['--colorIcon'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 </script>
 
 <nav
@@ -22,8 +29,8 @@
 					<Link
 						href='/'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, ''),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Home
@@ -33,8 +40,8 @@
 					<Link
 						href='/methodology'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'methodology'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Methodology
@@ -44,8 +51,8 @@
 					<Link
 						href='/guides'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'guides'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Guides
@@ -55,8 +62,8 @@
 					<Link
 						href='/indicators'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'indicators'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Indicators
@@ -75,8 +82,8 @@
 						download
 						href={zipUrl}
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'dataset'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Dataset
@@ -93,8 +100,8 @@
 						href='/info'
 						rel='prefetch'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'info'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Info

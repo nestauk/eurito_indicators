@@ -14,7 +14,7 @@
 		X
 	} from '@svizzle/ui';
 
-	import {changelogUrl, LOGOS} from '$lib/config';
+	import {changelogUrl, lighthouseUrls, LOGOS} from '$lib/config';
 	import {
 		_a11yFillColor,
 		_a11yStrokeColor,
@@ -45,6 +45,13 @@
 	}
 
 	$: themeIconGlyph = $_themeName === 'themeLight' ? Moon : Sun;
+	$: linkTheme = {
+		color: $_currThemeVars['--colorNavLink'],
+		iconStroke: $_currThemeVars['--colorIcon'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 	$: logos = LOGOS[$_themeName]
 </script>
 
@@ -122,8 +129,8 @@
 						href={changelogUrl}
 						type='external'
 						theme={{
+							...linkTheme,
 							color: $_currThemeVars['--colorText'],
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						{version}
@@ -134,8 +141,8 @@
 						href='/info'
 						rel='prefetch'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'info'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Info
@@ -156,8 +163,8 @@
 						download
 						href={zipUrl}
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'download'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Dataset
@@ -176,8 +183,8 @@
 					<Link
 						href='/accessibility'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'accessibility'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Accessibility
@@ -187,8 +194,8 @@
 					<Link
 						href='/guides'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'guides'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Guides
@@ -198,8 +205,8 @@
 					<Link
 						href='/methodology'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'methodology'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Methodology
@@ -209,8 +216,8 @@
 					<Link
 						href='/indicators'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, 'indicators'),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Indicators
@@ -220,8 +227,8 @@
 					<Link
 						href='/'
 						theme={{
+							...linkTheme,
 							color: $_getNavLinkColor(segment, ''),
-							iconStroke: $_currThemeVars['--colorIcon']
 						}}
 					>
 						Home

@@ -7,7 +7,10 @@
 
 	$: theme = {
 		color: $_currThemeVars['--colorLink'],
-		iconStroke: $_currThemeVars['--colorLink']
+		iconStroke: $_currThemeVars['--colorLink'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
 	};
 	$: type = href && href.startsWith('http') && 'external' || null;
 </script>

@@ -29,6 +29,13 @@
 
 	$: themeIconGlyph = $_themeName === 'themeLight' ? Moon : Sun;
 	$: logos = LOGOS[$_themeName]
+	$: linkTheme = {
+		color: $_currThemeVars['--colorNavLink'],
+		iconStroke: $_currThemeVars['--colorIcon'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 </script>
 
 <div class='Footer'>
@@ -54,10 +61,7 @@
 		<Link
 			href={changelogUrl}
 			type='external'
-			theme={{
-				color: $_currThemeVars['--colorNavLink'],
-				iconStroke: $_currThemeVars['--colorIcon']
-			}}
+			theme={linkTheme}
 		>
 			{version}
 		</Link>
@@ -108,10 +112,7 @@
 			<li role='none'>
 				<Link
 					href='/accessibility'
-					theme={{
-						color: $_getNavLinkColor(segment, 'accessibility'),
-						iconStroke: $_currThemeVars['--colorIcon']
-					}}
+					theme={linkTheme}
 				>
 					Accessibility
 				</Link>
