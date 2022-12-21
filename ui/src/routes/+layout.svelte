@@ -7,9 +7,11 @@
 		FontsLoader,
 		isPlatformIn,
 		LoadingView,
+		MultiBanner,
 		NoScript,
 		ScreenSensor,
 		ScrollbarStyler,
+		StyleSensor,
 		setupResizeObserver
 	} from '@svizzle/ui';
 	import {beforeUpdate, onMount, tick} from 'svelte';
@@ -18,8 +20,6 @@
 	import Footer from '$lib/components/layout/medium/Footer.svelte';
 	import Nav from '$lib/components/layout/Nav.svelte';
 	import ThemeEditor from '$lib/components/layout/medium/ThemeEditor.svelte';
-	import MultiBanner from '$lib/components/svizzle/MultiBanner.svelte';
-	import StyleSensor from '$lib/components/svizzle/StyleSensor.svelte';
 	import {
 		a11yFontFamilies,
 		bannersDefaultFooterText,

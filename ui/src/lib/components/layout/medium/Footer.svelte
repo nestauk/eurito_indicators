@@ -44,12 +44,15 @@
 
 	<span>
 		<!-- TODO add EURITO logo? -->
-		<a href='https://www.nesta.org.uk/'>
+		<Link
+			href='https://www.nesta.org.uk/'
+			theme={linkTheme}
+		>
 			<img
 				alt='Nesta'
 				src={logos.nesta}
 			/>
-		</a>
+		</Link>
 	</span>
 
 	<!-- center: version -->
@@ -176,5 +179,8 @@
 		width: min-content;
 		height: min-content;
 		z-index: var(--z1000);
+	}
+	button:focus-visible {
+		outline: var(--outline)
 	}
 </style>

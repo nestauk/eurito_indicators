@@ -1,9 +1,8 @@
 <script>
 	import * as _ from 'lamb';
-	import {CopyToClipboard} from '@svizzle/ui';
+	import {CopyToClipboard, StyleDriver} from '@svizzle/ui';
 	import {containsOneOf} from '@svizzle/utils';
 
-	import StyleDriver from '$lib/components/svizzle/StyleDriver.svelte';
 	import {
 		_currThemeVars,
 		_themeName,
