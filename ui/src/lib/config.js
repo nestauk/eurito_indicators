@@ -23,6 +23,7 @@ const {levels, years} = regionSpecs[regionType];
 const [rootLevel] = levels;
 
 export const regionSettings = {
+	atlasBase: '/atlas',
 	canSelectLevels: true,
 	filterableLevel: 0,
 	ignoredRegions: [
@@ -105,6 +106,7 @@ export const regionSettings = {
 	key: 'NUTS_ID',
 	initialLevel: rootLevel,
 	levels,
+	processing: {},
 	objectId: 'NUTS',
 	resolution: '10M',
 	rootIds: undefined, // all roots
