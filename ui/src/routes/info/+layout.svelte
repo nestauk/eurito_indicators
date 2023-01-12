@@ -5,12 +5,12 @@
 		ChevronLeft,
 		ChevronRight,
 		Icon,
-		isClientSide
+		isClientSide,
+		Link,
 	} from '@svizzle/ui';
 	import {isNotNil} from '@svizzle/utils';
 
 	import {page as _page} from '$app/stores';
-	import Link from '$lib/components/svizzle/Link.svelte';
 	import {_currThemeVars} from '$lib/stores/theme';
 
 	const segments = ['privacy', 'disclaimer', 'feedback'];
