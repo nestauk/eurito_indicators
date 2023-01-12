@@ -5,14 +5,15 @@
 		A11yMenu,
 		A11yMenuDriver,
 		FontsLoader,
+		getFamilies,
 		isPlatformIn,
 		LoadingView,
 		MultiBanner,
 		NoScript,
 		ScreenSensor,
 		ScrollbarStyler,
-		StyleSensor,
-		setupResizeObserver
+		setupResizeObserver,
+		StyleSensor
 	} from '@svizzle/ui';
 	import {beforeUpdate, onMount, tick} from 'svelte';
 
@@ -21,7 +22,6 @@
 	import Nav from '$lib/components/layout/Nav.svelte';
 	import ThemeEditor from '$lib/components/layout/medium/ThemeEditor.svelte';
 	import {
-		a11yFontFamilies,
 		bannersDefaultFooterText,
 		fontsInfo,
 	} from '$lib/config';
@@ -35,11 +35,13 @@
 		_themeVars
 	} from '$lib/stores/theme'
 
-	import Privacy from '$lib/_content/info/Privacy.svx';
+	import Privacy from '$lib/_content/info/PrivacyBanner.svx';
 
 	const bannerComponents = [
 		Privacy
 	];
+
+	const a11yFontFamilies = getFamilies(fontsInfo);
 
 	// actions
 	const {
@@ -57,7 +59,7 @@
 	let scriptingActive = false;
 	let showA11yMenu;
 
-	onMount(async () => {
+	onMount(() => {
 		scriptingActive = true;
 		window.nesta_isLayoutUndefined = () => isLayoutUndefined;
 	});
@@ -134,7 +136,7 @@
 <div
 	class:hidden={isLayoutUndefined}
 	class:withThemeEditor
-	class='_layout root {$_screen?.classes} {$_themeName}'
+	class='_layout root {$_screen?.classes} {$_themeName} geomDefault'
 	role='none'
 	style='--menu-height: {menuHeight}px;'
 >
@@ -239,7 +241,7 @@
 	}
 	.accessibility {
 		grid-area: accessibility;
-		z-index: var(--z1000);
+		z-index: var(--z9000);
 	}
 	.medium .accessibility {
 		bottom: 150px;

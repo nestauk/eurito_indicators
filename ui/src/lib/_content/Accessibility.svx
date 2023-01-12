@@ -1,5 +1,5 @@
 <script>
-	import {LinkButton, ResponsiveFlex} from '@svizzle/ui';
+	import {Link, LinkButton, ResponsiveFlex} from '@svizzle/ui';
 
 	import {contactEmail,toolName} from '$lib/config';
 	import {_currThemeVars} from '$lib/stores/theme';
@@ -13,9 +13,15 @@
 	const wcag21Url = 'https://www.w3.org/TR/WCAG21/';
 	const windowsMouseURL = 'https://support.microsoft.com/en-us/windows/change-mouse-settings-e81356a4-0e74-fe38-7d01-9d79fbf8712b';
 
-	const theme = {
+	$: theme = {
 		backgroundColor: $_currThemeVars['--colorLink']
 	};
+	$: linkTheme = {
+		color: $_currThemeVars['--colorLink'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	}
 </script>
 
 # Accessibility
@@ -24,13 +30,13 @@ Ensuring greater access to technologies by meeting the needs of people with
 disabilities lays the foundation for inclusive work cultures that empower
 individuals and teams to thrive.
 
-Therefore, {toolName} is committed to making its best effort towards continually
+Therefore, the {toolName} tool is committed to making its best effort towards continually
 improving the accessibility of all the information provided in this website.
 
 ## Support
 
 We follow the recommendations of the [WCAG 2.1 guidelines]({wcag21Url}). Also:
-	* Ensure that the choices of color provide sufficient contrast for
+	* Ensure that the choices of colour provide sufficient contrast for
 	  comfortable reading.
 	* Offer a selection of typefaces for improved legibility, including one
 	  widely believed to improve comprehension among people with
@@ -59,7 +65,7 @@ continually strive to achieve the highest levels of compliance with the
 requirements and recommendations.
 
 Meeting all of the WCAG criteria requires evaluating some of them manually. Due
-to time constraints we might not have been able to test all of the
+to time constraints, we might not have been able to test all of the
 recommendations listed in the section "Additional items to manually check" in
 the "Accessibility" part of each audit below, in the "Quality audits" section of
 this page. In particular at this time ARIA and keyboard navigation are only
@@ -68,7 +74,7 @@ partially supported.
 While we aim to make the information provided as accessible as possible, this
 website presents data mostly as interactive charts which at the moment do not
 also render a text alternative, so those aren't accessible by screen readers.
-However, the data is available for [download in CSV format]({zipUrl}).
+However, the data is available for <Link download href={zipUrl} theme={linkTheme}>download in CSV format</Link>.
 
 ## Feedback
 
@@ -91,15 +97,15 @@ change its appearance so that it contrasts more with the screen content.
 
 <ResponsiveFlex>
 	<LinkButton
+		{theme}
 		href={windowsMouseURL}
 		text='Windows'
-		{theme}
 		type='external'
 	/>
 	<LinkButton
+		{theme}
 		href={osxMouseURL}
 		text='OS X'
-		{theme}
 		type='external'
 	/>
 </ResponsiveFlex>

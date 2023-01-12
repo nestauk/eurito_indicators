@@ -110,15 +110,12 @@
 				class='sponsors'
 				role='none'
 			>
-				<a href='https://www.ukri.org/'>
-					<img src={logos.ukri} alt='UK Research and Innovation' />
-				</a>
-				<a href='https://www.turing.ac.uk/'>
-					<img src={logos.turing} alt='The Alan Turing Institute' />
-				</a>
-				<a href='https://www.nesta.org.uk/'>
+				<Link
+					href='https://www.nesta.org.uk/'
+					theme={linkTheme}
+				>
 					<img src={logos.nesta} alt='Nesta' />
-				</a>
+				</Link>
 			</div>
 			<ul role='none'>
 				<li
@@ -268,6 +265,9 @@
 		width: min-content;
 		height: min-content;
 		z-index: var(--z1000);
+	}
+	button:focus-visible {
+		outline: var(--outline);
 	}
 	menu {
 		background: var(--colorBackground);

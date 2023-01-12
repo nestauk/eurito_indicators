@@ -28,7 +28,6 @@
 	}
 
 	$: themeIconGlyph = $_themeName === 'themeLight' ? Moon : Sun;
-	$: logos = LOGOS[$_themeName]
 	$: linkTheme = {
 		color: $_currThemeVars['--colorNavLink'],
 		iconStroke: $_currThemeVars['--colorIcon'],
@@ -36,6 +35,7 @@
 		outlineStyle: $_currThemeVars['--focusLineStyle'],
 		outlineWidth: $_currThemeVars['--focusLineWidth'],
 	};
+	$: logos = LOGOS[$_themeName]
 </script>
 
 <div class='Footer'>
@@ -46,6 +46,7 @@
 		<!-- TODO add EURITO logo? -->
 		<Link
 			href='https://www.nesta.org.uk/'
+			target='_blank'
 			theme={linkTheme}
 		>
 			<img
@@ -115,7 +116,10 @@
 			<li role='none'>
 				<Link
 					href='/accessibility'
-					theme={linkTheme}
+					theme={{
+						...linkTheme,
+						color: $_getNavLinkColor(segment, 'accessibility'),
+					}}
 				>
 					Accessibility
 				</Link>

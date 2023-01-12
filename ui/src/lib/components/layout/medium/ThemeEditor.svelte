@@ -1,7 +1,7 @@
 <script>
-	import * as _ from 'lamb';
 	import {CopyToClipboard, StyleDriver} from '@svizzle/ui';
 	import {containsOneOf} from '@svizzle/utils';
+	import * as _ from 'lamb';
 
 	import {
 		_currThemeVars,
