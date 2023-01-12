@@ -1,10 +1,11 @@
 #!/usr/bin/env node -r esm
 
-import path from 'path';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 
-import unifiedNuts from '@svizzle/atlas/data/dist/NUTS/unifiedNuts.json';
+// import unifiedNuts from '@svizzle/atlas/data/dist/NUTS/unifiedNuts.json' assert { type: "json" };
 import {tapMessage} from '@svizzle/dev';
-import {isCsvFile, readDir, readFile, saveObjPassthrough} from '@svizzle/file';
+import {isCsvFile, readDir, readFile, readJson, saveObjPassthrough} from '@svizzle/file';
 import {parseCSV} from '@svizzle/time_region_value';
 import {getObjSize} from '@svizzle/utils';
 import cpy from 'cpy';
@@ -15,11 +16,16 @@ import rimraf from 'rimraf';
 import tempy from 'tempy';
 import {zip} from 'zip-a-folder';
 
-import {basename} from '../lib/utils/assets';
+import {basename} from '../lib/utils/assets.js';
 
 /* paths */
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../../../');
+
+const UNIFIED_NUTS = path.resolve(
+	ROOT_DIR,
+	'node_modules/@svizzle/atlas/data/dist/NUTS/unifiedNuts.json'
+);
 
 // ds/
 const DS_DIR = path.resolve(ROOT_DIR, 'ds');
@@ -31,6 +37,9 @@ const UI_STATIC_DATA_DIR = path.resolve(UI_DIR, 'static/data');
 const UI_STATS_DIR = path.resolve(UI_DIR, 'stats');
 const UI_STATS_UNSUPPORTED_NUTS_PATH =
 	path.resolve(UI_STATS_DIR, 'unsupportedRegions.json');
+
+/* data */
+const unifiedNuts = await readJson(UNIFIED_NUTS);
 
 /* initialise the stats dir */
 
