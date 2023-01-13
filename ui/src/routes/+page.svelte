@@ -1,6 +1,5 @@
 <script>
 	import {toolName} from '$lib/config';
-	import {_currThemeVars} from '$lib/stores/theme';
 
 	import Content from '$lib/_content/Index.svx';
 </script>
