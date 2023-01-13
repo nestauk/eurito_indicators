@@ -2,6 +2,7 @@ _
 /__sapper__/
 /node_modules/
 /src/node_modules/@sapper/
+/static/atlas/
 /static/data/
 !/static/data/tests
 /static/font/unused/
