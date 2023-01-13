@@ -17,7 +17,9 @@ export const bannersDefaultFooterText = 'Click on background to dismiss';
 /* navigation */
 
 export const hrefBase = '/indicators';
-export const userTestingUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfmQKIwocPmaI_Sdte0QLMhRODCYPnuYNJreehE61xDig3nAA/viewform?embedded=true';
+
+// source: https://docs.google.com/forms/d/1on1rtyk9HncAz8usBZLIMkPywh5A2Q5Yj4M8ZnHMaBM/edit
+export const surveyFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfmQKIwocPmaI_Sdte0QLMhRODCYPnuYNJreehE61xDig3nAA/viewform?embedded=true';
 
 /* flags */
 
