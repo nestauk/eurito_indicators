@@ -5,7 +5,7 @@
 		ChevronRight,
 		Icon,
 		Link,
-		LoadingView
+		LoadingView,
 	} from '@svizzle/ui';
 	import {isNotNil} from '@svizzle/utils';
 	import Bowser from 'bowser';
@@ -14,7 +14,6 @@
 
 	import H2 from '$lib/components/mdsvex/h2.svelte';
 	import P from '$lib/components/mdsvex/p.svelte';
-
 	import {
 		failingA11yAudit,
 		lighthouseUrls,
@@ -283,8 +282,8 @@
 	dt {
 		padding: 0.5em 1em;
 		border-top: var(--border);
-		color: var(--colorWarningBackground);
-		background: var(--colorText);
+		color: var(--colorAccentText);
+		background: var(--colorAccentBackground);
 		text-align: right;
 	}
 	dt:first-child {
@@ -310,6 +309,9 @@
 	.tabs input[type="radio"] + label, .tabs div label, .tabs li .spinner {
 		display: block;
 		padding: 0.5em 1em;
+	}
+	.tabs li {
+		color: var(--colorLink);
 	}
 	.tabs li:first-child {
 		border-left: var(--border);

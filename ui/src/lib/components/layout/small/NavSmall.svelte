@@ -14,7 +14,7 @@
 		X
 	} from '@svizzle/ui';
 
-	import {changelogUrl, lighthouseUrls, LOGOS} from '$lib/config';
+	import {changelogUrl, LOGOS} from '$lib/config';
 	import {
 		_a11yFillColor,
 		_a11yStrokeColor,
@@ -125,10 +125,7 @@
 					<Link
 						href={changelogUrl}
 						type='external'
-						theme={{
-							...linkTheme,
-							color: $_currThemeVars['--colorText'],
-						}}
+						theme={linkTheme}
 					>
 						{version}
 					</Link>

@@ -4,10 +4,8 @@
 		ChevronLeft,
 		ChevronRight,
 		Icon,
-		Link,
-		LinkButton,
 		isClientSide,
-		ResponsiveFlex
+		Link,
 	} from '@svizzle/ui';
 	import {isNotNil} from '@svizzle/utils';
 	import * as _ from 'lamb';
@@ -109,19 +107,6 @@
 		</menu>
 		<div bind:this={contentElement}>
 			<slot />
-
-			<ResponsiveFlex>
-				<LinkButton
-					href='/accessibility'
-					text='Read the accessibility statement'
-					theme={{backgroundColor: $_currThemeVars['--colorLink']}}
-				/>
-				<LinkButton
-					href='/indicators'
-					text='Explore the indicators'
-					theme={{backgroundColor: $_currThemeVars['--colorLink']}}
-				/>
-			</ResponsiveFlex>
 		</div>
 	</section>
 </main>
