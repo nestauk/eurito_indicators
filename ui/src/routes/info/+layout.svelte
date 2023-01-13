@@ -1,16 +1,17 @@
 <script>
 	import * as _ from 'lamb';
-	import {_screen}
-		from '@svizzle/ui/src/sensors/screen/ScreenSensor.svelte';
-
-	import ChevronLeft from '@svizzle/ui/src/icons/feather/ChevronLeft.svelte';
-	import ChevronRight from '@svizzle/ui/src/icons/feather/ChevronRight.svelte';
-	import Icon from '@svizzle/ui/src/icons/Icon.svelte';
-	import Link from '@svizzle/ui/src/Link.svelte';
+	import {
+		_screen,
+		ChevronLeft,
+		ChevronRight,
+		Icon,
+		isClientSide,
+		Link,
+	} from '@svizzle/ui';
 	import {isNotNil} from '@svizzle/utils';
 
 	import {page as _page} from '$app/stores';
-	import theme from '$lib/theme';
+	import {_currThemeVars} from '$lib/stores/theme';
 
 	const segments = ['privacy', 'disclaimer', 'feedback'];
 	const titles = {
@@ -19,6 +20,7 @@
 		feedback: 'Feedback',
 	}
 
+	let contentElement;
 
 	$: [,,segment] = $_page.url.pathname.split('/');
 	$: currentValueIndex = _.findIndex(segments, _.is(segment));
@@ -26,22 +28,36 @@
 	$: nextSegment = segments[currentValueIndex + 1];
 	$: hasPrevSegment = isNotNil(prevSegment);
 	$: hasNextSegment = isNotNil(nextSegment);
+
+	$: {
+		// eslint-disable-next-line no-unused-expressions
+		$_page;
+		isClientSide && contentElement?.scrollTo(0, 0);
+	}
+
+
+	$: linkTheme = {
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 </script>
 
-<main class={$_screen?.classes}>
+<main class='_layout info {$_screen?.classes}'>
 	<section>
 		<h1>App information</h1>
 		<menu class='tabs'>
 			{#if $_screen?.sizes?.medium}
 				<ul>
 					{#each segments as id}
-						<li
-							class:selected={segment === id}
-						>
+						<li class:selected={segment === id}>
 							<Link
 								href='/info/{id}'
 								theme={{
-									color: segment === id ? 'white' : theme.colorLink,
+									...linkTheme,
+									color: segment === id
+										? $_currThemeVars['--colorTextInverted']
+										: $_currThemeVars['--colorLink']
 								}}
 							>
 								<span>
@@ -59,9 +75,13 @@
 
 					<div>
 						<Link
+							ariaLabel={hasPrevSegment ? 'Previous form' : null}
 							href={hasPrevSegment && `/info/${prevSegment}`}
 							theme={{
-								color: hasPrevSegment ? theme.colorLink : 'gray',
+								...linkTheme,
+								color: hasPrevSegment
+									? $_currThemeVars['--colorLink']
+									: $_currThemeVars['--colorTextDisabled']
 							}}
 						>
 							<Icon glyph={ChevronLeft} />
@@ -69,9 +89,13 @@
 					</div>
 					<div>
 						<Link
+							ariaLabel={hasNextSegment ? 'Next form' : null}
 							href={hasNextSegment && `/info/${nextSegment}`}
 							theme={{
-								color: hasNextSegment ? theme.colorLink : 'gray',
+								...linkTheme,
+								color: hasNextSegment
+									? $_currThemeVars['--colorLink']
+									: $_currThemeVars['--colorTextDisabled']
 							}}
 						>
 							<Icon glyph={ChevronRight} />
@@ -80,13 +104,15 @@
 				</div>
 			{/if}
 		</menu>
-		<slot />
+		<div bind:this={contentElement}>
+			<slot />
+		</div>
 	</section>
 </main>
 
 <style>
 	main {
-		background-color: var(--color-background);
+		background-color: var(--colorPageBackground);
 		display: flex;
 		font-weight: 200;
 		height: 100%;
@@ -95,7 +121,7 @@
 	}
 
 	section {
-		background-color: white;
+		background-color: var(--colorBackground);
 		display: grid;
 		max-width: 900px;
 		overflow-y: auto;
@@ -111,6 +137,12 @@
 	.medium section {
 		grid-template-areas: 'header' 'menu' 'slot';
 		grid-template-rows: auto auto 1fr;
+	}
+
+	div {
+		background-color: var(--colorBackground);
+		max-width: 900px;
+		overflow-y: auto;
 	}
 
 	h1 {
@@ -147,18 +179,18 @@
 	}
 	.tab-selector div {
 		padding: 0.5em 0.5em;
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 	}
 	.tabs li {
-		border-bottom: thin solid var(--color-main);
-		border-top: thin solid var(--color-main);
-		border-right: thin solid var(--color-main);
+		border-bottom: var(--border);
+		border-top: var(--border);
+		border-right: var(--border);
 	}
 	.tabs li:first-child {
-		border-left: thin solid var(--color-main);
+		border-left: var(--border);
 	}
 	.tabs li.selected {
-		background: var(--color-main);
+		background: var(--colorActiveBackground);
 	}
 
 	.tabs li span {
@@ -167,7 +199,7 @@
 	}
 
 	.tabs .tab-selector {
-		border: thin solid var(--color-main);
+		border: var(--border);
 		display: grid;
 		grid-template-columns: 1fr min-content min-content;
 	}

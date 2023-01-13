@@ -1,6 +1,7 @@
 #!/usr/bin/env node -r esm
 
-import path from 'path';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 import * as _ from 'lamb';
 import {csvFormat} from 'd3-dsv';
@@ -16,6 +17,8 @@ import {
 	renameKeysWith,
 	transformValues
 } from '@svizzle/utils';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DATA_REL_PATH = '../../test/data';
 const REPORT_PATH = path.resolve(__dirname, DATA_REL_PATH, 'report.json');

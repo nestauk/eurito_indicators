@@ -15,12 +15,6 @@ html, body, #app {
 	For the color correction filters to work properly across browsers,
 	the background must be set to a color.
 	*/
-	background: white;
-}
-
-body {
-	background-color: white;
-	color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,28 +35,128 @@ a {
 }
 
 :root {
-	--box-shadow-y: 0px 8px 9px -4px lightgrey;
-	--box-shadow-xy: 2px 8px 9px -4px lightgrey;
-	--color-main-desat-50: #333;
-	--color-main-lighter: #555;
-	--color-main: #333;
-	--color-secondary: #075aa2;
-	--color-selected: lightseagreen;
-	--color-grey-lighter: #f7f7f7;
-	--color-grey-180: rgb(180, 180, 180);
-	--color-grey-70: rgb(70, 70, 70);
-	--color-grey-40: rgb(40, 40, 40);
-	--color-paleyellow: #f9f7dd;
-	--color-link: #0658aa;
-	--color-background: var(--color-main);
-	--color-warning-background: orange;
-	--color-warning-border: darkorange;
-	--color-warning-text: white;
-	--dim-fontsize-light: 200;
-	--dim-header-height: 3rem;
-	--dim-main-height: calc(100% - var(--dim-header-height));
-	--dim-padding-minor: 0.5rem;
-	--dim-padding: 1rem;
-	--z-1000: 1000;
-	--z-2000: 2000;
+	--z1000: 1000;
+	--z9000: 9000;
+}
+
+/* theme: geometry */
+
+.themeLight {
+	--borderLine: 1px solid;
+	--boxShadowGeom: 0px 8px 9px -4px;
+	--dimHeaderHeight: 3rem;
+	--dimPadding: 0.5rem;
+	--focusLineWidth: 2px;
+	--focusLineStyle: solid;
+	--focusLine: var(--focusLineWidth) var(--focusLineStyle);
+	--focusShadow: 0 0 2px 2px var(--colorOutline);
+
+	/* theme compound helpers */
+
+	--border: var(--borderLine) var(--colorBorder);
+	--borderAux: var(--borderLine) var(--colorBorderAux);
+	--outline: var(--focusLine) var(--colorOutline); /* TODO remove? */
+	--boxShadowY: var(--boxShadowGeom) var(--colorShadow);
+}
+
+.themeDark {
+	--borderLine: 1px solid;
+	--boxShadowGeom: 0px 8px 9px -4px;
+	--dimHeaderHeight: 3rem;
+	--dimPadding: 0.5rem;
+	--focusLineWidth: 2px;
+	--focusLineStyle: solid;
+	--focusLine: var(--focusLineWidth) var(--focusLineStyle);
+	--focusShadow: 0 0 2px 2px var(--colorOutline);
+
+	/* theme compound helpers */
+
+	--border: var(--borderLine) var(--colorBorder);
+	--borderAux: var(--borderLine) var(--colorBorderAux);
+	--outline: var(--focusLine) var(--colorOutline);
+	--boxShadowY: var(--boxShadowGeom) var(--colorShadow);
+}
+/* theme: colors */
+
+.themeLight {
+	--colorAccentBackground: #333;
+	--colorAccentText: orange;
+	--colorActiveBackground: #333;
+	--colorBackdropSensor: rgba(0, 0, 0, 0.25);
+	--colorBackground: white; /* back to --colorMain? */
+	--colorBarchartHoveredItemBackground: peachpuff;
+	--colorBarchartHoveredItemBar: #333;
+	--colorBarchartHoveredItemText: #333;
+	--colorBarchartItemBar: black;
+	--colorBarchartSelectedItemBackground: #fff4e5;
+	--colorBarchartSelectedItemText: #333;
+	--colorBorder: #ccc;
+	--colorBorderAux: #333; /* FIXME needed by a11y menu */
+	--colorIcon: #333;
+	--colorIconSelected: white;
+	--colorLink: #0658aa;
+	--colorNavLink: #333;
+	--colorNavLinkActive: #0658aa;
+	--colorOutline: rgb(256, 64, 64);
+	--colorScrollbarThumb: #ddd; /* windows */
+	--colorScrollbarTrack: #f5f5f5; /* windows */
+	--colorScrollbarTrackBorder: #ddd; /* windows */
+	--colorSelectedBackground: #00645f;
+	--colorSelectedText: white;
+	--colorShadow: rgba(0, 0, 0, 0.5);
+	--colorSwitchKnob: lightgray;
+	--colorTagBlockquoteBackground: aliceblue;
+	--colorTagBlockquoteLeftBorder: dodgerblue;
+	--colorTagCodeBackground: aliceblue;
+	--colorTagCodeBorder: lightgrey;
+	--colorTagCodeText: #333;
+	--colorTagH4: #075aa2;
+	--colorText: #333;
+	--colorTextDisabled: #ccc;
+	--colorTextInverted: white;
+	--colorWarningBackground: orange;
+	--colorWarningBorder: darkorange;
+	--colorWarningText: white;
+}
+
+.themeDark {
+	--colorAccentBackground: #ccc;
+	--colorAccentText: rgb(117, 76, 0);
+	--colorActiveBackground: #ccc;
+	--colorBackdropSensor: rgba(255, 255, 255, 0.25);
+	--colorBackground: #111; /* back to --colorMain? */
+	--colorBarchartHoveredItemBackground: cornflowerblue;
+	--colorBarchartHoveredItemBar: white;
+	--colorBarchartHoveredItemText: white;
+	--colorBarchartItemBar: white;
+	--colorBarchartSelectedItemBackground: #002c66;
+	--colorBarchartSelectedItemText: white;
+	--colorBorder: #444; /* FIXME needed by a11y menu */
+	--colorBorderAux: #ccc; /* FIXME needed by a11y menu */
+	--colorIcon: #ccc;
+	--colorIconSelected: black;
+	--colorLink: #7FA6CC;
+	--colorNavLink: #ccc;
+	--colorNavLinkActive: #7FA6CC;
+	--colorOutline: rgb(255, 64, 64);
+	--colorPageBackground: #333;
+	--colorScrollbarThumb: #666; /* windows */
+	--colorScrollbarTrack: #222; /* windows */
+	--colorScrollbarTrackBorder: #666; /* windows */
+	--colorSelectedBackground: #83b8b5;
+	--colorSelectedText: black;
+	--colorShadow: rgba(0, 0, 0, 0.5);
+	--colorSwitchKnob: gray;
+	--colorTagBlockquoteBackground: rgb(33, 71, 105);
+	--colorTagBlockquoteLeftBorder: rgb(15, 49, 83);
+	--colorTagCodeBackground: rgb(43, 74, 102);
+	--colorTagCodeBorder: darkgrey;
+	--colorTagCodeText: white;
+	--colorTagH4: #6785a0;
+	--colorText: #ccc;
+	--colorTextDisabled: #666;
+	--colorTextInverted: black;
+	--colorWarningBackground: rgb(117, 76, 0);
+	--colorWarningBorder: rgb(109, 60, 1);
+	--colorWarningText: black;
 }

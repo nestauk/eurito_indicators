@@ -1,24 +1,25 @@
 #!/usr/bin/env node -r esm
 
-import path from 'path';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 
-import unifiedNuts from '@svizzle/atlas/data/dist/NUTS/unifiedNuts.json';
+import unifiedNuts from '@svizzle/atlas/data/dist/NUTS/unifiedNuts.js';
 import {tapMessage} from '@svizzle/dev';
-import {isCsvFile, readDir, readFile, saveObjPassthrough} from '@svizzle/file';
-import {parseCSV} from '@svizzle/time_region_value';
+import {isCsvFile, readDir, readFile, readJson, saveObjPassthrough} from '@svizzle/file';
+import {parseCSV} from '@svizzle/time_region_value/src/lib/utils/domain.js';
 import {getObjSize} from '@svizzle/utils';
 import cpy from 'cpy';
-import del from 'del';
+import {deleteAsync} from 'del';
 import * as _ from 'lamb';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import tempy from 'tempy';
+import * as tempy from 'tempy';
 import {zip} from 'zip-a-folder';
 
-import {basename} from '../lib/utils/assets';
+import {basename} from '../lib/utils/assets.js';
 
 /* paths */
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../../../');
 
 // ds/
@@ -105,7 +106,7 @@ const run = async () => {
 
 	/* delete the data dir */
 
-	await del([UI_STATIC_DATA_DIR]);
+	await deleteAsync([UI_STATIC_DATA_DIR]);
 
 	/* collect indicator paths */
 
@@ -132,7 +133,7 @@ const run = async () => {
 
 	/* zip them all & copy the zip to static/ */
 
-	const tmpZipPath = tempy.file({name: `${basename}.zip`});
+	const tmpZipPath = tempy.temporaryFile({name: `${basename}.zip`});
 	await zip(UI_STATIC_DATA_DIR, tmpZipPath);
 	await cpy(tmpZipPath, UI_STATIC_DATA_DIR);
 }

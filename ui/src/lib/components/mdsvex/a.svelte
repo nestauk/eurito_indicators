@@ -1,14 +1,17 @@
 <script>
-	import Link from '@svizzle/ui/src/Link.svelte';
-	import appTheme from '$lib/theme';
+	import {Link} from '@svizzle/ui';
 
-	const theme = {
-	  color: appTheme.colorLink,
-	  iconStroke: appTheme.colorLink
-	};
+	import {_currThemeVars} from '$lib/stores/theme';
 
 	export let href;
 
+	$: theme = {
+		color: $_currThemeVars['--colorLink'],
+		iconStroke: $_currThemeVars['--colorLink'],
+		outlineColor: $_currThemeVars['--colorOutline'],
+		outlineStyle: $_currThemeVars['--focusLineStyle'],
+		outlineWidth: $_currThemeVars['--focusLineWidth'],
+	};
 	$: type = href && href.startsWith('http') && 'external' || null;
 </script>
 
@@ -18,4 +21,4 @@
 	{type}
 	isBold={true}
 	showIcon={true}
-><slot /></Link>
+><slot/></Link>

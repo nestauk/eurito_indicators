@@ -2,7 +2,7 @@
 import {
 	getYearExtent,
 	makeIndicatorsLookup
-} from '@svizzle/time_region_value/src/lib/stores/dataset';
+} from '@svizzle/time_region_value';
 import {inclusiveRange} from '@svizzle/utils';
 
 import groups from './indicatorsGroups.json';

@@ -1,4 +1,4 @@
-import {version} from './version';
+import {version} from './version.js';
 
 export const extraDownloadIds = [];
 export const basename = `eurito_${version.replace(/\./ug, '_')}`;

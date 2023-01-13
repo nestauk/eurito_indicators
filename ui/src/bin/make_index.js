@@ -1,6 +1,7 @@
 #!/usr/bin/env node -r esm
 
-import path from 'path';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 import {tapMessage} from '@svizzle/dev';
 import {
@@ -21,6 +22,8 @@ import {
 import {extent} from 'd3-array';
 import * as _ from 'lamb';
 import yaml from 'js-yaml';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DS_DATA_REL_PATH = '../../../ds/outputs/data';
 const DATA_DIR = path.resolve(__dirname, DS_DATA_REL_PATH, 'processed');
@@ -113,7 +116,7 @@ const makeGetMissingFormatLog = doesSpecNeedFormat => _.pipe([
 ]);
 
 const getMissingFormatReport = async indicatorsSpecs => {
-	const types = await readFile(TYPES_PATH, 'utf-8').then(yaml.safeLoad);
+	const types = await readFile(TYPES_PATH, 'utf-8').then(yaml.load);
 	const doesSpecNeedFormat = makeDoesSpecNeedFormat(types);
 	const getMissingFormatLog = makeGetMissingFormatLog(doesSpecNeedFormat);
 	const missingFormatReport = getMissingFormatLog(indicatorsSpecs);
