@@ -9,17 +9,18 @@
 		Link,
 		Menu,
 		Moon,
-		Send,
 		Sun,
 		X
 	} from '@svizzle/ui';
 
 	import {changelogUrl, LOGOS} from '$lib/config';
 	import {
-		_a11yFillColor,
-		_a11yStrokeColor,
+		_a11yIconFillColor,
+		_a11yIconStrokeColor,
 		_currThemeVars,
 		_getNavLinkColor,
+		_linkTheme0,
+		_extLinkTheme,
 		_themeName,
 		toggleTheme,
 	} from '$lib/stores/theme';
@@ -45,13 +46,6 @@
 	}
 
 	$: themeIconGlyph = $_themeName === 'themeLight' ? Moon : Sun;
-	$: linkTheme = {
-		color: $_currThemeVars['--colorNavLink'],
-		iconStroke: $_currThemeVars['--colorIcon'],
-		outlineColor: $_currThemeVars['--colorOutline'],
-		outlineStyle: $_currThemeVars['--focusLineStyle'],
-		outlineWidth: $_currThemeVars['--focusLineWidth'],
-	};
 	$: logos = LOGOS[$_themeName]
 </script>
 
@@ -81,9 +75,9 @@
 		on:click={toggleA11yMenu}
 	>
 		<Icon
-			fill={$_a11yFillColor}
+			fill={$_a11yIconFillColor}
 			glyph={A11yPerson}
-			stroke={$_a11yStrokeColor}
+			stroke={$_a11yIconStrokeColor}
 			strokeWidth=1
 		/>
 	</button>
@@ -112,7 +106,7 @@
 			>
 				<Link
 					href='https://www.nesta.org.uk/'
-					theme={linkTheme}
+					theme={$_linkTheme0}
 				>
 					<img src={logos.nesta} alt='Nesta' />
 				</Link>
@@ -125,7 +119,7 @@
 					<Link
 						href={changelogUrl}
 						type='external'
-						theme={linkTheme}
+						theme={$_extLinkTheme}
 					>
 						{version}
 					</Link>
@@ -135,7 +129,7 @@
 						href='/info'
 						rel='prefetch'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'info'),
 						}}
 					>
@@ -157,7 +151,7 @@
 						download
 						href={zipUrl}
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'download'),
 						}}
 					>
@@ -177,7 +171,7 @@
 					<Link
 						href='/accessibility'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'accessibility'),
 						}}
 					>
@@ -188,7 +182,7 @@
 					<Link
 						href='/guides'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'guides'),
 						}}
 					>
@@ -199,7 +193,7 @@
 					<Link
 						href='/methodology'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'methodology'),
 						}}
 					>
@@ -210,7 +204,7 @@
 					<Link
 						href='/indicators'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, 'indicators'),
 						}}
 					>
@@ -221,7 +215,7 @@
 					<Link
 						href='/'
 						theme={{
-							...linkTheme,
+							...$_linkTheme0,
 							color: $_getNavLinkColor(segment, ''),
 						}}
 					>

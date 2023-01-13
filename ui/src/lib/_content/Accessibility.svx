@@ -2,7 +2,7 @@
 	import {Link, LinkButton, ResponsiveFlex} from '@svizzle/ui';
 
 	import {contactEmail,toolName} from '$lib/config';
-	import {_currThemeVars} from '$lib/stores/theme';
+	import {_currThemeVars, _linkTheme1} from '$lib/stores/theme';
 	import {zipUrl} from '$lib/utils/assets';
 
 	const lighthouseUrl = 'https://developers.google.com/web/tools/lighthouse';
@@ -74,7 +74,7 @@ partially supported.
 While we aim to make the information provided as accessible as possible, this
 website presents data mostly as interactive charts which at the moment do not
 also render a text alternative, so those aren't accessible by screen readers.
-However, the data is available for <Link download href={zipUrl} theme={linkTheme}>download in CSV format</Link>.
+However, the data is available for <Link download href={zipUrl} theme={$_linkTheme1}>download in CSV format</Link>.
 
 ## Feedback
 

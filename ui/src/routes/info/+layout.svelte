@@ -11,7 +11,7 @@
 	import {isNotNil} from '@svizzle/utils';
 
 	import {page as _page} from '$app/stores';
-	import {_currThemeVars} from '$lib/stores/theme';
+	import {_currThemeVars, _linkTheme0} from '$lib/stores/theme';
 
 	const segments = ['privacy', 'disclaimer', 'feedback'];
 	const titles = {
@@ -54,7 +54,7 @@
 							<Link
 								href='/info/{id}'
 								theme={{
-									...linkTheme,
+									...$_linkTheme0,
 									color: segment === id
 										? $_currThemeVars['--colorTextInverted']
 										: $_currThemeVars['--colorLink']
@@ -78,7 +78,7 @@
 							ariaLabel={hasPrevSegment ? 'Previous form' : null}
 							href={hasPrevSegment && `/info/${prevSegment}`}
 							theme={{
-								...linkTheme,
+								...$_linkTheme0,
 								color: hasPrevSegment
 									? $_currThemeVars['--colorLink']
 									: $_currThemeVars['--colorTextDisabled']
@@ -92,7 +92,7 @@
 							ariaLabel={hasNextSegment ? 'Next form' : null}
 							href={hasNextSegment && `/info/${nextSegment}`}
 							theme={{
-								...linkTheme,
+								...$_linkTheme0,
 								color: hasNextSegment
 									? $_currThemeVars['--colorLink']
 									: $_currThemeVars['--colorTextDisabled']
