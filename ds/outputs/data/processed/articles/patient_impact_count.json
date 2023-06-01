@@ -24,7 +24,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "patient_impact_count",
-      "label": "Number of participations in Patient Impact preprints"
+      "label": "Number participations in Patient Impact preprints"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Number of participations in Patient Impact preprints by institutions in the location (research clusters identified through a topic model of article abstracts)",
+  "subtitle": "Number participations in Patient Impact preprints by institutions in the location",
   "title": "Patient Impact preprints (count)"
 }

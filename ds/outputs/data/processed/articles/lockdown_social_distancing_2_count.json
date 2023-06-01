@@ -24,7 +24,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "lockdown_social_distancing_2_count",
-      "label": "Number of participations in Lockdown Social Distancing 2 preprints"
+      "label": "Number participations in Social Distancing 2 preprints"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Number of participations in Lockdown Social Distancing 2 preprints by institutions in the location (research clusters identified through a topic model of article abstracts)",
-  "title": "Lockdown Social Distancing 2 preprints (count)"
+  "subtitle": "Number participations in Social Distancing 2 preprints by institutions in the location",
+  "title": "Social Distancing 2 preprints (count)"
 }

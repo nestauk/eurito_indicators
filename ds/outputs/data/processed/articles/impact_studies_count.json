@@ -24,7 +24,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "impact_studies_count",
-      "label": "Number of participations in Impact Studies preprints"
+      "label": "Number participations in Impact Studies preprints"
     },
     "year": {
       "data_type": "int",
@@ -33,6 +33,6 @@
   },
   "source_name": "Nesta",
   "source_url": "https://github.com/nestauk/eurito_indicators",
-  "subtitle": "Number of participations in Impact Studies preprints by institutions in the location (research clusters identified through a topic model of article abstracts)",
+  "subtitle": "Number participations in Impact Studies preprints by institutions in the location",
   "title": "Impact Studies preprints (count)"
 }

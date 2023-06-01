@@ -23,7 +23,7 @@
       "data_type": "int",
       "format": ".1f",
       "id": "arxiv_count",
-      "label": "Number of participations in arxiv articles"
+      "label": "Number participations in arxiv articles"
     },
     "year": {
       "data_type": "int",
@@ -38,6 +38,6 @@
     "https://github.com/nestauk/eurito_indicators",
     "https://www.semanticscholar.org/"
   ],
-  "subtitle": "Number of participations in arxiv articles by institutions in the location",
+  "subtitle": "Number participations in arxiv articles by institutions in the location",
   "title": "arxiv articles (count)"
 }
