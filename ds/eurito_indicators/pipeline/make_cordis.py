@@ -12,7 +12,7 @@ import pandas as pd
 import requests
 
 from eurito_indicators import config, PROJECT_DIR
-from eurito_indicators.getters.covid_getters import get_cordis_labelled
+# from eurito_indicators.getters.covid_getters import get_cordis_labelled
 from eurito_indicators.pipeline.processing_utils import covid_getter
 
 POST_PATH = f"{PROJECT_DIR}/inputs/data/postcode_nuts_lookup"

@@ -7,8 +7,6 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
-  - lightgbm
-  - sentence-transformers
   - giuliorossetti
   - graph-tool
   - cdlib
